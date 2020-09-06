@@ -10,6 +10,8 @@ exports.up = (knex) =>
       .inTable('users')
       .onUpdate('CASCADE')
       .onDelete('CASCADE');
+
+    table.timestamps(true, true);
   });
 
 exports.down = (knex) => knex.schema.dropTableIfExists('users_auth');

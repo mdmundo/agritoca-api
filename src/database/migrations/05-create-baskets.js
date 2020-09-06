@@ -11,7 +11,7 @@ exports.up = (knex) =>
       .onDelete('CASCADE');
 
     table.string('name').defaultTo('Cesta');
-    table.timestamps();
+    table.timestamps(true, true);
   });
 
 exports.down = (knex) => knex.schema.dropTableIfExists('baskets');

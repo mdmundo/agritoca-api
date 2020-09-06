@@ -15,6 +15,8 @@ exports.up = (knex) =>
       .inTable('producer_products')
       .onUpdate('CASCADE')
       .onDelete('CASCADE');
+
+    table.timestamps(true, true);
   });
 
 exports.down = (knex) => knex.schema.dropTableIfExists('basket_items');

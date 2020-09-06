@@ -9,7 +9,7 @@ exports.up = (knex) =>
     table.boolean('isMod').notNullable().defaultTo(false);
     // the inserter or the updater of this register
     table.string('upserter').notNullable().defaultTo('anonymous');
-    table.timestamps();
+    table.timestamps(true, true);
   });
 
 exports.down = (knex) => knex.schema.dropTableIfExists('users');
