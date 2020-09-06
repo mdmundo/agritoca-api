@@ -10,7 +10,7 @@ exports.seed = function (knex) {
           //  password: 'Qqk}X%CPuDte5jw]'
           password:
             '$2a$08$enm3hUVi4nIIKD2dxh2h8emSFvclh6qIaDQgcMPq29GtR07ShTUgu',
-          isAdmin: true
+          is_admin: true
         },
         {
           email: 'mbrown@msn.com',
