@@ -1,9 +1,20 @@
 const express = require('express');
-const { celebrate, Joi } = require('celebrate');
+const { celebrate } = require('celebrate');
 const auth = require('./middleware/auth');
-
-const router = new express.Router();
-
+const {
+  userCreateSchema,
+  userUpdateSchema,
+  producerCreateSchema,
+  producerUpdateSchema,
+  productCreateSchema,
+  productUpdateSchema,
+  producerProductCreateSchema,
+  producerProductUpdateSchema,
+  basketCreateSchema,
+  basketUpdateSchema,
+  basketItemCreateSchema,
+  basketItemUpdateSchema
+} = require('./schema');
 const {
   userController,
   producerController,
@@ -15,9 +26,16 @@ const {
   basketItemController
 } = require('./controllers');
 
+const joiOptions = { abortEarly: false };
+const router = new express.Router();
+
 router.get('/users', auth, userController.all);
 router.get('/users/me', auth, userController.self);
-router.post('/users', userController.create);
+router.post(
+  '/users',
+  celebrate(userCreateSchema, joiOptions),
+  userController.create
+);
 router.patch('/users/me', auth, userController.update);
 router.delete('/users/me', auth, userController.remove);
 
