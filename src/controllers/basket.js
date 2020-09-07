@@ -1,11 +1,10 @@
 const knex = require('../database/connection');
 
 const basketController = {
-  async byUser(req, res) {
+  async self(req, res) {
     // auth
     // all baskets from user
   },
-  async byId(req, res) {},
   async create(req, res) {
     // auth
   },

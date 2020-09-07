@@ -3,10 +3,9 @@ const knex = require('../database/connection');
 const producerController = {
   async all(req, res) {
     // return all producers
+    // search queries (byHash)
   },
-  async byHash(req, res) {
-    // return all producer data and products
-  },
+  async byId(req, res) {},
   async create(req, res) {
     // auth
     // check if is mod or admin

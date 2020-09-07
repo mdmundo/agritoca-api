@@ -6,9 +6,6 @@ const userController = {
   async all(req, res) {
     // check if is admin
   },
-  async byId(req, res) {
-    // check if is admin
-  },
   async self(req, res) {},
   async create(req, res) {},
   async update(req, res) {},
