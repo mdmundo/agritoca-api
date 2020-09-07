@@ -1,6 +1,6 @@
 const knex = require('../database/connection');
 
-const productController = {
+const producerProductController = {
   async all(req, res) {
     // pagination
     // search queries
@@ -22,4 +22,4 @@ const productController = {
   }
 };
 
-module.exports = productController;
+module.exports = producerProductController;

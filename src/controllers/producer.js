@@ -1,20 +1,19 @@
 const knex = require('../database/connection');
 
-const productController = {
+const producerController = {
   async all(req, res) {
-    // pagination
-    // search queries
+    // return all producers
   },
-  async byId(req, res) {},
+  async byHash(req, res) {
+    // return all producer data and products
+  },
   async create(req, res) {
     // auth
     // check if is mod or admin
-    // save on upserter
   },
   async update(req, res) {
     // auth
     // check if is mod or admin
-    // save on upserter
   },
   async remove(req, res) {
     // auth
@@ -22,4 +21,4 @@ const productController = {
   }
 };
 
-module.exports = productController;
+module.exports = producerController;
