@@ -17,7 +17,6 @@ const {
 
 router.get('/users', auth, userController.all);
 router.get('/users/me', auth, userController.self);
-router.get('/users/adm/:id', auth, userController.byId);
 router.post('/users', auth, userController.create);
 router.patch('/users/me', auth, userController.update);
 router.delete('/users/me', auth, userController.remove);
@@ -34,11 +33,20 @@ router.post('/products', auth, productController.create);
 router.patch('/products', auth, productController.update);
 router.delete('/products', auth, productController.remove);
 
-router.get('/producer-products', producerProductController.all);
-router.get('/producer-products/:id', auth, producerProductController.byId);
-router.post('/producer-products', auth, producerProductController.create);
-router.patch('/producer-products', auth, producerProductController.update);
-router.delete('/producer-products', auth, producerProductController.remove);
+router.get('/producerProducts', producerProductController.all);
+router.get('/producerProducts/:id', auth, producerProductController.byId);
+router.post('/producerProducts', auth, producerProductController.create);
+router.patch('/producerProducts', auth, producerProductController.update);
+router.delete('/producerProducts', auth, producerProductController.remove);
+
+// authentication
+router.post('/users/login', userAuthController.authenticate);
+router.post('/users/logout', auth, userAuthController.logout);
+router.post('/users/logoutAll', auth, userAuthController.logoutAll);
+// google auth
+router.get('/google/auth', userGoogleAuthController.link);
+router.get('/google/callback', userGoogleAuthController.callback);
+router.get('/google/me/:token', userGoogleAuthController.authenticate);
 
 router.get('/baskets', auth, basketController.self);
 router.get('/baskets/:id', auth, basketItemController.byId);
