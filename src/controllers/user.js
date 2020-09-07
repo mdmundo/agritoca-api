@@ -5,6 +5,14 @@ const knex = require('../database/connection');
 const userController = {
   async all(req, res) {
     // check if is admin
+
+    try {
+      const users = await knex('users').select('*');
+
+      return res.json(users);
+    } catch (error) {
+      return res.status(500).json({ message: 'Error on Server', error });
+    }
   },
   async self(req, res) {},
   async create(req, res) {},
