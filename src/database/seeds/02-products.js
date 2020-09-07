@@ -6,123 +6,123 @@ exports.seed = function (knex) {
       // Inserts seed entries
       return knex('products').insert([
         {
-          ncm: 7384,
-          measure: 'm2',
-          description: 'a nice product description',
+          ncm: '02032100',
+          measure: 'KG',
+          description: 'CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS',
           is_organic: false
         },
         {
-          ncm: 6022,
-          measure: 'cm2',
-          description: 'a nice product description',
+          ncm: '02032200',
+          measure: 'KG',
+          description: 'PERNA E PEDAÇO Ñ DESOS. SUÍNOS, CONGELADOS',
           is_organic: false
         },
         {
-          ncm: 6949,
-          measure: 'm',
-          description: 'a nice product description',
+          ncm: '02032900',
+          measure: 'KG',
+          description: 'OUTRAS CARNES DE SUÍNO,CONGELADAS',
           is_organic: false
         },
         {
-          ncm: 9473,
-          measure: 'cm',
-          description: 'a nice product description',
+          ncm: '02041000',
+          measure: 'KG',
+          description: 'CARCS.E MEIAS-CARCS D/CORDEIRO,FRESC.,REFR.',
           is_organic: false
         },
         {
-          ncm: 8857,
-          measure: 'UN',
-          description: 'a nice product description',
+          ncm: '02042100',
+          measure: 'KG',
+          description: 'CARCS.E MEIAS-CARCS.DE OVINOS,FRESC.REFRIG.',
           is_organic: false
         },
         {
-          ncm: 5474,
-          measure: 'CT',
-          description: 'a nice product description',
+          ncm: '02042200',
+          measure: 'KG',
+          description: 'OUTRAS PEÇAS Ñ DESOSS.D/OVINOS,FRESC.REFR.',
           is_organic: false
         },
         {
-          ncm: 7432,
-          measure: 'CX',
-          description: 'a nice product description',
+          ncm: '02042300',
+          measure: 'KG',
+          description: 'PÇS DESOSSADAS D/OVINOS,FRESCAS OU REFRIG.',
           is_organic: false
         },
         {
-          ncm: 3592,
-          measure: 'DZ',
-          description: 'a nice product description',
+          ncm: '02043000',
+          measure: 'KG',
+          description: 'CARCS. E MEIAS-CARCS. DE CORDEIRO,CONG.',
           is_organic: false
         },
         {
-          ncm: 7927,
-          measure: 'GS',
-          description: 'a nice product description',
+          ncm: '02044100',
+          measure: 'KG',
+          description: 'CARCS. E MEIAS-CARCS. OUTS.OVINOS,CONG.',
           is_organic: false
         },
         {
-          ncm: 3555,
-          measure: 'PA',
-          description: 'a nice product description',
+          ncm: '02044200',
+          measure: 'KG',
+          description: 'OUTS.PÇS NÃO DESOSS.DE OVINOS,CONGELADAS',
           is_organic: false
         },
         {
-          ncm: 2822,
-          measure: 'PÇ',
-          description: 'a nice product description',
+          ncm: '02044300',
+          measure: 'KG',
+          description: 'PEÇAS DESOSSADAS DE OVINOS,CONGELADAS',
           is_organic: false
         },
         {
-          ncm: 8663,
-          measure: 'PR',
-          description: 'a nice product description',
+          ncm: '02045000',
+          measure: 'KG',
+          description: 'CARNES DE CAPRINOS,FRESC.,REFRIG.OU CONG.',
           is_organic: false
         },
         {
-          ncm: 1394,
-          measure: 'PT',
-          description: 'a nice product description',
+          ncm: '02050000',
+          measure: 'KG',
+          description: 'CARNE CAVALO,ASININA,MUAR,FRESC.REF.,CONG.',
           is_organic: false
         },
         {
-          ncm: 1661,
-          measure: 'RL',
-          description: 'a nice product description',
+          ncm: '02061000',
+          measure: 'KG',
+          description: 'MIUDEZAS DE BOVINOS,FRESCAS/REFRIGERADAS',
           is_organic: false
         },
         {
-          ncm: 8209,
-          measure: 'kg',
-          description: 'a nice product description',
+          ncm: '02062100',
+          measure: 'KG',
+          description: 'LÍNGUAS DE BOVINOS CONGELADAS',
           is_organic: false
         },
         {
-          ncm: 1964,
-          measure: 'g',
-          description: 'a nice product description',
+          ncm: '02062200',
+          measure: 'KG',
+          description: 'FÍGADOS DE BOVINOS CONGELADOS',
           is_organic: false
         },
         {
-          ncm: 6552,
-          measure: 'SC60',
-          description: 'a nice product description',
+          ncm: '02062910',
+          measure: 'KG',
+          description: 'RABOS DE BOVINOS CONGELADOS',
           is_organic: false
         },
         {
-          ncm: 5714,
-          measure: 'l',
-          description: 'a nice product description',
+          ncm: '02062990',
+          measure: 'KG',
+          description: 'OUTRAS MIUDEZAS COMESTÍVEIS., D/BOVINO,CONG.',
           is_organic: false
         },
         {
-          ncm: 6120,
-          measure: 'm3',
-          description: 'a nice product description',
+          ncm: '02063000',
+          measure: 'KG',
+          description: 'MIUDEZAS DA ESPÉCIE SUÍNA FRESCAS OU REFR.',
           is_organic: false
         },
         {
-          ncm: 2914,
-          measure: 'ml',
-          description: 'a nice product description',
+          ncm: '02064100',
+          measure: 'KG',
+          description: 'FÍGADOS DE SUÍNOS, CONGELADOS',
           is_organic: false
         }
       ]);
