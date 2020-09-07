@@ -4,6 +4,7 @@ const auth = require('./middleware/auth');
 const {
   userCreateSchema,
   userUpdateSchema,
+  userSearchSchema,
   producerCreateSchema,
   producerUpdateSchema,
   productCreateSchema,

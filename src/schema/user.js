@@ -18,4 +18,10 @@ const userUpdateSchema = {
   })
 };
 
-module.exports = { userCreateSchema, userUpdateSchema };
+const userSearchSchema = {
+  query: {
+    id: Joi.string()
+  }
+};
+
+module.exports = { userCreateSchema, userUpdateSchema, userSearchSchema };

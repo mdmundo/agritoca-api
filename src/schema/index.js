@@ -1,4 +1,8 @@
-const { userCreateSchema, userUpdateSchema } = require('./user');
+const {
+  userCreateSchema,
+  userUpdateSchema,
+  userSearchSchema
+} = require('./user');
 const { producerCreateSchema, producerUpdateSchema } = require('./producer');
 const { productCreateSchema, productUpdateSchema } = require('./product');
 const {
@@ -14,6 +18,7 @@ const {
 module.exports = {
   userCreateSchema,
   userUpdateSchema,
+  userSearchSchema,
   producerCreateSchema,
   producerUpdateSchema,
   productCreateSchema,
