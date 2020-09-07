@@ -1,8 +1,8 @@
-exports.seed = function (knex) {
+exports.seed = (knex) => {
   // Deletes ALL existing entries
   return knex('products')
     .del()
-    .then(function () {
+    .then(() => {
       // Inserts seed entries
       return knex('products').insert([
         {
