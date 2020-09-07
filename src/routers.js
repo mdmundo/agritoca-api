@@ -17,7 +17,7 @@ const {
 
 router.get('/users', auth, userController.all);
 router.get('/users/me', auth, userController.self);
-router.post('/users', auth, userController.create);
+router.post('/users', userController.create);
 router.patch('/users/me', auth, userController.update);
 router.delete('/users/me', auth, userController.remove);
 
