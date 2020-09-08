@@ -8,7 +8,7 @@ const productController = {
     // search queries
 
     try {
-      const products = await knex('products').select('*');
+      const products = await knex('products').orderBy('id');
 
       const serializedProducts = products.map((product) =>
         publicProduct(product)

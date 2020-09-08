@@ -16,7 +16,7 @@ const producerController = {
         return res.json(publicProducer(producer));
       }
 
-      const producers = await knex('producers').select('*');
+      const producers = await knex('producers').orderBy('id');
 
       serializedProducers = producers.map((producer) =>
         publicProducer(producer)

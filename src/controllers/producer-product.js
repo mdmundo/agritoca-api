@@ -6,7 +6,7 @@ const producerProductController = {
     // search queries
 
     try {
-      const producerProducts = await knex('producer_products').select('*');
+      const producerProducts = await knex('producer_products').orderBy('id');
 
       return res.json(producerProducts);
     } catch (error) {

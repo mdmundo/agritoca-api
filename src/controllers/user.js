@@ -8,7 +8,7 @@ const userController = {
     // check if is admin
 
     try {
-      const users = await knex('users').select('*');
+      const users = await knex('users').orderBy('id');
 
       const serializedUsers = users.map((user) => publicUser(user));
 
