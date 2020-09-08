@@ -4,20 +4,12 @@ const multer = require('multer');
 const multerConfig = require('./utils/multer');
 const { auth, isAdmin, isMod } = require('./middleware/auth');
 const {
-  userCreateSchema,
-  userUpdateSchema,
-  userSearchSchema,
-  producerCreateSchema,
-  producerUpdateSchema,
-  productCreateSchema,
-  productUpdateSchema,
-  productSearchSchema,
-  producerProductCreateSchema,
-  producerProductUpdateSchema,
-  basketCreateSchema,
-  basketUpdateSchema,
-  basketItemCreateSchema,
-  basketItemUpdateSchema
+  user,
+  producer,
+  product,
+  producerProduct,
+  basket,
+  basketItem
 } = require('./schema');
 const {
   userController,
@@ -38,7 +30,7 @@ router.get(
   '/users',
   auth,
   isAdmin,
-  celebrate(userSearchSchema, joiOptions),
+  celebrate(user.searchSchema, joiOptions),
   userController.all
 );
 router.get('/users/me', auth, userController.self);
@@ -56,13 +48,13 @@ router.post(
 );
 router.post(
   '/users',
-  celebrate(userCreateSchema, joiOptions),
+  celebrate(user.createSchema, joiOptions),
   userController.create
 );
 router.patch(
   '/users/me',
   auth,
-  celebrate(userUpdateSchema, joiOptions),
+  celebrate(user.updateSchema, joiOptions),
   userController.update
 );
 router.delete('/users/me', auth, userController.remove);
@@ -73,7 +65,7 @@ router.post(
   '/producers',
   auth,
   isMod,
-  celebrate(producerCreateSchema, joiOptions),
+  celebrate(producer.createSchema, joiOptions),
   producerController.create
 );
 router.patch('/producers', auth, producerController.update);
@@ -81,7 +73,7 @@ router.delete('/producers', auth, producerController.remove);
 
 router.get(
   '/products',
-  celebrate(productSearchSchema, joiOptions),
+  celebrate(product.searchSchema, joiOptions),
   productController.all
 );
 router.get('/products/:id', auth, isMod, productController.byId);
@@ -102,7 +94,7 @@ router.post(
   '/products',
   auth,
   isMod,
-  celebrate(productCreateSchema, joiOptions),
+  celebrate(product.createSchema, joiOptions),
   productController.create
 );
 router.patch('/products', auth, productController.update);

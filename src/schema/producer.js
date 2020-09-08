@@ -1,6 +1,6 @@
 const { Joi } = require('celebrate');
 
-const producerCreateSchema = {
+const createSchema = {
   body: Joi.object().keys({
     cpf: Joi.string()
       .required()
@@ -19,7 +19,7 @@ const producerCreateSchema = {
   })
 };
 
-const producerUpdateSchema = {
+const updateSchema = {
   body: Joi.object().keys({
     cpf: Joi.string()
       .pattern(/^[0-9]+$/)
@@ -37,4 +37,4 @@ const producerUpdateSchema = {
   })
 };
 
-module.exports = { producerCreateSchema, producerUpdateSchema };
+module.exports = { createSchema, updateSchema };

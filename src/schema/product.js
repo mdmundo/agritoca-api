@@ -1,6 +1,6 @@
 const { Joi } = require('celebrate');
 
-const productCreateSchema = {
+const createSchema = {
   body: Joi.object().keys({
     ncm: Joi.string()
       .required()
@@ -13,7 +13,7 @@ const productCreateSchema = {
   })
 };
 
-const productUpdateSchema = {
+const updateSchema = {
   body: Joi.object().keys({
     ncm: Joi.string()
       .pattern(/^[0-9]+$/)
@@ -25,7 +25,7 @@ const productUpdateSchema = {
   })
 };
 
-const productSearchSchema = {
+const searchSchema = {
   query: {
     description: Joi.string().max(255),
     ncm: Joi.string()
@@ -35,7 +35,7 @@ const productSearchSchema = {
 };
 
 module.exports = {
-  productCreateSchema,
-  productUpdateSchema,
-  productSearchSchema
+  createSchema,
+  updateSchema,
+  searchSchema
 };

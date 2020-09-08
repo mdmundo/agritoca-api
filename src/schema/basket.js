@@ -1,17 +1,17 @@
 const { Joi } = require('celebrate');
 
-const basketCreateSchema = {
+const createSchema = {
   body: Joi.object().keys({
     user_id: Joi.number().required().integer().positive(),
     name: Joi.string().max(255)
   })
 };
 
-const basketUpdateSchema = {
+const updateSchema = {
   body: Joi.object().keys({
     user_id: Joi.number().integer().positive(),
     name: Joi.string().max(255)
   })
 };
 
-module.exports = { basketCreateSchema, basketUpdateSchema };
+module.exports = { createSchema, updateSchema };

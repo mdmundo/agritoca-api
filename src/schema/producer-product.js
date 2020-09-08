@@ -1,6 +1,6 @@
 const { Joi } = require('celebrate');
 
-const producerProductCreateSchema = {
+const createSchema = {
   body: Joi.object().keys({
     product_id: Joi.number().required().integer().positive(),
     producer_id: Joi.number().required().integer().positive(),
@@ -10,7 +10,7 @@ const producerProductCreateSchema = {
   })
 };
 
-const producerProductUpdateSchema = {
+const updateSchema = {
   body: Joi.object().keys({
     product_id: Joi.number().integer().positive(),
     producer_id: Joi.number().integer().positive(),
@@ -20,4 +20,4 @@ const producerProductUpdateSchema = {
   })
 };
 
-module.exports = { producerProductCreateSchema, producerProductUpdateSchema };
+module.exports = { createSchema, updateSchema };
