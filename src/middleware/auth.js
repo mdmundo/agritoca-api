@@ -24,16 +24,16 @@ const auth = async (req, res, next) => {
   }
 };
 
-const checkAdmin = async (req, res, next) => {
+const isAdmin = async (req, res, next) => {
   if (req.user.is_admin) {
     next();
   } else return res.status(401).send({ message: 'Not enough privilege' });
 };
 
-const checkMod = async (req, res, next) => {
+const isMod = async (req, res, next) => {
   if (req.user.is_mod || req.user.is_admin) {
     next();
   } else return res.status(401).send({ message: 'Not enough privilege' });
 };
 
-module.exports = { auth, checkAdmin, checkMod };
+module.exports = { auth, isAdmin, isMod };

@@ -2,7 +2,7 @@ const express = require('express');
 const { celebrate } = require('celebrate');
 const multer = require('multer');
 const multerConfig = require('./utils/multer');
-const { auth, checkAdmin, checkMod } = require('./middleware/auth');
+const { auth, isAdmin, isMod } = require('./middleware/auth');
 const {
   userCreateSchema,
   userUpdateSchema,
@@ -34,11 +34,29 @@ const joiOptions = { abortEarly: false };
 const router = new express.Router();
 const upload = multer(multerConfig);
 
-router.get('/users', auth, checkAdmin, userController.all);
+router.get(
+  '/users',
+  auth,
+  isAdmin,
+  celebrate(userSearchSchema, joiOptions),
+  userController.all
+);
 router.get('/users/me', auth, userController.self);
 router.post(
+  '/users/set/:privilege',
+  auth,
+  isAdmin,
+  userController.setPrivilege
+);
+router.post(
+  '/users/unset/:privilege',
+  auth,
+  isAdmin,
+  userController.unsetPrivilege
+);
+router.post(
   '/users',
-  // celebrate(userCreateSchema, joiOptions),
+  celebrate(userCreateSchema, joiOptions),
   userController.create
 );
 router.patch('/users/me', auth, userController.update);
@@ -46,7 +64,13 @@ router.delete('/users/me', auth, userController.remove);
 
 router.get('/producers', producerController.all);
 router.get('/producers/:id', auth, producerController.byId);
-router.post('/producers', auth, producerController.create);
+router.post(
+  '/producers',
+  auth,
+  isMod,
+  celebrate(producerCreateSchema, joiOptions),
+  producerController.create
+);
 router.patch('/producers', auth, producerController.update);
 router.delete('/producers', auth, producerController.remove);
 
@@ -55,12 +79,12 @@ router.get(
   celebrate(productSearchSchema, joiOptions),
   productController.all
 );
-router.get('/products/:id', auth, checkMod, productController.byId);
+router.get('/products/:id', auth, isMod, productController.byId);
 router.get('/products/:id/picture', productController.picture);
 router.post(
   '/products/:id/picture',
   auth,
-  checkMod,
+  isMod,
   upload.single('picture'),
   productController.upload,
   (error, req, res, next) => {
@@ -69,7 +93,7 @@ router.post(
     });
   }
 );
-router.post('/products', auth, checkMod, productController.create);
+router.post('/products', auth, isMod, productController.create);
 router.patch('/products', auth, productController.update);
 router.delete('/products', auth, productController.remove);
 

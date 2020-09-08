@@ -70,6 +70,7 @@ const productController = {
     const updates = updateUserTime(req.user.email);
     await knex('products')
       .where('id', req.params.id)
+      .first()
       .update({ picture: buffer, ...updates });
 
     res.send();
