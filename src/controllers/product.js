@@ -1,5 +1,6 @@
 const knex = require('../database/connection');
 const sharp = require('sharp');
+const { publicProduct } = require('../utils/public');
 
 const productController = {
   async all(req, res) {
@@ -9,7 +10,11 @@ const productController = {
     try {
       const products = await knex('products').select('*');
 
-      return res.json(products);
+      const serializedProducts = products.map((product) =>
+        publicProduct(product)
+      );
+
+      return res.json(serializedProducts);
     } catch (error) {
       return res.status(500).json({ message: 'Error on Server', error });
     }
