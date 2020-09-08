@@ -1,6 +1,8 @@
 const express = require('express');
 const { celebrate } = require('celebrate');
-const auth = require('./middleware/auth');
+const multer = require('multer');
+const multerConfig = require('./utils/multer');
+const { auth, checkAdmin, checkMod } = require('./middleware/auth');
 const {
   userCreateSchema,
   userUpdateSchema,
@@ -29,8 +31,9 @@ const {
 
 const joiOptions = { abortEarly: false };
 const router = new express.Router();
+const upload = multer(multerConfig);
 
-router.get('/users', auth, userController.all);
+router.get('/users', auth, checkAdmin, userController.all);
 router.get('/users/me', auth, userController.self);
 router.post(
   '/users',
@@ -47,8 +50,16 @@ router.patch('/producers', auth, producerController.update);
 router.delete('/producers', auth, producerController.remove);
 
 router.get('/products', productController.all);
-router.get('/products/:id', auth, productController.byId);
-router.post('/products', auth, productController.create);
+router.get('/products/:id', auth, checkMod, productController.byId);
+router.get('/products/:id/picture', productController.picture);
+router.post(
+  '/products/:id/picture',
+  auth,
+  checkMod,
+  upload.single('picture'),
+  productController.upload
+);
+router.post('/products', auth, checkMod, productController.create);
 router.patch('/products', auth, productController.update);
 router.delete('/products', auth, productController.remove);
 

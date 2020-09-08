@@ -1,4 +1,5 @@
 const knex = require('../database/connection');
+const sharp = require('sharp');
 
 const productController = {
   async all(req, res) {
@@ -14,8 +15,35 @@ const productController = {
     }
   },
   async byId(req, res) {},
+  async picture(req, res) {
+    try {
+      const product = await knex('products').where('id', req.params.id).first();
+
+      if (!product || !product.picture) {
+        throw new Error();
+      }
+
+      res.set('Content-Type', 'image/png');
+      res.send(product.picture);
+    } catch (e) {
+      res.status(404).send();
+    }
+  },
+  async upload(req, res) {
+    // check if is mod or admin
+    // save on upserter
+    const buffer = await sharp(req.file.buffer)
+      .resize({ width: 250, height: 250 })
+      .png()
+      .toBuffer();
+
+    await knex('products')
+      .where('id', req.params.id)
+      .update({ picture: buffer });
+
+    res.send();
+  },
   async create(req, res) {
-    // auth
     // check if is mod or admin
     // save on upserter
   },
