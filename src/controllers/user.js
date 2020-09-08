@@ -55,7 +55,7 @@ const userController = {
         await knex('users')
           .where('id', req.body.id)
           .first()
-          .update({ is_admin: true });
+          .update({ is_admin: true, updated_at: knex.fn.now() });
 
         return res.send();
       }
@@ -64,7 +64,7 @@ const userController = {
         await knex('users')
           .where('id', req.body.id)
           .first()
-          .update({ is_mod: true });
+          .update({ is_mod: true, updated_at: knex.fn.now() });
 
         return res.send();
       }
@@ -79,7 +79,7 @@ const userController = {
         await knex('users')
           .where('id', req.body.id)
           .first()
-          .update({ is_admin: false });
+          .update({ is_admin: false, updated_at: knex.fn.now() });
 
         return res.send();
       }
@@ -88,7 +88,7 @@ const userController = {
         await knex('users')
           .where('id', req.body.id)
           .first()
-          .update({ is_mod: false });
+          .update({ is_mod: false, updated_at: knex.fn.now() });
 
         return res.send();
       }
@@ -106,7 +106,10 @@ const userController = {
     try {
       const [user] = await knex('users')
         .where('id', req.user.id)
-        .update(req.body)
+        .update({
+          ...req.body,
+          updated_at: knex.fn.now()
+        })
         .returning('*');
 
       res.json(publicUser(user));
