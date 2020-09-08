@@ -25,7 +25,7 @@ const productSearchSchema = {
     description: Joi.string().max(255),
     ncm: Joi.string()
       .pattern(/^[0-9]+$/)
-      .max(255)
+      .max(20)
   }
 };
 
