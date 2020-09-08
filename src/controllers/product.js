@@ -78,9 +78,11 @@ const productController = {
   async create(req, res) {
     // check if is mod or admin
     // save on upserter
+    const updates = updateUserTime(req.user.email);
+
     try {
-      const product = await knex('products')
-        .insert({ ...req.body })
+      const [product] = await knex('products')
+        .insert({ ...req.body, ...updates })
         .returning('*');
       return res.status(200).json(product);
     } catch (error) {

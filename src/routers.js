@@ -93,7 +93,13 @@ router.post(
     });
   }
 );
-router.post('/products', auth, isMod, productController.create);
+router.post(
+  '/products',
+  auth,
+  isMod,
+  celebrate(productCreateSchema, joiOptions),
+  productController.create
+);
 router.patch('/products', auth, productController.update);
 router.delete('/products', auth, productController.remove);
 
