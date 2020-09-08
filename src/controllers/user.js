@@ -96,8 +96,36 @@ const userController = {
       return res.status(500).json({ message: 'Error on Server', error });
     }
   },
-  async update(req, res) {},
-  async remove(req, res) {}
+  async update(req, res) {
+    const isUpdatingPassword = !!req.body.password;
+
+    // Update password
+    if (isUpdatingPassword)
+      req.body.password = await bcrypt.hash(req.body.password, 8);
+
+    try {
+      const [user] = await knex('users')
+        .where('id', req.user.id)
+        .update(req.body)
+        .returning('*');
+
+      res.json(publicUser(user));
+    } catch (error) {
+      res.status(400).json({ message: 'Error Updating User', error });
+    }
+  },
+  async remove(req, res) {
+    try {
+      // delete user by id
+      // cascade configured on migrations
+      await knex('users').del().where('id', req.user.id);
+
+      // return user
+      res.json(publicUser(req.user));
+    } catch (error) {
+      res.status(500).json({ message: 'Error Deleting User', error });
+    }
+  }
 };
 
 module.exports = userController;

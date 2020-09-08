@@ -59,7 +59,12 @@ router.post(
   celebrate(userCreateSchema, joiOptions),
   userController.create
 );
-router.patch('/users/me', auth, userController.update);
+router.patch(
+  '/users/me',
+  auth,
+  celebrate(userUpdateSchema, joiOptions),
+  userController.update
+);
 router.delete('/users/me', auth, userController.remove);
 
 router.get('/producers', producerController.all);
