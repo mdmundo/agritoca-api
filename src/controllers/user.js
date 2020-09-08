@@ -25,9 +25,28 @@ const userController = {
       return res.status(500).json({ message: 'Error on Server', error });
     }
   },
-  async self(req, res) {},
+  async self(req, res) {
+    return res.json(publicUser(req.user));
+  },
   async create(req, res) {
-    // publicUser
+    const password = await bcrypt.hash(req.body.password, 8);
+
+    try {
+      const [user] = await knex('users')
+        .insert({ ...req.body, password })
+        .returning('*');
+      // generate auth token
+      const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET);
+      await knex('users_auth').insert({
+        token,
+        user_id: user.id
+      });
+
+      // return user and token
+      return res.status(201).json({ user: publicUser(user), token });
+    } catch (error) {
+      return res.status(400).json({ message: 'Error Creating User', error });
+    }
   },
   async setPrivilege(req, res) {
     // check if is admin
