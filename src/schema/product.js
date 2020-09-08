@@ -20,4 +20,17 @@ const productUpdateSchema = {
   })
 };
 
-module.exports = { productCreateSchema, productUpdateSchema };
+const productSearchSchema = {
+  query: {
+    description: Joi.string().max(255),
+    ncm: Joi.string()
+      .pattern(/^[0-9]+$/)
+      .max(255)
+  }
+};
+
+module.exports = {
+  productCreateSchema,
+  productUpdateSchema,
+  productSearchSchema
+};

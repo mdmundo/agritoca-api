@@ -4,7 +4,11 @@ const {
   userSearchSchema
 } = require('./user');
 const { producerCreateSchema, producerUpdateSchema } = require('./producer');
-const { productCreateSchema, productUpdateSchema } = require('./product');
+const {
+  productCreateSchema,
+  productUpdateSchema,
+  productSearchSchema
+} = require('./product');
 const {
   producerProductCreateSchema,
   producerProductUpdateSchema
@@ -23,6 +27,7 @@ module.exports = {
   producerUpdateSchema,
   productCreateSchema,
   productUpdateSchema,
+  productSearchSchema,
   producerProductCreateSchema,
   producerProductUpdateSchema,
   basketCreateSchema,

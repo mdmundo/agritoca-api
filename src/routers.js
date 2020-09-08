@@ -11,6 +11,7 @@ const {
   producerUpdateSchema,
   productCreateSchema,
   productUpdateSchema,
+  productSearchSchema,
   producerProductCreateSchema,
   producerProductUpdateSchema,
   basketCreateSchema,
@@ -37,7 +38,7 @@ router.get('/users', auth, checkAdmin, userController.all);
 router.get('/users/me', auth, userController.self);
 router.post(
   '/users',
-  celebrate(userCreateSchema, joiOptions),
+  // celebrate(userCreateSchema, joiOptions),
   userController.create
 );
 router.patch('/users/me', auth, userController.update);
@@ -49,7 +50,11 @@ router.post('/producers', auth, producerController.create);
 router.patch('/producers', auth, producerController.update);
 router.delete('/producers', auth, producerController.remove);
 
-router.get('/products', productController.all);
+router.get(
+  '/products',
+  celebrate(productSearchSchema, joiOptions),
+  productController.all
+);
 router.get('/products/:id', auth, checkMod, productController.byId);
 router.get('/products/:id/picture', productController.picture);
 router.post(

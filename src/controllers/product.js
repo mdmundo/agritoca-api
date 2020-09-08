@@ -9,6 +9,30 @@ const productController = {
     // search queries
 
     try {
+      if (req.query.description) {
+        const products = await knex('products')
+          .where('description', 'ilike', `%${req.query.description}%`)
+          .orderBy('id');
+
+        const serializedProducts = products.map((product) =>
+          publicProduct(product)
+        );
+
+        return res.json(serializedProducts);
+      }
+
+      if (req.query.ncm) {
+        const products = await knex('products')
+          .where('ncm', 'like', `%${req.query.ncm}%`)
+          .orderBy('id');
+
+        const serializedProducts = products.map((product) =>
+          publicProduct(product)
+        );
+
+        return res.json(serializedProducts);
+      }
+
       const products = await knex('products').orderBy('id');
 
       const serializedProducts = products.map((product) =>
