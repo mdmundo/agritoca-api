@@ -1,4 +1,7 @@
+const Hashids = require('hashids/cjs');
+const hashids = new Hashids('agritoca-api', 6);
 const knex = require('../database/connection');
+const { publicProducer } = require('../utils/public');
 
 const producerController = {
   async all(req, res) {
@@ -6,9 +9,20 @@ const producerController = {
     // search queries (byHash)
 
     try {
+      if (req.query.hash) {
+        const [id] = hashids.decode(req.query.hash);
+        const producer = await knex('producers').where('id', id).first();
+
+        return res.json(publicProducer(producer));
+      }
+
       const producers = await knex('producers').select('*');
 
-      return res.json(producers);
+      serializedProducers = producers.map((producer) =>
+        publicProducer(producer)
+      );
+
+      return res.json(serializedProducers);
     } catch (error) {
       return res.status(500).json({ message: 'Error on Server', error });
     }
