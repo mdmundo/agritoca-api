@@ -1,6 +1,7 @@
 const knex = require('../database/connection');
 const sharp = require('sharp');
 const { publicProduct } = require('../utils/public');
+const updateUserTime = require('../utils/updates');
 
 const productController = {
   async all(req, res) {
@@ -42,15 +43,24 @@ const productController = {
       .png()
       .toBuffer();
 
+    const updates = updateUserTime(req.user.email);
     await knex('products')
       .where('id', req.params.id)
-      .update({ picture: buffer });
+      .update({ picture: buffer, ...updates });
 
     res.send();
   },
   async create(req, res) {
     // check if is mod or admin
     // save on upserter
+    try {
+      const product = await knex('products')
+        .insert({ ...req.body })
+        .returning('*');
+      return res.status(200).json(product);
+    } catch (error) {
+      return res.status(400).json({ message: 'Error Creating Product', error });
+    }
   },
   async update(req, res) {
     // auth
