@@ -33,7 +33,7 @@ const productController = {
     // check if is mod or admin
     // save on upserter
     const buffer = await sharp(req.file.buffer)
-      .resize({ width: 250, height: 250 })
+      .resize({ width: 1600, height: 400 })
       .png()
       .toBuffer();
 
