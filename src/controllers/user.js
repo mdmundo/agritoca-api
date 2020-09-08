@@ -18,7 +18,9 @@ const userController = {
     }
   },
   async self(req, res) {},
-  async create(req, res) {},
+  async create(req, res) {
+    // publicUser
+  },
   async update(req, res) {},
   async remove(req, res) {}
 };

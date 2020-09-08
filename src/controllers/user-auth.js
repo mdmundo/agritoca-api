@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const knex = require('../database/connection');
+const { publicUser } = require('../utils/public');
 
 const userAuthController = {
   async authenticate(req, res) {
@@ -23,8 +24,9 @@ const userAuthController = {
         user_id: user.id
       });
 
-      // return token
-      return res.json({ user, token });
+      // return user and token
+      const returningUser = publicUser(user);
+      return res.json({ user: returningUser, token });
     } catch (error) {
       return res.status(400).json({ message: "Couldn't Authenticate" });
     }

@@ -3,6 +3,7 @@ const { google } = require('googleapis');
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const knex = require('../database/connection');
+const { publicUser } = require('../utils/public');
 
 const scope = [
   'https://www.googleapis.com/auth/userinfo.email',
@@ -88,8 +89,9 @@ const userGoogleAuthController = {
           google_token: credentials.access_token
         });
 
-        // return token
-        return res.json({ user, token });
+        // return user and token
+        const returningUser = publicUser(user);
+        return res.json({ user: returningUser, token });
       }
 
       // If there is no user with that email
@@ -109,7 +111,8 @@ const userGoogleAuthController = {
       });
 
       // return user and token
-      return res.status(201).json({ user: newUser, token });
+      const returningUser = publicUser(newUser);
+      return res.status(201).json({ user: returningUser, token });
     } catch (error) {
       res.status(403).json({ error });
     }
