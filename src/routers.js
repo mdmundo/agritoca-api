@@ -57,7 +57,12 @@ router.post(
   auth,
   checkMod,
   upload.single('picture'),
-  productController.upload
+  productController.upload,
+  (error, req, res, next) => {
+    res.status(400).send({
+      error: error.message
+    });
+  }
 );
 router.post('/products', auth, checkMod, productController.create);
 router.patch('/products', auth, productController.update);
