@@ -16,7 +16,8 @@ exports.seed = (knex) => {
           email: 'mbrown@msn.com',
           //  password: 's4L}J(n&[5*y7Z_+'
           password:
-            '$2a$08$DdvKh8kc6NK7OtGqoApojua4m5UrJZwN.pGOBbN/TvvdHWcfCW0XO'
+            '$2a$08$DdvKh8kc6NK7OtGqoApojua4m5UrJZwN.pGOBbN/TvvdHWcfCW0XO',
+          is_mod: true
         },
         {
           email: 'heckerman@aol.com',
