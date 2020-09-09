@@ -10,8 +10,6 @@ exports.up = (knex) =>
     // inscrição municipal e inscrição estadual
     table.string('ie');
     table.string('im');
-    // the inserter or the updater of this register
-    table.string('upserter').notNullable().defaultTo('anonymous');
     table.timestamps(true, true);
   });
 

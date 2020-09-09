@@ -8,21 +8,14 @@ const productController = {
     // search queries
 
     try {
-      if (req.query.description) {
+      if (req.query.description || req.query.ncm) {
         const products = await knex('products')
-          .where('description', 'ilike', `%${req.query.description}%`)
-          .orderBy('id');
-
-        const serializedProducts = products.map((product) =>
-          publicProduct(product)
-        );
-
-        return res.json(serializedProducts);
-      }
-
-      if (req.query.ncm) {
-        const products = await knex('products')
-          .where('ncm', 'like', `%${req.query.ncm}%`)
+          .where(
+            'description',
+            'ilike',
+            `%${req.query.description ? req.query.description : ''}%`
+          )
+          .andWhere('ncm', 'like', `%${req.query.ncm ? req.query.ncm : ''}%`)
           .orderBy('id');
 
         const serializedProducts = products.map((product) =>
@@ -60,30 +53,23 @@ const productController = {
   },
   async upload(req, res) {
     // check if is mod or admin
-    // save on upserter
+
     const buffer = await sharp(req.file.buffer)
       .resize({ width: 1600, height: 400 })
       .png()
       .toBuffer();
 
-    await knex('products').where('id', req.params.id).first().update({
-      picture: buffer,
-      upserter: req.user.email,
-      updated_at: knex.fn.now()
-    });
+    await knex('products')
+      .where('id', req.params.id)
+      .first()
+      .update({ picture: buffer });
 
     res.send();
   },
   async create(req, res) {
     // check if is mod or admin
-    // save on upserter
     try {
-      const [product] = await knex('products')
-        .insert({
-          ...req.body,
-          upserter: req.user.email
-        })
-        .returning('*');
+      const [product] = await knex('products').insert(req.body).returning('*');
       return res.status(200).json(product);
     } catch (error) {
       return res.status(400).json({ message: 'Error Creating Product', error });
@@ -92,7 +78,6 @@ const productController = {
   async update(req, res) {
     // auth
     // check if is mod or admin
-    // save on upserter
   },
   async remove(req, res) {
     // auth

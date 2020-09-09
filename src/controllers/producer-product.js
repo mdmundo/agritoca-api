@@ -17,12 +17,10 @@ const producerProductController = {
   async create(req, res) {
     // auth
     // check if is mod or admin
-    // save on upserter
   },
   async update(req, res) {
     // auth
     // check if is mod or admin
-    // save on upserter
   },
   async remove(req, res) {
     // auth

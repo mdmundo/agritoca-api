@@ -21,8 +21,6 @@ exports.up = (knex) =>
     table.string('brand');
     table.string('barcode');
     table.string('keywords');
-    // the inserter or the updater of this register
-    table.string('upserter').notNullable().defaultTo('anonymous');
     table.timestamps(true, true);
   });
 

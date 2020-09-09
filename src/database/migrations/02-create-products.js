@@ -7,8 +7,6 @@ exports.up = (knex) =>
     table.binary('picture');
     table.string('description');
     table.boolean('is_organic');
-    // the inserter or the updater of this register
-    table.string('upserter').notNullable().defaultTo('anonymous');
     table.timestamps(true, true);
   });
 
