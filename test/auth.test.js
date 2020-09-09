@@ -1,12 +1,7 @@
 const request = require('supertest');
 const app = require('../src/app');
 const knex = require('../src/database/connection');
-const {
-  setupDatabase,
-  setupAuth,
-  userOneToken,
-  userOneId
-} = require('./fixtures/db');
+const { setupDatabase, setupAuth, users } = require('./fixtures/db');
 
 beforeEach(setupDatabase);
 
@@ -26,7 +21,7 @@ describe('Require authentication', () => {
   test('Should logout user', async () => {
     const response = await request(app)
       .post('/users/logout')
-      .set('Authorization', `Bearer ${userOneToken}`)
+      .set('Authorization', `Bearer ${users[0].token}`)
       .send()
       .expect(200);
   });
@@ -34,14 +29,14 @@ describe('Require authentication', () => {
   test('Should logout all user sessions', async () => {
     const response = await request(app)
       .post('/users/logoutAll')
-      .set('Authorization', `Bearer ${userOneToken}`)
+      .set('Authorization', `Bearer ${users[0].token}`)
       .send()
       .expect(200);
 
     const authTokens = await knex('users_auth').where(
       'user_id',
       '=',
-      userOneId
+      users[0].id
     );
 
     expect(authTokens).toEqual([]);
