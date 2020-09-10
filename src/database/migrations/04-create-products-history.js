@@ -2,7 +2,7 @@ exports.up = (knex) =>
   knex.schema.createTable('products_history', (table) => {
     table.increments().primary().index();
     table
-      .integer('products_id')
+      .integer('product_id')
       .notNullable()
       .references('id')
       .inTable('products')
