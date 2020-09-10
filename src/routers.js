@@ -16,7 +16,6 @@ const {
   producerController,
   productController,
   producerProductController,
-  userAuthController,
   userGoogleAuthController,
   basketController,
   basketItemController
