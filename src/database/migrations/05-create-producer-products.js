@@ -15,13 +15,6 @@ exports.up = (knex) =>
       .inTable('producers')
       .onUpdate('CASCADE')
       .onDelete('CASCADE');
-    table
-      .integer('history_id')
-      .notNullable()
-      .references('id')
-      .inTable('producer_products_history')
-      .onUpdate('CASCADE')
-      .onDelete('CASCADE');
     table.string('brand');
     table.string('barcode');
     table.string('keywords');
