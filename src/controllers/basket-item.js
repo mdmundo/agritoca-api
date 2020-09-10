@@ -1,6 +1,6 @@
 const knex = require('../database/connection');
 
-const basketController = {
+const basketItemController = {
   async byId(req, res) {
     // auth
     // all items from basket
@@ -13,4 +13,4 @@ const basketController = {
   }
 };
 
-module.exports = basketController;
+module.exports = basketItemController;
