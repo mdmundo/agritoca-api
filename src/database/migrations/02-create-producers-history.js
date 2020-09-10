@@ -1,17 +1,15 @@
 exports.up = (knex) =>
-  knex.schema.createTable('producer_products_backup', (table) => {
+  knex.schema.createTable('producers_history', (table) => {
     table.increments().primary().index();
     table
-      .integer('producer_products_id')
+      .integer('producer_id')
       .notNullable()
       .references('id')
-      .inTable('producer_products')
+      .inTable('producers')
       .onUpdate('NO ACTION')
       .onDelete('NO ACTION');
-
     table.string('upserter');
     table.timestamps(true, true);
   });
 
-exports.down = (knex) =>
-  knex.schema.dropTableIfExists('producer_products_backup');
+exports.down = (knex) => knex.schema.dropTableIfExists('producers_history');
