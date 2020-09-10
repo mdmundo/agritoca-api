@@ -95,9 +95,6 @@ router.post('/producerProducts', auth, producerProductController.create);
 router.patch('/producerProducts', auth, producerProductController.update);
 router.delete('/producerProducts', auth, producerProductController.remove);
 
-// authentication
-router.post('/users/logout', auth, userAuthController.logout);
-router.post('/users/logoutAll', auth, userAuthController.logoutAll);
 // google auth
 router.get('/google/auth', userGoogleAuthController.link);
 router.get('/google/callback', userGoogleAuthController.callback);

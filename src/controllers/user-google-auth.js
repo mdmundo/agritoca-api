@@ -67,27 +67,8 @@ const userGoogleAuthController = {
 
       // If there is an user with that email
       if (user) {
-        // verify if the google token was already used
-        const google_tokens = await knex('users_auth')
-          .where({
-            user_id: user.id
-          })
-          .select('google_token');
-
-        const usedToken = google_tokens.some(
-          ({ google_token }) => google_token === credentials.access_token
-        );
-
-        if (usedToken)
-          return res.status(401).send({ message: 'Please Authenticate' });
-
         // generate auth token
-        const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET);
-        await knex('users_auth').insert({
-          token,
-          user_id: user.id,
-          google_token: credentials.access_token
-        });
+        const token = jwt.sign({ email: user.email }, process.env.JWT_SECRET);
 
         // return user and token
         const returningUser = publicUser(user);
@@ -104,13 +85,7 @@ const userGoogleAuthController = {
         })
         .returning('*');
       // generate auth token
-      const token = jwt.sign({ id: newUser.id }, process.env.JWT_SECRET);
-      // access_token to prevent another run with same token
-      await knex('users_auth').insert({
-        token,
-        user_id: newUser.id,
-        google_token: credentials.access_token
-      });
+      const token = jwt.sign({ email: newUser.email }, process.env.JWT_SECRET);
 
       // return user and token
       const returningUser = publicUser(newUser);

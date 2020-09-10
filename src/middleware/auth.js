@@ -5,12 +5,7 @@ const auth = async (req, res, next) => {
   try {
     const token = req.header('Authorization').replace('Bearer ', '');
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    const user = await knex('users')
-      .join('users_auth', 'users.id', '=', 'users_auth.user_id')
-      .where('users.id', decoded.id)
-      .where('users_auth.token', token)
-      .select('users.*')
-      .first();
+    const user = await knex('users').where('email', decoded.email).first();
 
     if (!user) {
       throw new Error();
