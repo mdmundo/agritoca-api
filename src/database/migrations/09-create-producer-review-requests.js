@@ -3,7 +3,7 @@ exports.up = (knex) =>
     table.increments().primary().index();
     table
       .integer('producer_id')
-      .notNullable()
+      .defaultTo(null)
       .references('id')
       .inTable('producers')
       .onUpdate('NO ACTION')
