@@ -1,36 +1,8 @@
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');
 const knex = require('../database/connection');
 const { publicUser } = require('../utils/public');
 
 const userAuthController = {
-  async authenticate(req, res) {
-    try {
-      // find by credentials
-      const { email, password } = req.body;
-
-      const user = await knex('users').where({ email }).first();
-
-      if (!user) throw new Error();
-
-      const isMatch = await bcrypt.compare(password, user.password);
-
-      if (!isMatch) throw new Error();
-
-      // generate auth token
-      const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET);
-      await knex('users_auth').insert({
-        token,
-        user_id: user.id
-      });
-
-      // return user and token
-      const returningUser = publicUser(user);
-      return res.json({ user: returningUser, token });
-    } catch (error) {
-      return res.status(400).json({ message: "Couldn't Authenticate" });
-    }
-  },
   async logout(req, res) {
     try {
       const user_id = req.user.id;

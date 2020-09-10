@@ -46,17 +46,6 @@ router.post(
   isAdmin,
   userController.unsetPrivilege
 );
-router.post(
-  '/users',
-  celebrate(user.createSchema, joiOptions),
-  userController.create
-);
-router.patch(
-  '/users/me',
-  auth,
-  celebrate(user.updateSchema, joiOptions),
-  userController.update
-);
 router.delete('/users/me', auth, userController.remove);
 
 router.get('/producers', producerController.all);
@@ -107,7 +96,6 @@ router.patch('/producerProducts', auth, producerProductController.update);
 router.delete('/producerProducts', auth, producerProductController.remove);
 
 // authentication
-router.post('/users/login', userAuthController.authenticate);
 router.post('/users/logout', auth, userAuthController.logout);
 router.post('/users/logoutAll', auth, userAuthController.logoutAll);
 // google auth

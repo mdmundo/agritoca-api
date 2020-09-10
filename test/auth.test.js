@@ -5,16 +5,6 @@ const { setupDatabase, setupAuth, users } = require('./fixtures/db');
 
 beforeEach(setupDatabase);
 
-test('Should login user', async () => {
-  const response = await request(app)
-    .post('/users/login')
-    .send({
-      email: 'teverett@msn.com',
-      password: 'Qqk}X%CPuDte5jw]'
-    })
-    .expect(200);
-});
-
 describe('Require authentication', () => {
   beforeEach(setupAuth);
 
