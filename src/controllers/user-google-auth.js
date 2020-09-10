@@ -96,8 +96,6 @@ const userGoogleAuthController = {
 
       // If there is no user with that email
       // Create a new user
-      // Password here is just to fill the database password field
-      console.log(payload);
       const [newUser] = await knex('users')
         .insert({
           email: payload.email,
