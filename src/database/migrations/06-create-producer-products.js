@@ -1,8 +1,6 @@
 exports.up = (knex) =>
   knex.schema.createTable('producer_products', (table) => {
     table.increments().primary().index();
-
-    // foreign keys from products and producers
     table
       .integer('product_id')
       .notNullable()
@@ -17,10 +15,17 @@ exports.up = (knex) =>
       .inTable('producers')
       .onUpdate('CASCADE')
       .onDelete('CASCADE');
-
+    table
+      .integer('history_id')
+      .notNullable()
+      .references('id')
+      .inTable('producer_products_history')
+      .onUpdate('CASCADE')
+      .onDelete('CASCADE');
     table.string('brand');
     table.string('barcode');
     table.string('keywords');
+    table.string('upserter');
     table.timestamps(true, true);
   });
 

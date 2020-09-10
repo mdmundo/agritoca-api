@@ -2,13 +2,22 @@ exports.up = (knex) =>
   knex.schema.createTable('producer_products_history', (table) => {
     table.increments().primary().index();
     table
-      .integer('producer_products_id')
+      .integer('product_id')
       .notNullable()
       .references('id')
-      .inTable('producer_products')
+      .inTable('products')
       .onUpdate('NO ACTION')
       .onDelete('NO ACTION');
-
+    table
+      .integer('producer_id')
+      .notNullable()
+      .references('id')
+      .inTable('producers')
+      .onUpdate('NO ACTION')
+      .onDelete('NO ACTION');
+    table.string('brand');
+    table.string('barcode');
+    table.string('keywords');
     table.string('upserter');
     table.timestamps(true, true);
   });
