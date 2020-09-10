@@ -6,7 +6,6 @@ exports.seed = (knex) => {
       // Inserts seed entries
       return knex('producer_review_requests').insert([
         {
-          producer_id: 1,
           cpf: '02058263027',
           cnpj: '71227067602028',
           name: 'VILLAGEVILLAGE',
@@ -17,7 +16,6 @@ exports.seed = (knex) => {
           upserter: 'heckerman@aol.com'
         },
         {
-          producer_id: 2,
           cpf: '91777787842',
           cnpj: '25792379874307',
           name: 'VPFAST',
@@ -28,7 +26,6 @@ exports.seed = (knex) => {
           upserter: 'heckerman@aol.com'
         },
         {
-          producer_id: 3,
           cpf: '04743640044',
           cnpj: '50499229629653',
           name: 'LANDMATTER',
@@ -39,7 +36,6 @@ exports.seed = (knex) => {
           upserter: 'heckerman@aol.com'
         },
         {
-          producer_id: 4,
           cpf: '05384009852',
           cnpj: '76720982948140',
           name: 'JAYEDU',

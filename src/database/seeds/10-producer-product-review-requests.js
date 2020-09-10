@@ -6,7 +6,6 @@ exports.seed = (knex) => {
       // Inserts seed entries
       return knex('producer_product_review_requests').insert([
         {
-          producer_product_id: 1,
           brand: 'Marvel E',
           barcode: '657236480219',
           keywords: 'upset, tan, splendid',
@@ -15,7 +14,6 @@ exports.seed = (knex) => {
           upserter: 'heckerman@aol.com'
         },
         {
-          producer_product_id: 2,
           brand: 'Objective E',
           barcode: '761424633706',
           keywords: 'snobbish, needy, incompetent',
@@ -24,7 +22,6 @@ exports.seed = (knex) => {
           upserter: 'heckerman@aol.com'
         },
         {
-          producer_product_id: 3,
           brand: 'Seed E',
           barcode: '655427289836',
           keywords: 'nice, former, immediate',
@@ -33,7 +30,6 @@ exports.seed = (knex) => {
           upserter: 'heckerman@aol.com'
         },
         {
-          producer_product_id: 4,
           brand: 'Allied E',
           barcode: '314556271689',
           keywords: 'feigned, mundane, nine',
@@ -42,7 +38,6 @@ exports.seed = (knex) => {
           upserter: 'heckerman@aol.com'
         },
         {
-          producer_product_id: 5,
           brand: 'Bareback E',
           barcode: '034787900216',
           keywords: 'phobic, alive, witty',
@@ -51,7 +46,6 @@ exports.seed = (knex) => {
           upserter: 'heckerman@aol.com'
         },
         {
-          producer_product_id: 6,
           brand: 'Rail E',
           barcode: '277646639694',
           keywords: 'gentle, dysfunctional, evasive',
@@ -60,7 +54,6 @@ exports.seed = (knex) => {
           upserter: 'heckerman@aol.com'
         },
         {
-          producer_product_id: 7,
           brand: 'Spectator E',
           barcode: '074883903007',
           keywords: 'broad, puzzled, kaput',
@@ -69,7 +62,6 @@ exports.seed = (knex) => {
           upserter: 'heckerman@aol.com'
         },
         {
-          producer_product_id: 8,
           brand: 'Prana E',
           barcode: '484274967753',
           keywords: 'strange, gratis, capable',
@@ -78,7 +70,6 @@ exports.seed = (knex) => {
           upserter: 'heckerman@aol.com'
         },
         {
-          producer_product_id: 9,
           brand: 'Dimension A',
           barcode: '913713250081',
           keywords: 'bizarre, hissing, white',
@@ -87,7 +78,6 @@ exports.seed = (knex) => {
           upserter: 'heckerman@aol.com'
         },
         {
-          producer_product_id: 10,
           brand: 'Lift B',
           barcode: '760208045697',
           keywords: 'smooth, heavenly, busy',
