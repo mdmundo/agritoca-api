@@ -51,11 +51,11 @@ const userGoogleAuthController = {
     });
   },
   async authenticate(req, res) {
-    // Add this specific user's credentials to our OAuth2 client
-    const credentials = jwt.verify(req.params.token, process.env.JWT_SECRET);
-    const client = new OAuth2Client(process.env.CLIENT_ID);
-
     try {
+      // Add this specific user's credentials to our OAuth2 client
+      const credentials = jwt.verify(req.params.token, process.env.JWT_SECRET);
+      const client = new OAuth2Client(process.env.CLIENT_ID);
+
       const ticket = await client.verifyIdToken({
         idToken: credentials.id_token,
         audience: process.env.CLIENT_ID
