@@ -34,7 +34,7 @@ const userController = {
         await knex('users')
           .where('id', req.body.id)
           .first()
-          .update({ is_admin: true, updated_at: knex.fn.now() });
+          .update({ privilege: 2, updated_at: knex.fn.now() });
 
         return res.send();
       }
@@ -43,7 +43,7 @@ const userController = {
         await knex('users')
           .where('id', req.body.id)
           .first()
-          .update({ is_mod: true, updated_at: knex.fn.now() });
+          .update({ privilege: 1, updated_at: knex.fn.now() });
 
         return res.send();
       }
@@ -54,23 +54,12 @@ const userController = {
   async unsetPrivilege(req, res) {
     // check if is admin
     try {
-      if (req.params.privilege === 'admin') {
-        await knex('users')
-          .where('id', req.body.id)
-          .first()
-          .update({ is_admin: false, updated_at: knex.fn.now() });
+      await knex('users')
+        .where('id', req.body.id)
+        .first()
+        .update({ privilege: 0, updated_at: knex.fn.now() });
 
-        return res.send();
-      }
-
-      if (req.params.privilege === 'mod') {
-        await knex('users')
-          .where('id', req.body.id)
-          .first()
-          .update({ is_mod: false, updated_at: knex.fn.now() });
-
-        return res.send();
-      }
+      return res.send();
     } catch (error) {
       return res.status(500).json({ message: 'Error on Server', error });
     }

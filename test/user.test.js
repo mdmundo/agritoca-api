@@ -16,7 +16,7 @@ describe('Require authentication', () => {
       .expect(200);
 
     const user = await knex('users').where('id', '=', users[0].id).first();
-    expect(user.is_admin).toBe(true);
+    expect(user.privilege).toBe(2);
   });
 
   test('Should not fetch all users (not admin)', async () => {
@@ -27,7 +27,7 @@ describe('Require authentication', () => {
       .expect(401);
 
     const user = await knex('users').where('id', '=', users[1].id).first();
-    expect(user.is_admin).toBe(false);
+    expect(user.privilege).not.toBe(2);
   });
 
   test('Should fetch current user', async () => {
@@ -46,17 +46,17 @@ describe('Require authentication', () => {
       .expect(200);
 
     const user = await knex('users').where('id', '=', users[1].id).first();
-    expect(user.is_admin).toBe(true);
+    expect(user.privilege).toBe(2);
   });
 
   test('Should unset mod privilege', async () => {
     const response = await request(app)
-      .post('/users/unset/mod')
+      .post('/users/unset')
       .set('Authorization', `Bearer ${users[0].token}`)
       .send({ id: users[1].id })
       .expect(200);
 
     const user = await knex('users').where('id', '=', users[1].id).first();
-    expect(user.is_mod).toBe(false);
+    expect(user.privilege).toBe(0);
   });
 });

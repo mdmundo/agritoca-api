@@ -10,14 +10,14 @@ exports.seed = (knex) => {
           email: 'teverett@msn.com',
           picture:
             'https://s.gravatar.com/avatar/f573cc50e19283110a74db7f4a8bafb8?s=96&d=retro',
-          is_admin: true
+          privilege: 2
         },
         {
           name: 'James',
           email: 'mbrown@msn.com',
           picture:
             'https://s.gravatar.com/avatar/9418cf81ace4c8a471af4172001cc958?s=96&d=retro',
-          is_mod: true
+          privilege: 1
         },
         {
           name: 'Stewart',

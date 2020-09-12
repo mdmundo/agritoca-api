@@ -20,13 +20,13 @@ const auth = async (req, res, next) => {
 };
 
 const isAdmin = async (req, res, next) => {
-  if (req.user.is_admin) {
+  if (req.user.privilege === 2) {
     next();
   } else return res.status(401).send({ message: 'Not enough privilege' });
 };
 
 const isMod = async (req, res, next) => {
-  if (req.user.is_mod || req.user.is_admin) {
+  if (req.user.privilege === 2 || req.user.privilege === 1) {
     next();
   } else return res.status(401).send({ message: 'Not enough privilege' });
 };
