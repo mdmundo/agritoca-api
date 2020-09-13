@@ -16,7 +16,6 @@ const {
   producerController,
   productController,
   producerProductController,
-  userGoogleAuthController,
   basketController,
   basketItemController
 } = require('./controllers');
@@ -93,11 +92,6 @@ router.get('/producerProducts/:id', auth, producerProductController.byId);
 router.post('/producerProducts', auth, producerProductController.create);
 router.patch('/producerProducts', auth, producerProductController.update);
 router.delete('/producerProducts', auth, producerProductController.remove);
-
-// google auth
-router.get('/google/auth', userGoogleAuthController.link);
-router.get('/google/callback', userGoogleAuthController.callback);
-router.get('/google/me/:token', userGoogleAuthController.authenticate);
 
 router.get('/baskets', auth, basketController.self);
 router.get('/baskets/:id', auth, basketItemController.byId);

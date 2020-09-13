@@ -23,8 +23,6 @@
     "axios": "^0.20.0",
     "celebrate": "^12.2.0",
     "express": "^4.17.1",
-    "google-auth-library": "^6.0.6",
-    "googleapis": "^59.0.0",
     "hashids": "^2.2.1",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.21.3",
