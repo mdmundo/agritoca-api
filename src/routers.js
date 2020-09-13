@@ -25,8 +25,6 @@ const joiOptions = { abortEarly: false };
 const router = new express.Router();
 const upload = multer(multerConfig);
 
-router.get('/sign', userController.sign);
-
 router.get(
   '/users',
   auth,
@@ -35,6 +33,11 @@ router.get(
   userController.all
 );
 router.get('/users/me', auth, userController.self);
+router.post(
+  '/users',
+  celebrate(user.signSchema, joiOptions),
+  userController.sign
+);
 router.post(
   '/users/set/:privilege',
   auth,

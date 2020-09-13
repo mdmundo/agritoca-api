@@ -28,11 +28,11 @@ const userController = {
   async sign(req, res) {
     try {
       // is Google authentication?
-      if (req.query.tokenId) {
+      if (req.body.tokenId) {
         const {
           data: { name, email, picture }
         } = await axios.get(
-          `https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=${req.query.tokenId}`
+          `https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=${req.body.tokenId}`
         );
 
         // is the user already on db?
