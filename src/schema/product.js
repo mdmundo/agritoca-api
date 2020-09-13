@@ -1,7 +1,7 @@
 const { Joi } = require('celebrate');
 
 const product = {
-  createSchema: {
+  create: {
     body: Joi.object().keys({
       ncm: Joi.string()
         .required()
@@ -13,7 +13,7 @@ const product = {
       is_organic: Joi.boolean()
     })
   },
-  updateSchema: {
+  update: {
     body: Joi.object().keys({
       ncm: Joi.string()
         .pattern(/^[0-9]+$/)
@@ -24,7 +24,7 @@ const product = {
       is_organic: Joi.boolean()
     })
   },
-  searchSchema: {
+  search: {
     query: {
       description: Joi.string().max(255),
       ncm: Joi.string()

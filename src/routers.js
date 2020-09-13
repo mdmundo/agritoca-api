@@ -4,12 +4,12 @@ const multer = require('multer');
 const multerConfig = require('./utils/multer');
 const { auth, isAdmin, isMod } = require('./middleware/auth');
 const {
-  user,
-  producer,
-  product,
-  producerProduct,
-  basket,
-  basketItem
+  userSchema,
+  producerSchema,
+  productSchema,
+  producerProductSchema,
+  basketSchema,
+  basketItemSchema
 } = require('./schema');
 const {
   userController,
@@ -28,13 +28,13 @@ router.get(
   '/users',
   auth,
   isAdmin,
-  celebrate(user.searchSchema, joiOptions),
+  celebrate(userSchema.search, joiOptions),
   userController.all
 );
 router.get('/users/me', auth, userController.self);
 router.post(
   '/users',
-  celebrate(user.signSchema, joiOptions),
+  celebrate(userSchema.sign, joiOptions),
   userController.sign
 );
 router.post(
@@ -52,7 +52,7 @@ router.post(
   '/producers',
   auth,
   isMod,
-  celebrate(producer.createSchema, joiOptions),
+  celebrate(producerSchema.create, joiOptions),
   producerController.create
 );
 router.patch('/producers', auth, producerController.update);
@@ -60,7 +60,7 @@ router.delete('/producers', auth, producerController.remove);
 
 router.get(
   '/products',
-  celebrate(product.searchSchema, joiOptions),
+  celebrate(productSchema.search, joiOptions),
   productController.all
 );
 router.get('/products/:id', auth, isMod, productController.byId);
@@ -81,10 +81,16 @@ router.post(
   '/products',
   auth,
   isMod,
-  celebrate(product.createSchema, joiOptions),
+  celebrate(productSchema.create, joiOptions),
   productController.create
 );
-router.patch('/products', auth, productController.update);
+router.patch(
+  '/products',
+  auth,
+  isMod,
+  celebrate(productSchema.update),
+  productController.update
+);
 router.delete('/products', auth, productController.remove);
 
 router.get('/producerProducts', producerProductController.all);

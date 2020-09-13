@@ -1,7 +1,7 @@
 const { Joi } = require('celebrate');
 
 const producerProduct = {
-  createSchema: {
+  create: {
     body: Joi.object().keys({
       product_id: Joi.number().required().integer().positive(),
       producer_id: Joi.number().required().integer().positive(),
@@ -10,7 +10,7 @@ const producerProduct = {
       keywords: Joi.string().max(255)
     })
   },
-  updateSchema: {
+  update: {
     body: Joi.object().keys({
       product_id: Joi.number().integer().positive(),
       producer_id: Joi.number().integer().positive(),

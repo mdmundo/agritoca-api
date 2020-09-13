@@ -1,13 +1,13 @@
 const { Joi } = require('celebrate');
 
 const basket = {
-  createSchema: {
+  create: {
     body: Joi.object().keys({
       user_id: Joi.number().required().integer().positive(),
       name: Joi.string().max(255)
     })
   },
-  updateSchema: {
+  update: {
     body: Joi.object().keys({
       user_id: Joi.number().integer().positive(),
       name: Joi.string().max(255)

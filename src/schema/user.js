@@ -1,12 +1,12 @@
 const { Joi } = require('celebrate');
 
 const user = {
-  signSchema: {
+  sign: {
     body: Joi.object().keys({
       tokenId: Joi.string()
     })
   },
-  searchSchema: {
+  search: {
     query: {
       id: Joi.string()
         .pattern(/^[0-9]+$/)

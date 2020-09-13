@@ -1,7 +1,7 @@
 const { Joi } = require('celebrate');
 
 const producer = {
-  createSchema: {
+  create: {
     body: Joi.object().keys({
       cpf: Joi.string()
         .required()
@@ -19,7 +19,7 @@ const producer = {
       im: Joi.string().alphanum().max(255)
     })
   },
-  updateSchema: {
+  update: {
     body: Joi.object().keys({
       cpf: Joi.string()
         .pattern(/^[0-9]+$/)
