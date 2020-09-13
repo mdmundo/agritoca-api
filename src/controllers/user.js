@@ -36,7 +36,11 @@ const userController = {
         );
 
         // is the user already on db?
-        const user = await knex('users').where({ email }).first();
+        const [user] = await knex('users')
+          .where({ email })
+          .first()
+          .update({ name, picture, updated_at: knex.fn.now() })
+          .returning('*');
         if (user) {
           const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET);
           return res.json({ user: publicUser(user), token });
