@@ -10,6 +10,7 @@
     "migrate": "knex migrate:latest",
     "rollback": "knex migrate:rollback",
     "seed": "knex seed:run",
+    "remake": "knex --knexfile resetterfile.js seed:run; knex migrate:latest; knex seed:run",
     "dev:migrate": "env-cmd -f ./config/dev.env knex migrate:latest",
     "dev:rollback": "env-cmd -f ./config/dev.env knex migrate:rollback",
     "dev:clean": "env-cmd -f ./config/dev.env knex --knexfile resetterfile.js seed:run",
