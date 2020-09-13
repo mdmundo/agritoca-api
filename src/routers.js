@@ -25,6 +25,8 @@ const joiOptions = { abortEarly: false };
 const router = new express.Router();
 const upload = multer(multerConfig);
 
+router.get('/sign', userController.sign);
+
 router.get(
   '/users',
   auth,
