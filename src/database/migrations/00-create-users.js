@@ -3,7 +3,7 @@ exports.up = (knex) =>
     table.increments().primary().index();
     table.string('name').defaultTo('anonymous');
     table.string('email').unique().defaultTo(null);
-    table.string('picture').defaultTo('/avatar.png');
+    table.string('picture').defaultTo('/users/avatar.png');
     // user is an admin === 2 or moderator === 1;
     // otherwise, the user is regular === 0
     table.integer('privilege').notNullable().defaultTo(0);
