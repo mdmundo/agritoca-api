@@ -44,12 +44,7 @@ router.post(
   isAdmin,
   userController.setPrivilege
 );
-router.post(
-  '/users/unset/:privilege',
-  auth,
-  isAdmin,
-  userController.unsetPrivilege
-);
+router.post('/users/unset', auth, isAdmin, userController.unsetPrivilege);
 router.delete('/users/me', auth, userController.remove);
 
 router.get('/producers', producerController.all);

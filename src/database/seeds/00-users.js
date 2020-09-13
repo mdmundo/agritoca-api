@@ -27,9 +27,10 @@ exports.seed = (knex) => {
         },
         {
           name: 'Luís',
-          email: 'tattooman@me.com',
+          email: 'manyymoore@gmail.com',
           picture:
-            'https://s.gravatar.com/avatar/fe5683e4a03bf6767e0b71470baf0dcd?s=96&d=retro'
+            'https://s.gravatar.com/avatar/21dbdea01fcce17bbd75a73f51d13aaf?s=96&d=retro',
+          privilege: 2
         },
         {
           name: 'Damas',
