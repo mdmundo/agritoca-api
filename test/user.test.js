@@ -46,7 +46,7 @@ test('Should set admin privilege', async () => {
   expect(user.privilege).toBe(2);
 });
 
-test('Should unset revoke all privileges', async () => {
+test('Should revoke all privileges', async () => {
   const response = await request(app)
     .post('/users/unset')
     .set('Authorization', `Bearer ${users[0].token}`)
