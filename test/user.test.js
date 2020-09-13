@@ -56,3 +56,14 @@ test('Should revoke all privileges', async () => {
   const user = await knex('users').where('id', '=', users[1].id).first();
   expect(user.privilege).toBe(0);
 });
+
+test('Should delete current user', async () => {
+  const response = await request(app)
+    .delete('/users/me')
+    .set('Authorization', `Bearer ${users[0].token}`)
+    .send()
+    .expect(200);
+
+  const user = await knex('users').where('id', '=', users[0].id).first();
+  expect(user).toBe(undefined);
+});
