@@ -6,22 +6,22 @@ exports.up = (knex) =>
       .defaultTo(null)
       .references('id')
       .inTable('producer_products')
-      .onUpdate('NO ACTION')
-      .onDelete('NO ACTION');
+      .onUpdate('CASCADE')
+      .onDelete('CASCADE');
     table
       .integer('product_id')
       .defaultTo(null)
       .references('id')
       .inTable('products')
-      .onUpdate('NO ACTION')
-      .onDelete('NO ACTION');
+      .onUpdate('CASCADE')
+      .onDelete('CASCADE');
     table
       .integer('producer_id')
       .defaultTo(null)
       .references('id')
       .inTable('producers')
-      .onUpdate('NO ACTION')
-      .onDelete('NO ACTION');
+      .onUpdate('CASCADE')
+      .onDelete('CASCADE');
     table.string('brand');
     table.string('barcode');
     table.string('keywords');

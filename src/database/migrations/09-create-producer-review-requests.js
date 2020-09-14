@@ -6,8 +6,8 @@ exports.up = (knex) =>
       .defaultTo(null)
       .references('id')
       .inTable('producers')
-      .onUpdate('NO ACTION')
-      .onDelete('NO ACTION');
+      .onUpdate('CASCADE')
+      .onDelete('CASCADE');
     table.string('cpf');
     table.string('cnpj');
     table.string('name');
