@@ -103,7 +103,7 @@ const userController = {
     try {
       // delete user by id
       // cascade configured on migrations
-      await knex('users').del().where('id', req.user.id);
+      await knex('users').del().where({ id: req.user.id });
 
       // return user
       res.json(publicUser(req.user));
