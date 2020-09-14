@@ -4,9 +4,9 @@ exports.up = (knex) =>
     table.integer('producer_product_id').notNullable();
     table.integer('product_id').notNullable();
     table.integer('producer_id').notNullable();
-    table.string('brand');
-    table.string('barcode');
-    table.string('keywords');
+    table.string('brand').defaultTo(null);
+    table.string('barcode').defaultTo(null);
+    table.string('keywords').defaultTo(null);
     table.string('upserter');
     table.timestamps(true, true);
   });
