@@ -35,14 +35,9 @@ const productController = {
   },
   async byId(req, res) {
     try {
-      const products = await knex('products')
-        .where('products.id', '=', req.params.id)
-        .join(
-          'producer_products',
-          'products.id',
-          '=',
-          'producer_products.product_id'
-        );
+      const products = await knex('producer_products')
+        .where('producer_products.product_id', '=', req.params.id)
+        .join('products', 'producer_products.product_id', '=', 'products.id');
 
       const serializedProducts = products.map((product) =>
         publicProduct(product)

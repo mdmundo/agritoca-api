@@ -44,14 +44,11 @@ const producerController = {
   },
   async byId(req, res) {
     // try {
-    const products = await knex('producers')
-      .where('producers.id', '=', req.params.id)
-      .join(
-        'producer_products',
-        'producers.id',
-        '=',
-        'producer_products.product_id'
-      );
+    // multiple joins example
+    // const products = await knex.select('*').from('producer_products').join('producers', 'producer_products.producer_id', '=', 'producers.id').join('products', 'producer_products.product_id', '=', 'products.id').where('producers.id', '=', req.params.id);
+    const products = await knex('producer_products')
+      .where('producer_products.producer_id', '=', req.params.id)
+      .join('products', 'producer_products.product_id', '=', 'products.id');
 
     const serializedProducts = products.map((product) =>
       publicProduct(product)
