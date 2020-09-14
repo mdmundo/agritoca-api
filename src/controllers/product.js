@@ -78,10 +78,23 @@ const productController = {
     res.send();
   },
   async create(req, res) {
-    // check if is mod or admin
     try {
-      const [product] = await knex('products').insert(req.body).returning('*');
-      return res.status(200).json(product);
+      await knex.transaction(async (trx) => {
+        const [product] = await knex('products')
+          .insert({ ...req.body, upserter: req.user.email })
+          .returning('*')
+          .transacting(trx);
+
+        await knex('products_history')
+          .insert({
+            ...req.body,
+            upserter: req.user.email,
+            product_id: product.id
+          })
+          .transacting(trx);
+
+        return res.status(201).json(publicProduct(product));
+      });
     } catch (error) {
       return res.status(400).json({ message: 'Error Creating Product', error });
     }

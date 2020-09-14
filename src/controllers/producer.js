@@ -60,8 +60,28 @@ const producerController = {
     // }
   },
   async create(req, res) {
-    // auth
-    // check if is mod or admin
+    try {
+      await knex.transaction(async (trx) => {
+        const [producer] = await knex('producers')
+          .insert({ ...req.body, upserter: req.user.email })
+          .returning('*')
+          .transacting(trx);
+
+        await knex('producers_history')
+          .insert({
+            ...req.body,
+            upserter: req.user.email,
+            producer_id: producer.id
+          })
+          .transacting(trx);
+
+        return res.status(201).json(publicProducer(producer));
+      });
+    } catch (error) {
+      return res
+        .status(400)
+        .json({ message: 'Error Creating Producer', error });
+    }
   },
   async update(req, res) {
     // auth
