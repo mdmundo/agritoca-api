@@ -101,7 +101,7 @@ router.patch(
   celebrate(productSchema.update),
   productController.update
 );
-router.delete('/products', auth, productController.remove);
+router.delete('/products/:id', auth, isMod, productController.remove);
 
 router.get('/producerProducts', producerProductController.all);
 router.get('/producerProducts/:id', auth, producerProductController.byId);

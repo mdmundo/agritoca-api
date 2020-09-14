@@ -121,15 +121,33 @@ const productController = {
           })
           .transacting(trx);
 
-        return res.status(201).json(publicProduct(product));
+        return res.status(200).json(publicProduct(product));
       });
     } catch (error) {
       return res.status(400).json({ message: 'Error Updating Product', error });
     }
   },
   async remove(req, res) {
-    // auth
-    // check if is mod or admin
+    try {
+      await knex.transaction(async (trx) => {
+        await knex('products')
+          .where({ id: req.params.id })
+          .first()
+          .del()
+          .transacting(trx);
+
+        await knex('products_history')
+          .insert({
+            upserter: req.user.email,
+            product_id: req.params.id
+          })
+          .transacting(trx);
+
+        return res.send();
+      });
+    } catch (error) {
+      return res.status(400).json({ message: 'Error Removing Product', error });
+    }
   }
 };
 
