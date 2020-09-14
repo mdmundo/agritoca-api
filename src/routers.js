@@ -59,8 +59,14 @@ router.post(
   celebrate(producerSchema.create, joiOptions),
   producerController.create
 );
-router.patch('/producers', auth, producerController.update);
-router.delete('/producers', auth, producerController.remove);
+router.patch(
+  '/producers/:id',
+  auth,
+  isMod,
+  celebrate(producerSchema.update, joiOptions),
+  producerController.update
+);
+router.delete('/producers/:id', auth, isMod, producerController.remove);
 
 router.get(
   '/products',
@@ -104,10 +110,27 @@ router.patch(
 router.delete('/products/:id', auth, isMod, productController.remove);
 
 router.get('/producerProducts', producerProductController.all);
-router.get('/producerProducts/:id', auth, producerProductController.byId);
-router.post('/producerProducts', auth, producerProductController.create);
-router.patch('/producerProducts', auth, producerProductController.update);
-router.delete('/producerProducts', auth, producerProductController.remove);
+router.get('/producerProducts/:id', producerProductController.byId);
+router.post(
+  '/producerProducts',
+  auth,
+  isMod,
+  celebrate(producerProductSchema.create, joiOptions),
+  producerProductController.create
+);
+router.patch(
+  '/producerProducts/:id',
+  auth,
+  isMod,
+  celebrate(producerProductSchema.update, joiOptions),
+  producerProductController.update
+);
+router.delete(
+  '/producerProducts/:id',
+  auth,
+  isMod,
+  producerProductController.remove
+);
 
 router.get('/baskets', auth, basketController.self);
 router.get('/baskets/:id', auth, basketItemController.byId);
