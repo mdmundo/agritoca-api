@@ -63,8 +63,16 @@ router.get(
   celebrate(productSchema.search, joiOptions),
   productController.all
 );
-router.get('/products/:id', auth, isMod, productController.byId);
-router.get('/products/:id/picture', productController.picture);
+router.get(
+  '/products/:id',
+  celebrate(productSchema.search, joiOptions),
+  productController.byId
+);
+router.get(
+  '/products/:id/picture',
+  celebrate(productSchema.search, joiOptions),
+  productController.picture
+);
 router.post(
   '/products/:id/picture',
   auth,
@@ -72,9 +80,7 @@ router.post(
   upload.single('picture'),
   productController.upload,
   (error, req, res, next) => {
-    res.status(400).send({
-      error: error.message
-    });
+    res.status(400).json({ error });
   }
 );
 router.post(
