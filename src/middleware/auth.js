@@ -15,20 +15,20 @@ const auth = async (req, res, next) => {
     req.user = user;
     next();
   } catch (error) {
-    res.status(401).send({ message: 'Please Authenticate' });
+    res.status(401).json({ message: 'Please Authenticate' });
   }
 };
 
 const isAdmin = async (req, res, next) => {
   if (req.user.privilege === 2) {
     next();
-  } else return res.status(401).send({ message: 'Not enough privilege' });
+  } else return res.status(401).json({ message: 'Not enough privilege' });
 };
 
 const isMod = async (req, res, next) => {
   if (req.user.privilege === 2 || req.user.privilege === 1) {
     next();
-  } else return res.status(401).send({ message: 'Not enough privilege' });
+  } else return res.status(401).json({ message: 'Not enough privilege' });
 };
 
 module.exports = { auth, isAdmin, isMod };

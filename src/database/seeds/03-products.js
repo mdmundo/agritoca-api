@@ -1,3 +1,5 @@
+const picture = require('./img/product');
+
 exports.seed = (knex) => {
   // Deletes ALL existing entries
   return knex('products')
@@ -9,6 +11,7 @@ exports.seed = (knex) => {
           ncm: '02032100',
           measure: 'KG',
           description: 'CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS',
+          picture,
           is_organic: false,
           upserter: 'mbrown@msn.com'
         },
