@@ -1,13 +1,7 @@
 exports.up = (knex) =>
   knex.schema.createTable('producers_history', (table) => {
     table.increments().primary().index();
-    table
-      .integer('producer_id')
-      .notNullable()
-      .references('id')
-      .inTable('producers')
-      .onUpdate('NO ACTION')
-      .onDelete('NO ACTION');
+    table.integer('producer_id').notNullable();
     table.string('cpf');
     table.string('cnpj');
     table.string('name');

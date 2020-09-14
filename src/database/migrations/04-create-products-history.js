@@ -1,13 +1,7 @@
 exports.up = (knex) =>
   knex.schema.createTable('products_history', (table) => {
     table.increments().primary().index();
-    table
-      .integer('product_id')
-      .notNullable()
-      .references('id')
-      .inTable('products')
-      .onUpdate('NO ACTION')
-      .onDelete('NO ACTION');
+    table.integer('product_id').notNullable();
     table.string('ncm');
     table.string('measure');
     table.binary('picture');
