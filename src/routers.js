@@ -78,21 +78,21 @@ router.get(
   productController.picture
 );
 router.post(
+  '/products',
+  auth,
+  isMod,
+  celebrate(productSchema.create, joiOptions),
+  productController.create
+);
+router.post(
   '/products/:id/picture',
   auth,
   isMod,
   upload.single('picture'),
   productController.upload,
   (error, req, res, next) => {
-    res.status(400).json({ error });
+    return res.status(400).json({ message: 'Can not upload that', error });
   }
-);
-router.post(
-  '/products',
-  auth,
-  isMod,
-  celebrate(productSchema.create, joiOptions),
-  productController.create
 );
 router.patch(
   '/products',
