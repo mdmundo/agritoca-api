@@ -95,7 +95,7 @@ router.post(
   }
 );
 router.patch(
-  '/products',
+  '/products/:id',
   auth,
   isMod,
   celebrate(productSchema.update),

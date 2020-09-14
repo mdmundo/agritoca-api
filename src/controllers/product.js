@@ -100,8 +100,32 @@ const productController = {
     }
   },
   async update(req, res) {
-    // auth
-    // check if is mod or admin
+    try {
+      await knex.transaction(async (trx) => {
+        const [product] = await knex('products')
+          .where({ id: req.params.id })
+          .first()
+          .update({
+            ...req.body,
+            upserter: req.user.email,
+            updated_at: knex.fn.now()
+          })
+          .returning('*')
+          .transacting(trx);
+
+        await knex('products_history')
+          .insert({
+            ...req.body,
+            upserter: req.user.email,
+            product_id: product.id
+          })
+          .transacting(trx);
+
+        return res.status(201).json(publicProduct(product));
+      });
+    } catch (error) {
+      return res.status(400).json({ message: 'Error Updating Product', error });
+    }
   },
   async remove(req, res) {
     // auth

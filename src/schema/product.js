@@ -8,18 +8,22 @@ const product = {
         .pattern(/^[0-9]+$/)
         .max(20),
       measure: Joi.string().required().max(255),
-      picture: Joi.binary(),
-      description: Joi.string().max(255),
+      description: Joi.string().required().max(255),
       is_organic: Joi.boolean()
     })
   },
   update: {
+    params: {
+      id: Joi.string()
+        .required()
+        .pattern(/^[0-9]+$/)
+        .max(20)
+    },
     body: Joi.object().keys({
       ncm: Joi.string()
         .pattern(/^[0-9]+$/)
         .max(20),
       measure: Joi.string().max(255),
-      picture: Joi.binary(),
       description: Joi.string().max(255),
       is_organic: Joi.boolean()
     })
