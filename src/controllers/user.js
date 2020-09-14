@@ -9,9 +9,7 @@ const userController = {
 
     try {
       if (req.query.id) {
-        const [user] = await knex('users')
-          .where('id', '=', req.query.id)
-          .orderBy('id');
+        const [user] = await knex('users').where({ id: req.query.id });
 
         return res.json(publicUser(user));
       }

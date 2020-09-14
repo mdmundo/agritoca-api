@@ -35,6 +35,16 @@ const producer = {
       ie: Joi.string().alphanum().max(255),
       im: Joi.string().alphanum().max(255)
     })
+  },
+  search: {
+    query: {
+      name: Joi.string().max(255)
+    },
+    params: {
+      id: Joi.string()
+        .pattern(/^[0-9]+$/)
+        .max(20)
+    }
   }
 };
 

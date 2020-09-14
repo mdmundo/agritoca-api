@@ -47,7 +47,11 @@ router.post('/users/unset', auth, isAdmin, userController.unsetPrivilege);
 router.delete('/users/me', auth, userController.remove);
 
 router.get('/producers', producerController.all);
-router.get('/producers/:id', auth, producerController.byId);
+router.get(
+  '/producers/:id',
+  celebrate(producerSchema.search, joiOptions),
+  producerController.byId
+);
 router.post(
   '/producers',
   auth,
