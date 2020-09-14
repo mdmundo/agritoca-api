@@ -8,14 +8,11 @@ const productController = {
     // search queries
 
     try {
-      if (req.query.description || req.query.ncm) {
+      const { description, ncm } = req.query;
+      if (description || ncm) {
         const products = await knex('products')
-          .where(
-            'description',
-            'ilike',
-            `%${req.query.description ? req.query.description : ''}%`
-          )
-          .andWhere('ncm', 'like', `%${req.query.ncm ? req.query.ncm : ''}%`)
+          .where('description', 'ilike', `%${description ? description : ''}%`)
+          .andWhere('ncm', 'like', `%${ncm ? ncm : ''}%`)
           .orderBy('id');
 
         const serializedProducts = products.map((product) =>
@@ -36,7 +33,26 @@ const productController = {
       return res.status(500).json({ message: 'Error on Server', error });
     }
   },
-  async byId(req, res) {},
+  async byId(req, res) {
+    try {
+      const products = await knex('products')
+        .where('products.id', '=', req.params.id)
+        .join(
+          'producer_products',
+          'products.id',
+          '=',
+          'producer_products.product_id'
+        );
+
+      const serializedProducts = products.map((product) =>
+        publicProduct(product)
+      );
+
+      return res.json(serializedProducts);
+    } catch (error) {
+      return res.status(400).json({ message: 'Malformed Request', error });
+    }
+  },
   async picture(req, res) {
     try {
       const product = await knex('products').where('id', req.params.id).first();
