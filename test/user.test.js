@@ -21,7 +21,7 @@ test('Should not fetch all users (not admin)', async () => {
     .get('/users/')
     .set('Authorization', `Bearer ${users[1].token}`)
     .send()
-    .expect(401);
+    .expect(403);
 
   const user = await knex('users').where('id', '=', users[1].id).first();
   expect(user.privilege).not.toBe(2);
