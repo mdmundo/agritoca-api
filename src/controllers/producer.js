@@ -1,6 +1,6 @@
 const Hashids = require('hashids/cjs');
 const hashids = new Hashids('agritoca-api', 6);
-const knex = require('../database/connection');
+const knex = require('../../database/connection');
 const { publicProducer, publicProduct } = require('../utils/public');
 
 const producerController = {

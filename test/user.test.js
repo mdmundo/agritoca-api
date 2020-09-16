@@ -1,6 +1,6 @@
 const request = require('supertest');
 const app = require('../src/app');
-const knex = require('../src/database/connection');
+const knex = require('../database/connection');
 const { setupDatabase, users } = require('./fixtures/db');
 
 beforeEach(setupDatabase);

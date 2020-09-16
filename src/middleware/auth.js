@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const knex = require('../database/connection');
+const knex = require('../../database/connection');
 
 const auth = async (req, res, next) => {
   try {

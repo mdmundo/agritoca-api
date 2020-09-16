@@ -1,4 +1,4 @@
-const knex = require('../database/connection');
+const knex = require('../../database/connection');
 
 const producerProductController = {
   async all(req, res) {

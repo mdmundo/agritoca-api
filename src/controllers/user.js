@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const axios = require('axios');
-const knex = require('../database/connection');
+const knex = require('../../database/connection');
 const { publicUser } = require('../utils/public');
 
 const userController = {

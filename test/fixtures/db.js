@@ -1,6 +1,6 @@
 const path = require('path');
-const resetPath = path.resolve(__dirname, '../../src/database/resetters');
-const knex = require('../../src/database/connection');
+const resetPath = path.resolve(__dirname, '../../database/resetters');
+const knex = require('../../database/connection');
 const jwt = require('jsonwebtoken');
 
 const users = [
