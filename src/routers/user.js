@@ -15,7 +15,9 @@ router.get(
   userController.read
 );
 
-router.get('/users/me', auth, userController.self);
+router.get('/users/:id', auth, isAdmin, userController.readById);
+
+router.get('/me', auth, userController.self);
 
 router.post(
   '/users',
@@ -24,14 +26,14 @@ router.post(
 );
 
 router.post(
-  '/users/set/:privilege',
+  '/users/:id/set/:privilege',
   auth,
   isAdmin,
   userController.setPrivilege
 );
 
-router.post('/users/unset', auth, isAdmin, userController.unsetPrivilege);
+router.post('/users/:id/unset', auth, isAdmin, userController.unsetPrivilege);
 
-router.delete('/users/me', auth, userController.delete);
+router.delete('/me', auth, userController.delete);
 
 module.exports = router;

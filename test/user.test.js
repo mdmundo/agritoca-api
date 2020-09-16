@@ -12,7 +12,7 @@ test('Should fetch all users (admin)', async () => {
     .send()
     .expect(200);
 
-  const user = await knex('users').where('id', '=', users[0].id).first();
+  const user = await knex('users').where({ id: users[0].id }).first();
   expect(user.privilege).toBe(2);
 });
 
@@ -23,13 +23,13 @@ test('Should not fetch all users (not admin)', async () => {
     .send()
     .expect(403);
 
-  const user = await knex('users').where('id', '=', users[1].id).first();
+  const user = await knex('users').where({ id: users[1].id }).first();
   expect(user.privilege).not.toBe(2);
 });
 
 test('Should fetch current user', async () => {
   const response = await request(app)
-    .get('/users/me')
+    .get('/me')
     .set('Authorization', `Bearer ${users[0].token}`)
     .send()
     .expect(200);
@@ -37,33 +37,33 @@ test('Should fetch current user', async () => {
 
 test('Should set admin privilege', async () => {
   const response = await request(app)
-    .post('/users/set/admin')
+    .post(`/users/${users[1].id}/set/admin`)
     .set('Authorization', `Bearer ${users[0].token}`)
-    .send({ id: users[1].id })
+    .send()
     .expect(200);
 
-  const user = await knex('users').where('id', '=', users[1].id).first();
+  const user = await knex('users').where({ id: users[1].id }).first();
   expect(user.privilege).toBe(2);
 });
 
 test('Should revoke all privileges', async () => {
   const response = await request(app)
-    .post('/users/unset')
+    .post(`/users/${users[1].id}/unset`)
     .set('Authorization', `Bearer ${users[0].token}`)
-    .send({ id: users[1].id })
+    .send()
     .expect(200);
 
-  const user = await knex('users').where('id', '=', users[1].id).first();
+  const user = await knex('users').where({ id: users[1].id }).first();
   expect(user.privilege).toBe(0);
 });
 
 test('Should delete current user', async () => {
   const response = await request(app)
-    .delete('/users/me')
+    .delete('/me')
     .set('Authorization', `Bearer ${users[0].token}`)
     .send()
     .expect(200);
 
-  const user = await knex('users').where('id', '=', users[0].id).first();
+  const user = await knex('users').where({ id: users[0].id }).first();
   expect(user).toBe(undefined);
 });

@@ -9,18 +9,24 @@ const userController = {
     // check if is admin
 
     try {
-      if (req.query.id) {
-        const user = await userResource.getUserById(req.query.id);
-
-        return res.json(getUserWithoutPassword(user));
-      }
-
       const users = await userResource.getAllUsers();
 
       const serializedUsers = users.map((user) => getUserWithoutPassword(user));
       return res.json(serializedUsers);
     } catch (error) {
       return res.status(500).json({ message: 'Error on Server', error });
+    }
+  },
+  async readById(req, res) {
+    try {
+      const user = await userResource.getUserById(req.params.id);
+
+      if (!user) return res.status(404).json({ message: 'User not found' });
+      return res.json(getUserWithoutPassword(user));
+    } catch (error) {
+      return res
+        .status(400)
+        .json({ message: 'Error on Finding an User by Id' });
     }
   },
   async sign(req, res) {
@@ -74,12 +80,12 @@ const userController = {
     // check if is admin
     try {
       if (req.params.privilege === 'admin') {
-        await userResource.setPrivilegeById(req.body.id, 2);
+        await userResource.setPrivilegeById(req.params.id, 2);
         return res.send();
       }
 
       if (req.params.privilege === 'mod') {
-        await userResource.setPrivilegeById(req.body.id, 1);
+        await userResource.setPrivilegeById(req.params.id, 1);
         return res.send();
       }
       return res.status(400).json({ message: 'Missing parameter' });
@@ -92,7 +98,7 @@ const userController = {
   async unsetPrivilege(req, res) {
     // check if is admin
     try {
-      await userResource.setPrivilegeById(req.body.id, 0);
+      await userResource.setPrivilegeById(req.params.id, 0);
 
       return res.send();
     } catch (error) {
