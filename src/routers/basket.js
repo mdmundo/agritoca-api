@@ -17,8 +17,8 @@ router.post('/baskets', auth, basketItemController.create);
 
 router.patch('/baskets', auth, basketController.update);
 
-router.delete('/baskets', auth, basketController.remove);
+router.delete('/baskets', auth, basketController.delete);
 
-router.delete('/baskets', auth, basketItemController.remove);
+router.delete('/baskets', auth, basketItemController.delete);
 
 module.exports = router;

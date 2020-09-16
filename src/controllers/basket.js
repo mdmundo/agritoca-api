@@ -11,7 +11,7 @@ const basketController = {
   async update(req, res) {
     // auth
   },
-  async remove(req, res) {
+  async delete(req, res) {
     // auth
   }
 };

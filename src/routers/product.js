@@ -55,6 +55,6 @@ router.patch(
   productController.update
 );
 
-router.delete('/products/:id', auth, isMod, productController.remove);
+router.delete('/products/:id', auth, isMod, productController.delete);
 
 module.exports = router;

@@ -127,7 +127,7 @@ const productController = {
       return res.status(400).json({ message: 'Error Updating Product', error });
     }
   },
-  async remove(req, res) {
+  async delete(req, res) {
     try {
       await knex.transaction(async (trx) => {
         await knex('products')

@@ -32,6 +32,6 @@ router.post(
 
 router.post('/users/unset', auth, isAdmin, userController.unsetPrivilege);
 
-router.delete('/users/me', auth, userController.remove);
+router.delete('/users/me', auth, userController.delete);
 
 module.exports = router;

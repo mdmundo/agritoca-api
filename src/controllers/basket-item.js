@@ -8,7 +8,7 @@ const basketItemController = {
   async create(req, res) {
     // auth
   },
-  async remove(req, res) {
+  async delete(req, res) {
     // auth
   }
 };

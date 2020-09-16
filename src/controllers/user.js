@@ -103,7 +103,7 @@ const userController = {
       return res.status(500).json({ message: 'Error on Server', error });
     }
   },
-  async remove(req, res) {
+  async delete(req, res) {
     try {
       // delete user by id
       // cascade configured on migrations

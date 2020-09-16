@@ -90,7 +90,7 @@ const producerController = {
     // auth
     // check if is mod or admin
   },
-  async remove(req, res) {
+  async delete(req, res) {
     // auth
     // check if is mod or admin
   }

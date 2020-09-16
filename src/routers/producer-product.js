@@ -31,7 +31,7 @@ router.delete(
   '/producerProducts/:id',
   auth,
   isMod,
-  producerProductController.remove
+  producerProductController.delete
 );
 
 module.exports = router;
