@@ -1,7 +1,7 @@
 const express = require('express');
 const { celebrate } = require('celebrate');
 const { auth, isAdmin } = require('../middleware/auth');
-const { userSchema } = require('../schema');
+const { userSchema } = require('../schemas');
 const { userController } = require('../controllers');
 
 const joiOptions = { abortEarly: false };

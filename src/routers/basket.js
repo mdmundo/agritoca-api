@@ -1,7 +1,7 @@
 const express = require('express');
 const { celebrate } = require('celebrate');
 const { auth, isMod } = require('../middleware/auth');
-const { basketSchema, basketItemSchema } = require('../schema');
+const { basketSchema, basketItemSchema } = require('../schemas');
 const { basketController, basketItemController } = require('../controllers');
 
 const joiOptions = { abortEarly: false };

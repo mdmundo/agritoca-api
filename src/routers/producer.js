@@ -1,7 +1,7 @@
 const express = require('express');
 const { celebrate } = require('celebrate');
 const { auth, isMod } = require('../middleware/auth');
-const { producerSchema } = require('../schema');
+const { producerSchema } = require('../schemas');
 const { producerController } = require('../controllers');
 
 const joiOptions = { abortEarly: false };

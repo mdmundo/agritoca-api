@@ -3,7 +3,7 @@ const { celebrate } = require('celebrate');
 const multer = require('multer');
 const multerConfig = require('../utils/multer');
 const { auth, isMod } = require('../middleware/auth');
-const { productSchema } = require('../schema');
+const { productSchema } = require('../schemas');
 const { productController } = require('../controllers');
 
 const joiOptions = { abortEarly: false };
