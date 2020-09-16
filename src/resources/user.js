@@ -2,13 +2,20 @@ const axios = require('axios');
 const knex = require('../../database/connection');
 
 module.exports = {
-  getUserById: async (id) => {
-    const [user] = await knex('users').where({ id });
-    return user;
-  },
   getAllUsers: async () => {
     const users = await knex('users').orderBy('id');
     return users;
+  },
+  getUsersContainingEmailOrName: async ({ name, email }) => {
+    const users = await knex('users')
+      .where('name', 'ilike', `%${name ? name : ''}%`)
+      .andWhere('email', 'ilike', `%${email ? email : ''}%`)
+      .orderBy('id');
+    return users;
+  },
+  getUserById: async (id) => {
+    const [user] = await knex('users').where({ id });
+    return user;
   },
   getGoogleUserProfile: async (tokenId) => {
     const { data } = await axios.get(
@@ -30,7 +37,7 @@ module.exports = {
       .returning('*');
     return user;
   },
-  setPrivilegeById: async (id, privilege) => {
+  setPrivilegeById: async ({ id, privilege }) => {
     await knex('users')
       .where({ id })
       .first()

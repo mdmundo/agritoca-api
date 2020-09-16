@@ -8,9 +8,8 @@ module.exports = {
   },
   search: {
     query: {
-      id: Joi.string()
-        .pattern(/^[0-9]+$/)
-        .max(20)
+      name: Joi.string().max(255),
+      email: Joi.string().max(255)
     }
   }
 };

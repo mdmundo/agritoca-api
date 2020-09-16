@@ -9,7 +9,11 @@ const userController = {
     // check if is admin
 
     try {
-      const users = await userResource.getAllUsers();
+      const { email, name } = req.query;
+      const users = await userResource.getUsersContainingEmailOrName({
+        name,
+        email
+      });
 
       const serializedUsers = users.map((user) => getUserWithoutPassword(user));
       return res.json(serializedUsers);
@@ -80,12 +84,18 @@ const userController = {
     // check if is admin
     try {
       if (req.params.privilege === 'admin') {
-        await userResource.setPrivilegeById(req.params.id, 2);
+        await userResource.setPrivilegeById({
+          id: req.params.id,
+          privilege: 2
+        });
         return res.send();
       }
 
       if (req.params.privilege === 'mod') {
-        await userResource.setPrivilegeById(req.params.id, 1);
+        await userResource.setPrivilegeById({
+          id: req.params.id,
+          privilege: 1
+        });
         return res.send();
       }
       return res.status(400).json({ message: 'Missing parameter' });
@@ -98,7 +108,7 @@ const userController = {
   async unsetPrivilege(req, res) {
     // check if is admin
     try {
-      await userResource.setPrivilegeById(req.params.id, 0);
+      await userResource.setPrivilegeById({ id: req.params.id, privilege: 0 });
 
       return res.send();
     } catch (error) {
