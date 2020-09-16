@@ -9,7 +9,7 @@ const router = new express.Router();
 
 router.get('/baskets', auth, basketController.self);
 
-router.get('/baskets/:id', auth, basketItemController.byId);
+router.get('/baskets/:id', auth, basketItemController.readById);
 
 router.post('/baskets', auth, basketController.create);
 

@@ -9,7 +9,7 @@ const router = new express.Router();
 
 router.get('/producerProducts', producerProductController.read);
 
-router.get('/producerProducts/:id', producerProductController.byId);
+router.get('/producerProducts/:id', producerProductController.readById);
 
 router.post(
   '/producerProducts',

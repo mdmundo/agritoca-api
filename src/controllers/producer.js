@@ -45,7 +45,7 @@ const producerController = {
       return res.status(500).json({ message: 'Error on Server', error });
     }
   },
-  async byId(req, res) {
+  async readById(req, res) {
     // try {
     // multiple joins example
     // const products = await knex.select('*').from('producer_products').join('producers', 'producer_products.producer_id', '=', 'producers.id').join('products', 'producer_products.product_id', '=', 'products.id').where('producers.id', '=', req.params.id);

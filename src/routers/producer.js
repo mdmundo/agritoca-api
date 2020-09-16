@@ -12,7 +12,7 @@ router.get('/producers', producerController.read);
 router.get(
   '/producers/:id',
   celebrate(producerSchema.search, joiOptions),
-  producerController.byId
+  producerController.readById
 );
 
 router.post(

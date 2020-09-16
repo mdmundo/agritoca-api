@@ -19,7 +19,7 @@ router.get(
 router.get(
   '/products/:id',
   celebrate(productSchema.search, joiOptions),
-  productController.byId
+  productController.readById
 );
 
 router.get(

@@ -33,7 +33,7 @@ const productController = {
       return res.status(500).json({ message: 'Error on Server', error });
     }
   },
-  async byId(req, res) {
+  async readById(req, res) {
     try {
       const products = await knex('producer_products')
         .where('producer_products.product_id', '=', req.params.id)

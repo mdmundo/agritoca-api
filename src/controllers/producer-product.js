@@ -13,7 +13,7 @@ const producerProductController = {
       return res.status(500).json({ message: 'Error on Server', error });
     }
   },
-  async byId(req, res) {},
+  async readById(req, res) {},
   async create(req, res) {
     // auth
     // check if is mod or admin

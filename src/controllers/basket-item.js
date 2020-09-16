@@ -1,7 +1,7 @@
 const knex = require('../../database/connection');
 
 const basketItemController = {
-  async byId(req, res) {
+  async readById(req, res) {
     // auth
     // all items from basket
   },
