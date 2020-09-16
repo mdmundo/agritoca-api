@@ -1,6 +1,6 @@
 const { Joi } = require('celebrate');
 
-const basket = {
+module.exports = {
   create: {
     body: Joi.object().keys({
       user_id: Joi.number().required().integer().positive(),
@@ -14,5 +14,3 @@ const basket = {
     })
   }
 };
-
-module.exports = basket;

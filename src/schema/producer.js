@@ -1,6 +1,6 @@
 const { Joi } = require('celebrate');
 
-const producer = {
+module.exports = {
   create: {
     body: Joi.object().keys({
       cpf: Joi.string()
@@ -47,5 +47,3 @@ const producer = {
     }
   }
 };
-
-module.exports = producer;

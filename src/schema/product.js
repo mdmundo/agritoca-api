@@ -1,6 +1,6 @@
 const { Joi } = require('celebrate');
 
-const product = {
+module.exports = {
   create: {
     body: Joi.object().keys({
       ncm: Joi.string()
@@ -42,5 +42,3 @@ const product = {
     }
   }
 };
-
-module.exports = product;

@@ -1,6 +1,6 @@
 const { Joi } = require('celebrate');
 
-const producerProduct = {
+module.exports = {
   create: {
     body: Joi.object().keys({
       product_id: Joi.number().required().integer().positive(),
@@ -20,5 +20,3 @@ const producerProduct = {
     })
   }
 };
-
-module.exports = producerProduct;

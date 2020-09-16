@@ -1,6 +1,6 @@
 const { Joi } = require('celebrate');
 
-const user = {
+module.exports = {
   sign: {
     body: Joi.object().keys({
       tokenId: Joi.string()
@@ -14,5 +14,3 @@ const user = {
     }
   }
 };
-
-module.exports = user;

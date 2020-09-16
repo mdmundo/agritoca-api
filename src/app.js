@@ -6,7 +6,14 @@ const routers = require('./routers');
 const app = express();
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.json());
-app.use(routers);
+
+// routers
+app.use(routers.userRouter);
+app.use(routers.producerRouter);
+app.use(routers.productRouter);
+app.use(routers.producerProductRouter);
+app.use(routers.basketRouter);
+
 app.use(errors());
 
 module.exports = app;
