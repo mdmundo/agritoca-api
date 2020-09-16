@@ -1,7 +1,10 @@
 const Hashids = require('hashids/cjs');
 const hashids = new Hashids('agritoca-api', 6);
 const knex = require('../../database/connection');
-const { publicProducer, publicProduct } = require('../utils/public');
+const {
+  getProducerWithHash,
+  getProductWithoutPicture
+} = require('../utils/public');
 
 const producerController = {
   async all(req, res) {
@@ -17,7 +20,7 @@ const producerController = {
 
         const producer = await knex('producers').where({ id }).first();
 
-        return res.json(publicProducer(producer));
+        return res.json(getProducerWithHash(producer));
       }
 
       if (name) {
@@ -26,7 +29,7 @@ const producerController = {
           .orderBy('id');
 
         const serializedProducers = producers.map((producer) =>
-          publicProducer(producer)
+          getProducerWithHash(producer)
         );
         return res.json(serializedProducers);
       }
@@ -34,7 +37,7 @@ const producerController = {
       const producers = await knex('producers').orderBy('id');
 
       serializedProducers = producers.map((producer) =>
-        publicProducer(producer)
+        getProducerWithHash(producer)
       );
 
       return res.json(serializedProducers);
@@ -51,7 +54,7 @@ const producerController = {
       .join('products', 'producer_products.product_id', '=', 'products.id');
 
     const serializedProducts = products.map((product) =>
-      publicProduct(product)
+      getProductWithoutPicture(product)
     );
 
     return res.json(serializedProducts);
@@ -75,7 +78,7 @@ const producerController = {
           })
           .transacting(trx);
 
-        return res.status(201).json(publicProducer(producer));
+        return res.status(201).json(getProducerWithHash(producer));
       });
     } catch (error) {
       return res

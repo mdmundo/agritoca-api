@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const axios = require('axios');
 const knex = require('../../database/connection');
-const { publicUser } = require('../utils/public');
+const { getUserWithoutPassword } = require('../utils/public');
 
 const userController = {
   async all(req, res) {
@@ -11,12 +11,12 @@ const userController = {
       if (req.query.id) {
         const [user] = await knex('users').where({ id: req.query.id });
 
-        return res.json(publicUser(user));
+        return res.json(getUserWithoutPassword(user));
       }
 
       const users = await knex('users').orderBy('id');
 
-      const serializedUsers = users.map((user) => publicUser(user));
+      const serializedUsers = users.map((user) => getUserWithoutPassword(user));
 
       return res.json(serializedUsers);
     } catch (error) {
@@ -41,7 +41,7 @@ const userController = {
           .returning('*');
         if (user) {
           const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET);
-          return res.json({ user: publicUser(user), token });
+          return res.json({ user: getUserWithoutPassword(user), token });
         }
 
         // Create a new user
@@ -49,18 +49,22 @@ const userController = {
           .insert({ name, email, picture })
           .returning('*');
         const token = jwt.sign({ id: newUser.id }, process.env.JWT_SECRET);
-        return res.status(201).json({ user: publicUser(newUser), token });
+        return res
+          .status(201)
+          .json({ user: getUserWithoutPassword(newUser), token });
       }
       // Create a new anonymous user
       const [user] = await knex('users').insert({}).returning('*');
       const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET);
-      return res.status(201).json({ user: publicUser(user), token });
+      return res
+        .status(201)
+        .json({ user: getUserWithoutPassword(user), token });
     } catch (error) {
       return res.status(500).json({ message: 'Error on Server', error });
     }
   },
   async self(req, res) {
-    return res.json(publicUser(req.user));
+    return res.json(getUserWithoutPassword(req.user));
   },
   async setPrivilege(req, res) {
     // check if is admin
@@ -106,7 +110,7 @@ const userController = {
       await knex('users').del().where({ id: req.user.id });
 
       // return user
-      res.json(publicUser(req.user));
+      res.json(getUserWithoutPassword(req.user));
     } catch (error) {
       res.status(500).json({ message: 'Error Deleting User', error });
     }

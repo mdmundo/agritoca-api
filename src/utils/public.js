@@ -1,23 +1,23 @@
 const Hashids = require('hashids/cjs');
 const hashids = new Hashids('agritoca-api', 6);
 
-const publicUser = (user) => {
+const getUserWithoutPassword = (user) => {
   delete user.password;
   return user;
 };
 
-const publicProducer = (producer) => ({
+const getProducerWithHash = (producer) => ({
   ...producer,
   hash: hashids.encode(producer.id)
 });
 
-const publicProduct = (product) => {
+const getProductWithoutPicture = (product) => {
   delete product.picture;
   return product;
 };
 
 module.exports = {
-  publicUser,
-  publicProducer,
-  publicProduct
+  getUserWithoutPassword,
+  getProducerWithHash,
+  getProductWithoutPicture
 };

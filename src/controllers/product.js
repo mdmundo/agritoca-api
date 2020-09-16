@@ -1,6 +1,6 @@
 const knex = require('../../database/connection');
 const sharp = require('sharp');
-const { publicProduct } = require('../utils/public');
+const { getProductWithoutPicture } = require('../utils/public');
 
 const productController = {
   async all(req, res) {
@@ -16,7 +16,7 @@ const productController = {
           .orderBy('id');
 
         const serializedProducts = products.map((product) =>
-          publicProduct(product)
+          getProductWithoutPicture(product)
         );
 
         return res.json(serializedProducts);
@@ -25,7 +25,7 @@ const productController = {
       const products = await knex('products').orderBy('id');
 
       const serializedProducts = products.map((product) =>
-        publicProduct(product)
+        getProductWithoutPicture(product)
       );
 
       return res.json(serializedProducts);
@@ -40,7 +40,7 @@ const productController = {
         .join('products', 'producer_products.product_id', '=', 'products.id');
 
       const serializedProducts = products.map((product) =>
-        publicProduct(product)
+        getProductWithoutPicture(product)
       );
 
       return res.json(serializedProducts);
@@ -93,7 +93,7 @@ const productController = {
           })
           .transacting(trx);
 
-        return res.status(201).json(publicProduct(product));
+        return res.status(201).json(getProductWithoutPicture(product));
       });
     } catch (error) {
       return res.status(400).json({ message: 'Error Creating Product', error });
@@ -121,7 +121,7 @@ const productController = {
           })
           .transacting(trx);
 
-        return res.status(200).json(publicProduct(product));
+        return res.status(200).json(getProductWithoutPicture(product));
       });
     } catch (error) {
       return res.status(400).json({ message: 'Error Updating Product', error });
