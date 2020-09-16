@@ -3,7 +3,7 @@ const sharp = require('sharp');
 const { getProductWithoutPicture } = require('../utils/public');
 
 const productController = {
-  async all(req, res) {
+  async read(req, res) {
     // pagination
     // search queries
 

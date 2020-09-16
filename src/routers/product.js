@@ -13,7 +13,7 @@ const upload = multer(multerConfig);
 router.get(
   '/products',
   celebrate(productSchema.search, joiOptions),
-  productController.all
+  productController.read
 );
 
 router.get(

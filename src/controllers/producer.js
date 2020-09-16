@@ -7,7 +7,7 @@ const {
 } = require('../utils/public');
 
 const producerController = {
-  async all(req, res) {
+  async read(req, res) {
     // return all producers
     // search queries (byHash)
 

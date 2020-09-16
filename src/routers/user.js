@@ -12,7 +12,7 @@ router.get(
   auth,
   isAdmin,
   celebrate(userSchema.search, joiOptions),
-  userController.all
+  userController.read
 );
 
 router.get('/users/me', auth, userController.self);

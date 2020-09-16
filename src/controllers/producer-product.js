@@ -1,7 +1,7 @@
 const knex = require('../../database/connection');
 
 const producerProductController = {
-  async all(req, res) {
+  async read(req, res) {
     // pagination
     // search queries
 

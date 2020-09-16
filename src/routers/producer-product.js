@@ -7,7 +7,7 @@ const { producerProductController } = require('../controllers');
 const joiOptions = { abortEarly: false };
 const router = new express.Router();
 
-router.get('/producerProducts', producerProductController.all);
+router.get('/producerProducts', producerProductController.read);
 
 router.get('/producerProducts/:id', producerProductController.byId);
 

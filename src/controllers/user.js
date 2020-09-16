@@ -4,7 +4,7 @@ const knex = require('../../database/connection');
 const { getUserWithoutPassword } = require('../utils/public');
 
 const userController = {
-  async all(req, res) {
+  async read(req, res) {
     // check if is admin
 
     try {
