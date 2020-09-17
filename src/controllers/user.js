@@ -63,12 +63,9 @@ const userController = {
           .status(201)
           .json({ user: getUserWithoutPassword(user), token });
       }
-      // Create a new anonymous user
-      const user = await userResource.getInsertedUser({});
-      const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET);
       return res
-        .status(201)
-        .json({ user: getUserWithoutPassword(user), token });
+        .status(400)
+        .json({ message: 'Error on Signing User (Bad Form)' });
     } catch (error) {
       return res.status(500).json({ message: 'Error on Signing User', error });
     }

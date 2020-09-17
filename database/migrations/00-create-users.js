@@ -1,9 +1,10 @@
 exports.up = (knex) =>
   knex.schema.createTable('users', (table) => {
     table.increments().primary().index();
-    table.string('name').defaultTo('anonymous');
-    table.string('email').unique().defaultTo(null);
-    table.string('picture').defaultTo('/users/avatar.png');
+    table.string('name');
+    table.string('email').unique();
+    // if (!picture) fallback to /users/avatar.png
+    table.string('picture').defaultTo(null);
     // user is an admin === 2 or moderator === 1;
     // otherwise, the user is regular === 0
     table.integer('privilege').notNullable().defaultTo(0);
