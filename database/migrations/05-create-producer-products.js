@@ -15,6 +15,8 @@ exports.up = (knex) =>
       .inTable('producers')
       .onUpdate('CASCADE')
       .onDelete('CASCADE');
+    // if (!picture) fallback to product picture
+    table.binary('picture');
     table.string('brand');
     table.string('barcode');
     table.string('keywords');

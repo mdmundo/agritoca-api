@@ -4,6 +4,7 @@ exports.up = (knex) =>
     table.integer('producer_product_id').notNullable();
     table.integer('product_id').notNullable();
     table.integer('producer_id').notNullable();
+    table.binary('picture');
     table.string('brand').defaultTo(null);
     table.string('barcode').defaultTo(null);
     table.string('keywords').defaultTo(null);
