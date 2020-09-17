@@ -1,6 +1,6 @@
-const knex = require('../../database/connection');
 const sharp = require('sharp');
 const { getProductWithoutPicture } = require('../utils/public');
+const { productResource } = require('../resources');
 
 const productController = {
   async read(req, res) {
@@ -8,21 +8,7 @@ const productController = {
     // search queries
 
     try {
-      const { description, ncm } = req.query;
-      if (description || ncm) {
-        const products = await knex('products')
-          .where('description', 'ilike', `%${description ? description : ''}%`)
-          .andWhere('ncm', 'like', `%${ncm ? ncm : ''}%`)
-          .orderBy('id');
-
-        const serializedProducts = products.map((product) =>
-          getProductWithoutPicture(product)
-        );
-
-        return res.json(serializedProducts);
-      }
-
-      const products = await knex('products').orderBy('id');
+      const products = await productResource.getProductsContaining(req.query);
 
       const serializedProducts = products.map((product) =>
         getProductWithoutPicture(product)
@@ -35,116 +21,80 @@ const productController = {
   },
   async readById(req, res) {
     try {
-      const products = await knex('producer_products')
-        .where('producer_products.product_id', '=', req.params.id)
-        .join('products', 'producer_products.product_id', '=', 'products.id');
+      const product = await productResource.getProductById(req.params);
 
-      const serializedProducts = products.map((product) =>
-        getProductWithoutPicture(product)
-      );
-
-      return res.json(serializedProducts);
+      return res.json(getProductWithoutPicture(product));
     } catch (error) {
       return res.status(400).json({ message: 'Malformed Request', error });
     }
   },
   async picture(req, res) {
     try {
-      const product = await knex('products').where('id', req.params.id).first();
+      const picture = await productResource.getProductPictureById(req.params);
 
-      if (!product || !product.picture) {
+      if (!picture) {
         throw new Error();
       }
 
       res.set('Content-Type', 'image/png');
-      res.send(product.picture);
+      res.send(picture);
     } catch (e) {
       res.status(404).send();
     }
   },
   async upload(req, res) {
-    // check if is mod or admin
+    try {
+      const buffer = await sharp(req.file.buffer)
+        .resize({ width: 1600, height: 400 })
+        .png()
+        .toBuffer();
 
-    const buffer = await sharp(req.file.buffer)
-      .resize({ width: 1600, height: 400 })
-      .png()
-      .toBuffer();
+      const isPicture = await productResource.getUploadedPicture({
+        id: req.params.id,
+        upserter: req.user.email,
+        picture: buffer
+      });
 
-    await knex('products')
-      .where('id', req.params.id)
-      .first()
-      .update({ picture: buffer });
+      if (!isPicture) throw new Error();
 
-    res.send();
+      res.send();
+    } catch (error) {
+      res.status(500).json({ message: 'Error on Uploading Picture' });
+    }
   },
   async create(req, res) {
     try {
-      await knex.transaction(async (trx) => {
-        const [product] = await knex('products')
-          .insert({ ...req.body, upserter: req.user.email })
-          .returning('*')
-          .transacting(trx);
-
-        await knex('products_history')
-          .insert({
-            ...req.body,
-            upserter: req.user.email,
-            product_id: product.id
-          })
-          .transacting(trx);
-
-        return res.status(201).json(getProductWithoutPicture(product));
+      const product = await productResource.getInsertedProduct({
+        body: req.body,
+        upserter: req.user.email
       });
+
+      return res.status(201).json(getProductWithoutPicture(product));
     } catch (error) {
       return res.status(400).json({ message: 'Error Creating Product', error });
     }
   },
   async update(req, res) {
     try {
-      await knex.transaction(async (trx) => {
-        const [product] = await knex('products')
-          .where({ id: req.params.id })
-          .first()
-          .update({
-            ...req.body,
-            upserter: req.user.email,
-            updated_at: knex.fn.now()
-          })
-          .returning('*')
-          .transacting(trx);
-
-        await knex('products_history')
-          .insert({
-            ...req.body,
-            upserter: req.user.email,
-            product_id: product.id
-          })
-          .transacting(trx);
-
-        return res.status(200).json(getProductWithoutPicture(product));
+      const product = await productResource.getUpdatedProduct({
+        id: req.params.id,
+        body: req.body,
+        upserter: req.user.email
       });
+
+      return res.status(200).json(getProductWithoutPicture(product));
     } catch (error) {
       return res.status(400).json({ message: 'Error Updating Product', error });
     }
   },
   async delete(req, res) {
     try {
-      await knex.transaction(async (trx) => {
-        await knex('products')
-          .where({ id: req.params.id })
-          .first()
-          .del()
-          .transacting(trx);
-
-        await knex('products_history')
-          .insert({
-            upserter: req.user.email,
-            product_id: req.params.id
-          })
-          .transacting(trx);
-
-        return res.send();
+      await productResource.deleteProduct({
+        id: req.params.id,
+        upserter: req.user.email
       });
+
+      return res.send();
     } catch (error) {
       return res.status(400).json({ message: 'Error Removing Product', error });
     }
