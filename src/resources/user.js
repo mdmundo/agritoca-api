@@ -13,11 +13,11 @@ module.exports = {
       .orderBy('id');
     return users;
   },
-  getUserById: async (id) => {
+  getUserById: async ({ id }) => {
     const [user] = await knex('users').where({ id });
     return user;
   },
-  getGoogleUserProfile: async (tokenId) => {
+  getGoogleUserProfile: async ({ tokenId }) => {
     const { data } = await axios.get(
       `https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=${tokenId}`
     );
@@ -43,7 +43,7 @@ module.exports = {
       .first()
       .update({ privilege, updated_at: knex.fn.now() });
   },
-  deleteCurrentUser: async (id) => {
+  deleteCurrentUser: async ({ id }) => {
     await knex('users').del().where({ id });
   }
 };

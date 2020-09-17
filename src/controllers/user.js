@@ -23,7 +23,7 @@ const userController = {
   },
   async readById(req, res) {
     try {
-      const user = await userResource.getUserById(req.params.id);
+      const user = await userResource.getUserById({ id: req.params.id });
 
       if (!user) return res.status(404).json({ message: 'User not found' });
       return res.json(getUserWithoutPassword(user));
@@ -41,7 +41,9 @@ const userController = {
           name,
           email,
           picture
-        } = await userResource.getGoogleUserProfile(req.body.tokenId);
+        } = await userResource.getGoogleUserProfile({
+          tokenId: req.body.tokenId
+        });
 
         // is the user already on db?
         {
@@ -121,7 +123,7 @@ const userController = {
     try {
       // delete user by id
       // cascade configured on migrations
-      await userResource.deleteCurrentUser(req.user.id);
+      await userResource.deleteCurrentUser({ id: req.user.id });
 
       // return user
       res.json(getUserWithoutPassword(req.user));
