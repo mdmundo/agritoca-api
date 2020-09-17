@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const { getUserWithoutPassword } = require('../utils/public');
-const userResource = require('../resources/user');
+const { userResource } = require('../resources/user');
 
 const userController = {
   async read(req, res) {
