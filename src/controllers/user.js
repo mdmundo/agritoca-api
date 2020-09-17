@@ -7,7 +7,7 @@ const userController = {
     // check if is admin
 
     try {
-      const users = await userResource.getUsersContainingEmailOrName(req.query);
+      const users = await userResource.getUsersContaining(req.query);
 
       const serializedUsers = users.map((user) => getUserWithoutPassword(user));
       return res.json(serializedUsers);
