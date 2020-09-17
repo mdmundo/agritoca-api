@@ -1,6 +1,4 @@
 const jwt = require('jsonwebtoken');
-const axios = require('axios');
-const knex = require('../../database/connection');
 const { getUserWithoutPassword } = require('../utils/public');
 const userResource = require('../resources/user');
 
@@ -9,11 +7,7 @@ const userController = {
     // check if is admin
 
     try {
-      const { email, name } = req.query;
-      const users = await userResource.getUsersContainingEmailOrName({
-        name,
-        email
-      });
+      const users = await userResource.getUsersContainingEmailOrName(req.query);
 
       const serializedUsers = users.map((user) => getUserWithoutPassword(user));
       return res.json(serializedUsers);
