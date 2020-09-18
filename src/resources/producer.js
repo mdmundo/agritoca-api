@@ -1,5 +1,6 @@
 const Hashids = require('hashids/cjs');
 const hashids = new Hashids('agritoca-api', 6);
+const { getWithoutID } = require('../utils/public');
 const knex = require('../../database/connection');
 
 module.exports = {
@@ -40,7 +41,7 @@ module.exports = {
 
       await knex('producers_history')
         .insert({
-          ...body,
+          ...getWithoutID(producer),
           hash: producer.hash,
           upserter,
           producer_id: producer.id
@@ -65,7 +66,7 @@ module.exports = {
 
       await knex('producers_history')
         .insert({
-          ...body,
+          ...getWithoutID(producer),
           upserter,
           producer_id: producer.id
         })

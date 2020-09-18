@@ -1,3 +1,4 @@
+const { getWithoutID } = require('../utils/public');
 const knex = require('../../database/connection');
 
 module.exports = {
@@ -34,14 +35,12 @@ module.exports = {
         .returning('*')
         .transacting(trx);
 
-      // id is undefined to not cause constraint issues
       await knex('products_history')
         .insert({
-          ...product,
+          ...getWithoutID(product),
           picture,
           upserter,
-          product_id: product.id,
-          id: undefined
+          product_id: product.id
         })
         .transacting(trx);
 
@@ -59,7 +58,7 @@ module.exports = {
 
       await knex('products_history')
         .insert({
-          ...body,
+          ...getWithoutID(product),
           upserter,
           product_id: product.id
         })
@@ -83,7 +82,7 @@ module.exports = {
 
       await knex('products_history')
         .insert({
-          ...body,
+          ...getWithoutID(product),
           upserter,
           product_id: product.id
         })
