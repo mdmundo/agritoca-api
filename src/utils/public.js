@@ -4,8 +4,8 @@ module.exports = {
     user.picture = user.picture ? user.picture : `${host}/users/avatar.png`;
     return user;
   },
-  getProductWithoutPicture: (product) => {
-    delete product.picture;
-    return product;
+  getWithoutPicture: (item) => {
+    delete item.picture;
+    return item;
   }
 };

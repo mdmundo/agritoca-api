@@ -1,5 +1,5 @@
 const sharp = require('sharp');
-const { getProductWithoutPicture } = require('../utils/public');
+const { getWithoutPicture } = require('../utils/public');
 const { productResource } = require('../resources');
 
 const productController = {
@@ -11,7 +11,7 @@ const productController = {
       const products = await productResource.getProductsContaining(req.query);
 
       const serializedProducts = products.map((product) =>
-        getProductWithoutPicture(product)
+        getWithoutPicture(product)
       );
 
       return res.json(serializedProducts);
@@ -23,7 +23,7 @@ const productController = {
     try {
       const product = await productResource.getProductById(req.params);
 
-      return res.json(getProductWithoutPicture(product));
+      return res.json(getWithoutPicture(product));
     } catch (error) {
       return res.status(500).json({ message: 'Error on Server' });
     }
@@ -69,7 +69,7 @@ const productController = {
         upserter: req.user.email
       });
 
-      return res.status(201).json(getProductWithoutPicture(product));
+      return res.status(201).json(getWithoutPicture(product));
     } catch (error) {
       return res.status(500).json({ message: 'Error Creating Product' });
     }
@@ -82,7 +82,7 @@ const productController = {
         upserter: req.user.email
       });
 
-      return res.json(getProductWithoutPicture(product));
+      return res.json(getWithoutPicture(product));
     } catch (error) {
       return res.status(500).json({ message: 'Error Updating Product' });
     }
