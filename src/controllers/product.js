@@ -4,9 +4,6 @@ const { productResource } = require('../resources');
 
 const productController = {
   async read(req, res) {
-    // pagination
-    // search queries
-
     try {
       const products = await productResource.getProductsContaining(req.query);
 
