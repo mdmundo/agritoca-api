@@ -18,5 +18,16 @@ module.exports = {
       barcode: Joi.string().max(255),
       keywords: Joi.string().max(255)
     })
+  },
+  search: {
+    query: {
+      brand: Joi.string().max(255),
+      keywords: Joi.string().max(255)
+    },
+    params: {
+      id: Joi.string()
+        .pattern(/^[0-9]+$/)
+        .max(20)
+    }
   }
 };
