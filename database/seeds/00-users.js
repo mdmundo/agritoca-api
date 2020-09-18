@@ -21,9 +21,7 @@ exports.seed = (knex) => {
         },
         {
           name: 'Stewart',
-          email: 'heckerman@aol.com',
-          picture:
-            'https://s.gravatar.com/avatar/440c551982b4d71250bb1eed6324836f?s=96&d=retro'
+          email: 'heckerman@aol.com'
         },
         {
           name: 'Luís',
