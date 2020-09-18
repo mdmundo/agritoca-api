@@ -34,11 +34,14 @@ module.exports = {
         .returning('*')
         .transacting(trx);
 
+      // id is undefined to not cause constraint issues
       await knex('products_history')
         .insert({
+          ...product,
           picture,
           upserter,
-          product_id: product.id
+          product_id: product.id,
+          id: undefined
         })
         .transacting(trx);
 
