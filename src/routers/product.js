@@ -25,7 +25,7 @@ router.get(
 router.get(
   '/products/:id/picture',
   celebrate(productSchema.search, joiOptions),
-  productController.picture
+  productController.getPicture
 );
 
 router.post(
@@ -41,7 +41,7 @@ router.post(
   auth,
   isMod,
   upload.single('picture'),
-  productController.upload,
+  productController.setPicture,
   (error, req, res, next) => {
     return res.status(400).json({ message: 'Can not upload that' });
   }

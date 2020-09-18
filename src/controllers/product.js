@@ -28,12 +28,12 @@ const productController = {
       return res.status(500).json({ message: 'Error on Server' });
     }
   },
-  async picture(req, res) {
+  async getPicture(req, res) {
     try {
       const picture = await productResource.getProductPictureById(req.params);
 
       if (!picture) {
-        throw new Error();
+        return res.redirect('/products/picture.png');
       }
 
       res.set('Content-Type', 'image/png');
@@ -42,7 +42,7 @@ const productController = {
       res.status(404).send();
     }
   },
-  async upload(req, res) {
+  async setPicture(req, res) {
     try {
       const buffer = await sharp(req.file.buffer)
         .resize({ width: 1600, height: 400 })
