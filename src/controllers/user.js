@@ -12,7 +12,7 @@ const userController = {
       const serializedUsers = users.map((user) => getUserWithoutPassword(user));
       return res.json(serializedUsers);
     } catch (error) {
-      return res.status(500).json({ message: 'Error on Server', error });
+      return res.status(500).json({ message: 'Error on Server' });
     }
   },
   async readById(req, res) {
@@ -67,7 +67,9 @@ const userController = {
         .status(400)
         .json({ message: 'Error on Signing User (Bad Form)' });
     } catch (error) {
-      return res.status(500).json({ message: 'Error on Signing User', error });
+      if (error.message === 'Request failed with status code 400')
+        return res.status(400).json({ message: 'Error on token validation' });
+      return res.status(500).json({ message: 'Error on Signing User' });
     }
   },
   async self(req, res) {
@@ -93,9 +95,7 @@ const userController = {
       }
       return res.status(400).json({ message: 'Missing parameter' });
     } catch (error) {
-      return res
-        .status(500)
-        .json({ message: 'Error on Setting Privilege', error });
+      return res.status(500).json({ message: 'Error on Setting Privilege' });
     }
   },
   async unsetPrivilege(req, res) {
@@ -105,9 +105,7 @@ const userController = {
 
       return res.send();
     } catch (error) {
-      return res
-        .status(500)
-        .json({ message: 'Error on Setting Privilege', error });
+      return res.status(500).json({ message: 'Error on Setting Privilege' });
     }
   },
   async delete(req, res) {
@@ -119,7 +117,7 @@ const userController = {
       // return user
       res.json(getUserWithoutPassword(req.user));
     } catch (error) {
-      res.status(500).json({ message: 'Error Deleting User', error });
+      res.status(500).json({ message: 'Error Deleting User' });
     }
   }
 };

@@ -10,7 +10,7 @@ const producerProductController = {
 
       return res.json(producerProducts);
     } catch (error) {
-      return res.status(500).json({ message: 'Error on Server', error });
+      return res.status(500).json({ message: 'Error on Server' });
     }
   },
   async readById(req, res) {},

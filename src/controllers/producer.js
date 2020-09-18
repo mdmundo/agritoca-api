@@ -42,25 +42,25 @@ const producerController = {
 
       return res.json(serializedProducers);
     } catch (error) {
-      return res.status(500).json({ message: 'Error on Server', error });
+      return res.status(500).json({ message: 'Error on Server' });
     }
   },
   async readById(req, res) {
-    // try {
-    // multiple joins example
-    // const products = await knex.select('*').from('producer_products').join('producers', 'producer_products.producer_id', '=', 'producers.id').join('products', 'producer_products.product_id', '=', 'products.id').where('producers.id', '=', req.params.id);
-    const products = await knex('producer_products')
-      .where('producer_products.producer_id', '=', req.params.id)
-      .join('products', 'producer_products.product_id', '=', 'products.id');
+    try {
+      // multiple joins example
+      // const products = await knex.select('*').from('producer_products').join('producers', 'producer_products.producer_id', '=', 'producers.id').join('products', 'producer_products.product_id', '=', 'products.id').where('producers.id', '=', req.params.id);
+      const products = await knex('producer_products')
+        .where('producer_products.producer_id', '=', req.params.id)
+        .join('products', 'producer_products.product_id', '=', 'products.id');
 
-    const serializedProducts = products.map((product) =>
-      getProductWithoutPicture(product)
-    );
+      const serializedProducts = products.map((product) =>
+        getProductWithoutPicture(product)
+      );
 
-    return res.json(serializedProducts);
-    // } catch (error) {
-    //   return res.status(400).json({ message: 'Malformed Request', error });
-    // }
+      return res.json(serializedProducts);
+    } catch (error) {
+      return res.status(500).json({ message: 'Error on Server' });
+    }
   },
   async create(req, res) {
     try {
@@ -81,9 +81,7 @@ const producerController = {
         return res.status(201).json(getProducerWithHash(producer));
       });
     } catch (error) {
-      return res
-        .status(400)
-        .json({ message: 'Error Creating Producer', error });
+      return res.status(500).json({ message: 'Error Creating Producer' });
     }
   },
   async update(req, res) {

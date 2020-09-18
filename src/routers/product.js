@@ -43,7 +43,7 @@ router.post(
   upload.single('picture'),
   productController.upload,
   (error, req, res, next) => {
-    return res.status(400).json({ message: 'Can not upload that', error });
+    return res.status(400).json({ message: 'Can not upload that' });
   }
 );
 

@@ -16,7 +16,7 @@ const productController = {
 
       return res.json(serializedProducts);
     } catch (error) {
-      return res.status(500).json({ message: 'Error on Server', error });
+      return res.status(500).json({ message: 'Error on Server' });
     }
   },
   async readById(req, res) {
@@ -25,7 +25,7 @@ const productController = {
 
       return res.json(getProductWithoutPicture(product));
     } catch (error) {
-      return res.status(400).json({ message: 'Malformed Request', error });
+      return res.status(500).json({ message: 'Error on Server' });
     }
   },
   async picture(req, res) {
@@ -71,7 +71,7 @@ const productController = {
 
       return res.status(201).json(getProductWithoutPicture(product));
     } catch (error) {
-      return res.status(400).json({ message: 'Error Creating Product', error });
+      return res.status(500).json({ message: 'Error Creating Product' });
     }
   },
   async update(req, res) {
@@ -84,7 +84,7 @@ const productController = {
 
       return res.status(200).json(getProductWithoutPicture(product));
     } catch (error) {
-      return res.status(400).json({ message: 'Error Updating Product', error });
+      return res.status(500).json({ message: 'Error Updating Product' });
     }
   },
   async delete(req, res) {
@@ -96,7 +96,7 @@ const productController = {
 
       return res.send();
     } catch (error) {
-      return res.status(400).json({ message: 'Error Removing Product', error });
+      return res.status(500).json({ message: 'Error Removing Product' });
     }
   }
 };
