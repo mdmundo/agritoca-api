@@ -82,7 +82,7 @@ const productController = {
         upserter: req.user.email
       });
 
-      return res.status(200).json(getProductWithoutPicture(product));
+      return res.json(getProductWithoutPicture(product));
     } catch (error) {
       return res.status(500).json({ message: 'Error Updating Product' });
     }
