@@ -7,7 +7,11 @@ const { producerController } = require('../controllers');
 const joiOptions = { abortEarly: false };
 const router = new express.Router();
 
-router.get('/producers', producerController.read);
+router.get(
+  '/producers',
+  celebrate(producerSchema.search, joiOptions),
+  producerController.read
+);
 
 router.get(
   '/producers/:id',

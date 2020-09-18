@@ -38,7 +38,8 @@ module.exports = {
   },
   search: {
     query: {
-      name: Joi.string().max(255)
+      name: Joi.string().max(255),
+      hash: Joi.string().alphanum().max(6)
     },
     params: {
       id: Joi.string()

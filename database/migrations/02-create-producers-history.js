@@ -11,6 +11,7 @@ exports.up = (knex) =>
     // inscrição municipal e inscrição estadual
     table.string('ie').defaultTo(null);
     table.string('im').defaultTo(null);
+    table.string('hash').defaultTo(null);
     table.string('upserter');
     table.timestamps(true, true);
   });

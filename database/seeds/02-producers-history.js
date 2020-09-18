@@ -1,3 +1,6 @@
+const Hashids = require('hashids/cjs');
+const hashids = new Hashids('agritoca-api', 6);
+
 exports.seed = (knex) => {
   // Deletes ALL existing entries
   return knex('producers_history')
@@ -14,6 +17,7 @@ exports.seed = (knex) => {
           address: '27179787, St. Gkznepnw, Honolulu, Hawaii',
           ie: '44864122407',
           im: '38848818893',
+          hash: hashids.encode(1),
           upserter: 'teverett@msn.com'
         },
         {
@@ -25,6 +29,7 @@ exports.seed = (knex) => {
           address: '27179787, St. Gkznepnw, Honolulu, Hawaii',
           ie: '44864122407',
           im: '38848818893',
+          hash: hashids.encode(1),
           upserter: 'mbrown@msn.com'
         },
         {
@@ -36,6 +41,7 @@ exports.seed = (knex) => {
           address: '27179787, St. Gkznepnw, Honolulu, Hawaii',
           ie: '44864122407',
           im: '38848818893',
+          hash: hashids.encode(1),
           upserter: 'teverett@msn.com'
         },
         {
@@ -47,6 +53,7 @@ exports.seed = (knex) => {
           address: '73179165, St. Yhtdcvsa, Scottsdale, Arizona',
           ie: '19099526129',
           im: '50704096269',
+          hash: hashids.encode(2),
           upserter: 'teverett@msn.com'
         },
         {
@@ -58,6 +65,7 @@ exports.seed = (knex) => {
           address: '73179165, St. Yhtdcvsa, Scottsdale, Arizona',
           ie: '19099526129',
           im: '50704096269',
+          hash: hashids.encode(2),
           upserter: 'mbrown@msn.com'
         },
         {
@@ -69,6 +77,7 @@ exports.seed = (knex) => {
           address: '73179165, St. Yhtdcvsa, Scottsdale, Arizona',
           ie: '19099526129',
           im: '50704096269',
+          hash: hashids.encode(2),
           upserter: 'teverett@msn.com'
         },
         {
@@ -80,6 +89,7 @@ exports.seed = (knex) => {
           address: '45858473, St. Wkwogsam, Raleigh, North Carolina',
           ie: '17776956765',
           im: '96235711237',
+          hash: hashids.encode(3),
           upserter: 'teverett@msn.com'
         },
         {
@@ -91,6 +101,7 @@ exports.seed = (knex) => {
           address: '45858473, St. Wkwogsam, Raleigh, North Carolina',
           ie: '17776956765',
           im: '96235711237',
+          hash: hashids.encode(3),
           upserter: 'mbrown@msn.com'
         },
         {
@@ -102,6 +113,7 @@ exports.seed = (knex) => {
           address: '45858473, St. Wkwogsam, Raleigh, North Carolina',
           ie: '17776956765',
           im: '96235711237',
+          hash: hashids.encode(3),
           upserter: 'teverett@msn.com'
         },
         {
@@ -113,6 +125,7 @@ exports.seed = (knex) => {
           address: '92426216, St. Kwyomanm, New York, New York',
           ie: '14744493884',
           im: '21683115232',
+          hash: hashids.encode(4),
           upserter: 'teverett@msn.com'
         },
         {
@@ -124,6 +137,7 @@ exports.seed = (knex) => {
           address: '92426216, St. Kwyomanm, New York, New York',
           ie: '14744493884',
           im: '21683115232',
+          hash: hashids.encode(4),
           upserter: 'mbrown@msn.com'
         },
         {
@@ -135,6 +149,7 @@ exports.seed = (knex) => {
           address: '92426216, St. Kwyomanm, New York, New York',
           ie: '14744493884',
           im: '21683115232',
+          hash: hashids.encode(4),
           upserter: 'teverett@msn.com'
         },
         {
@@ -146,6 +161,7 @@ exports.seed = (knex) => {
           address: '18211170, St. Xfmkqlxi, Indianapolis, Indiana',
           ie: '78874500591',
           im: '38248919167',
+          hash: hashids.encode(5),
           upserter: 'teverett@msn.com'
         },
         {
@@ -157,6 +173,7 @@ exports.seed = (knex) => {
           address: '18211170, St. Xfmkqlxi, Indianapolis, Indiana',
           ie: '78874500591',
           im: '38248919167',
+          hash: hashids.encode(5),
           upserter: 'mbrown@msn.com'
         },
         {
@@ -168,6 +185,7 @@ exports.seed = (knex) => {
           address: '18211170, St. Xfmkqlxi, Indianapolis, Indiana',
           ie: '78874500591',
           im: '38248919167',
+          hash: hashids.encode(5),
           upserter: 'teverett@msn.com'
         },
         {
@@ -179,6 +197,7 @@ exports.seed = (knex) => {
           address: '32640553, St. Bmsayvrn, Atlanta, Georgia',
           ie: '20928197584',
           im: '74980564457',
+          hash: hashids.encode(6),
           upserter: 'teverett@msn.com'
         },
         {
@@ -190,6 +209,7 @@ exports.seed = (knex) => {
           address: '32640553, St. Bmsayvrn, Atlanta, Georgia',
           ie: '20928197584',
           im: '74980564457',
+          hash: hashids.encode(6),
           upserter: 'mbrown@msn.com'
         },
         {
@@ -201,6 +221,7 @@ exports.seed = (knex) => {
           address: '32640553, St. Bmsayvrn, Atlanta, Georgia',
           ie: '20928197584',
           im: '74980564457',
+          hash: hashids.encode(6),
           upserter: 'teverett@msn.com'
         },
         {
@@ -212,6 +233,7 @@ exports.seed = (knex) => {
           address: '16764476, St. Moljwqqi, Madison, Wisconsin',
           ie: '94311000308',
           im: '08070598636',
+          hash: hashids.encode(7),
           upserter: 'teverett@msn.com'
         },
         {
@@ -223,6 +245,7 @@ exports.seed = (knex) => {
           address: '16764476, St. Moljwqqi, Madison, Wisconsin',
           ie: '94311000308',
           im: '08070598636',
+          hash: hashids.encode(7),
           upserter: 'mbrown@msn.com'
         },
         {
@@ -234,6 +257,7 @@ exports.seed = (knex) => {
           address: '16764476, St. Moljwqqi, Madison, Wisconsin',
           ie: '94311000308',
           im: '08070598636',
+          hash: hashids.encode(7),
           upserter: 'teverett@msn.com'
         },
         {
@@ -245,6 +269,7 @@ exports.seed = (knex) => {
           address: '68932792, St. Fforktfw, Seattle, Washington',
           ie: '59029973536',
           im: '81424199717',
+          hash: hashids.encode(8),
           upserter: 'teverett@msn.com'
         },
         {
@@ -256,6 +281,7 @@ exports.seed = (knex) => {
           address: '68932792, St. Fforktfw, Seattle, Washington',
           ie: '59029973536',
           im: '81424199717',
+          hash: hashids.encode(8),
           upserter: 'mbrown@msn.com'
         },
         {
@@ -267,6 +293,7 @@ exports.seed = (knex) => {
           address: '68932792, St. Fforktfw, Seattle, Washington',
           ie: '59029973536',
           im: '81424199717',
+          hash: hashids.encode(8),
           upserter: 'teverett@msn.com'
         },
         {
@@ -278,6 +305,7 @@ exports.seed = (knex) => {
           address: '72769808, St. Bljqdkvk, Milwaukee, Wisconsin',
           ie: '16643116209',
           im: '53486629390',
+          hash: hashids.encode(9),
           upserter: 'teverett@msn.com'
         },
         {
@@ -289,6 +317,7 @@ exports.seed = (knex) => {
           address: '72769808, St. Bljqdkvk, Milwaukee, Wisconsin',
           ie: '16643116209',
           im: '53486629390',
+          hash: hashids.encode(9),
           upserter: 'mbrown@msn.com'
         },
         {
@@ -300,6 +329,7 @@ exports.seed = (knex) => {
           address: '72769808, St. Bljqdkvk, Milwaukee, Wisconsin',
           ie: '16643116209',
           im: '53486629390',
+          hash: hashids.encode(9),
           upserter: 'teverett@msn.com'
         },
         {
@@ -311,6 +341,7 @@ exports.seed = (knex) => {
           address: '99836122, St. Zjaejgqp, Santa Ana, California',
           ie: '52015084540',
           im: '39959644806',
+          hash: hashids.encode(10),
           upserter: 'teverett@msn.com'
         },
         {
@@ -322,6 +353,7 @@ exports.seed = (knex) => {
           address: '99836122, St. Zjaejgqp, Santa Ana, California',
           ie: '52015084540',
           im: '39959644806',
+          hash: hashids.encode(10),
           upserter: 'mbrown@msn.com'
         },
         {
@@ -333,6 +365,7 @@ exports.seed = (knex) => {
           address: '99836122, St. Zjaejgqp, Santa Ana, California',
           ie: '52015084540',
           im: '39959644806',
+          hash: hashids.encode(10),
           upserter: 'teverett@msn.com'
         },
         {
@@ -344,6 +377,7 @@ exports.seed = (knex) => {
           address: '73806699, St. Tczmetye, Durham, North Carolina',
           ie: '39920322917',
           im: '80547195480',
+          hash: hashids.encode(11),
           upserter: 'teverett@msn.com'
         },
         {
@@ -355,6 +389,7 @@ exports.seed = (knex) => {
           address: '73806699, St. Tczmetye, Durham, North Carolina',
           ie: '39920322917',
           im: '80547195480',
+          hash: hashids.encode(11),
           upserter: 'mbrown@msn.com'
         },
         {
@@ -366,6 +401,7 @@ exports.seed = (knex) => {
           address: '73806699, St. Tczmetye, Durham, North Carolina',
           ie: '39920322917',
           im: '80547195480',
+          hash: hashids.encode(11),
           upserter: 'teverett@msn.com'
         },
         {
@@ -377,6 +413,7 @@ exports.seed = (knex) => {
           address: '57508398, St. Tzlmnzyd, Lincoln, Nebraska',
           ie: '33929541670',
           im: '02770378666',
+          hash: hashids.encode(12),
           upserter: 'teverett@msn.com'
         },
         {
@@ -388,6 +425,7 @@ exports.seed = (knex) => {
           address: '57508398, St. Tzlmnzyd, Lincoln, Nebraska',
           ie: '33929541670',
           im: '02770378666',
+          hash: hashids.encode(12),
           upserter: 'mbrown@msn.com'
         },
         {
@@ -399,6 +437,7 @@ exports.seed = (knex) => {
           address: '57508398, St. Tzlmnzyd, Lincoln, Nebraska',
           ie: '33929541670',
           im: '02770378666',
+          hash: hashids.encode(12),
           upserter: 'teverett@msn.com'
         },
         {
@@ -410,6 +449,7 @@ exports.seed = (knex) => {
           address: '16721125, St. Xobqmcfx, Oklahoma City, Oklahoma',
           ie: '37735057157',
           im: '15392318534',
+          hash: hashids.encode(13),
           upserter: 'teverett@msn.com'
         },
         {
@@ -421,6 +461,7 @@ exports.seed = (knex) => {
           address: '16721125, St. Xobqmcfx, Oklahoma City, Oklahoma',
           ie: '37735057157',
           im: '15392318534',
+          hash: hashids.encode(13),
           upserter: 'mbrown@msn.com'
         },
         {
@@ -432,6 +473,7 @@ exports.seed = (knex) => {
           address: '16721125, St. Xobqmcfx, Oklahoma City, Oklahoma',
           ie: '37735057157',
           im: '15392318534',
+          hash: hashids.encode(13),
           upserter: 'teverett@msn.com'
         },
         {
@@ -443,6 +485,7 @@ exports.seed = (knex) => {
           address: '85093321, St. Zgvfxyfg, Charlotte, North Carolina',
           ie: '81476471192',
           im: '85690257755',
+          hash: hashids.encode(14),
           upserter: 'teverett@msn.com'
         },
         {
@@ -454,6 +497,7 @@ exports.seed = (knex) => {
           address: '85093321, St. Zgvfxyfg, Charlotte, North Carolina',
           ie: '81476471192',
           im: '85690257755',
+          hash: hashids.encode(14),
           upserter: 'mbrown@msn.com'
         },
         {
@@ -465,6 +509,7 @@ exports.seed = (knex) => {
           address: '85093321, St. Zgvfxyfg, Charlotte, North Carolina',
           ie: '81476471192',
           im: '85690257755',
+          hash: hashids.encode(14),
           upserter: 'teverett@msn.com'
         },
         {
@@ -476,6 +521,7 @@ exports.seed = (knex) => {
           address: '49321896, St. Yzovymks, Miami, Florida',
           ie: '54160950179',
           im: '61766332694',
+          hash: hashids.encode(15),
           upserter: 'teverett@msn.com'
         },
         {
@@ -487,6 +533,7 @@ exports.seed = (knex) => {
           address: '49321896, St. Yzovymks, Miami, Florida',
           ie: '54160950179',
           im: '61766332694',
+          hash: hashids.encode(15),
           upserter: 'mbrown@msn.com'
         },
         {
@@ -498,6 +545,7 @@ exports.seed = (knex) => {
           address: '49321896, St. Yzovymks, Miami, Florida',
           ie: '54160950179',
           im: '61766332694',
+          hash: hashids.encode(15),
           upserter: 'teverett@msn.com'
         },
         {
@@ -509,6 +557,7 @@ exports.seed = (knex) => {
           address: '15282542, St. Pppdrbgm, Minneapolis, Minnesota',
           ie: '60722342250',
           im: '87666412212',
+          hash: hashids.encode(16),
           upserter: 'teverett@msn.com'
         },
         {
@@ -520,6 +569,7 @@ exports.seed = (knex) => {
           address: '15282542, St. Pppdrbgm, Minneapolis, Minnesota',
           ie: '60722342250',
           im: '87666412212',
+          hash: hashids.encode(16),
           upserter: 'mbrown@msn.com'
         },
         {
@@ -531,6 +581,7 @@ exports.seed = (knex) => {
           address: '15282542, St. Pppdrbgm, Minneapolis, Minnesota',
           ie: '60722342250',
           im: '87666412212',
+          hash: hashids.encode(16),
           upserter: 'teverett@msn.com'
         },
         {
@@ -542,6 +593,7 @@ exports.seed = (knex) => {
           address: '12707245, St. Pxrophrx, Tucson, Arizona',
           ie: '04680523280',
           im: '86057279614',
+          hash: hashids.encode(17),
           upserter: 'teverett@msn.com'
         },
         {
@@ -553,6 +605,7 @@ exports.seed = (knex) => {
           address: '12707245, St. Pxrophrx, Tucson, Arizona',
           ie: '04680523280',
           im: '86057279614',
+          hash: hashids.encode(17),
           upserter: 'mbrown@msn.com'
         },
         {
@@ -564,6 +617,7 @@ exports.seed = (knex) => {
           address: '12707245, St. Pxrophrx, Tucson, Arizona',
           ie: '04680523280',
           im: '86057279614',
+          hash: hashids.encode(17),
           upserter: 'teverett@msn.com'
         },
         {
@@ -575,6 +629,7 @@ exports.seed = (knex) => {
           address: '17395042, St. Gawazqhx, Tampa, Florida',
           ie: '58816193310',
           im: '92051616549',
+          hash: hashids.encode(18),
           upserter: 'teverett@msn.com'
         },
         {
@@ -586,6 +641,7 @@ exports.seed = (knex) => {
           address: '17395042, St. Gawazqhx, Tampa, Florida',
           ie: '58816193310',
           im: '92051616549',
+          hash: hashids.encode(18),
           upserter: 'mbrown@msn.com'
         },
         {
@@ -597,6 +653,7 @@ exports.seed = (knex) => {
           address: '17395042, St. Gawazqhx, Tampa, Florida',
           ie: '58816193310',
           im: '92051616549',
+          hash: hashids.encode(18),
           upserter: 'teverett@msn.com'
         },
         {
@@ -608,6 +665,7 @@ exports.seed = (knex) => {
           address: '62449262, St. Fsmhoryb, Dallas, Texas',
           ie: '50249724720',
           im: '93276065905',
+          hash: hashids.encode(19),
           upserter: 'teverett@msn.com'
         },
         {
@@ -619,6 +677,7 @@ exports.seed = (knex) => {
           address: '62449262, St. Fsmhoryb, Dallas, Texas',
           ie: '50249724720',
           im: '93276065905',
+          hash: hashids.encode(19),
           upserter: 'mbrown@msn.com'
         },
         {
@@ -630,6 +689,7 @@ exports.seed = (knex) => {
           address: '62449262, St. Fsmhoryb, Dallas, Texas',
           ie: '50249724720',
           im: '93276065905',
+          hash: hashids.encode(19),
           upserter: 'teverett@msn.com'
         },
         {
@@ -641,6 +701,7 @@ exports.seed = (knex) => {
           address: '19546512, St. Pvloqgen, Virginia Beach, Virginia',
           ie: '13902142292',
           im: '45809714080',
+          hash: hashids.encode(20),
           upserter: 'teverett@msn.com'
         },
         {
@@ -652,6 +713,7 @@ exports.seed = (knex) => {
           address: '19546512, St. Pvloqgen, Virginia Beach, Virginia',
           ie: '13902142292',
           im: '45809714080',
+          hash: hashids.encode(20),
           upserter: 'mbrown@msn.com'
         },
         {
@@ -663,6 +725,7 @@ exports.seed = (knex) => {
           address: '19546512, St. Pvloqgen, Virginia Beach, Virginia',
           ie: '13902142292',
           im: '45809714080',
+          hash: hashids.encode(20),
           upserter: 'teverett@msn.com'
         }
       ]);
