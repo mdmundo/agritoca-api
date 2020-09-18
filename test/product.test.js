@@ -5,5 +5,5 @@ const { setupDatabase } = require('./fixtures/db');
 beforeEach(setupDatabase);
 
 test('Should fetch all products', async () => {
-  const response = await request(app).get('/products').send().expect(200);
+  const response = await request(app).get('/products/').send().expect(200);
 });

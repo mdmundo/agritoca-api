@@ -25,14 +25,14 @@ router.post(
   userController.sign
 );
 
-router.post(
+router.patch(
   '/users/:id/set/:privilege',
   auth,
   isAdmin,
   userController.setPrivilege
 );
 
-router.post('/users/:id/unset', auth, isAdmin, userController.unsetPrivilege);
+router.patch('/users/:id/unset', auth, isAdmin, userController.unsetPrivilege);
 
 router.delete('/me', auth, userController.delete);
 

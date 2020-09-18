@@ -37,7 +37,7 @@ test('Should fetch current user', async () => {
 
 test('Should set admin privilege', async () => {
   const response = await request(app)
-    .post(`/users/${users[1].id}/set/admin`)
+    .patch(`/users/${users[1].id}/set/admin`)
     .set('Authorization', `Bearer ${users[0].token}`)
     .send()
     .expect(200);
@@ -48,7 +48,7 @@ test('Should set admin privilege', async () => {
 
 test('Should revoke all privileges', async () => {
   const response = await request(app)
-    .post(`/users/${users[1].id}/unset`)
+    .patch(`/users/${users[1].id}/unset`)
     .set('Authorization', `Bearer ${users[0].token}`)
     .send()
     .expect(200);
