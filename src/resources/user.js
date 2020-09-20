@@ -1,3 +1,4 @@
+const { getPaginationParams } = require('../utils/public');
 const axios = require('axios');
 const knex = require('../../database/connection');
 
@@ -6,11 +7,19 @@ module.exports = {
     const users = await knex('users').orderBy('id');
     return users;
   },
-  async getUsersContaining({ name, email }) {
+  async getUsersContaining({ name, email, sort, direction, page, pageSize }) {
+    const { orderBy, offset, limit } = getPaginationParams({
+      sort,
+      direction,
+      page,
+      pageSize
+    });
     const users = await knex('users')
       .where('name', 'ilike', `%${name ? name : ''}%`)
       .andWhere('email', 'ilike', `%${email ? email : ''}%`)
-      .orderBy('id');
+      .orderBy(orderBy)
+      .limit(limit)
+      .offset(offset);
     return users;
   },
   async getUserById({ id }) {

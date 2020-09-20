@@ -101,7 +101,6 @@ const userController = {
         });
         return res.send();
       }
-      return res.status(400).json({ message: 'Missing parameter' });
     } catch (error) {
       return res.status(500).json({ message: 'Error on Setting Privilege' });
     }

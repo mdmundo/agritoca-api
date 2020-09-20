@@ -1,4 +1,5 @@
 const { Joi } = require('celebrate');
+const { getPaginationQueriesSchema } = require('../utils/public');
 
 module.exports = {
   create: {
@@ -33,7 +34,8 @@ module.exports = {
       description: Joi.string().max(255),
       ncm: Joi.string()
         .pattern(/^[0-9]+$/)
-        .max(20)
+        .max(20),
+      ...getPaginationQueriesSchema()
     },
     params: {
       id: Joi.string()

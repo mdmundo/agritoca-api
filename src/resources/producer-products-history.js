@@ -1,3 +1,4 @@
+const { getPaginationParams } = require('../utils/public');
 const knex = require('../../database/connection');
 
 module.exports = {
@@ -10,8 +11,18 @@ module.exports = {
   async getProducerProductsHistoryContaining({
     brand,
     keywords,
-    producerProductId
+    producerProductId,
+    sort,
+    direction,
+    page,
+    pageSize
   }) {
+    const { orderBy, offset, limit } = getPaginationParams({
+      sort,
+      direction,
+      page,
+      pageSize
+    });
     const producerProductsHistory = await knex('producer_products_history')
       .where('brand', 'ilike', `%${brand ? brand : ''}%`)
       .andWhere('keywords', 'like', `%${keywords ? keywords : ''}%`)
@@ -20,7 +31,9 @@ module.exports = {
         '=',
         producerProductId ? producerProductId : ''
       )
-      .orderBy('id');
+      .orderBy(orderBy)
+      .limit(limit)
+      .offset(offset);
     return producerProductsHistory;
   },
   async getProducerProductHistoryById({ id }) {

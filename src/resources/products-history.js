@@ -1,3 +1,4 @@
+const { getPaginationParams } = require('../utils/public');
 const knex = require('../../database/connection');
 
 module.exports = {
@@ -5,12 +6,28 @@ module.exports = {
     const productsHistory = await knex('products_history').orderBy('id');
     return productsHistory;
   },
-  async getProductsHistoryContaining({ description, ncm, productId }) {
+  async getProductsHistoryContaining({
+    description,
+    ncm,
+    productId,
+    sort,
+    direction,
+    page,
+    pageSize
+  }) {
+    const { orderBy, offset, limit } = getPaginationParams({
+      sort,
+      direction,
+      page,
+      pageSize
+    });
     const productsHistory = await knex('products_history')
       .where('description', 'ilike', `%${description ? description : ''}%`)
       .andWhere('ncm', 'like', `%${ncm ? ncm : ''}%`)
       .andWhere('product_id', '=', productId ? productId : '')
-      .orderBy('id');
+      .orderBy(orderBy)
+      .limit(limit)
+      .offset(offset);
     return productsHistory;
   },
   async getProductHistoryById({ id }) {

@@ -1,4 +1,4 @@
-const { getWithoutID } = require('../utils/public');
+const { getWithoutID, getPaginationParams } = require('../utils/public');
 const knex = require('../../database/connection');
 
 module.exports = {
@@ -6,11 +6,26 @@ module.exports = {
     const producerProducts = await knex('producer_products').orderBy('id');
     return producerProducts;
   },
-  async getProducerProductsContaining({ brand, keywords }) {
+  async getProducerProductsContaining({
+    brand,
+    keywords,
+    sort,
+    direction,
+    page,
+    pageSize
+  }) {
+    const { orderBy, offset, limit } = getPaginationParams({
+      sort,
+      direction,
+      page,
+      pageSize
+    });
     const producerProducts = await knex('producer_products')
       .where('brand', 'ilike', `%${brand ? brand : ''}%`)
       .andWhere('keywords', 'like', `%${keywords ? keywords : ''}%`)
-      .orderBy('id');
+      .orderBy(orderBy)
+      .limit(limit)
+      .offset(offset);
     return producerProducts;
   },
   async getProducerProductById({ id }) {

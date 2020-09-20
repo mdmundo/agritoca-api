@@ -15,7 +15,13 @@ router.get(
   userController.read
 );
 
-router.get('/users/:id', auth, isAdmin, userController.readById);
+router.get(
+  '/users/:id',
+  auth,
+  isAdmin,
+  celebrate(userSchema.search, joiOptions),
+  userController.readById
+);
 
 router.get('/me', auth, userController.self);
 
@@ -29,10 +35,17 @@ router.patch(
   '/users/:id/set/:privilege',
   auth,
   isAdmin,
+  celebrate(userSchema.search, joiOptions),
   userController.setPrivilege
 );
 
-router.patch('/users/:id/unset', auth, isAdmin, userController.unsetPrivilege);
+router.patch(
+  '/users/:id/unset',
+  auth,
+  isAdmin,
+  celebrate(userSchema.search, joiOptions),
+  userController.unsetPrivilege
+);
 
 router.delete('/me', auth, userController.delete);
 
