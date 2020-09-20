@@ -26,5 +26,19 @@ module.exports = {
     } catch (error) {
       return res.status(500).json({ message: 'Error on Server' });
     }
+  },
+  async getPicture(req, res) {
+    try {
+      const picture = await producerProductsHistoryResource.getProducerProductHistoryPictureById(
+        req.params
+      );
+
+      if (!picture) throw new Error();
+
+      res.set('Content-Type', 'image/png');
+      res.send(picture);
+    } catch (e) {
+      res.status(404).send();
+    }
   }
 };

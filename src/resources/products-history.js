@@ -16,5 +16,9 @@ module.exports = {
   async getProductHistoryById({ id }) {
     const productHistory = await knex('products_history').where({ id }).first();
     return productHistory;
+  },
+  async getProductHistoryPictureById({ id }) {
+    const productHistory = await knex('products_history').where({ id }).first();
+    return productHistory.picture;
   }
 };

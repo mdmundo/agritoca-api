@@ -24,9 +24,15 @@ module.exports = {
     return producerProductsHistory;
   },
   async getProducerProductHistoryById({ id }) {
-    const productHistory = await knex('producer_products_history')
+    const producerProductHistory = await knex('producer_products_history')
       .where({ id })
       .first();
-    return productHistory;
+    return producerProductHistory;
+  },
+  async getProducerProductHistoryPictureById({ id }) {
+    const producerProductHistory = await knex('producer_products_history')
+      .where({ id })
+      .first();
+    return producerProductHistory.picture;
   }
 };

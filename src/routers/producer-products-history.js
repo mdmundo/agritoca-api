@@ -23,4 +23,12 @@ router.get(
   producerProductsHistoryController.readById
 );
 
+router.get(
+  '/producerProductsHistory/:id/picture',
+  auth,
+  isMod,
+  celebrate(producerProductsHistorySchema.search, joiOptions),
+  producerProductsHistoryController.getPicture
+);
+
 module.exports = router;
