@@ -1,3 +1,5 @@
+const picture = require('./img/product');
+
 exports.seed = (knex) => {
   // Deletes ALL existing entries
   return knex('producer_products_history')
@@ -7,6 +9,7 @@ exports.seed = (knex) => {
       return knex('producer_products_history').insert([
         {
           producer_product_id: 1,
+          picture,
           brand: 'ooarea',
           barcode: '197895997244',
           keywords: 'upset, responsible, splendid',
@@ -16,6 +19,7 @@ exports.seed = (knex) => {
         },
         {
           producer_product_id: 1,
+          picture,
           brand: 'ooarea',
           barcode: '197895997244',
           keywords: 'upset, responsible, splendid',
