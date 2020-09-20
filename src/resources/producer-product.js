@@ -22,7 +22,7 @@ module.exports = {
     });
     const producerProducts = await knex('producer_products')
       .where('brand', 'ilike', `%${brand ? brand : ''}%`)
-      .andWhere('keywords', 'like', `%${keywords ? keywords : ''}%`)
+      .andWhere('keywords', 'ilike', `%${keywords ? keywords : ''}%`)
       .orderBy(orderBy)
       .limit(limit)
       .offset(offset);
@@ -45,7 +45,6 @@ module.exports = {
     await knex.transaction(async (trx) => {
       const [producerProduct] = await knex('producer_products')
         .where({ id })
-        .first()
         .update({
           picture,
           upserter,
@@ -90,7 +89,6 @@ module.exports = {
     await knex.transaction(async (trx) => {
       [producerProduct] = await knex('producer_products')
         .where({ id })
-        .first()
         .update({
           ...body,
           upserter,
@@ -111,16 +109,16 @@ module.exports = {
   },
   async deleteProducerProduct({ id, upserter }) {
     await knex.transaction(async (trx) => {
-      await knex('producer_products')
+      const [producerProduct] = await knex('producer_products')
         .where({ id })
-        .first()
+        .returning('*')
         .del()
         .transacting(trx);
 
       await knex('producer_products_history')
         .insert({
           upserter,
-          producer_product_id: id
+          producer_product_id: producerProduct.id
         })
         .transacting(trx);
     });

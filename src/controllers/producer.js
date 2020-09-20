@@ -33,19 +33,27 @@ const producerController = {
     }
   },
   async update(req, res) {
-    const producer = await producerResource.getUpdatedProducer({
-      id: req.params.id,
-      body: req.body,
-      upserter: req.user.email
-    });
-    return res.json(producer);
+    try {
+      const producer = await producerResource.getUpdatedProducer({
+        id: req.params.id,
+        body: req.body,
+        upserter: req.user.email
+      });
+      return res.json(producer);
+    } catch (error) {
+      return res.status(500).json({ message: 'Error Updating Producer' });
+    }
   },
   async delete(req, res) {
-    await producerResource.deleteProducer({
-      id: req.params.id,
-      upserter: req.user.email
-    });
-    return res.send();
+    try {
+      await producerResource.deleteProducer({
+        id: req.params.id,
+        upserter: req.user.email
+      });
+      return res.send();
+    } catch (error) {
+      return res.status(500).json({ message: 'Error Removing Producer' });
+    }
   }
 };
 

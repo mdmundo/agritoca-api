@@ -41,7 +41,6 @@ module.exports = {
     await knex.transaction(async (trx) => {
       const [product] = await knex('products')
         .where({ id })
-        .first()
         .update({
           picture,
           upserter,
@@ -86,7 +85,6 @@ module.exports = {
     await knex.transaction(async (trx) => {
       [product] = await knex('products')
         .where({ id })
-        .first()
         .update({
           ...body,
           upserter,
@@ -107,12 +105,16 @@ module.exports = {
   },
   async deleteProduct({ id, upserter }) {
     await knex.transaction(async (trx) => {
-      await knex('products').where({ id }).first().del().transacting(trx);
+      const [product] = await knex('products')
+        .where({ id })
+        .returning('*')
+        .del()
+        .transacting(trx);
 
       await knex('products_history')
         .insert({
           upserter,
-          product_id: id
+          product_id: product.id
         })
         .transacting(trx);
     });

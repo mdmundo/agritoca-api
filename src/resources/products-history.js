@@ -7,8 +7,6 @@ module.exports = {
     return productsHistory;
   },
   async getProductsHistoryContaining({
-    description,
-    ncm,
     productId,
     sort,
     direction,
@@ -22,9 +20,9 @@ module.exports = {
       pageSize
     });
     const productsHistory = await knex('products_history')
-      .where('description', 'ilike', `%${description ? description : ''}%`)
-      .andWhere('ncm', 'like', `%${ncm ? ncm : ''}%`)
-      .andWhere('product_id', '=', productId ? productId : '')
+      .whereRaw('cast(product_id as varchar) like ?', [
+        productId ? `${productId}` : '%'
+      ])
       .orderBy(orderBy)
       .limit(limit)
       .offset(offset);

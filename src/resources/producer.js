@@ -48,7 +48,6 @@ module.exports = {
 
       [producer] = await knex('producers')
         .where({ id: producer.id })
-        .first()
         .update({
           hash: hashids.encode(producer.id)
         })
@@ -71,7 +70,6 @@ module.exports = {
     await knex.transaction(async (trx) => {
       [producer] = await knex('producers')
         .where({ id })
-        .first()
         .update({
           ...body,
           upserter,
@@ -92,12 +90,16 @@ module.exports = {
   },
   async deleteProducer({ id, upserter }) {
     await knex.transaction(async (trx) => {
-      await knex('producers').where({ id }).first().del().transacting(trx);
+      const [producer] = await knex('producers')
+        .where({ id })
+        .returning('*')
+        .del()
+        .transacting(trx);
 
       await knex('producers_history')
         .insert({
           upserter,
-          producer_id: id
+          producer_id: producer.id
         })
         .transacting(trx);
     });

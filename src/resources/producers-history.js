@@ -7,8 +7,6 @@ module.exports = {
     return producersHistory;
   },
   async getProducersHistoryContaining({
-    hash,
-    name,
     producerId,
     sort,
     direction,
@@ -22,9 +20,10 @@ module.exports = {
       pageSize
     });
     const producersHistory = await knex('producers_history')
-      .where('name', 'ilike', `%${name ? name : ''}%`)
-      .andWhere('hash', 'ilike', `%${hash ? hash : ''}%`)
-      .andWhere('producer_id', '=', producerId ? producerId : '')
+      .whereRaw(
+        'cast(producer_id as varchar) like ?',
+        producerId ? `${producerId}` : '%'
+      )
       .orderBy(orderBy)
       .limit(limit)
       .offset(offset);
