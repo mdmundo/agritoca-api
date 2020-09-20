@@ -1,3 +1,4 @@
+const { getWithoutPicture } = require('../utils/public');
 const { producerProductsHistoryResource } = require('../resources');
 
 module.exports = {
@@ -7,7 +8,11 @@ module.exports = {
         req.query
       );
 
-      return res.json(producerProductsHistory);
+      const serializedProducerProductsHistory = producerProductsHistory.map(
+        (producerProductHistory) => getWithoutPicture(producerProductHistory)
+      );
+
+      return res.json(serializedProducerProductsHistory);
     } catch (error) {
       return res.status(500).json({ message: 'Error on Server' });
     }
@@ -17,7 +22,7 @@ module.exports = {
       const producerProductHistory = await producerProductsHistoryResource.getProducerProductHistoryById(
         req.params
       );
-      return res.json(producerProductHistory);
+      return res.json(getWithoutPicture(producerProductHistory));
     } catch (error) {
       return res.status(500).json({ message: 'Error on Server' });
     }
