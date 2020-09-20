@@ -4,6 +4,9 @@ const productSchema = require('./product');
 const producerProductSchema = require('./producer-product');
 const basketSchema = require('./basket');
 const basketItemSchema = require('./basket-item');
+const producersHistorySchema = require('./producers-history');
+const productsHistorySchema = require('./products-history');
+const producerProductsHistorySchema = require('./producer-products-history');
 
 module.exports = {
   userSchema,
@@ -11,5 +14,8 @@ module.exports = {
   productSchema,
   producerProductSchema,
   basketSchema,
-  basketItemSchema
+  basketItemSchema,
+  producersHistorySchema,
+  productsHistorySchema,
+  producerProductsHistorySchema
 };

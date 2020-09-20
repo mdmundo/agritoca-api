@@ -13,6 +13,9 @@ app.use(routers.producerRouter);
 app.use(routers.productRouter);
 app.use(routers.producerProductRouter);
 app.use(routers.basketRouter);
+app.use(routers.producersHistoryRouter);
+app.use(routers.productsHistoryRouter);
+app.use(routers.producerProductsHistoryRouter);
 
 app.use(errors());
 
