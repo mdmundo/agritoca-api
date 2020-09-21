@@ -3,18 +3,18 @@ exports.up = (knex) =>
     table.increments().primary().index();
     table
       .integer('basket_id')
+      .notNullable()
       .references('id')
       .inTable('baskets')
       .onUpdate('CASCADE')
-      .onDelete('CASCADE')
-      .defaultTo(null);
+      .onDelete('CASCADE');
     table
       .integer('producer_product_id')
+      .notNullable()
       .references('id')
       .inTable('producer_products')
       .onUpdate('CASCADE')
-      .onDelete('CASCADE')
-      .defaultTo(null);
+      .onDelete('CASCADE');
     table.timestamps(true, true);
   });
 

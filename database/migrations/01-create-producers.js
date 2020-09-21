@@ -1,17 +1,17 @@
 exports.up = (knex) =>
   knex.schema.createTable('producers', (table) => {
     table.increments().primary().index();
-    table.string('cpf').unique().defaultTo(null);
-    table.string('cnpj').unique().defaultTo(null);
-    table.string('name').defaultTo(null);
-    table.string('whatsapp').defaultTo(null);
+    table.string('cpf').unique().defaultTo('No cpf provided');
+    table.string('cnpj').unique().defaultTo('No cnpj provided');
+    table.string('name').defaultTo('Anonymous');
+    table.string('whatsapp').defaultTo('No whatsapp provided');
     // endereço do produtor
-    table.string('address').defaultTo(null);
+    table.string('address').defaultTo('No address provided');
     // inscrição municipal e inscrição estadual
-    table.string('ie').defaultTo(null);
-    table.string('im').defaultTo(null);
-    table.string('hash').defaultTo(null);
-    table.string('upserter').defaultTo(null);
+    table.string('ie').defaultTo('No ie provided');
+    table.string('im').defaultTo('No im provided');
+    table.string('hash').defaultTo('No hash');
+    table.string('upserter').defaultTo('upserter');
     table.timestamps(true, true);
   });
 

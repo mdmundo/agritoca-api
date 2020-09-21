@@ -3,24 +3,24 @@ exports.up = (knex) =>
     table.increments().primary().index();
     table
       .integer('product_id')
+      .notNullable()
       .references('id')
       .inTable('products')
       .onUpdate('CASCADE')
-      .onDelete('CASCADE')
-      .defaultTo(null);
+      .onDelete('CASCADE');
     table
       .integer('producer_id')
+      .notNullable()
       .references('id')
       .inTable('producers')
       .onUpdate('CASCADE')
-      .onDelete('CASCADE')
-      .defaultTo(null);
+      .onDelete('CASCADE');
     // if (!picture) fallback to product picture
     table.binary('picture').defaultTo(null);
-    table.string('brand').defaultTo(null);
-    table.string('barcode').defaultTo(null);
-    table.string('keywords').defaultTo(null);
-    table.string('upserter').defaultTo(null);
+    table.string('brand').defaultTo('No brand provided');
+    table.string('barcode').defaultTo('No barcode provided');
+    table.string('keywords').defaultTo('No keywords provided');
+    table.string('upserter').defaultTo('upserter');
     table.timestamps(true, true);
   });
 
