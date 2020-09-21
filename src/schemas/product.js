@@ -42,5 +42,12 @@ module.exports = {
         .pattern(/^[0-9]+$/)
         .max(20)
     }
+  },
+  delete: {
+    params: {
+      id: Joi.string()
+        .pattern(/^[0-9]+$/)
+        .max(20)
+    }
   }
 };

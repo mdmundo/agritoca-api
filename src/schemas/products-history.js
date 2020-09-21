@@ -8,7 +8,7 @@ module.exports = {
       ncm: Joi.string()
         .pattern(/^[0-9]+$/)
         .max(20),
-      productId: Joi.string()
+      product_id: Joi.string()
         .pattern(/^[0-9]+$/)
         .max(20),
       ...getPaginationQueriesSchema()

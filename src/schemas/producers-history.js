@@ -6,7 +6,7 @@ module.exports = {
     query: {
       name: Joi.string().max(255),
       hash: Joi.string().alphanum().max(6),
-      producerId: Joi.string()
+      producer_id: Joi.string()
         .pattern(/^[0-9]+$/)
         .max(20),
       ...getPaginationQueriesSchema()

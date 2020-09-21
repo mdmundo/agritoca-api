@@ -51,10 +51,16 @@ router.patch(
   '/products/:id',
   auth,
   isMod,
-  celebrate(productSchema.update),
+  celebrate(productSchema.update, joiOptions),
   productController.update
 );
 
-router.delete('/products/:id', auth, isMod, productController.delete);
+router.delete(
+  '/products/:id',
+  auth,
+  isMod,
+  celebrate(productSchema.delete, joiOptions),
+  productController.delete
+);
 
 module.exports = router;

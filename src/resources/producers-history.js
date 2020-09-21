@@ -7,7 +7,7 @@ module.exports = {
     return producersHistory;
   },
   async getProducersHistoryContaining({
-    producerId,
+    producer_id,
     sort,
     direction,
     page,
@@ -22,7 +22,7 @@ module.exports = {
     const producersHistory = await knex('producers_history')
       .whereRaw(
         'cast(producer_id as varchar) like ?',
-        producerId ? `${producerId}` : '%'
+        producer_id ? `${producer_id}` : '%'
       )
       .orderBy(orderBy)
       .limit(limit)

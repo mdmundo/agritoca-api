@@ -35,6 +35,12 @@ router.patch(
   producerController.update
 );
 
-router.delete('/producers/:id', auth, isMod, producerController.delete);
+router.delete(
+  '/producers/:id',
+  auth,
+  isMod,
+  celebrate(producerSchema.delete, joiOptions),
+  producerController.delete
+);
 
 module.exports = router;

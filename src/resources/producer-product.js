@@ -7,8 +7,8 @@ module.exports = {
     return producerProducts;
   },
   async getProducerProductsContaining({
-    producerId,
-    productId,
+    producer_id,
+    product_id,
     brand,
     keywords,
     sort,
@@ -25,7 +25,10 @@ module.exports = {
     const producerProducts = await knex('producer_products')
       .whereRaw(
         'cast(producer_id as varchar) like ? and cast(product_id as varchar) like ?',
-        [producerId ? `${producerId}` : '%', productId ? `${productId}` : '%']
+        [
+          producer_id ? `${producer_id}` : '%',
+          product_id ? `${product_id}` : '%'
+        ]
       )
       .andWhere('brand', 'ilike', `%${brand ? brand : ''}%`)
       .andWhere('keywords', 'ilike', `%${keywords ? keywords : ''}%`)

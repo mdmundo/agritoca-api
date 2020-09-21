@@ -59,6 +59,7 @@ router.delete(
   '/producerProducts/:id',
   auth,
   isMod,
+  celebrate(producerProductSchema.delete, joiOptions),
   producerProductController.delete
 );
 

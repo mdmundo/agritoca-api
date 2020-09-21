@@ -22,16 +22,23 @@ module.exports = {
   },
   search: {
     query: {
-      producerId: Joi.string()
+      producer_id: Joi.string()
         .pattern(/^[0-9]+$/)
         .max(20),
-      productId: Joi.string()
+      product_id: Joi.string()
         .pattern(/^[0-9]+$/)
         .max(20),
       brand: Joi.string().max(255),
       keywords: Joi.string().max(255),
       ...getPaginationQueriesSchema()
     },
+    params: {
+      id: Joi.string()
+        .pattern(/^[0-9]+$/)
+        .max(20)
+    }
+  },
+  delete: {
     params: {
       id: Joi.string()
         .pattern(/^[0-9]+$/)
