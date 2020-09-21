@@ -5,7 +5,8 @@ const { setupDatabase, users } = require('./fixtures/db');
 
 beforeEach(setupDatabase);
 
-test('Should fetch all users (admin)', async () => {
+// only the first page
+test('Should fetch users (admin)', async () => {
   const response = await request(app)
     .get('/users/')
     .set('Authorization', `Bearer ${users[0].token}`)
@@ -16,7 +17,7 @@ test('Should fetch all users (admin)', async () => {
   expect(user.privilege).toBe(2);
 });
 
-test('Should not fetch all users (not admin)', async () => {
+test('Should not fetch users (not admin)', async () => {
   const response = await request(app)
     .get('/users/')
     .set('Authorization', `Bearer ${users[1].token}`)
@@ -46,7 +47,7 @@ test('Should set admin privilege', async () => {
   expect(user.privilege).toBe(2);
 });
 
-test('Should revoke all privileges', async () => {
+test('Should revoke all privileges from user', async () => {
   const response = await request(app)
     .patch(`/users/${users[1].id}/unset`)
     .set('Authorization', `Bearer ${users[0].token}`)
