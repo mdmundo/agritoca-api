@@ -7,9 +7,9 @@ exports.seed = (knex) => {
       return knex('users').insert([
         {
           name: 'Edmundo',
-          email: 'teverett@msn.com',
+          email: 'manyymoore@gmail.com',
           picture:
-            'https://s.gravatar.com/avatar/f573cc50e19283110a74db7f4a8bafb8?s=96&d=retro',
+            'https://s.gravatar.com/avatar/21dbdea01fcce17bbd75a73f51d13aaf?s=96&d=retro',
           privilege: 2
         },
         {
@@ -25,10 +25,9 @@ exports.seed = (knex) => {
         },
         {
           name: 'Luís',
-          email: 'manyymoore@gmail.com',
+          email: 'teverett@msn.com',
           picture:
-            'https://s.gravatar.com/avatar/21dbdea01fcce17bbd75a73f51d13aaf?s=96&d=retro',
-          privilege: 2
+            'https://s.gravatar.com/avatar/f573cc50e19283110a74db7f4a8bafb8?s=96&d=retro'
         },
         {
           name: 'Damas',
