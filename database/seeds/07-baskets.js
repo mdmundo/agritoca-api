@@ -5,10 +5,10 @@ exports.seed = (knex) => {
     .then(() => {
       // Inserts seed entries
       return knex('baskets').insert([
-        { user_id: 1 },
-        { user_id: 1 },
-        { user_id: 1 },
-        { user_id: 1 },
+        { user_id: 1, name: 'Aqa' },
+        { user_id: 1, name: 'Ape' },
+        { user_id: 1, name: 'Aba' },
+        { user_id: 1, name: 'Abi' },
         { user_id: 1, name: 'Curl' },
         { user_id: 1, name: 'Distribute' },
         { user_id: 1, name: 'Strip' },
@@ -21,10 +21,10 @@ exports.seed = (knex) => {
         { user_id: 4, name: 'Exchange' },
         { user_id: 5, name: 'Claim' },
         { user_id: 6, name: 'Compel' },
-        { user_id: 7 },
-        { user_id: 8 },
-        { user_id: 9 },
-        { user_id: 10 }
+        { user_id: 7, name: 'Ali' },
+        { user_id: 8, name: 'Ari' },
+        { user_id: 9, name: 'Axa' },
+        { user_id: 10, name: 'Atu' }
       ]);
     });
 };
