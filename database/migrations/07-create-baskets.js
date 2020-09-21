@@ -1,16 +1,14 @@
 exports.up = (knex) =>
   knex.schema.createTable('baskets', (table) => {
     table.increments().primary().index();
-
     table
       .integer('user_id')
-      .notNullable()
       .references('id')
       .inTable('users')
       .onUpdate('CASCADE')
-      .onDelete('CASCADE');
-
-    table.string('name').defaultTo('Cesta');
+      .onDelete('CASCADE')
+      .defaultTo(null);
+    table.string('name').defaultTo(null);
     table.timestamps(true, true);
   });
 

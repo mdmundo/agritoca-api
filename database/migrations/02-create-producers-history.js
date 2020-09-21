@@ -12,7 +12,7 @@ exports.up = (knex) =>
     table.string('ie').defaultTo(null);
     table.string('im').defaultTo(null);
     table.string('hash').defaultTo(null);
-    table.string('upserter');
+    table.string('upserter').defaultTo(null);
     table.timestamps(true, true);
   });
 

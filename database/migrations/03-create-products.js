@@ -1,14 +1,14 @@
 exports.up = (knex) =>
   knex.schema.createTable('products', (table) => {
     table.increments().primary().index();
-    table.string('ncm').unique().notNullable();
+    table.string('ncm').unique().defaultTo(null);
     // a gramatura, medida.
-    table.string('measure').notNullable();
+    table.string('measure').defaultTo(null);
     // if (!picture) fallback to /products/picture.png
-    table.binary('picture');
-    table.string('description');
-    table.boolean('is_organic');
-    table.string('upserter');
+    table.binary('picture').defaultTo(null);
+    table.string('description').defaultTo(null);
+    table.boolean('is_organic').defaultTo(null);
+    table.string('upserter').defaultTo(null);
     table.timestamps(true, true);
   });
 
