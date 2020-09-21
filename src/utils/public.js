@@ -1,10 +1,9 @@
 const { Joi } = require('celebrate');
 
 module.exports = {
-  getUserPublicProfile: ({ user, host }) => ({
+  getUserWithoutPassword: (user) => ({
     ...user,
-    password: undefined,
-    picture: user.picture ? user.picture : `${host}/users/avatar.png`
+    password: undefined
   }),
   getWithoutPicture: (item) => ({
     ...item,

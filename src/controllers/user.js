@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { getUserPublicProfile } = require('../utils/public');
+const { getUserWithoutPassword } = require('../utils/public');
 const { userResource } = require('../resources');
 
 const userController = {
@@ -9,9 +9,7 @@ const userController = {
     try {
       const users = await userResource.getUsersContaining(req.query);
 
-      const serializedUsers = users.map((user) =>
-        getUserPublicProfile({ user, host: req.headers.host })
-      );
+      const serializedUsers = users.map((user) => getUserWithoutPassword(user));
       return res.json(serializedUsers);
     } catch (error) {
       return res.status(500).json({ message: 'Error on Server' });
@@ -22,7 +20,7 @@ const userController = {
       const user = await userResource.getUserById({ id: req.params.id });
 
       if (!user) return res.status(404).json({ message: 'User not found' });
-      return res.json(getUserPublicProfile({ user, host: req.headers.host }));
+      return res.json(getUserWithoutPassword(user));
     } catch (error) {
       return res
         .status(400)
@@ -51,7 +49,7 @@ const userController = {
           if (user) {
             const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET);
             return res.json({
-              user: getUserPublicProfile({ user, host: req.headers.host }),
+              user: getUserWithoutPassword(user),
               token
             });
           }
@@ -65,7 +63,7 @@ const userController = {
         });
         const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET);
         return res.status(201).json({
-          user: getUserPublicProfile({ user, host: req.headers.host }),
+          user: getUserWithoutPassword(user),
           token
         });
       }
@@ -79,9 +77,7 @@ const userController = {
     }
   },
   async self(req, res) {
-    return res.json(
-      getUserPublicProfile({ user: req.user, host: req.headers.host })
-    );
+    return res.json(getUserWithoutPassword(req.user));
   },
   async setPrivilege(req, res) {
     // check if is admin
@@ -122,9 +118,7 @@ const userController = {
       await userResource.deleteCurrentUser({ id: req.user.id });
 
       // return user
-      res.json(
-        getUserPublicProfile({ user: req.user, host: req.headers.host })
-      );
+      res.json(getUserWithoutPassword(req.user));
     } catch (error) {
       res.status(500).json({ message: 'Error Deleting User' });
     }
