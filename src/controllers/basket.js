@@ -1,5 +1,6 @@
 const knex = require('../../database/connection');
 const { basketResource } = require('../resources');
+const { getWithoutPicture } = require('../utils/public');
 
 const basketController = {
   async self(req, res) {
@@ -15,17 +16,17 @@ const basketController = {
     }
   },
   async readById(req, res) {
-    // try {
-    const basket = await basketResource.getBasketById({
-      ...req.params,
-      ...req.query,
-      user_id: req.user.id
-    });
+    try {
+      const basket = await basketResource.getBasketById({
+        ...req.params,
+        ...req.query,
+        user_id: req.user.id
+      });
 
-    return res.json(basket);
-    // } catch (error) {
-    //   return res.status(500).json({ message: 'Error on Server' });
-    // }
+      return res.json(basket);
+    } catch (error) {
+      return res.status(500).json({ message: 'Error on Server' });
+    }
   },
   async create(req, res) {
     try {

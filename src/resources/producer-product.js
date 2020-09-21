@@ -22,7 +22,17 @@ module.exports = {
       page,
       pageSize
     });
-    const producerProducts = await knex('producer_products')
+
+    const producerProducts = await knex
+      .select(
+        'products.ncm',
+        'products.measure',
+        'products.description',
+        'products.is_organic',
+        'producer_products.*'
+      )
+      .from('producer_products')
+      .join('products', 'products.id', 'producer_products.product_id')
       .whereRaw(
         'cast(producer_id as varchar) like ? and cast(product_id as varchar) like ?',
         [
@@ -38,8 +48,17 @@ module.exports = {
     return producerProducts;
   },
   async getProducerProductById({ id }) {
-    const producerProduct = await knex('producer_products')
-      .where({ id })
+    const producerProduct = await knex
+      .select(
+        'products.ncm',
+        'products.measure',
+        'products.description',
+        'products.is_organic',
+        'producer_products.*'
+      )
+      .from('producer_products')
+      .join('products', 'products.id', 'producer_products.product_id')
+      .where('producer_products.id', id)
       .first();
     return producerProduct;
   },

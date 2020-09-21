@@ -39,19 +39,18 @@ module.exports = {
 
     const basket = await knex('baskets').where({ user_id, id }).first();
 
-    // const items = await knex('basket_items')
-    //   .where({
-    //     basket_id: basket.id
-    //   })
-    //   .orderBy(orderBy)
-    //   .limit(limit)
-    //   .offset(offset);
-
     const items = await knex
       .select(
-        'basket_items.*',
+        'products.ncm',
+        'products.measure',
+        'products.description',
+        'products.is_organic',
+        'producer_products.product_id',
+        'producer_products.producer_id',
         'producer_products.brand',
-        'products.description'
+        'producer_products.barcode',
+        'producer_products.keywords',
+        'basket_items.*'
       )
       .from('basket_items')
       .join(
@@ -60,8 +59,10 @@ module.exports = {
         'basket_items.producer_product_id'
       )
       .join('products', 'products.id', 'producer_products.product_id')
-      .where('basket_items.basket_id', '=', basket.id);
-
+      .where('basket_items.basket_id', '=', basket.id)
+      .orderBy(orderBy)
+      .limit(limit)
+      .offset(offset);
     return items;
   },
   async getInsertedBasket({ user_id, body }) {
