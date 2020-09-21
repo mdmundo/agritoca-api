@@ -7,6 +7,8 @@ module.exports = {
     return producerProducts;
   },
   async getProducerProductsContaining({
+    producerId,
+    productId,
     brand,
     keywords,
     sort,
@@ -21,7 +23,11 @@ module.exports = {
       pageSize
     });
     const producerProducts = await knex('producer_products')
-      .where('brand', 'ilike', `%${brand ? brand : ''}%`)
+      .whereRaw(
+        'cast(producer_id as varchar) like ? and cast(product_id as varchar) like ?',
+        [producerId ? `${producerId}` : '%', productId ? `${productId}` : '%']
+      )
+      .andWhere('brand', 'ilike', `%${brand ? brand : ''}%`)
       .andWhere('keywords', 'ilike', `%${keywords ? keywords : ''}%`)
       .orderBy(orderBy)
       .limit(limit)
