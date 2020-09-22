@@ -1,0 +1,24 @@
+{
+  "id": "959b956e-fa0b-47d7-b462-e8eeb11aa1b8",
+  "name": "AgriToca",
+  "values": [
+    {
+      "key": "url",
+      "value": "localhost:3000",
+      "enabled": true
+    },
+    {
+      "key": "authToken",
+      "value": "",
+      "enabled": true
+    },
+    {
+      "key": "googleTokenId",
+      "value": "",
+      "enabled": true
+    }
+  ],
+  "_postman_variable_scope": "environment",
+  "_postman_exported_at": "2020-09-22T14:31:07.184Z",
+  "_postman_exported_using": "Postman/7.32.0"
+}
