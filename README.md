@@ -44,7 +44,7 @@ Para testar a API com o Postman importe os seguintes arquivos como `collection` 
 
 **Importante:** Para fazer uso de privilégios (mod ou admin) nas requisições, é necessário fazer login. Siga as instruções seguintes para isso:
 
-- Vá em:
+- Vá no arquivo:
 
 ```none
 .
@@ -53,7 +53,7 @@ Para testar a API com o Postman importe os seguintes arquivos como `collection` 
         └── 00-users.js
 ```
 
-Adicione como primeiro item da lista (dentro de `insert`) um objeto com seu `email` e o `privilege` desejado (`0`: padrão para novos usuários, `1`: para moderadores,`2`: para administradores). Exemplo:
+- Adicione como primeiro item da lista (dentro de `insert`) um objeto com seu `email` e o `privilege` desejado (`0`: padrão para novos usuários, `1`: para moderadores,`2`: para administradores). Exemplo:
 
 ```js
 {
@@ -74,4 +74,4 @@ Adicione como primeiro item da lista (dentro de `insert`) um objeto com seu `ema
 
 - Faça a `request`: **Login User (Google)**.
 
-- Pronto!
+- Pronto! Você está autenticado.
