@@ -31,4 +31,12 @@ router.get(
   productsHistoryController.getPicture
 );
 
+router.post(
+  '/productsHistory/:id',
+  auth,
+  isMod,
+  celebrate(productsHistorySchema.restore, joiOptions),
+  productsHistoryController.restore
+);
+
 module.exports = router;

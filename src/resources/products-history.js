@@ -1,5 +1,5 @@
-const { getPaginationParams } = require('../utils/public');
 const knex = require('../../database/connection');
+const { getWithoutID, getPaginationParams } = require('../utils/public');
 
 module.exports = {
   async getAllProductsHistory() {
@@ -35,5 +35,61 @@ module.exports = {
   async getProductHistoryPictureById({ id }) {
     const productHistory = await knex('products_history').where({ id }).first();
     return productHistory.picture;
+  },
+  async getRestoredProduct({ id, upserter }) {
+    let product;
+    await knex.transaction(async (trx) => {
+      const productHistory = await knex('products_history')
+        .where({ id })
+        .first()
+        .transacting(trx);
+
+      const isProduct = await knex('products')
+        .where({ id: productHistory.product_id })
+        .first()
+        .transacting(trx);
+
+      productHistory.id = productHistory.product_id;
+      delete productHistory.product_id;
+
+      // if there is a product, then update, else insert
+      if (!!isProduct) {
+        [product] = await knex('products')
+          .where({ id: productHistory.id })
+          .update({
+            ...getWithoutID(productHistory),
+            upserter,
+            updated_at: knex.fn.now()
+          })
+          .returning('*')
+          .transacting(trx);
+
+        await knex('products_history')
+          .insert({
+            ...getWithoutID(product),
+            upserter,
+            product_id: product.id
+          })
+          .transacting(trx);
+      } else {
+        [product] = await knex('products')
+          .insert({
+            ...productHistory,
+            upserter,
+            updated_at: knex.fn.now()
+          })
+          .returning('*')
+          .transacting(trx);
+
+        await knex('products_history')
+          .insert({
+            ...getWithoutID(product),
+            upserter,
+            product_id: product.id
+          })
+          .transacting(trx);
+      }
+    });
+    return product;
   }
 };

@@ -1,4 +1,4 @@
-const { getPaginationParams } = require('../utils/public');
+const { getWithoutID, getPaginationParams } = require('../utils/public');
 const knex = require('../../database/connection');
 
 module.exports = {
@@ -34,5 +34,61 @@ module.exports = {
       .where({ id })
       .first();
     return producerHistory;
+  },
+  async getRestoredProducer({ id, upserter }) {
+    let producer;
+    await knex.transaction(async (trx) => {
+      const producerHistory = await knex('producers_history')
+        .where({ id })
+        .first()
+        .transacting(trx);
+
+      const isProducer = await knex('producers')
+        .where({ id: producerHistory.producer_id })
+        .first()
+        .transacting(trx);
+
+      producerHistory.id = producerHistory.producer_id;
+      delete producerHistory.producer_id;
+
+      // if there is a producer, then update, else insert
+      if (!!isProducer) {
+        [producer] = await knex('producers')
+          .where({ id: producerHistory.id })
+          .update({
+            ...getWithoutID(producerHistory),
+            upserter,
+            updated_at: knex.fn.now()
+          })
+          .returning('*')
+          .transacting(trx);
+
+        await knex('producers_history')
+          .insert({
+            ...getWithoutID(producer),
+            upserter,
+            producer_id: producer.id
+          })
+          .transacting(trx);
+      } else {
+        [producer] = await knex('producers')
+          .insert({
+            ...producerHistory,
+            upserter,
+            updated_at: knex.fn.now()
+          })
+          .returning('*')
+          .transacting(trx);
+
+        await knex('producers_history')
+          .insert({
+            ...getWithoutID(producer),
+            upserter,
+            producer_id: producer.id
+          })
+          .transacting(trx);
+      }
+    });
+    return producer;
   }
 };

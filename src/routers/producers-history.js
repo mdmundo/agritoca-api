@@ -23,4 +23,12 @@ router.get(
   producersHistoryController.readById
 );
 
+router.post(
+  '/producersHistory/:id',
+  auth,
+  isMod,
+  celebrate(producersHistorySchema.restore, joiOptions),
+  producersHistoryController.restore
+);
+
 module.exports = router;

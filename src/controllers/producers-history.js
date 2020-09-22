@@ -21,5 +21,17 @@ module.exports = {
     } catch (error) {
       return res.status(500).json({ message: 'Error on Server' });
     }
+  },
+  async restore(req, res) {
+    try {
+      const producer = await producersHistoryResource.getRestoredProducer({
+        id: req.params.id,
+        upserter: req.user.email
+      });
+
+      return res.json(producer);
+    } catch (error) {
+      return res.status(500).json({ message: 'Error on Restoring Producer' });
+    }
   }
 };

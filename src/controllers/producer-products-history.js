@@ -37,8 +37,21 @@ module.exports = {
 
       res.set('Content-Type', 'image/png');
       res.send(picture);
-    } catch (e) {
+    } catch (error) {
       res.status(404).send();
+    }
+  },
+  async restore(req, res) {
+    try {
+      const producerProduct = await producerProductsHistoryResource.getRestoredProducerProduct(
+        { id: req.params.id, upserter: req.user.email }
+      );
+
+      return res.json(getWithoutPicture(producerProduct));
+    } catch (error) {
+      return res
+        .status(500)
+        .json({ message: 'Error on Restoring Producer Product' });
     }
   }
 };

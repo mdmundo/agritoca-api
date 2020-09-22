@@ -41,7 +41,7 @@ const producerProductController = {
 
       res.set('Content-Type', 'image/png');
       res.send(picture);
-    } catch (e) {
+    } catch (error) {
       res.status(404).send();
     }
   },
