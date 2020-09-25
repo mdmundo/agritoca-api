@@ -12,13 +12,13 @@ module.exports = {
     sort,
     direction,
     page,
-    pageSize
+    pagesize
   }) {
     const { orderBy, offset, limit } = getPaginationParams({
       sort,
       direction,
       page,
-      pageSize
+      pagesize
     });
 
     const baskets = await knex('baskets')
@@ -29,12 +29,12 @@ module.exports = {
       .offset(offset);
     return baskets;
   },
-  async getBasketById({ user_id, id, sort, direction, page, pageSize }) {
+  async getBasketById({ user_id, id, sort, direction, page, pagesize }) {
     const { orderBy, offset, limit } = getPaginationParams({
       sort,
       direction,
       page,
-      pageSize
+      pagesize
     });
 
     const basket = await knex('baskets').where({ user_id, id }).first();

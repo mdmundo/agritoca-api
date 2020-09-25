@@ -4,7 +4,7 @@ const { getPaginationQueriesSchema } = require('../utils/public');
 module.exports = {
   sign: {
     body: Joi.object().keys({
-      tokenId: Joi.string()
+      token_id: Joi.string()
     })
   },
   search: {

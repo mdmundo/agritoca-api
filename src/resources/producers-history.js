@@ -11,13 +11,13 @@ module.exports = {
     sort,
     direction,
     page,
-    pageSize
+    pagesize
   }) {
     const { orderBy, offset, limit } = getPaginationParams({
       sort,
       direction,
       page,
-      pageSize
+      pagesize
     });
     const producersHistory = await knex('producers_history')
       .whereRaw(

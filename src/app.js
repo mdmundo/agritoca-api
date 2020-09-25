@@ -1,9 +1,11 @@
 const express = require('express');
 const { errors } = require('celebrate');
 const path = require('path');
+const cors = require('cors');
 const routers = require('./routers');
 
 const app = express();
+app.use(cors());
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.json());
 

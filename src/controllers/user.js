@@ -28,13 +28,13 @@ const userController = {
   async sign(req, res) {
     try {
       // is Google authentication?
-      if (req.body.tokenId) {
+      if (req.body.token_id) {
         const {
           name,
           email,
           picture
         } = await userResource.getGoogleUserProfile({
-          tokenId: req.body.tokenId
+          token_id: req.body.token_id
         });
 
         // is the user already on db?

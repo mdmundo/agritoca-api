@@ -12,13 +12,13 @@ module.exports = {
     sort,
     direction,
     page,
-    pageSize
+    pagesize
   }) {
     const { orderBy, offset, limit } = getPaginationParams({
       sort,
       direction,
       page,
-      pageSize
+      pagesize
     });
     const products = await knex('products')
       .where('description', 'ilike', `%${description ? description : ''}%`)

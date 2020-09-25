@@ -11,13 +11,13 @@ module.exports = {
     sort,
     direction,
     page,
-    pageSize
+    pagesize
   }) {
     const { orderBy, offset, limit } = getPaginationParams({
       sort,
       direction,
       page,
-      pageSize
+      pagesize
     });
     const productsHistory = await knex('products_history')
       .whereRaw('cast(product_id as varchar) like ?', [

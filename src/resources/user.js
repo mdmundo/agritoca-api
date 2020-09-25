@@ -7,12 +7,12 @@ module.exports = {
     const users = await knex('users').orderBy('id');
     return users;
   },
-  async getUsersContaining({ name, email, sort, direction, page, pageSize }) {
+  async getUsersContaining({ name, email, sort, direction, page, pagesize }) {
     const { orderBy, offset, limit } = getPaginationParams({
       sort,
       direction,
       page,
-      pageSize
+      pagesize
     });
     const users = await knex('users')
       .where('name', 'ilike', `%${name ? name : ''}%`)
@@ -26,9 +26,9 @@ module.exports = {
     const user = await knex('users').where({ id }).first();
     return user;
   },
-  async getGoogleUserProfile({ tokenId }) {
+  async getGoogleUserProfile({ token_id }) {
     const { data } = await axios.get(
-      `https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=${tokenId}`
+      `https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=${token_id}`
     );
     return data;
   },

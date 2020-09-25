@@ -13,11 +13,11 @@ module.exports = {
     sort = 'id',
     direction = 'asc',
     page = 0,
-    pageSize = 30
+    pagesize = 30
   }) => ({
     orderBy: [{ column: sort, order: direction }, 'id'],
-    offset: pageSize * page,
-    limit: pageSize
+    offset: pagesize * page,
+    limit: pagesize
   }),
   getPaginationQueriesSchema: () => ({
     sort: Joi.string().max(63),
@@ -27,7 +27,7 @@ module.exports = {
     page: Joi.string()
       .pattern(/^[0-9]+$/)
       .max(6),
-    pageSize: Joi.string()
+    pagesize: Joi.string()
       .pattern(/^[0-9]+$/)
       .max(3)
   })
