@@ -22,27 +22,19 @@ module.exports = {
   },
   search: {
     query: {
-      producer_id: Joi.string()
-        .pattern(/^[0-9]+$/)
-        .max(20),
-      product_id: Joi.string()
-        .pattern(/^[0-9]+$/)
-        .max(20),
+      producer_id: Joi.number().integer().positive(),
+      product_id: Joi.number().integer().positive(),
       brand: Joi.string().max(255),
       keywords: Joi.string().max(255),
       ...getPaginationQueriesSchema()
     },
     params: {
-      id: Joi.string()
-        .pattern(/^[0-9]+$/)
-        .max(20)
+      id: Joi.number().integer().positive()
     }
   },
   delete: {
     params: {
-      id: Joi.string()
-        .pattern(/^[0-9]+$/)
-        .max(20)
+      id: Joi.number().integer().positive()
     }
   }
 };

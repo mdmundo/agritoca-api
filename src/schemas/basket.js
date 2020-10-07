@@ -1,55 +1,35 @@
 const { Joi } = require('celebrate');
-const { getPaginationQueriesSchema } = require('../utils/public');
 
 module.exports = {
-  create: {
-    body: Joi.object().keys({
-      name: Joi.string().max(255)
-    })
-  },
   update: {
-    body: Joi.object().keys({
-      name: Joi.string().max(255)
-    }),
-    params: {
-      id: Joi.string()
-        .pattern(/^[0-9]+$/)
-        .max(20)
-    }
-  },
-  search: {
-    query: {
-      name: Joi.string().max(255),
-      ...getPaginationQueriesSchema()
-    },
-    params: {
-      id: Joi.string()
-        .pattern(/^[0-9]+$/)
-        .max(20)
-    }
-  },
-  delete: {
-    params: {
-      id: Joi.string()
-        .pattern(/^[0-9]+$/)
-        .max(20)
-    }
-  },
-  createItem: {
-    body: Joi.object().keys({
-      producer_product_id: Joi.number().required().integer().positive()
-    }),
-    params: {
-      id: Joi.string()
-        .pattern(/^[0-9]+$/)
-        .max(20)
-    }
-  },
-  deleteItem: {
-    params: {
-      id: Joi.string()
-        .pattern(/^[0-9]+$/)
-        .max(20)
-    }
+    body: Joi.array().items(
+      Joi.object({
+        id: Joi.number().integer().positive(),
+        name: Joi.string().max(255),
+        items: Joi.array().items(
+          Joi.object().keys({
+            id: Joi.number().integer().positive(),
+            ncm: Joi.string()
+              .required()
+              .pattern(/^[0-9]+$/)
+              .max(20),
+            measure: Joi.string().max(255),
+            description: Joi.string().max(255),
+            is_organic: Joi.boolean(),
+            producer_product_id: Joi.number().integer().positive(),
+            product_id: Joi.number().integer().positive(),
+            producer_id: Joi.number().integer().positive(),
+            brand: Joi.string().max(255),
+            barcode: Joi.string()
+              .required()
+              .pattern(/^[0-9]+$/)
+              .max(20),
+            keywords: Joi.string().max(255),
+            created_at: Joi.string().max(255),
+            updated_at: Joi.string().max(255)
+          })
+        )
+      })
+    )
   }
 };

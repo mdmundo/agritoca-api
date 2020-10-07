@@ -3,12 +3,13 @@ exports.up = (knex) =>
     table.increments().primary().index();
     table
       .integer('user_id')
+      .unique()
       .notNullable()
       .references('id')
       .inTable('users')
       .onUpdate('CASCADE')
       .onDelete('CASCADE');
-    table.string('name').defaultTo('No name provided');
+    table.json('user_baskets');
     table.timestamps(true, true);
   });
 

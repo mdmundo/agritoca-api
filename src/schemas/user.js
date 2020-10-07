@@ -14,9 +14,7 @@ module.exports = {
       ...getPaginationQueriesSchema()
     },
     params: {
-      id: Joi.string()
-        .pattern(/^[0-9]+$/)
-        .max(20),
+      id: Joi.number().integer().positive(),
       privilege: Joi.string().pattern(/^(mod|admin)$/)
     }
   }

@@ -15,10 +15,7 @@ module.exports = {
   },
   update: {
     params: {
-      id: Joi.string()
-        .required()
-        .pattern(/^[0-9]+$/)
-        .max(20)
+      id: Joi.number().integer().positive()
     },
     body: Joi.object().keys({
       ncm: Joi.string()
@@ -38,16 +35,12 @@ module.exports = {
       ...getPaginationQueriesSchema()
     },
     params: {
-      id: Joi.string()
-        .pattern(/^[0-9]+$/)
-        .max(20)
+      id: Joi.number().integer().positive()
     }
   },
   delete: {
     params: {
-      id: Joi.string()
-        .pattern(/^[0-9]+$/)
-        .max(20)
+      id: Joi.number().integer().positive()
     }
   }
 };

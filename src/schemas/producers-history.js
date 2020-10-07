@@ -6,22 +6,16 @@ module.exports = {
     query: {
       name: Joi.string().max(255),
       hash: Joi.string().alphanum().max(6),
-      producer_id: Joi.string()
-        .pattern(/^[0-9]+$/)
-        .max(20),
+      producer_id: Joi.number().integer().positive(),
       ...getPaginationQueriesSchema()
     },
     params: {
-      id: Joi.string()
-        .pattern(/^[0-9]+$/)
-        .max(20)
+      id: Joi.number().integer().positive()
     }
   },
   restore: {
     params: {
-      id: Joi.string()
-        .pattern(/^[0-9]+$/)
-        .max(20)
+      id: Joi.number().integer().positive()
     }
   }
 };

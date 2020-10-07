@@ -8,22 +8,16 @@ module.exports = {
       ncm: Joi.string()
         .pattern(/^[0-9]+$/)
         .max(20),
-      product_id: Joi.string()
-        .pattern(/^[0-9]+$/)
-        .max(20),
+      product_id: Joi.number().integer().positive(),
       ...getPaginationQueriesSchema()
     },
     params: {
-      id: Joi.string()
-        .pattern(/^[0-9]+$/)
-        .max(20)
+      id: Joi.number().integer().positive()
     }
   },
   restore: {
     params: {
-      id: Joi.string()
-        .pattern(/^[0-9]+$/)
-        .max(20)
+      id: Joi.number().integer().positive()
     }
   }
 };
