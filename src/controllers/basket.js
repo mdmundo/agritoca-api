@@ -20,7 +20,7 @@ const basketController = {
         user_id: req.user.id
       });
 
-      return res.json(baskets);
+      return res.send();
     } catch (error) {
       return res.status(500).json({ message: 'Error on Server' });
     }
