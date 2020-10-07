@@ -8,7 +8,7 @@ exports.up = (knex) =>
     table.binary('picture').defaultTo(null);
     table.string('description').defaultTo('No description provided');
     table.boolean('is_organic').defaultTo(false);
-    table.string('upserter').defaultTo('upserter');
+    table.string('mod').defaultTo('mod');
     table.timestamps(true, true);
   });
 

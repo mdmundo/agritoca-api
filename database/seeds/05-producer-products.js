@@ -11,7 +11,7 @@ exports.seed = (knex) => {
           keywords: 'upset, responsible, splendid',
           product_id: 1,
           producer_id: 1,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           brand: 'professionalsi',
@@ -19,7 +19,7 @@ exports.seed = (knex) => {
           keywords: 'snobbish, divergent, incompetent',
           product_id: 2,
           producer_id: 1,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           brand: 'allaboutanimation',
@@ -27,7 +27,7 @@ exports.seed = (knex) => {
           keywords: 'nice, instinctive, immediate',
           product_id: 3,
           producer_id: 1,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           brand: 'montrealwines',
@@ -35,7 +35,7 @@ exports.seed = (knex) => {
           keywords: 'feigned, fixed, nine',
           product_id: 4,
           producer_id: 1,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           brand: 'seomovement',
@@ -43,7 +43,7 @@ exports.seed = (knex) => {
           keywords: 'phobic, scattered, witty',
           product_id: 5,
           producer_id: 1,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           brand: 'printsbook',
@@ -51,7 +51,7 @@ exports.seed = (knex) => {
           keywords: 'gentle, male, evasive',
           product_id: 6,
           producer_id: 1,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           brand: 'sageinsider',
@@ -59,7 +59,7 @@ exports.seed = (knex) => {
           keywords: 'broad, psychedelic, kaput',
           product_id: 7,
           producer_id: 1,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           brand: 'howtopilot',
@@ -67,7 +67,7 @@ exports.seed = (knex) => {
           keywords: 'strange, resolute, capable',
           product_id: 8,
           producer_id: 1,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           brand: 'betteran',
@@ -75,7 +75,7 @@ exports.seed = (knex) => {
           keywords: 'bizarre, gorgeous, white',
           product_id: 9,
           producer_id: 1,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           brand: 'empirelabels',
@@ -83,7 +83,7 @@ exports.seed = (knex) => {
           keywords: 'smooth, joyous, busy',
           product_id: 10,
           producer_id: 1,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           brand: 'amberschool',
@@ -91,7 +91,7 @@ exports.seed = (knex) => {
           keywords: 'unusual, hurt, psychedelic',
           product_id: 1,
           producer_id: 1,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           brand: 'mountainequipment',
@@ -99,7 +99,7 @@ exports.seed = (knex) => {
           keywords: 'temporary, unbiased, enchanted',
           product_id: 1,
           producer_id: 2,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           brand: 'leanhacker',
@@ -107,7 +107,7 @@ exports.seed = (knex) => {
           keywords: 'guarded, careless, absorbing',
           product_id: 1,
           producer_id: 3,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           brand: 'slowclub',
@@ -115,7 +115,7 @@ exports.seed = (knex) => {
           keywords: 'available, able, handsomely',
           product_id: 1,
           producer_id: 4,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           brand: 'apluspartners',
@@ -123,7 +123,7 @@ exports.seed = (knex) => {
           keywords: 'broken, obviously, premium',
           product_id: 1,
           producer_id: 5,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           brand: 'basicec',
@@ -131,7 +131,7 @@ exports.seed = (knex) => {
           keywords: 'auspicious, closed, incandescent',
           product_id: 1,
           producer_id: 6,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           brand: 'eliterun',
@@ -139,7 +139,7 @@ exports.seed = (knex) => {
           keywords: 'alleged, yielding, annoyed',
           product_id: 1,
           producer_id: 7,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           brand: 'platinumbear',
@@ -147,7 +147,7 @@ exports.seed = (knex) => {
           keywords: 'complex, chief, visible',
           product_id: 1,
           producer_id: 8,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           brand: 'techsteel',
@@ -155,7 +155,7 @@ exports.seed = (knex) => {
           keywords: 'bite-sized, cluttered, harsh',
           product_id: 1,
           producer_id: 9,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           brand: 'opticell',
@@ -163,7 +163,7 @@ exports.seed = (knex) => {
           keywords: 'lively, delicate, threatening',
           product_id: 1,
           producer_id: 10,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         }
       ]);
     });

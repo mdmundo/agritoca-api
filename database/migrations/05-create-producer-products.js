@@ -7,21 +7,21 @@ exports.up = (knex) =>
       .notNullable()
       .references('id')
       .inTable('products')
-      .onUpdate('RESTRICT')
+      .onUpdate('CASCADE')
       .onDelete('RESTRICT');
     table
       .integer('producer_id')
       .notNullable()
       .references('id')
       .inTable('producers')
-      .onUpdate('RESTRICT')
+      .onUpdate('CASCADE')
       .onDelete('RESTRICT');
     // if (!picture) fallback to product picture
     table.binary('picture').defaultTo(null);
     table.string('brand').defaultTo('No brand provided');
     table.string('barcode').defaultTo('No barcode provided');
     table.string('keywords').defaultTo('No keywords provided');
-    table.string('upserter').defaultTo('upserter');
+    table.string('mod').defaultTo('mod');
     table.timestamps(true, true);
   });
 

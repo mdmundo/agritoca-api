@@ -35,13 +35,13 @@ module.exports = {
     const producer = await knex('producers').where({ id }).first();
     return producer;
   },
-  async getInsertedProducer({ body, upserter }) {
+  async getInsertedProducer({ body, mod }) {
     let producer;
     await knex.transaction(async (trx) => {
       [producer] = await knex('producers')
         .insert({
           ...body,
-          upserter
+          mod
         })
         .returning('*')
         .transacting(trx);
@@ -58,21 +58,21 @@ module.exports = {
         .insert({
           ...getWithoutID(producer),
           hash: producer.hash,
-          upserter,
+          mod,
           producer_id: producer.id
         })
         .transacting(trx);
     });
     return producer;
   },
-  async getUpdatedProducer({ id, body, upserter }) {
+  async getUpdatedProducer({ id, body, mod }) {
     let producer;
     await knex.transaction(async (trx) => {
       [producer] = await knex('producers')
         .where({ id })
         .update({
           ...body,
-          upserter,
+          mod,
           updated_at: knex.fn.now()
         })
         .returning('*')
@@ -81,15 +81,34 @@ module.exports = {
       await knex('producers_history')
         .insert({
           ...getWithoutID(producer),
-          upserter,
+          mod,
           producer_id: producer.id
         })
         .transacting(trx);
     });
     return producer;
   },
-  async deleteProducer({ id, upserter }) {
+  async deleteProducer({ id, mod }) {
     await knex.transaction(async (trx) => {
+      const producerProducts = await knex('producer_products')
+        .where({ producer_id: id })
+        .returning('*')
+        .del()
+        .transacting(trx);
+
+      const producerProductsHistory = producerProducts.map(
+        (producerProduct) => ({
+          ...getWithoutID(producerProduct),
+          mod,
+          producer_product_id: producerProduct.id,
+          deleted_at: knex.fn.now()
+        })
+      );
+
+      await knex('producer_products_history')
+        .insert(producerProductsHistory)
+        .transacting(trx);
+
       const [producer] = await knex('producers')
         .where({ id })
         .returning('*')
@@ -98,8 +117,10 @@ module.exports = {
 
       await knex('producers_history')
         .insert({
-          upserter,
-          producer_id: producer.id
+          ...getWithoutID(producer),
+          mod,
+          producer_id: producer.id,
+          deleted_at: knex.fn.now()
         })
         .transacting(trx);
     });

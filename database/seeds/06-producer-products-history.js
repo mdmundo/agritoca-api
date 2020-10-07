@@ -15,7 +15,7 @@ exports.seed = (knex) => {
           keywords: 'upset, responsible, splendid',
           product_id: 1,
           producer_id: 1,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           producer_product_id: 1,
@@ -25,7 +25,7 @@ exports.seed = (knex) => {
           keywords: 'upset, responsible, splendid',
           product_id: 1,
           producer_id: 1,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           producer_product_id: 2,
@@ -34,7 +34,7 @@ exports.seed = (knex) => {
           keywords: 'snobbish, divergent, incompetent',
           product_id: 2,
           producer_id: 1,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           producer_product_id: 2,
@@ -43,7 +43,7 @@ exports.seed = (knex) => {
           keywords: 'snobbish, divergent, incompetent',
           product_id: 2,
           producer_id: 1,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           producer_product_id: 3,
@@ -52,7 +52,7 @@ exports.seed = (knex) => {
           keywords: 'nice, instinctive, immediate',
           product_id: 3,
           producer_id: 1,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           producer_product_id: 3,
@@ -61,7 +61,7 @@ exports.seed = (knex) => {
           keywords: 'nice, instinctive, immediate',
           product_id: 3,
           producer_id: 1,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           producer_product_id: 4,
@@ -70,7 +70,7 @@ exports.seed = (knex) => {
           keywords: 'feigned, fixed, nine',
           product_id: 4,
           producer_id: 1,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           producer_product_id: 4,
@@ -79,7 +79,7 @@ exports.seed = (knex) => {
           keywords: 'feigned, fixed, nine',
           product_id: 4,
           producer_id: 1,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           producer_product_id: 5,
@@ -88,7 +88,7 @@ exports.seed = (knex) => {
           keywords: 'phobic, scattered, witty',
           product_id: 5,
           producer_id: 1,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           producer_product_id: 5,
@@ -97,7 +97,7 @@ exports.seed = (knex) => {
           keywords: 'phobic, scattered, witty',
           product_id: 5,
           producer_id: 1,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           producer_product_id: 6,
@@ -106,7 +106,7 @@ exports.seed = (knex) => {
           keywords: 'gentle, male, evasive',
           product_id: 6,
           producer_id: 1,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           producer_product_id: 6,
@@ -115,7 +115,7 @@ exports.seed = (knex) => {
           keywords: 'gentle, male, evasive',
           product_id: 6,
           producer_id: 1,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           producer_product_id: 7,
@@ -124,7 +124,7 @@ exports.seed = (knex) => {
           keywords: 'broad, psychedelic, kaput',
           product_id: 7,
           producer_id: 1,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           producer_product_id: 7,
@@ -133,7 +133,7 @@ exports.seed = (knex) => {
           keywords: 'broad, psychedelic, kaput',
           product_id: 7,
           producer_id: 1,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           producer_product_id: 8,
@@ -142,7 +142,7 @@ exports.seed = (knex) => {
           keywords: 'strange, resolute, capable',
           product_id: 8,
           producer_id: 1,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           producer_product_id: 8,
@@ -151,7 +151,7 @@ exports.seed = (knex) => {
           keywords: 'strange, resolute, capable',
           product_id: 8,
           producer_id: 1,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           producer_product_id: 9,
@@ -160,7 +160,7 @@ exports.seed = (knex) => {
           keywords: 'bizarre, gorgeous, white',
           product_id: 9,
           producer_id: 1,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           producer_product_id: 9,
@@ -169,7 +169,7 @@ exports.seed = (knex) => {
           keywords: 'bizarre, gorgeous, white',
           product_id: 9,
           producer_id: 1,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           producer_product_id: 10,
@@ -178,7 +178,7 @@ exports.seed = (knex) => {
           keywords: 'smooth, joyous, busy',
           product_id: 10,
           producer_id: 1,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           producer_product_id: 10,
@@ -187,7 +187,7 @@ exports.seed = (knex) => {
           keywords: 'smooth, joyous, busy',
           product_id: 10,
           producer_id: 1,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           producer_product_id: 11,
@@ -196,7 +196,7 @@ exports.seed = (knex) => {
           keywords: 'unusual, hurt, psychedelic',
           product_id: 1,
           producer_id: 1,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           producer_product_id: 11,
@@ -205,7 +205,7 @@ exports.seed = (knex) => {
           keywords: 'unusual, hurt, psychedelic',
           product_id: 1,
           producer_id: 1,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           producer_product_id: 12,
@@ -214,7 +214,7 @@ exports.seed = (knex) => {
           keywords: 'temporary, unbiased, enchanted',
           product_id: 1,
           producer_id: 2,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           producer_product_id: 12,
@@ -223,7 +223,7 @@ exports.seed = (knex) => {
           keywords: 'temporary, unbiased, enchanted',
           product_id: 1,
           producer_id: 2,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           producer_product_id: 13,
@@ -232,7 +232,7 @@ exports.seed = (knex) => {
           keywords: 'guarded, careless, absorbing',
           product_id: 1,
           producer_id: 3,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           producer_product_id: 13,
@@ -241,7 +241,7 @@ exports.seed = (knex) => {
           keywords: 'guarded, careless, absorbing',
           product_id: 1,
           producer_id: 3,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           producer_product_id: 14,
@@ -250,7 +250,7 @@ exports.seed = (knex) => {
           keywords: 'available, able, handsomely',
           product_id: 1,
           producer_id: 4,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           producer_product_id: 14,
@@ -259,7 +259,7 @@ exports.seed = (knex) => {
           keywords: 'available, able, handsomely',
           product_id: 1,
           producer_id: 4,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           producer_product_id: 15,
@@ -268,7 +268,7 @@ exports.seed = (knex) => {
           keywords: 'broken, obviously, premium',
           product_id: 1,
           producer_id: 5,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           producer_product_id: 15,
@@ -277,7 +277,7 @@ exports.seed = (knex) => {
           keywords: 'broken, obviously, premium',
           product_id: 1,
           producer_id: 5,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           producer_product_id: 16,
@@ -286,7 +286,7 @@ exports.seed = (knex) => {
           keywords: 'auspicious, closed, incandescent',
           product_id: 1,
           producer_id: 6,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           producer_product_id: 16,
@@ -295,7 +295,7 @@ exports.seed = (knex) => {
           keywords: 'auspicious, closed, incandescent',
           product_id: 1,
           producer_id: 6,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           producer_product_id: 17,
@@ -304,7 +304,7 @@ exports.seed = (knex) => {
           keywords: 'alleged, yielding, annoyed',
           product_id: 1,
           producer_id: 7,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           producer_product_id: 17,
@@ -313,7 +313,7 @@ exports.seed = (knex) => {
           keywords: 'alleged, yielding, annoyed',
           product_id: 1,
           producer_id: 7,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           producer_product_id: 18,
@@ -322,7 +322,7 @@ exports.seed = (knex) => {
           keywords: 'complex, chief, visible',
           product_id: 1,
           producer_id: 8,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           producer_product_id: 18,
@@ -331,7 +331,7 @@ exports.seed = (knex) => {
           keywords: 'complex, chief, visible',
           product_id: 1,
           producer_id: 8,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           producer_product_id: 19,
@@ -340,7 +340,7 @@ exports.seed = (knex) => {
           keywords: 'bite-sized, cluttered, harsh',
           product_id: 1,
           producer_id: 9,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           producer_product_id: 19,
@@ -349,7 +349,7 @@ exports.seed = (knex) => {
           keywords: 'bite-sized, cluttered, harsh',
           product_id: 1,
           producer_id: 9,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           producer_product_id: 20,
@@ -358,7 +358,7 @@ exports.seed = (knex) => {
           keywords: 'lively, delicate, threatening',
           product_id: 1,
           producer_id: 10,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           producer_product_id: 20,
@@ -367,7 +367,7 @@ exports.seed = (knex) => {
           keywords: 'lively, delicate, threatening',
           product_id: 1,
           producer_id: 10,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         }
       ]);
     });

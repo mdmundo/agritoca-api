@@ -54,7 +54,7 @@ const producerProductController = {
 
       const isPicture = await producerProductResource.getUploadedPicture({
         id: req.params.id,
-        upserter: req.user.email,
+        mod: req.user.email,
         picture: buffer
       });
 
@@ -68,7 +68,7 @@ const producerProductController = {
   async create(req, res) {
     try {
       const producerProduct = await producerProductResource.getInsertedProducerProduct(
-        { body: req.body, upserter: req.user.email }
+        { body: req.body, mod: req.user.email }
       );
 
       return res.status(201).json(getWithoutPicture(producerProduct));
@@ -81,7 +81,7 @@ const producerProductController = {
   async update(req, res) {
     try {
       const producerProduct = await producerProductResource.getUpdatedProducerProduct(
-        { id: req.params.id, body: req.body, upserter: req.user.email }
+        { id: req.params.id, body: req.body, mod: req.user.email }
       );
 
       return res.json(getWithoutPicture(producerProduct));
@@ -95,7 +95,7 @@ const producerProductController = {
     try {
       await producerProductResource.deleteProducerProduct({
         id: req.params.id,
-        upserter: req.user.email
+        mod: req.user.email
       });
 
       return res.send();

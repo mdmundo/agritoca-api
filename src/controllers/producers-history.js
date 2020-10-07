@@ -26,7 +26,7 @@ module.exports = {
     try {
       const producer = await producersHistoryResource.getRestoredProducer({
         id: req.params.id,
-        upserter: req.user.email
+        mod: req.user.email
       });
 
       return res.json(producer);

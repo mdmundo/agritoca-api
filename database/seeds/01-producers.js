@@ -17,7 +17,7 @@ exports.seed = (knex) => {
           ie: '44864122407',
           im: '38848818893',
           hash: hashids.encode(1),
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           cpf: '58408183924',
@@ -28,7 +28,7 @@ exports.seed = (knex) => {
           ie: '19099526129',
           im: '50704096269',
           hash: hashids.encode(2),
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           cpf: '38974781506',
@@ -39,7 +39,7 @@ exports.seed = (knex) => {
           ie: '17776956765',
           im: '96235711237',
           hash: hashids.encode(3),
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           cpf: '92181668643',
@@ -50,7 +50,7 @@ exports.seed = (knex) => {
           ie: '14744493884',
           im: '21683115232',
           hash: hashids.encode(4),
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           cpf: '86226334399',
@@ -61,7 +61,7 @@ exports.seed = (knex) => {
           ie: '78874500591',
           im: '38248919167',
           hash: hashids.encode(5),
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           cpf: '77437360988',
@@ -72,7 +72,7 @@ exports.seed = (knex) => {
           ie: '20928197584',
           im: '74980564457',
           hash: hashids.encode(6),
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           cpf: '28909142661',
@@ -83,7 +83,7 @@ exports.seed = (knex) => {
           ie: '94311000308',
           im: '08070598636',
           hash: hashids.encode(7),
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           cpf: '60765009646',
@@ -94,7 +94,7 @@ exports.seed = (knex) => {
           ie: '59029973536',
           im: '81424199717',
           hash: hashids.encode(8),
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           cpf: '65826300394',
@@ -105,7 +105,7 @@ exports.seed = (knex) => {
           ie: '16643116209',
           im: '53486629390',
           hash: hashids.encode(9),
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           cpf: '15626951765',
@@ -116,7 +116,7 @@ exports.seed = (knex) => {
           ie: '52015084540',
           im: '39959644806',
           hash: hashids.encode(10),
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           cpf: '38893571718',
@@ -127,7 +127,7 @@ exports.seed = (knex) => {
           ie: '39920322917',
           im: '80547195480',
           hash: hashids.encode(11),
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           cpf: '40596387711',
@@ -138,7 +138,7 @@ exports.seed = (knex) => {
           ie: '33929541670',
           im: '02770378666',
           hash: hashids.encode(12),
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           cpf: '94438077409',
@@ -149,7 +149,7 @@ exports.seed = (knex) => {
           ie: '37735057157',
           im: '15392318534',
           hash: hashids.encode(13),
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           cpf: '56111597364',
@@ -160,7 +160,7 @@ exports.seed = (knex) => {
           ie: '81476471192',
           im: '85690257755',
           hash: hashids.encode(14),
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           cpf: '80224842883',
@@ -171,7 +171,7 @@ exports.seed = (knex) => {
           ie: '54160950179',
           im: '61766332694',
           hash: hashids.encode(15),
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           cpf: '02722506915',
@@ -182,7 +182,7 @@ exports.seed = (knex) => {
           ie: '60722342250',
           im: '87666412212',
           hash: hashids.encode(16),
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           cpf: '29573972188',
@@ -193,7 +193,7 @@ exports.seed = (knex) => {
           ie: '04680523280',
           im: '86057279614',
           hash: hashids.encode(17),
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           cpf: '16733758935',
@@ -204,7 +204,7 @@ exports.seed = (knex) => {
           ie: '58816193310',
           im: '92051616549',
           hash: hashids.encode(18),
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           cpf: '35144193557',
@@ -215,7 +215,7 @@ exports.seed = (knex) => {
           ie: '50249724720',
           im: '93276065905',
           hash: hashids.encode(19),
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           cpf: '88770452070',
@@ -226,7 +226,7 @@ exports.seed = (knex) => {
           ie: '13902142292',
           im: '45809714080',
           hash: hashids.encode(20),
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         }
       ]);
     });

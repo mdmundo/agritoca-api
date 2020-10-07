@@ -7,8 +7,9 @@ exports.up = (knex) =>
     table.binary('picture').defaultTo(null);
     table.string('description').defaultTo(null);
     table.boolean('is_organic').defaultTo(null);
-    table.string('upserter').defaultTo(null);
+    table.string('mod').defaultTo(null);
     table.timestamps(true, true);
+    table.timestamp('deleted_at').defaultTo(null);
   });
 
 exports.down = (knex) => knex.schema.dropTableIfExists('products_history');

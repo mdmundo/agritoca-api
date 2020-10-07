@@ -24,7 +24,7 @@ const producerController = {
     try {
       const producer = await producerResource.getInsertedProducer({
         body: req.body,
-        upserter: req.user.email
+        mod: req.user.email
       });
 
       return res.status(201).json(producer);
@@ -37,7 +37,7 @@ const producerController = {
       const producer = await producerResource.getUpdatedProducer({
         id: req.params.id,
         body: req.body,
-        upserter: req.user.email
+        mod: req.user.email
       });
       return res.json(producer);
     } catch (error) {
@@ -48,7 +48,7 @@ const producerController = {
     try {
       await producerResource.deleteProducer({
         id: req.params.id,
-        upserter: req.user.email
+        mod: req.user.email
       });
       return res.send();
     } catch (error) {

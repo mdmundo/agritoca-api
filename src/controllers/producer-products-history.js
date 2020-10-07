@@ -44,7 +44,7 @@ module.exports = {
   async restore(req, res) {
     try {
       const producerProduct = await producerProductsHistoryResource.getRestoredProducerProduct(
-        { id: req.params.id, upserter: req.user.email }
+        { id: req.params.id, mod: req.user.email }
       );
 
       return res.json(getWithoutPicture(producerProduct));

@@ -11,7 +11,7 @@ exports.up = (knex) =>
     table.string('ie').defaultTo('No ie provided');
     table.string('im').defaultTo('No im provided');
     table.string('hash').defaultTo('No hash');
-    table.string('upserter').defaultTo('upserter');
+    table.string('mod').defaultTo('mod');
     table.timestamps(true, true);
   });
 

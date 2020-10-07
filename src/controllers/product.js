@@ -48,7 +48,7 @@ const productController = {
 
       const isPicture = await productResource.getUploadedPicture({
         id: req.params.id,
-        upserter: req.user.email,
+        mod: req.user.email,
         picture: buffer
       });
 
@@ -63,7 +63,7 @@ const productController = {
     try {
       const product = await productResource.getInsertedProduct({
         body: req.body,
-        upserter: req.user.email
+        mod: req.user.email
       });
 
       return res.status(201).json(getWithoutPicture(product));
@@ -76,7 +76,7 @@ const productController = {
       const product = await productResource.getUpdatedProduct({
         id: req.params.id,
         body: req.body,
-        upserter: req.user.email
+        mod: req.user.email
       });
 
       return res.json(getWithoutPicture(product));
@@ -88,7 +88,7 @@ const productController = {
     try {
       await productResource.deleteProduct({
         id: req.params.id,
-        upserter: req.user.email
+        mod: req.user.email
       });
 
       return res.send();

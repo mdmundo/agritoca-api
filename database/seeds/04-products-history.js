@@ -14,7 +14,7 @@ exports.seed = (knex) => {
           picture,
           description: 'CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS',
           is_organic: false,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           product_id: 1,
@@ -23,7 +23,7 @@ exports.seed = (knex) => {
           picture,
           description: 'CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS',
           is_organic: false,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           product_id: 2,
@@ -31,7 +31,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'PERNA E PEDAÇO Ñ DESOS. SUÍNOS, CONGELADOS',
           is_organic: false,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           product_id: 2,
@@ -39,7 +39,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'PERNA E PEDAÇO Ñ DESOS. SUÍNOS, CONGELADOS',
           is_organic: false,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           product_id: 3,
@@ -47,7 +47,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'OUTRAS CARNES DE SUÍNO,CONGELADAS',
           is_organic: false,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           product_id: 3,
@@ -55,7 +55,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'OUTRAS CARNES DE SUÍNO,CONGELADAS',
           is_organic: false,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           product_id: 4,
@@ -63,7 +63,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'CARCS.E MEIAS-CARCS D/CORDEIRO,FRESC.,REFR.',
           is_organic: false,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           product_id: 4,
@@ -71,7 +71,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'CARCS.E MEIAS-CARCS D/CORDEIRO,FRESC.,REFR.',
           is_organic: false,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           product_id: 5,
@@ -79,7 +79,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'CARCS.E MEIAS-CARCS.DE OVINOS,FRESC.REFRIG.',
           is_organic: false,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           product_id: 5,
@@ -87,7 +87,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'CARCS.E MEIAS-CARCS.DE OVINOS,FRESC.REFRIG.',
           is_organic: false,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           product_id: 6,
@@ -95,7 +95,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'OUTRAS PEÇAS Ñ DESOSS.D/OVINOS,FRESC.REFR.',
           is_organic: false,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           product_id: 6,
@@ -103,7 +103,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'OUTRAS PEÇAS Ñ DESOSS.D/OVINOS,FRESC.REFR.',
           is_organic: false,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           product_id: 7,
@@ -111,7 +111,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'PÇS DESOSSADAS D/OVINOS,FRESCAS OU REFRIG.',
           is_organic: false,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           product_id: 7,
@@ -119,7 +119,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'PÇS DESOSSADAS D/OVINOS,FRESCAS OU REFRIG.',
           is_organic: false,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           product_id: 8,
@@ -127,7 +127,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'CARCS. E MEIAS-CARCS. DE CORDEIRO,CONG.',
           is_organic: false,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           product_id: 8,
@@ -135,7 +135,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'CARCS. E MEIAS-CARCS. DE CORDEIRO,CONG.',
           is_organic: false,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           product_id: 9,
@@ -143,7 +143,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'CARCS. E MEIAS-CARCS. OUTS.OVINOS,CONG.',
           is_organic: false,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           product_id: 9,
@@ -151,7 +151,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'CARCS. E MEIAS-CARCS. OUTS.OVINOS,CONG.',
           is_organic: false,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           product_id: 10,
@@ -159,7 +159,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'OUTS.PÇS NÃO DESOSS.DE OVINOS,CONGELADAS',
           is_organic: false,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           product_id: 10,
@@ -167,7 +167,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'OUTS.PÇS NÃO DESOSS.DE OVINOS,CONGELADAS',
           is_organic: false,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           product_id: 11,
@@ -175,7 +175,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'PEÇAS DESOSSADAS DE OVINOS,CONGELADAS',
           is_organic: false,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           product_id: 11,
@@ -183,7 +183,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'PEÇAS DESOSSADAS DE OVINOS,CONGELADAS',
           is_organic: false,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           product_id: 12,
@@ -191,7 +191,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'CARNES DE CAPRINOS,FRESC.,REFRIG.OU CONG.',
           is_organic: false,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           product_id: 12,
@@ -199,7 +199,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'CARNES DE CAPRINOS,FRESC.,REFRIG.OU CONG.',
           is_organic: false,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           product_id: 13,
@@ -207,7 +207,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'CARNE CAVALO,ASININA,MUAR,FRESC.REF.,CONG.',
           is_organic: false,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           product_id: 13,
@@ -215,7 +215,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'CARNE CAVALO,ASININA,MUAR,FRESC.REF.,CONG.',
           is_organic: false,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           product_id: 14,
@@ -223,7 +223,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'MIUDEZAS DE BOVINOS,FRESCAS/REFRIGERADAS',
           is_organic: false,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           product_id: 14,
@@ -231,7 +231,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'MIUDEZAS DE BOVINOS,FRESCAS/REFRIGERADAS',
           is_organic: false,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           product_id: 15,
@@ -239,7 +239,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'LÍNGUAS DE BOVINOS CONGELADAS',
           is_organic: false,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           product_id: 15,
@@ -247,7 +247,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'LÍNGUAS DE BOVINOS CONGELADAS',
           is_organic: false,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           product_id: 16,
@@ -255,7 +255,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'FÍGADOS DE BOVINOS CONGELADOS',
           is_organic: false,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           product_id: 16,
@@ -263,7 +263,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'FÍGADOS DE BOVINOS CONGELADOS',
           is_organic: false,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           product_id: 17,
@@ -271,7 +271,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'RABOS DE BOVINOS CONGELADOS',
           is_organic: false,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           product_id: 17,
@@ -279,7 +279,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'RABOS DE BOVINOS CONGELADOS',
           is_organic: false,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           product_id: 18,
@@ -287,7 +287,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'OUTRAS MIUDEZAS COMESTÍVEIS., D/BOVINO,CONG.',
           is_organic: false,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           product_id: 18,
@@ -295,7 +295,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'OUTRAS MIUDEZAS COMESTÍVEIS., D/BOVINO,CONG.',
           is_organic: false,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           product_id: 19,
@@ -303,7 +303,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'MIUDEZAS DA ESPÉCIE SUÍNA FRESCAS OU REFR.',
           is_organic: false,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           product_id: 19,
@@ -311,7 +311,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'MIUDEZAS DA ESPÉCIE SUÍNA FRESCAS OU REFR.',
           is_organic: false,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         },
         {
           product_id: 20,
@@ -319,7 +319,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'FÍGADOS DE SUÍNOS, CONGELADOS',
           is_organic: false,
-          upserter: 'teverett@msn.com'
+          mod: 'teverett@msn.com'
         },
         {
           product_id: 20,
@@ -327,7 +327,7 @@ exports.seed = (knex) => {
           measure: 'KG',
           description: 'FÍGADOS DE SUÍNOS, CONGELADOS',
           is_organic: false,
-          upserter: 'mbrown@msn.com'
+          mod: 'mbrown@msn.com'
         }
       ]);
     });
