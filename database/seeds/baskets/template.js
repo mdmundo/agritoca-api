@@ -685,30 +685,37 @@ module.exports = [
   },
   {
     id: 5,
-    name: 'Cesta #5'
+    name: 'Cesta #5',
+    items: []
   },
   {
     id: 6,
-    name: 'Cesta #6'
+    name: 'Cesta #6',
+    items: []
   },
   {
     id: 7,
-    name: 'Cesta #7'
+    name: 'Cesta #7',
+    items: []
   },
   {
     id: 8,
-    name: 'Cesta #8'
+    name: 'Cesta #8',
+    items: []
   },
   {
     id: 9,
-    name: 'Cesta #9'
+    name: 'Cesta #9',
+    items: []
   },
   {
     id: 10,
-    name: 'Cesta #10'
+    name: 'Cesta #10',
+    items: []
   },
   {
     id: 11,
-    name: 'Cesta #11'
+    name: 'Cesta #11',
+    items: []
   }
 ];
