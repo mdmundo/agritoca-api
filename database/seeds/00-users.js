@@ -124,6 +124,11 @@ exports.seed = (knex) => {
           email: 'keijser@gmail.com',
           picture:
             'https://s.gravatar.com/avatar/0af128c3c0007ac74a8c40b0dd11ffa1?s=96&d=retro'
+        },
+        {
+          name: 'Calebe',
+          email: 'cahoam@gmail.com',
+          privilege: 2
         }
       ]);
     });
