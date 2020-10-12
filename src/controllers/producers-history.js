@@ -14,10 +14,14 @@ module.exports = {
   },
   async readById(req, res) {
     try {
-      const productHistory = await producersHistoryResource.getProducerHistoryById(
+      const producerHistory = await producersHistoryResource.getProducerHistoryById(
         req.params
       );
-      return res.json(productHistory);
+
+      if (!producerHistory)
+        return res.status(404).json({ message: 'Producer not found' });
+
+      return res.json(producerHistory);
     } catch (error) {
       return res.status(500).json({ message: 'Error on Server' });
     }

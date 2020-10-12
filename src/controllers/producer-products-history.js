@@ -22,6 +22,10 @@ module.exports = {
       const producerProductHistory = await producerProductsHistoryResource.getProducerProductHistoryById(
         req.params
       );
+
+      if (!producerProductHistory)
+        return res.status(404).json({ message: 'Producer Product not found' });
+
       return res.json(getWithoutPicture(producerProductHistory));
     } catch (error) {
       return res.status(500).json({ message: 'Error on Server' });

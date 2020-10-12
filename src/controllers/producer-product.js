@@ -24,6 +24,9 @@ const producerProductController = {
         req.params
       );
 
+      if (!producerProduct)
+        return res.status(404).json({ message: 'Producer Product not found' });
+
       return res.json(getWithoutPicture(producerProduct));
     } catch (error) {
       return res.status(500).json({ message: 'Error on Server' });

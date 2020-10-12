@@ -15,6 +15,10 @@ const producerController = {
   async readById(req, res) {
     try {
       const producer = await producerResource.getProducerById(req.params);
+
+      if (!producer)
+        return res.status(404).json({ message: 'Producer not found' });
+
       return res.json(producer);
     } catch (error) {
       return res.status(500).json({ message: 'Error on Server' });
