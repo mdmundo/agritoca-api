@@ -184,7 +184,7 @@ URL: {{url}}/baskets
 ```js
 [
   {
-    id: 5,
+    id: 'f3fe507e-1c2d-4f7a-af76-2f0210840d93',
     name: 'Cesta #5',
     items: [
       {
@@ -197,7 +197,7 @@ URL: {{url}}/baskets
         brand: 'ooarea',
         barcode: '197895997244',
         keywords: 'upset, responsible, splendid',
-        id: 1,
+        id: '56735a0b-4080-494a-a381-98209c8a5ead',
         producer_product_id: 1,
         created_at: '2020-10-07T13:14:33.167Z',
         updated_at: '2020-10-07T13:14:33.167Z'
@@ -205,13 +205,13 @@ URL: {{url}}/baskets
     ]
   },
   {
-    id: 6,
-    name: 'Cesta #6',
+    id: '07613382-a66e-415f-ba87-82ae8321da72',
+    name: 'Cesta #9',
     items: []
   },
   {
-    id: 7,
-    name: 'Cesta #7',
+    id: '12862eeb-a820-4333-b7e7-53b9c89dd465',
+    name: 'Cesta #10',
     items: []
   }
 ];
