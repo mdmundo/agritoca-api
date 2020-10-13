@@ -4,11 +4,11 @@ module.exports = {
   update: {
     body: Joi.array().items(
       Joi.object({
-        id: Joi.number().integer().positive(),
+        id: Joi.string().uuid(),
         name: Joi.string().max(255),
         items: Joi.array().items(
           Joi.object().keys({
-            id: Joi.number().integer().positive(),
+            id: Joi.string().uuid(),
             ncm: Joi.string()
               .required()
               .pattern(/^[0-9]+$/)
