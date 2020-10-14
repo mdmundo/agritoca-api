@@ -95,40 +95,35 @@ URL: {{url}}/baskets
 
 **_Body:_**
 
-```js
+```json
 [
   {
-    id: 'f3fe507e-1c2d-4f7a-af76-2f0210840d93',
-    name: 'Cesta #5',
-    items: [
+    "id": "f3fe507e-1c2d-4f7a-af76-2f0210840d93",
+    "name": "Cesta #5",
+    "items": [
       {
-        ncm: '02032100',
-        measure: 'KG',
-        description: 'CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS',
-        is_organic: false,
-        product_id: 1,
-        producer_id: 1,
-        brand: 'ooarea',
-        barcode: '197895997244',
-        keywords: 'upset, responsible, splendid',
-        id: '56735a0b-4080-494a-a381-98209c8a5ead',
-        producer_product_id: 1,
-        created_at: '2020-10-07T13:14:33.167Z',
-        updated_at: '2020-10-07T13:14:33.167Z'
+        "measure": "KG",
+        "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
+        "brand": "ooarea",
+        "id": "56735a0b-4080-494a-a381-98209c8a5ead",
+        "notes": ""
       }
-    ]
+    ],
+    "notes": ""
   },
   {
-    id: '07613382-a66e-415f-ba87-82ae8321da72',
-    name: 'Cesta #9',
-    items: []
+    "id": "07613382-a66e-415f-ba87-82ae8321da72",
+    "name": "Cesta #9",
+    "items": [],
+    "notes": ""
   },
   {
-    id: '12862eeb-a820-4333-b7e7-53b9c89dd465',
-    name: 'Cesta #10',
-    items: []
+    "id": "12862eeb-a820-4333-b7e7-53b9c89dd465",
+    "name": "Cesta #10",
+    "items": [],
+    "notes": ""
   }
-];
+]
 ```
 
 **_More example Requests/Responses:_**
@@ -137,40 +132,35 @@ URL: {{url}}/baskets
 
 **_Body:_**
 
-```js
+```json
 [
   {
-    id: 'f3fe507e-1c2d-4f7a-af76-2f0210840d93',
-    name: 'Cesta #5',
-    items: [
+    "id": "f3fe507e-1c2d-4f7a-af76-2f0210840d93",
+    "name": "Cesta #5",
+    "items": [
       {
-        ncm: '02032100',
-        measure: 'KG',
-        description: 'CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS',
-        is_organic: false,
-        product_id: 1,
-        producer_id: 1,
-        brand: 'ooarea',
-        barcode: '197895997244',
-        keywords: 'upset, responsible, splendid',
-        id: '56735a0b-4080-494a-a381-98209c8a5ead',
-        producer_product_id: 1,
-        created_at: '2020-10-07T13:14:33.167Z',
-        updated_at: '2020-10-07T13:14:33.167Z'
+        "measure": "KG",
+        "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
+        "brand": "ooarea",
+        "id": "56735a0b-4080-494a-a381-98209c8a5ead",
+        "notes": ""
       }
-    ]
+    ],
+    "notes": ""
   },
   {
-    id: '07613382-a66e-415f-ba87-82ae8321da72',
-    name: 'Cesta #9',
-    items: []
+    "id": "07613382-a66e-415f-ba87-82ae8321da72",
+    "name": "Cesta #9",
+    "items": [],
+    "notes": ""
   },
   {
-    id: '12862eeb-a820-4333-b7e7-53b9c89dd465',
-    name: 'Cesta #10',
-    items: []
+    "id": "12862eeb-a820-4333-b7e7-53b9c89dd465",
+    "name": "Cesta #10",
+    "items": [],
+    "notes": ""
   }
-];
+]
 ```
 
 **_Status Code:_** 200
@@ -181,47 +171,42 @@ URL: {{url}}/baskets
 
 **_Body:_**
 
-```js
+```json
 [
   {
-    id: 'f3fe507e-1c2d-4f7a-af76-2f0210840d93',
-    name: 'Cesta #5',
-    items: [
+    "id": "f3fe507e-1c2d-4f7a-af76-2f0210840d93",
+    "name": "Cesta #5",
+    "items": [
       {
-        ncm: '02032100',
-        measure: 'KG',
-        description: 'CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS',
-        is_organic: false,
-        product_id: 1,
-        producer_id: 1,
-        brand: 'ooarea',
-        barcode: '197895997244',
-        keywords: 'upset, responsible, splendid',
-        id: '56735a0b-4080-494a-a381-98209c8a5ead',
-        producer_product_id: 1,
-        created_at: '2020-10-07T13:14:33.167Z',
-        updated_at: '2020-10-07T13:14:33.167Z'
+        "measure": "KG",
+        "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
+        "brand": "ooarea",
+        "id": "56735a0b-4080-494a-a381-98209c8a5ead",
+        "notes": ""
       }
-    ]
+    ],
+    "notes": ""
   },
   {
-    id: '07613382-a66e-415f-ba87-82ae8321da72',
-    name: 'Cesta #9',
-    items: []
+    "id": "07613382-a66e-415f-ba87-82ae8321da72",
+    "name": "Cesta #9",
+    "items": [],
+    "notes": ""
   },
   {
-    id: '12862eeb-a820-4333-b7e7-53b9c89dd465',
-    name: 'Cesta #10',
-    items: []
+    "id": "12862eeb-a820-4333-b7e7-53b9c89dd465",
+    "name": "Cesta #10",
+    "items": [],
+    "notes": ""
   }
-];
+]
 ```
 
 ##### II. Example Response: Update Baskets: Unauthenticated
 
-```js
+```json
 {
-    "message": "Please Authenticate"
+  "message": "Please Authenticate"
 }
 ```
 
@@ -243,61 +228,52 @@ URL: {{url}}/baskets
 
 **_More example Requests/Responses:_**
 
-##### I. Example Request: User Baskets: Success
+##### I. Example Request: User Baskets: Unauthenticated
 
-##### I. Example Response: User Baskets: Success
+##### I. Example Response: User Baskets: Unauthenticated
 
-```js
-[
-  {
-    id: 'f3fe507e-1c2d-4f7a-af76-2f0210840d93',
-    name: 'Cesta #5',
-    items: [
-      {
-        ncm: '02032100',
-        measure: 'KG',
-        description: 'CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS',
-        is_organic: false,
-        product_id: 1,
-        producer_id: 1,
-        brand: 'ooarea',
-        barcode: '197895997244',
-        keywords: 'upset, responsible, splendid',
-        id: '56735a0b-4080-494a-a381-98209c8a5ead',
-        producer_product_id: 1,
-        created_at: '2020-10-07T13:14:33.167Z',
-        updated_at: '2020-10-07T13:14:33.167Z'
-      }
-    ]
-  },
-  {
-    id: '07613382-a66e-415f-ba87-82ae8321da72',
-    name: 'Cesta #9',
-    items: []
-  },
-  {
-    id: '12862eeb-a820-4333-b7e7-53b9c89dd465',
-    name: 'Cesta #10',
-    items: []
-  }
-];
-```
-
-**_Status Code:_** 200
-
-<br>
-
-##### II. Example Request: User Baskets: Unauthenticated
-
-##### II. Example Response: User Baskets: Unauthenticated
-
-```js
+```json
 {
-    "message": "Please Authenticate"
+  "message": "Please Authenticate"
 }
 ```
 
 **_Status Code:_** 401
+
+<br>
+
+##### II. Example Request: User Baskets: Success
+
+##### II. Example Response: User Baskets: Success
+
+```json
+[
+  {
+    "id": "f3fe507e-1c2d-4f7a-af76-2f0210840d93",
+    "name": "Cesta #5",
+    "items": [
+      {
+        "measure": "KG",
+        "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
+        "brand": "ooarea",
+        "id": "56735a0b-4080-494a-a381-98209c8a5ead"
+      }
+    ]
+  },
+  {
+    "id": "07613382-a66e-415f-ba87-82ae8321da72",
+    "name": "Cesta #9",
+    "items": []
+  },
+  {
+    "id": "12862eeb-a820-4333-b7e7-53b9c89dd465",
+    "name": "Cesta #10",
+    "items": []
+  }
+]
+```
+
+**_Status Code:_** 200
 
 <br>
 
@@ -317,7 +293,7 @@ URL: {{url}}/producerProducts
 
 **_Body:_**
 
-```js
+```json
 {
   "brand": "L'oreal",
   "barcode": "098713241892",
@@ -355,9 +331,9 @@ URL: {{url}}/producerProducts/:id
 
 ##### I. Example Response: Delete Producer Product: Unauthenticated
 
-```js
+```json
 {
-    "message": "Please Authenticate"
+  "message": "Please Authenticate"
 }
 ```
 
@@ -375,9 +351,9 @@ URL: {{url}}/producerProducts/:id
 
 ##### II. Example Response: Delete Producer Product: Unauthorized
 
-```js
+```json
 {
-    "message": "Not enough privilege"
+  "message": "Not enough privilege"
 }
 ```
 
@@ -395,9 +371,9 @@ URL: {{url}}/producerProducts/:id
 
 ##### III. Example Response: Delete Producer Product: Error
 
-```js
+```json
 {
-    "message": "Error Removing Producer Product"
+  "message": "Error Removing Producer Product"
 }
 ```
 
@@ -427,17 +403,15 @@ URL: {{url}}/producerProducts/:id
 
 ##### V. Example Response: Delete Producer Product: Invalid
 
-```js
+```json
 {
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "\"id\" must be a number",
-    "validation": {
-        "source": "params",
-        "keys": [
-            "id"
-        ]
-    }
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "\"id\" must be a number",
+  "validation": {
+    "source": "params",
+    "keys": ["id"]
+  }
 }
 ```
 
@@ -473,17 +447,15 @@ URL: {{url}}/producerProducts/:id/picture
 
 ##### I. Example Response: Producer Product Picture: Invalid
 
-```js
+```json
 {
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "\"id\" must be a number",
-    "validation": {
-        "source": "params",
-        "keys": [
-            "id"
-        ]
-    }
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "\"id\" must be a number",
+  "validation": {
+    "source": "params",
+    "keys": ["id"]
+  }
 }
 ```
 
@@ -533,9 +505,9 @@ URL: {{url}}/producerProducts/:id
 
 ##### I. Example Response: Producer Product by ID: Not Found
 
-```js
+```json
 {
-    "message": "Producer Product not found"
+  "message": "Producer Product not found"
 }
 ```
 
@@ -553,17 +525,15 @@ URL: {{url}}/producerProducts/:id
 
 ##### II. Example Response: Producer Product by ID: Invalid
 
-```js
+```json
 {
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "\"id\" must be a number",
-    "validation": {
-        "source": "params",
-        "keys": [
-            "id"
-        ]
-    }
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "\"id\" must be a number",
+  "validation": {
+    "source": "params",
+    "keys": ["id"]
+  }
 }
 ```
 
@@ -581,21 +551,21 @@ URL: {{url}}/producerProducts/:id
 
 ##### III. Example Response: Producer Product by ID: Success
 
-```js
+```json
 {
-    "ncm": "02032100",
-    "measure": "KG",
-    "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
-    "is_organic": false,
-    "id": 1,
-    "product_id": 1,
-    "producer_id": 1,
-    "brand": "ooarea",
-    "barcode": "197895997244",
-    "keywords": "upset, responsible, splendid",
-    "mod": "mbrown@msn.com",
-    "created_at": "2020-10-12T19:30:29.458Z",
-    "updated_at": "2020-10-12T19:30:29.458Z"
+  "ncm": "02032100",
+  "measure": "KG",
+  "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
+  "is_organic": false,
+  "id": 1,
+  "product_id": 1,
+  "producer_id": 1,
+  "brand": "ooarea",
+  "barcode": "197895997244",
+  "keywords": "upset, responsible, splendid",
+  "mod": "mbrown@msn.com",
+  "created_at": "2020-10-12T19:30:29.458Z",
+  "updated_at": "2020-10-12T19:30:29.458Z"
 }
 ```
 
@@ -639,17 +609,15 @@ URL: {{url}}/producerProducts
 
 ##### I. Example Response: Search Producer Products: Invalid
 
-```js
+```json
 {
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "\"product_id\" must be a number",
-    "validation": {
-        "source": "query",
-        "keys": [
-            "product_id"
-        ]
-    }
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "\"product_id\" must be a number",
+  "validation": {
+    "source": "query",
+    "keys": ["product_id"]
+  }
 }
 ```
 
@@ -670,39 +638,39 @@ URL: {{url}}/producerProducts
 
 ##### II. Example Response: Search Producer Products: Pagination Params
 
-```js
+```json
 [
   {
-    ncm: '02032100',
-    measure: 'KG',
-    description: 'CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS',
-    is_organic: false,
-    id: 18,
-    product_id: 1,
-    producer_id: 8,
-    brand: 'platinumbear',
-    barcode: '505854275106',
-    keywords: 'complex, chief, visible',
-    mod: 'mbrown@msn.com',
-    created_at: '2020-10-12T19:30:29.458Z',
-    updated_at: '2020-10-12T19:30:29.458Z'
+    "ncm": "02032100",
+    "measure": "KG",
+    "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
+    "is_organic": false,
+    "id": 18,
+    "product_id": 1,
+    "producer_id": 8,
+    "brand": "platinumbear",
+    "barcode": "505854275106",
+    "keywords": "complex, chief, visible",
+    "mod": "mbrown@msn.com",
+    "created_at": "2020-10-12T19:30:29.458Z",
+    "updated_at": "2020-10-12T19:30:29.458Z"
   },
   {
-    ncm: '02032100',
-    measure: 'KG',
-    description: 'CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS',
-    is_organic: false,
-    id: 20,
-    product_id: 1,
-    producer_id: 10,
-    brand: 'opticell',
-    barcode: '130194962380',
-    keywords: 'lively, delicate, threatening',
-    mod: 'mbrown@msn.com',
-    created_at: '2020-10-12T19:30:29.458Z',
-    updated_at: '2020-10-12T19:30:29.458Z'
+    "ncm": "02032100",
+    "measure": "KG",
+    "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
+    "is_organic": false,
+    "id": 20,
+    "product_id": 1,
+    "producer_id": 10,
+    "brand": "opticell",
+    "barcode": "130194962380",
+    "keywords": "lively, delicate, threatening",
+    "mod": "mbrown@msn.com",
+    "created_at": "2020-10-12T19:30:29.458Z",
+    "updated_at": "2020-10-12T19:30:29.458Z"
   }
-];
+]
 ```
 
 **_Status Code:_** 200
@@ -722,8 +690,8 @@ URL: {{url}}/producerProducts
 
 ##### III. Example Response: Search Producer Products: Empty Page
 
-```js
-[];
+```json
+[]
 ```
 
 **_Status Code:_** 200
@@ -743,24 +711,24 @@ URL: {{url}}/producerProducts
 
 ##### IV. Example Response: Search Producer Products: Search Params
 
-```js
+```json
 [
   {
-    ncm: '02032100',
-    measure: 'KG',
-    description: 'CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS',
-    is_organic: false,
-    id: 1,
-    product_id: 1,
-    producer_id: 1,
-    brand: 'ooarea',
-    barcode: '197895997244',
-    keywords: 'upset, responsible, splendid',
-    mod: 'mbrown@msn.com',
-    created_at: '2020-10-12T19:30:29.458Z',
-    updated_at: '2020-10-12T19:30:29.458Z'
+    "ncm": "02032100",
+    "measure": "KG",
+    "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
+    "is_organic": false,
+    "id": 1,
+    "product_id": 1,
+    "producer_id": 1,
+    "brand": "ooarea",
+    "barcode": "197895997244",
+    "keywords": "upset, responsible, splendid",
+    "mod": "mbrown@msn.com",
+    "created_at": "2020-10-12T19:30:29.458Z",
+    "updated_at": "2020-10-12T19:30:29.458Z"
   }
-];
+]
 ```
 
 **_Status Code:_** 200
@@ -785,7 +753,7 @@ URL: {{url}}/producerProducts/:id
 
 **_Body:_**
 
-```js
+```json
 {
   "brand": "L'oreal",
   "barcode": "098713241892",
@@ -807,7 +775,7 @@ URL: {{url}}/producerProducts/:id
 
 **_Body:_**
 
-```js
+```json
 {
   "brand": "L'oreal",
   "barcode": "098713241892",
@@ -819,9 +787,9 @@ URL: {{url}}/producerProducts/:id
 
 ##### I. Example Response: Update Producer Product: Unauthorized
 
-```js
+```json
 {
-    "message": "Not enough privilege"
+  "message": "Not enough privilege"
 }
 ```
 
@@ -839,7 +807,7 @@ URL: {{url}}/producerProducts/:id
 
 **_Body:_**
 
-```js
+```json
 {
   "brand": "L'oreal",
   "barcode": "098713241892",
@@ -851,9 +819,9 @@ URL: {{url}}/producerProducts/:id
 
 ##### II. Example Response: Update Producer Product: Error
 
-```js
+```json
 {
-    "message": "Error Updating Producer Product"
+  "message": "Error Updating Producer Product"
 }
 ```
 
@@ -871,7 +839,7 @@ URL: {{url}}/producerProducts/:id
 
 **_Body:_**
 
-```js
+```json
 {
   "brand": "L'oreal",
   "barcode": "098713241892",
@@ -883,9 +851,9 @@ URL: {{url}}/producerProducts/:id
 
 ##### III. Example Response: Update Producer Product: Unauthenticated
 
-```js
+```json
 {
-    "message": "Please Authenticate"
+  "message": "Please Authenticate"
 }
 ```
 
@@ -903,7 +871,7 @@ URL: {{url}}/producerProducts/:id
 
 **_Body:_**
 
-```js
+```json
 {
   "brand": "L'oreal",
   "barcode": "098713241892",
@@ -915,17 +883,17 @@ URL: {{url}}/producerProducts/:id
 
 ##### IV. Example Response: Update Producer Product: Success
 
-```js
+```json
 {
-    "id": 1,
-    "product_id": 1,
-    "producer_id": 1,
-    "brand": "L'oreal",
-    "barcode": "098713241892",
-    "keywords": "constant, iresponsible, incognito",
-    "mod": "manyymoore@gmail.com",
-    "created_at": "2020-10-12T19:30:29.458Z",
-    "updated_at": "2020-10-12T19:43:50.051Z"
+  "id": 1,
+  "product_id": 1,
+  "producer_id": 1,
+  "brand": "L'oreal",
+  "barcode": "098713241892",
+  "keywords": "constant, iresponsible, incognito",
+  "mod": "manyymoore@gmail.com",
+  "created_at": "2020-10-12T19:30:29.458Z",
+  "updated_at": "2020-10-12T19:43:50.051Z"
 }
 ```
 
@@ -973,9 +941,9 @@ URL: {{url}}/producerProducts/:id/picture
 
 ##### I. Example Response: Upload Producer Product Picture: Error
 
-```js
+```json
 {
-    "message": "Error on Uploading Picture"
+  "message": "Error on Uploading Picture"
 }
 ```
 
@@ -999,9 +967,9 @@ URL: {{url}}/producerProducts/:id/picture
 
 ##### II. Example Response: Upload Producer Product Picture: Invalid File
 
-```js
+```json
 {
-    "message": "Can not upload that"
+  "message": "Can not upload that"
 }
 ```
 
@@ -1043,9 +1011,9 @@ URL: {{url}}/producerProducts/:id/picture
 
 ##### IV. Example Response: Upload Producer Product Picture: Unauthorized
 
-```js
+```json
 {
-    "message": "Not enough privilege"
+  "message": "Not enough privilege"
 }
 ```
 
@@ -1069,9 +1037,9 @@ URL: {{url}}/producerProducts/:id/picture
 
 ##### V. Example Response: Upload Producer Product Picture: Unauthenticated
 
-```js
+```json
 {
-    "message": "Please Authenticate"
+  "message": "Please Authenticate"
 }
 ```
 
@@ -1111,9 +1079,9 @@ URL: {{url}}/producerProductsHistory/:id/picture
 
 ##### I. Example Response: Producer Product History Picture: Unauthenticated
 
-```js
+```json
 {
-    "message": "Please Authenticate"
+  "message": "Please Authenticate"
 }
 ```
 
@@ -1131,9 +1099,9 @@ URL: {{url}}/producerProductsHistory/:id/picture
 
 ##### II. Example Response: Producer Product History Picture: Unauthorized
 
-```js
+```json
 {
-    "message": "Not enough privilege"
+  "message": "Not enough privilege"
 }
 ```
 
@@ -1163,17 +1131,15 @@ URL: {{url}}/producerProductsHistory/:id/picture
 
 ##### IV. Example Response: Producer Product History Picture: Invalid
 
-```js
+```json
 {
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "\"id\" must be a number",
-    "validation": {
-        "source": "params",
-        "keys": [
-            "id"
-        ]
-    }
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "\"id\" must be a number",
+  "validation": {
+    "source": "params",
+    "keys": ["id"]
+  }
 }
 ```
 
@@ -1211,9 +1177,9 @@ URL: {{url}}/producerProductsHistory/:id
 
 ##### I. Example Response: Producer Product History by ID: Unauthorized
 
-```js
+```json
 {
-    "message": "Not enough privilege"
+  "message": "Not enough privilege"
 }
 ```
 
@@ -1231,19 +1197,19 @@ URL: {{url}}/producerProductsHistory/:id
 
 ##### II. Example Response: Producer Product History by ID: Success
 
-```js
+```json
 {
-    "id": 1,
-    "producer_product_id": 1,
-    "product_id": 1,
-    "producer_id": 1,
-    "brand": "ooarea",
-    "barcode": "197895997244",
-    "keywords": "upset, responsible, splendid",
-    "mod": "teverett@msn.com",
-    "created_at": "2020-10-12T20:27:48.665Z",
-    "updated_at": "2020-10-12T20:27:48.665Z",
-    "deleted_at": null
+  "id": 1,
+  "producer_product_id": 1,
+  "product_id": 1,
+  "producer_id": 1,
+  "brand": "ooarea",
+  "barcode": "197895997244",
+  "keywords": "upset, responsible, splendid",
+  "mod": "teverett@msn.com",
+  "created_at": "2020-10-12T20:27:48.665Z",
+  "updated_at": "2020-10-12T20:27:48.665Z",
+  "deleted_at": null
 }
 ```
 
@@ -1261,17 +1227,15 @@ URL: {{url}}/producerProductsHistory/:id
 
 ##### III. Example Response: Producer Product History by ID: Invalid
 
-```js
+```json
 {
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "\"id\" must be a number",
-    "validation": {
-        "source": "params",
-        "keys": [
-            "id"
-        ]
-    }
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "\"id\" must be a number",
+  "validation": {
+    "source": "params",
+    "keys": ["id"]
+  }
 }
 ```
 
@@ -1289,9 +1253,9 @@ URL: {{url}}/producerProductsHistory/:id
 
 ##### IV. Example Response: Producer Product History by ID: Not Found
 
-```js
+```json
 {
-    "message": "Producer Product not found"
+  "message": "Producer Product not found"
 }
 ```
 
@@ -1309,9 +1273,9 @@ URL: {{url}}/producerProductsHistory/:id
 
 ##### V. Example Response: Producer Product History by ID: Unauthenticated
 
-```js
+```json
 {
-    "message": "Please Authenticate"
+  "message": "Please Authenticate"
 }
 ```
 
@@ -1347,17 +1311,15 @@ URL: {{url}}/producerProductsHistory/:id
 
 ##### I. Example Response: Restore Producer Product History: Invalid
 
-```js
+```json
 {
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "\"id\" must be a number",
-    "validation": {
-        "source": "params",
-        "keys": [
-            "id"
-        ]
-    }
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "\"id\" must be a number",
+  "validation": {
+    "source": "params",
+    "keys": ["id"]
+  }
 }
 ```
 
@@ -1375,17 +1337,17 @@ URL: {{url}}/producerProductsHistory/:id
 
 ##### II. Example Response: Restore Producer Product History: Success
 
-```js
+```json
 {
-    "id": 1,
-    "product_id": 1,
-    "producer_id": 1,
-    "brand": "ooarea",
-    "barcode": "197895997244",
-    "keywords": "upset, responsible, splendid",
-    "mod": "manyymoore@gmail.com",
-    "created_at": "2020-10-12T20:27:48.665Z",
-    "updated_at": "2020-10-12T21:26:57.666Z"
+  "id": 1,
+  "product_id": 1,
+  "producer_id": 1,
+  "brand": "ooarea",
+  "barcode": "197895997244",
+  "keywords": "upset, responsible, splendid",
+  "mod": "manyymoore@gmail.com",
+  "created_at": "2020-10-12T20:27:48.665Z",
+  "updated_at": "2020-10-12T21:26:57.666Z"
 }
 ```
 
@@ -1403,9 +1365,9 @@ URL: {{url}}/producerProductsHistory/:id
 
 ##### III. Example Response: Restore Producer Product History: Unauthorized
 
-```js
+```json
 {
-    "message": "Not enough privilege"
+  "message": "Not enough privilege"
 }
 ```
 
@@ -1423,9 +1385,9 @@ URL: {{url}}/producerProductsHistory/:id
 
 ##### IV. Example Response: Restore Producer Product History: Error
 
-```js
+```json
 {
-    "message": "Error on Restoring Producer Product"
+  "message": "Error on Restoring Producer Product"
 }
 ```
 
@@ -1443,9 +1405,9 @@ URL: {{url}}/producerProductsHistory/:id
 
 ##### V. Example Response: Restore Producer Product History: Unauthenticated
 
-```js
+```json
 {
-    "message": "Please Authenticate"
+  "message": "Please Authenticate"
 }
 ```
 
@@ -1485,9 +1447,9 @@ URL: {{url}}/producerProductsHistory
 
 ##### I. Example Response: Search Producer Products History: Unauthenticated
 
-```js
+```json
 {
-    "message": "Please Authenticate"
+  "message": "Please Authenticate"
 }
 ```
 
@@ -1506,9 +1468,9 @@ URL: {{url}}/producerProductsHistory
 
 ##### II. Example Response: Search Producer Products History: Unauthorized
 
-```js
+```json
 {
-    "message": "Not enough privilege"
+  "message": "Not enough privilege"
 }
 ```
 
@@ -1526,17 +1488,15 @@ URL: {{url}}/producerProductsHistory
 
 ##### III. Example Response: Search Producer Products History: Invalid
 
-```js
+```json
 {
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "\"producer_product_id\" must be a number",
-    "validation": {
-        "source": "query",
-        "keys": [
-            "producer_product_id"
-        ]
-    }
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "\"producer_product_id\" must be a number",
+  "validation": {
+    "source": "query",
+    "keys": ["producer_product_id"]
+  }
 }
 ```
 
@@ -1554,35 +1514,35 @@ URL: {{url}}/producerProductsHistory
 
 ##### IV. Example Response: Search Producer Products History: Search Params
 
-```js
+```json
 [
   {
-    id: 1,
-    producer_product_id: 1,
-    product_id: 1,
-    producer_id: 1,
-    brand: 'ooarea',
-    barcode: '197895997244',
-    keywords: 'upset, responsible, splendid',
-    mod: 'teverett@msn.com',
-    created_at: '2020-10-12T20:27:48.665Z',
-    updated_at: '2020-10-12T20:27:48.665Z',
-    deleted_at: null
+    "id": 1,
+    "producer_product_id": 1,
+    "product_id": 1,
+    "producer_id": 1,
+    "brand": "ooarea",
+    "barcode": "197895997244",
+    "keywords": "upset, responsible, splendid",
+    "mod": "teverett@msn.com",
+    "created_at": "2020-10-12T20:27:48.665Z",
+    "updated_at": "2020-10-12T20:27:48.665Z",
+    "deleted_at": null
   },
   {
-    id: 2,
-    producer_product_id: 1,
-    product_id: 1,
-    producer_id: 1,
-    brand: 'ooarea',
-    barcode: '197895997244',
-    keywords: 'upset, responsible, splendid',
-    mod: 'mbrown@msn.com',
-    created_at: '2020-10-12T20:27:48.665Z',
-    updated_at: '2020-10-12T20:27:48.665Z',
-    deleted_at: null
+    "id": 2,
+    "producer_product_id": 1,
+    "product_id": 1,
+    "producer_id": 1,
+    "brand": "ooarea",
+    "barcode": "197895997244",
+    "keywords": "upset, responsible, splendid",
+    "mod": "mbrown@msn.com",
+    "created_at": "2020-10-12T20:27:48.665Z",
+    "updated_at": "2020-10-12T20:27:48.665Z",
+    "deleted_at": null
   }
-];
+]
 ```
 
 **_Status Code:_** 200
@@ -1602,35 +1562,35 @@ URL: {{url}}/producerProductsHistory
 
 ##### V. Example Response: Search Producer Products History: Pagination Params
 
-```js
+```json
 [
   {
-    id: 40,
-    producer_product_id: 20,
-    product_id: 1,
-    producer_id: 10,
-    brand: 'opticell',
-    barcode: '130194962380',
-    keywords: 'lively, delicate, threatening',
-    mod: 'mbrown@msn.com',
-    created_at: '2020-10-12T20:27:48.665Z',
-    updated_at: '2020-10-12T20:27:48.665Z',
-    deleted_at: null
+    "id": 40,
+    "producer_product_id": 20,
+    "product_id": 1,
+    "producer_id": 10,
+    "brand": "opticell",
+    "barcode": "130194962380",
+    "keywords": "lively, delicate, threatening",
+    "mod": "mbrown@msn.com",
+    "created_at": "2020-10-12T20:27:48.665Z",
+    "updated_at": "2020-10-12T20:27:48.665Z",
+    "deleted_at": null
   },
   {
-    id: 39,
-    producer_product_id: 20,
-    product_id: 1,
-    producer_id: 10,
-    brand: 'opticell',
-    barcode: '130194962380',
-    keywords: 'lively, delicate, threatening',
-    mod: 'teverett@msn.com',
-    created_at: '2020-10-12T20:27:48.665Z',
-    updated_at: '2020-10-12T20:27:48.665Z',
-    deleted_at: null
+    "id": 39,
+    "producer_product_id": 20,
+    "product_id": 1,
+    "producer_id": 10,
+    "brand": "opticell",
+    "barcode": "130194962380",
+    "keywords": "lively, delicate, threatening",
+    "mod": "teverett@msn.com",
+    "created_at": "2020-10-12T20:27:48.665Z",
+    "updated_at": "2020-10-12T20:27:48.665Z",
+    "deleted_at": null
   }
-];
+]
 ```
 
 **_Status Code:_** 200
@@ -1653,13 +1613,13 @@ URL: {{url}}/producers
 
 **_Body:_**
 
-```js
+```json
 {
-    "cpf": "51770485267",
-    "cnpj": "28949864147992",
-    "name": "Eco Focus",
-    "whatsapp": "5595956384129",
-    "address": "27179787, St. Gkznepnw, Honolulu, Hawaii"
+  "cpf": "51770485267",
+  "cnpj": "28949864147992",
+  "name": "Eco Focus",
+  "whatsapp": "5595956384129",
+  "address": "27179787, St. Gkznepnw, Honolulu, Hawaii"
 }
 ```
 
@@ -1669,30 +1629,27 @@ URL: {{url}}/producers
 
 **_Body:_**
 
-```js
+```json
 {
-    "cpf": "invalid",
-    "cnpj": "28949864147992",
-    "name": "Eco Focus",
-    "whatsapp": "5595956384129",
-    "address": "27179787, St. Gkznepnw, Honolulu, Hawaii"
+  "cpf": "invalid",
+  "cnpj": "28949864147992",
+  "name": "Eco Focus",
+  "whatsapp": "5595956384129",
+  "address": "27179787, St. Gkznepnw, Honolulu, Hawaii"
 }
 ```
 
 ##### I. Example Response: Create Producer: Invalid
 
-```js
+```json
 {
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "\"cpf\" with value \"invalid\" fails to match the required pattern: /^[0-9]+$/. \"cpf\" length must be 11 characters long",
-    "validation": {
-        "source": "body",
-        "keys": [
-            "cpf",
-            "cpf"
-        ]
-    }
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "\"cpf\" with value \"invalid\" fails to match the required pattern: /^[0-9]+$/. \"cpf\" length must be 11 characters long",
+  "validation": {
+    "source": "body",
+    "keys": ["cpf", "cpf"]
+  }
 }
 ```
 
@@ -1704,21 +1661,21 @@ URL: {{url}}/producers
 
 **_Body:_**
 
-```js
+```json
 {
-    "cpf": "51770485267",
-    "cnpj": "28949864147992",
-    "name": "Eco Focus",
-    "whatsapp": "5595956384129",
-    "address": "27179787, St. Gkznepnw, Honolulu, Hawaii"
+  "cpf": "51770485267",
+  "cnpj": "28949864147992",
+  "name": "Eco Focus",
+  "whatsapp": "5595956384129",
+  "address": "27179787, St. Gkznepnw, Honolulu, Hawaii"
 }
 ```
 
 ##### II. Example Response: Create Producer: Error
 
-```js
+```json
 {
-    "message": "Error Creating Producer"
+  "message": "Error Creating Producer"
 }
 ```
 
@@ -1730,32 +1687,32 @@ URL: {{url}}/producers
 
 **_Body:_**
 
-```js
+```json
 {
-    "cpf": "51770485267",
-    "cnpj": "28949864147992",
-    "name": "Eco Focus",
-    "whatsapp": "5595956384129",
-    "address": "27179787, St. Gkznepnw, Honolulu, Hawaii"
+  "cpf": "51770485267",
+  "cnpj": "28949864147992",
+  "name": "Eco Focus",
+  "whatsapp": "5595956384129",
+  "address": "27179787, St. Gkznepnw, Honolulu, Hawaii"
 }
 ```
 
 ##### III. Example Response: Create Producer: Success
 
-```js
+```json
 {
-    "id": 21,
-    "cpf": "51770485267",
-    "cnpj": "28949864147992",
-    "name": "Eco Focus",
-    "whatsapp": "5595956384129",
-    "address": "27179787, St. Gkznepnw, Honolulu, Hawaii",
-    "ie": "No ie provided",
-    "im": "No im provided",
-    "hash": "W89m8w",
-    "mod": "manyymoore@gmail.com",
-    "created_at": "2020-10-12T18:17:19.204Z",
-    "updated_at": "2020-10-12T18:17:19.204Z"
+  "id": 21,
+  "cpf": "51770485267",
+  "cnpj": "28949864147992",
+  "name": "Eco Focus",
+  "whatsapp": "5595956384129",
+  "address": "27179787, St. Gkznepnw, Honolulu, Hawaii",
+  "ie": "No ie provided",
+  "im": "No im provided",
+  "hash": "W89m8w",
+  "mod": "manyymoore@gmail.com",
+  "created_at": "2020-10-12T18:17:19.204Z",
+  "updated_at": "2020-10-12T18:17:19.204Z"
 }
 ```
 
@@ -1767,21 +1724,21 @@ URL: {{url}}/producers
 
 **_Body:_**
 
-```js
+```json
 {
-    "cpf": "51770485267",
-    "cnpj": "28949864147992",
-    "name": "Eco Focus",
-    "whatsapp": "5595956384129",
-    "address": "27179787, St. Gkznepnw, Honolulu, Hawaii"
+  "cpf": "51770485267",
+  "cnpj": "28949864147992",
+  "name": "Eco Focus",
+  "whatsapp": "5595956384129",
+  "address": "27179787, St. Gkznepnw, Honolulu, Hawaii"
 }
 ```
 
 ##### IV. Example Response: Create Producer: Unauthorized
 
-```js
+```json
 {
-    "message": "Not enough privilege"
+  "message": "Not enough privilege"
 }
 ```
 
@@ -1793,21 +1750,21 @@ URL: {{url}}/producers
 
 **_Body:_**
 
-```js
+```json
 {
-    "cpf": "51770485267",
-    "cnpj": "28949864147992",
-    "name": "Eco Focus",
-    "whatsapp": "5595956384129",
-    "address": "27179787, St. Gkznepnw, Honolulu, Hawaii"
+  "cpf": "51770485267",
+  "cnpj": "28949864147992",
+  "name": "Eco Focus",
+  "whatsapp": "5595956384129",
+  "address": "27179787, St. Gkznepnw, Honolulu, Hawaii"
 }
 ```
 
 ##### V. Example Response: Create Producer: Unauthenticated
 
-```js
+```json
 {
-    "message": "Please Authenticate"
+  "message": "Please Authenticate"
 }
 ```
 
@@ -1843,9 +1800,9 @@ URL: {{url}}/producers/:id
 
 ##### I. Example Response: Delete Producer: Unauthenticated
 
-```js
+```json
 {
-    "message": "Please Authenticate"
+  "message": "Please Authenticate"
 }
 ```
 
@@ -1863,17 +1820,15 @@ URL: {{url}}/producers/:id
 
 ##### II. Example Response: Delete Producer: Invalid
 
-```js
+```json
 {
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "\"id\" must be a number",
-    "validation": {
-        "source": "params",
-        "keys": [
-            "id"
-        ]
-    }
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "\"id\" must be a number",
+  "validation": {
+    "source": "params",
+    "keys": ["id"]
+  }
 }
 ```
 
@@ -1891,9 +1846,9 @@ URL: {{url}}/producers/:id
 
 ##### III. Example Response: Delete Producer: Unauthorized
 
-```js
+```json
 {
-    "message": "Not enough privilege"
+  "message": "Not enough privilege"
 }
 ```
 
@@ -1923,9 +1878,9 @@ URL: {{url}}/producers/:id
 
 ##### V. Example Response: Delete Producer: Not Found
 
-```js
+```json
 {
-    "message": "Error Removing Producer"
+  "message": "Error Removing Producer"
 }
 ```
 
@@ -1963,9 +1918,9 @@ URL: {{url}}/producers/:id
 
 ##### I. Example Response: Producer by ID: Not Found
 
-```js
+```json
 {
-    "message": "Producer not found"
+  "message": "Producer not found"
 }
 ```
 
@@ -1983,17 +1938,15 @@ URL: {{url}}/producers/:id
 
 ##### II. Example Response: Producer by ID: Invalid
 
-```js
+```json
 {
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "\"id\" must be a number",
-    "validation": {
-        "source": "params",
-        "keys": [
-            "id"
-        ]
-    }
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "\"id\" must be a number",
+  "validation": {
+    "source": "params",
+    "keys": ["id"]
+  }
 }
 ```
 
@@ -2011,20 +1964,20 @@ URL: {{url}}/producers/:id
 
 ##### III. Example Response: Producer by ID: Success
 
-```js
+```json
 {
-    "id": 1,
-    "cpf": "55770485267",
-    "cnpj": "58949864147992",
-    "name": "Eco Focus",
-    "whatsapp": "5595956384129",
-    "address": "27179787, St. Gkznepnw, Honolulu, Hawaii",
-    "ie": "44864122407",
-    "im": "38848818893",
-    "hash": "OJXBx0",
-    "mod": "teverett@msn.com",
-    "created_at": "2020-10-12T17:11:48.916Z",
-    "updated_at": "2020-10-12T17:11:48.916Z"
+  "id": 1,
+  "cpf": "55770485267",
+  "cnpj": "58949864147992",
+  "name": "Eco Focus",
+  "whatsapp": "5595956384129",
+  "address": "27179787, St. Gkznepnw, Honolulu, Hawaii",
+  "ie": "44864122407",
+  "im": "38848818893",
+  "hash": "OJXBx0",
+  "mod": "teverett@msn.com",
+  "created_at": "2020-10-12T17:11:48.916Z",
+  "updated_at": "2020-10-12T17:11:48.916Z"
 }
 ```
 
@@ -2064,37 +2017,37 @@ URL: {{url}}/producers
 
 ##### I. Example Response: Search Producers: Search Params
 
-```js
+```json
 [
   {
-    id: 3,
-    cpf: '38974781506',
-    cnpj: '35464159252107',
-    name: 'Strat Security',
-    whatsapp: '5595959593088',
-    address: '45858473, St. Wkwogsam, Raleigh, North Carolina',
-    ie: '17776956765',
-    im: '96235711237',
-    hash: 'd7QPx4',
-    mod: 'teverett@msn.com',
-    created_at: '2020-10-12T17:11:48.916Z',
-    updated_at: '2020-10-12T17:11:48.916Z'
+    "id": 3,
+    "cpf": "38974781506",
+    "cnpj": "35464159252107",
+    "name": "Strat Security",
+    "whatsapp": "5595959593088",
+    "address": "45858473, St. Wkwogsam, Raleigh, North Carolina",
+    "ie": "17776956765",
+    "im": "96235711237",
+    "hash": "d7QPx4",
+    "mod": "teverett@msn.com",
+    "created_at": "2020-10-12T17:11:48.916Z",
+    "updated_at": "2020-10-12T17:11:48.916Z"
   },
   {
-    id: 11,
-    cpf: '38893571718',
-    cnpj: '79933330101190',
-    name: 'Bravura Inc',
-    whatsapp: '5595952820251',
-    address: '73806699, St. Tczmetye, Durham, North Carolina',
-    ie: '39920322917',
-    im: '80547195480',
-    hash: 'R7qjJE',
-    mod: 'teverett@msn.com',
-    created_at: '2020-10-12T17:11:48.916Z',
-    updated_at: '2020-10-12T17:11:48.916Z'
+    "id": 11,
+    "cpf": "38893571718",
+    "cnpj": "79933330101190",
+    "name": "Bravura Inc",
+    "whatsapp": "5595952820251",
+    "address": "73806699, St. Tczmetye, Durham, North Carolina",
+    "ie": "39920322917",
+    "im": "80547195480",
+    "hash": "R7qjJE",
+    "mod": "teverett@msn.com",
+    "created_at": "2020-10-12T17:11:48.916Z",
+    "updated_at": "2020-10-12T17:11:48.916Z"
   }
-];
+]
 ```
 
 **_Status Code:_** 200
@@ -2114,51 +2067,51 @@ URL: {{url}}/producers
 
 ##### II. Example Response: Search Producers: Pagination Params
 
-```js
+```json
 [
   {
-    id: 12,
-    cpf: '40596387711',
-    cnpj: '19262900902370',
-    name: 'Bonefete Fun',
-    whatsapp: '5595953275899',
-    address: '57508398, St. Tzlmnzyd, Lincoln, Nebraska',
-    ie: '33929541670',
-    im: '02770378666',
-    hash: 'z82WxZ',
-    mod: 'teverett@msn.com',
-    created_at: '2020-10-12T17:11:48.916Z',
-    updated_at: '2020-10-12T17:11:48.916Z'
+    "id": 12,
+    "cpf": "40596387711",
+    "cnpj": "19262900902370",
+    "name": "Bonefete Fun",
+    "whatsapp": "5595953275899",
+    "address": "57508398, St. Tzlmnzyd, Lincoln, Nebraska",
+    "ie": "33929541670",
+    "im": "02770378666",
+    "hash": "z82WxZ",
+    "mod": "teverett@msn.com",
+    "created_at": "2020-10-12T17:11:48.916Z",
+    "updated_at": "2020-10-12T17:11:48.916Z"
   },
   {
-    id: 8,
-    cpf: '60765009646',
-    cnpj: '82976584538295',
-    name: 'Sanguine Skincare',
-    whatsapp: '5595952768184',
-    address: '68932792, St. Fforktfw, Seattle, Washington',
-    ie: '59029973536',
-    im: '81424199717',
-    hash: 'z7peJM',
-    mod: 'teverett@msn.com',
-    created_at: '2020-10-12T17:11:48.916Z',
-    updated_at: '2020-10-12T17:11:48.916Z'
+    "id": 8,
+    "cpf": "60765009646",
+    "cnpj": "82976584538295",
+    "name": "Sanguine Skincare",
+    "whatsapp": "5595952768184",
+    "address": "68932792, St. Fforktfw, Seattle, Washington",
+    "ie": "59029973536",
+    "im": "81424199717",
+    "hash": "z7peJM",
+    "mod": "teverett@msn.com",
+    "created_at": "2020-10-12T17:11:48.916Z",
+    "updated_at": "2020-10-12T17:11:48.916Z"
   },
   {
-    id: 16,
-    cpf: '02722506915',
-    cnpj: '20223805285527',
-    name: 'Quad Goals',
-    whatsapp: '5595954817265',
-    address: '15282542, St. Pppdrbgm, Minneapolis, Minnesota',
-    ie: '60722342250',
-    im: '87666412212',
-    hash: 'Y8ZYJb',
-    mod: 'teverett@msn.com',
-    created_at: '2020-10-12T17:11:48.916Z',
-    updated_at: '2020-10-12T17:11:48.916Z'
+    "id": 16,
+    "cpf": "02722506915",
+    "cnpj": "20223805285527",
+    "name": "Quad Goals",
+    "whatsapp": "5595954817265",
+    "address": "15282542, St. Pppdrbgm, Minneapolis, Minnesota",
+    "ie": "60722342250",
+    "im": "87666412212",
+    "hash": "Y8ZYJb",
+    "mod": "teverett@msn.com",
+    "created_at": "2020-10-12T17:11:48.916Z",
+    "updated_at": "2020-10-12T17:11:48.916Z"
   }
-];
+]
 ```
 
 **_Status Code:_** 200
@@ -2176,17 +2129,15 @@ URL: {{url}}/producers
 
 ##### III. Example Response: Search Producers: Invalid
 
-```js
+```json
 {
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "\"hash\" length must be less than or equal to 6 characters long",
-    "validation": {
-        "source": "query",
-        "keys": [
-            "hash"
-        ]
-    }
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "\"hash\" length must be less than or equal to 6 characters long",
+  "validation": {
+    "source": "query",
+    "keys": ["hash"]
+  }
 }
 ```
 
@@ -2206,8 +2157,8 @@ URL: {{url}}/producers
 
 ##### IV. Example Response: Search Producers: Empty Page
 
-```js
-[];
+```json
+[]
 ```
 
 **_Status Code:_** 200
@@ -2232,11 +2183,11 @@ URL: {{url}}/producers/:id
 
 **_Body:_**
 
-```js
+```json
 {
-    "name": "Marília Fenícia",
-    "whatsapp": "5595956389977",
-    "address": "27179787, St. Hkdlpoii, Honolulu, Hawaii"
+  "name": "Marília Fenícia",
+  "whatsapp": "5595956389977",
+  "address": "27179787, St. Hkdlpoii, Honolulu, Hawaii"
 }
 ```
 
@@ -2252,27 +2203,25 @@ URL: {{url}}/producers/:id
 
 **_Body:_**
 
-```js
+```json
 {
-    "name": "Marília Fenícia",
-    "whatsapp": "invalid",
-    "address": "27179787, St. Hkdlpoii, Honolulu, Hawaii"
+  "name": "Marília Fenícia",
+  "whatsapp": "invalid",
+  "address": "27179787, St. Hkdlpoii, Honolulu, Hawaii"
 }
 ```
 
 ##### I. Example Response: Update Producer: Invalid
 
-```js
+```json
 {
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "\"whatsapp\" with value \"invalid\" fails to match the required pattern: /^[0-9]+$/",
-    "validation": {
-        "source": "body",
-        "keys": [
-            "whatsapp"
-        ]
-    }
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "\"whatsapp\" with value \"invalid\" fails to match the required pattern: /^[0-9]+$/",
+  "validation": {
+    "source": "body",
+    "keys": ["whatsapp"]
+  }
 }
 ```
 
@@ -2290,19 +2239,19 @@ URL: {{url}}/producers/:id
 
 **_Body:_**
 
-```js
+```json
 {
-    "name": "Marília Fenícia",
-    "whatsapp": "5595956389977",
-    "address": "27179787, St. Hkdlpoii, Honolulu, Hawaii"
+  "name": "Marília Fenícia",
+  "whatsapp": "5595956389977",
+  "address": "27179787, St. Hkdlpoii, Honolulu, Hawaii"
 }
 ```
 
 ##### II. Example Response: Update Producer: Unauthorized
 
-```js
+```json
 {
-    "message": "Not enough privilege"
+  "message": "Not enough privilege"
 }
 ```
 
@@ -2320,19 +2269,19 @@ URL: {{url}}/producers/:id
 
 **_Body:_**
 
-```js
+```json
 {
-    "name": "Marília Fenícia",
-    "whatsapp": "5595956389977",
-    "address": "27179787, St. Hkdlpoii, Honolulu, Hawaii"
+  "name": "Marília Fenícia",
+  "whatsapp": "5595956389977",
+  "address": "27179787, St. Hkdlpoii, Honolulu, Hawaii"
 }
 ```
 
 ##### III. Example Response: Update Producer: Unauthenticated
 
-```js
+```json
 {
-    "message": "Please Authenticate"
+  "message": "Please Authenticate"
 }
 ```
 
@@ -2350,19 +2299,19 @@ URL: {{url}}/producers/:id
 
 **_Body:_**
 
-```js
+```json
 {
-    "name": "Marília Fenícia",
-    "whatsapp": "5595956389977",
-    "address": "27179787, St. Hkdlpoii, Honolulu, Hawaii"
+  "name": "Marília Fenícia",
+  "whatsapp": "5595956389977",
+  "address": "27179787, St. Hkdlpoii, Honolulu, Hawaii"
 }
 ```
 
 ##### IV. Example Response: Update Producer: Not Found
 
-```js
+```json
 {
-    "message": "Error Updating Producer"
+  "message": "Error Updating Producer"
 }
 ```
 
@@ -2380,30 +2329,30 @@ URL: {{url}}/producers/:id
 
 **_Body:_**
 
-```js
+```json
 {
-    "name": "Marília Fenícia",
-    "whatsapp": "5595956389977",
-    "address": "27179787, St. Hkdlpoii, Honolulu, Hawaii"
+  "name": "Marília Fenícia",
+  "whatsapp": "5595956389977",
+  "address": "27179787, St. Hkdlpoii, Honolulu, Hawaii"
 }
 ```
 
 ##### V. Example Response: Update Producer: Success
 
-```js
+```json
 {
-    "id": 1,
-    "cpf": "55770485267",
-    "cnpj": "58949864147992",
-    "name": "Marília Fenícia",
-    "whatsapp": "5595956389977",
-    "address": "27179787, St. Hkdlpoii, Honolulu, Hawaii",
-    "ie": "44864122407",
-    "im": "38848818893",
-    "hash": "OJXBx0",
-    "mod": "manyymoore@gmail.com",
-    "created_at": "2020-10-12T17:11:48.916Z",
-    "updated_at": "2020-10-12T18:19:48.706Z"
+  "id": 1,
+  "cpf": "55770485267",
+  "cnpj": "58949864147992",
+  "name": "Marília Fenícia",
+  "whatsapp": "5595956389977",
+  "address": "27179787, St. Hkdlpoii, Honolulu, Hawaii",
+  "ie": "44864122407",
+  "im": "38848818893",
+  "hash": "OJXBx0",
+  "mod": "manyymoore@gmail.com",
+  "created_at": "2020-10-12T17:11:48.916Z",
+  "updated_at": "2020-10-12T18:19:48.706Z"
 }
 ```
 
@@ -2445,9 +2394,9 @@ URL: {{url}}/producersHistory/:id
 
 ##### I. Example Response: Producers History by ID: Not Found
 
-```js
+```json
 {
-    "message": "Producer not found"
+  "message": "Producer not found"
 }
 ```
 
@@ -2465,17 +2414,15 @@ URL: {{url}}/producersHistory/:id
 
 ##### II. Example Response: Producers History by ID: Invalid
 
-```js
+```json
 {
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "\"id\" must be a number",
-    "validation": {
-        "source": "params",
-        "keys": [
-            "id"
-        ]
-    }
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "\"id\" must be a number",
+  "validation": {
+    "source": "params",
+    "keys": ["id"]
+  }
 }
 ```
 
@@ -2493,9 +2440,9 @@ URL: {{url}}/producersHistory/:id
 
 ##### III. Example Response: Producers History by ID: Unauthorized
 
-```js
+```json
 {
-    "message": "Not enough privilege"
+  "message": "Not enough privilege"
 }
 ```
 
@@ -2513,9 +2460,9 @@ URL: {{url}}/producersHistory/:id
 
 ##### IV. Example Response: Producers History by ID: Unauthenticated
 
-```js
+```json
 {
-    "message": "Please Authenticate"
+  "message": "Please Authenticate"
 }
 ```
 
@@ -2533,22 +2480,22 @@ URL: {{url}}/producersHistory/:id
 
 ##### V. Example Response: Producers History by ID: Success
 
-```js
+```json
 {
-    "id": 1,
-    "producer_id": 1,
-    "cpf": "55770485267",
-    "cnpj": "58949864147992",
-    "name": "Eco Focus",
-    "whatsapp": "5595956384129",
-    "address": "27179787, St. Gkznepnw, Honolulu, Hawaii",
-    "ie": "44864122407",
-    "im": "38848818893",
-    "hash": "OJXBx0",
-    "mod": "teverett@msn.com",
-    "created_at": "2020-10-12T20:27:48.273Z",
-    "updated_at": "2020-10-12T20:27:48.273Z",
-    "deleted_at": null
+  "id": 1,
+  "producer_id": 1,
+  "cpf": "55770485267",
+  "cnpj": "58949864147992",
+  "name": "Eco Focus",
+  "whatsapp": "5595956384129",
+  "address": "27179787, St. Gkznepnw, Honolulu, Hawaii",
+  "ie": "44864122407",
+  "im": "38848818893",
+  "hash": "OJXBx0",
+  "mod": "teverett@msn.com",
+  "created_at": "2020-10-12T20:27:48.273Z",
+  "updated_at": "2020-10-12T20:27:48.273Z",
+  "deleted_at": null
 }
 ```
 
@@ -2584,20 +2531,20 @@ URL: {{url}}/producersHistory/:id
 
 ##### I. Example Response: Restore Producer History: Success
 
-```js
+```json
 {
-    "id": 1,
-    "cpf": "55770485267",
-    "cnpj": "58949864147992",
-    "name": "Eco Focus",
-    "whatsapp": "5595956384129",
-    "address": "27179787, St. Gkznepnw, Honolulu, Hawaii",
-    "ie": "44864122407",
-    "im": "38848818893",
-    "hash": "OJXBx0",
-    "mod": "manyymoore@gmail.com",
-    "created_at": "2020-10-12T20:27:48.273Z",
-    "updated_at": "2020-10-12T21:04:05.525Z"
+  "id": 1,
+  "cpf": "55770485267",
+  "cnpj": "58949864147992",
+  "name": "Eco Focus",
+  "whatsapp": "5595956384129",
+  "address": "27179787, St. Gkznepnw, Honolulu, Hawaii",
+  "ie": "44864122407",
+  "im": "38848818893",
+  "hash": "OJXBx0",
+  "mod": "manyymoore@gmail.com",
+  "created_at": "2020-10-12T20:27:48.273Z",
+  "updated_at": "2020-10-12T21:04:05.525Z"
 }
 ```
 
@@ -2615,9 +2562,9 @@ URL: {{url}}/producersHistory/:id
 
 ##### II. Example Response: Restore Producer History: Error
 
-```js
+```json
 {
-    "message": "Error on Restoring Producer"
+  "message": "Error on Restoring Producer"
 }
 ```
 
@@ -2635,9 +2582,9 @@ URL: {{url}}/producersHistory/:id
 
 ##### III. Example Response: Restore Producer History: Unauthenticated
 
-```js
+```json
 {
-    "message": "Please Authenticate"
+  "message": "Please Authenticate"
 }
 ```
 
@@ -2655,9 +2602,9 @@ URL: {{url}}/producersHistory/:id
 
 ##### IV. Example Response: Restore Producer History: Unauthorized
 
-```js
+```json
 {
-    "message": "Not enough privilege"
+  "message": "Not enough privilege"
 }
 ```
 
@@ -2675,17 +2622,15 @@ URL: {{url}}/producersHistory/:id
 
 ##### V. Example Response: Restore Producer History: Invalid
 
-```js
+```json
 {
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "\"id\" must be a number",
-    "validation": {
-        "source": "params",
-        "keys": [
-            "id"
-        ]
-    }
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "\"id\" must be a number",
+  "validation": {
+    "source": "params",
+    "keys": ["id"]
+  }
 }
 ```
 
@@ -2727,41 +2672,41 @@ URL: {{url}}/producersHistory
 
 ##### I. Example Response: Search Producers History: Pagination Params
 
-```js
+```json
 [
   {
-    id: 60,
-    producer_id: 20,
-    cpf: '88770452070',
-    cnpj: '68893557966613',
-    name: 'Lambent Illumination',
-    whatsapp: '5595956626327',
-    address: '19546512, St. Pvloqgen, Virginia Beach, Virginia',
-    ie: '13902142292',
-    im: '45809714080',
-    hash: 'aJEwxp',
-    mod: 'teverett@msn.com',
-    created_at: '2020-10-12T20:27:48.273Z',
-    updated_at: '2020-10-12T20:27:48.273Z',
-    deleted_at: null
+    "id": 60,
+    "producer_id": 20,
+    "cpf": "88770452070",
+    "cnpj": "68893557966613",
+    "name": "Lambent Illumination",
+    "whatsapp": "5595956626327",
+    "address": "19546512, St. Pvloqgen, Virginia Beach, Virginia",
+    "ie": "13902142292",
+    "im": "45809714080",
+    "hash": "aJEwxp",
+    "mod": "teverett@msn.com",
+    "created_at": "2020-10-12T20:27:48.273Z",
+    "updated_at": "2020-10-12T20:27:48.273Z",
+    "deleted_at": null
   },
   {
-    id: 59,
-    producer_id: 20,
-    cpf: '88770452070',
-    cnpj: '68893557966613',
-    name: 'Lambent Illumination',
-    whatsapp: '5595956626327',
-    address: '19546512, St. Pvloqgen, Virginia Beach, Virginia',
-    ie: '13902142292',
-    im: '45809714080',
-    hash: 'aJEwxp',
-    mod: 'mbrown@msn.com',
-    created_at: '2020-10-12T20:27:48.273Z',
-    updated_at: '2020-10-12T20:27:48.273Z',
-    deleted_at: null
+    "id": 59,
+    "producer_id": 20,
+    "cpf": "88770452070",
+    "cnpj": "68893557966613",
+    "name": "Lambent Illumination",
+    "whatsapp": "5595956626327",
+    "address": "19546512, St. Pvloqgen, Virginia Beach, Virginia",
+    "ie": "13902142292",
+    "im": "45809714080",
+    "hash": "aJEwxp",
+    "mod": "mbrown@msn.com",
+    "created_at": "2020-10-12T20:27:48.273Z",
+    "updated_at": "2020-10-12T20:27:48.273Z",
+    "deleted_at": null
   }
-];
+]
 ```
 
 **_Status Code:_** 200
@@ -2778,17 +2723,15 @@ URL: {{url}}/producersHistory
 
 ##### II. Example Response: Search Producers History: Invalid
 
-```js
+```json
 {
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "\"producer_id\" must be a number",
-    "validation": {
-        "source": "query",
-        "keys": [
-            "producer_id"
-        ]
-    }
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "\"producer_id\" must be a number",
+  "validation": {
+    "source": "query",
+    "keys": ["producer_id"]
+  }
 }
 ```
 
@@ -2807,9 +2750,9 @@ URL: {{url}}/producersHistory
 
 ##### III. Example Response: Search Producers History: Unauthenticated
 
-```js
+```json
 {
-    "message": "Please Authenticate"
+  "message": "Please Authenticate"
 }
 ```
 
@@ -2828,9 +2771,9 @@ URL: {{url}}/producersHistory
 
 ##### IV. Example Response: Search Producers History: Unauthorized
 
-```js
+```json
 {
-    "message": "Not enough privilege"
+  "message": "Not enough privilege"
 }
 ```
 
@@ -2848,57 +2791,57 @@ URL: {{url}}/producersHistory
 
 ##### V. Example Response: Search Producers History: Search Params
 
-```js
+```json
 [
   {
-    id: 1,
-    producer_id: 1,
-    cpf: '55770485267',
-    cnpj: '58949864147992',
-    name: 'Eco Focus',
-    whatsapp: '5595956384129',
-    address: '27179787, St. Gkznepnw, Honolulu, Hawaii',
-    ie: '44864122407',
-    im: '38848818893',
-    hash: 'OJXBx0',
-    mod: 'teverett@msn.com',
-    created_at: '2020-10-12T20:27:48.273Z',
-    updated_at: '2020-10-12T20:27:48.273Z',
-    deleted_at: null
+    "id": 1,
+    "producer_id": 1,
+    "cpf": "55770485267",
+    "cnpj": "58949864147992",
+    "name": "Eco Focus",
+    "whatsapp": "5595956384129",
+    "address": "27179787, St. Gkznepnw, Honolulu, Hawaii",
+    "ie": "44864122407",
+    "im": "38848818893",
+    "hash": "OJXBx0",
+    "mod": "teverett@msn.com",
+    "created_at": "2020-10-12T20:27:48.273Z",
+    "updated_at": "2020-10-12T20:27:48.273Z",
+    "deleted_at": null
   },
   {
-    id: 2,
-    producer_id: 1,
-    cpf: '55770485267',
-    cnpj: '58949864147992',
-    name: 'Eco Focus',
-    whatsapp: '5595956384129',
-    address: '27179787, St. Gkznepnw, Honolulu, Hawaii',
-    ie: '44864122407',
-    im: '38848818893',
-    hash: 'OJXBx0',
-    mod: 'mbrown@msn.com',
-    created_at: '2020-10-12T20:27:48.273Z',
-    updated_at: '2020-10-12T20:27:48.273Z',
-    deleted_at: null
+    "id": 2,
+    "producer_id": 1,
+    "cpf": "55770485267",
+    "cnpj": "58949864147992",
+    "name": "Eco Focus",
+    "whatsapp": "5595956384129",
+    "address": "27179787, St. Gkznepnw, Honolulu, Hawaii",
+    "ie": "44864122407",
+    "im": "38848818893",
+    "hash": "OJXBx0",
+    "mod": "mbrown@msn.com",
+    "created_at": "2020-10-12T20:27:48.273Z",
+    "updated_at": "2020-10-12T20:27:48.273Z",
+    "deleted_at": null
   },
   {
-    id: 3,
-    producer_id: 1,
-    cpf: '55770485267',
-    cnpj: '58949864147992',
-    name: 'Eco Focus',
-    whatsapp: '5595956384129',
-    address: '27179787, St. Gkznepnw, Honolulu, Hawaii',
-    ie: '44864122407',
-    im: '38848818893',
-    hash: 'OJXBx0',
-    mod: 'teverett@msn.com',
-    created_at: '2020-10-12T20:27:48.273Z',
-    updated_at: '2020-10-12T20:27:48.273Z',
-    deleted_at: null
+    "id": 3,
+    "producer_id": 1,
+    "cpf": "55770485267",
+    "cnpj": "58949864147992",
+    "name": "Eco Focus",
+    "whatsapp": "5595956384129",
+    "address": "27179787, St. Gkznepnw, Honolulu, Hawaii",
+    "ie": "44864122407",
+    "im": "38848818893",
+    "hash": "OJXBx0",
+    "mod": "teverett@msn.com",
+    "created_at": "2020-10-12T20:27:48.273Z",
+    "updated_at": "2020-10-12T20:27:48.273Z",
+    "deleted_at": null
   }
-];
+]
 ```
 
 **_Status Code:_** 200
@@ -2921,12 +2864,12 @@ URL: {{url}}/products
 
 **_Body:_**
 
-```js
+```json
 {
-    "ncm": "00000001",
-    "measure": "KG",
-    "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
-    "is_organic": false
+  "ncm": "00000001",
+  "measure": "KG",
+  "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
+  "is_organic": false
 }
 ```
 
@@ -2936,20 +2879,20 @@ URL: {{url}}/products
 
 **_Body:_**
 
-```js
+```json
 {
-    "ncm": "00000001",
-    "measure": "KG",
-    "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
-    "is_organic": false
+  "ncm": "00000001",
+  "measure": "KG",
+  "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
+  "is_organic": false
 }
 ```
 
 ##### I. Example Response: Create Product: Unauthenticated
 
-```js
+```json
 {
-    "message": "Please Authenticate"
+  "message": "Please Authenticate"
 }
 ```
 
@@ -2961,20 +2904,20 @@ URL: {{url}}/products
 
 **_Body:_**
 
-```js
+```json
 {
-    "ncm": "00000001",
-    "measure": "KG",
-    "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
-    "is_organic": false
+  "ncm": "00000001",
+  "measure": "KG",
+  "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
+  "is_organic": false
 }
 ```
 
 ##### II. Example Response: Create Product: Error
 
-```js
+```json
 {
-    "message": "Error Creating Product"
+  "message": "Error Creating Product"
 }
 ```
 
@@ -2986,20 +2929,20 @@ URL: {{url}}/products
 
 **_Body:_**
 
-```js
+```json
 {
-    "ncm": "00000001",
-    "measure": "KG",
-    "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
-    "is_organic": false
+  "ncm": "00000001",
+  "measure": "KG",
+  "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
+  "is_organic": false
 }
 ```
 
 ##### III. Example Response: Create Product: Unauthorized
 
-```js
+```json
 {
-    "message": "Not enough privilege"
+  "message": "Not enough privilege"
 }
 ```
 
@@ -3011,28 +2954,26 @@ URL: {{url}}/products
 
 **_Body:_**
 
-```js
+```json
 {
-    "ncm": "invalid",
-    "measure": "KG",
-    "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
-    "is_organic": false
+  "ncm": "invalid",
+  "measure": "KG",
+  "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
+  "is_organic": false
 }
 ```
 
 ##### IV. Example Response: Create Product: Invalid
 
-```js
+```json
 {
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "\"ncm\" with value \"invalid\" fails to match the required pattern: /^[0-9]+$/",
-    "validation": {
-        "source": "body",
-        "keys": [
-            "ncm"
-        ]
-    }
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "\"ncm\" with value \"invalid\" fails to match the required pattern: /^[0-9]+$/",
+  "validation": {
+    "source": "body",
+    "keys": ["ncm"]
+  }
 }
 ```
 
@@ -3044,27 +2985,27 @@ URL: {{url}}/products
 
 **_Body:_**
 
-```js
+```json
 {
-    "ncm": "00000001",
-    "measure": "KG",
-    "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
-    "is_organic": false
+  "ncm": "00000001",
+  "measure": "KG",
+  "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
+  "is_organic": false
 }
 ```
 
 ##### V. Example Response: Create Product: Success
 
-```js
+```json
 {
-    "id": 21,
-    "ncm": "00000001",
-    "measure": "KG",
-    "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
-    "is_organic": false,
-    "mod": "manyymoore@gmail.com",
-    "created_at": "2020-10-12T19:02:56.997Z",
-    "updated_at": "2020-10-12T19:02:56.997Z"
+  "id": 21,
+  "ncm": "00000001",
+  "measure": "KG",
+  "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
+  "is_organic": false,
+  "mod": "manyymoore@gmail.com",
+  "created_at": "2020-10-12T19:02:56.997Z",
+  "updated_at": "2020-10-12T19:02:56.997Z"
 }
 ```
 
@@ -3100,17 +3041,15 @@ URL: {{url}}/products/:id
 
 ##### I. Example Response: Delete Product: Invalid
 
-```js
+```json
 {
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "\"id\" must be a number",
-    "validation": {
-        "source": "params",
-        "keys": [
-            "id"
-        ]
-    }
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "\"id\" must be a number",
+  "validation": {
+    "source": "params",
+    "keys": ["id"]
+  }
 }
 ```
 
@@ -3128,9 +3067,9 @@ URL: {{url}}/products/:id
 
 ##### II. Example Response: Delete Product: Unauthenticated
 
-```js
+```json
 {
-    "message": "Please Authenticate"
+  "message": "Please Authenticate"
 }
 ```
 
@@ -3160,9 +3099,9 @@ URL: {{url}}/products/:id
 
 ##### IV. Example Response: Delete Product: Error
 
-```js
+```json
 {
-    "message": "Error Removing Product"
+  "message": "Error Removing Product"
 }
 ```
 
@@ -3180,9 +3119,9 @@ URL: {{url}}/products/:id
 
 ##### V. Example Response: Delete Product: Unauthorized
 
-```js
+```json
 {
-    "message": "Not enough privilege"
+  "message": "Not enough privilege"
 }
 ```
 
@@ -3230,17 +3169,15 @@ URL: {{url}}/products/:id/picture
 
 ##### II. Example Response: Product Picture: Invalid
 
-```js
+```json
 {
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "\"id\" must be a number",
-    "validation": {
-        "source": "params",
-        "keys": [
-            "id"
-        ]
-    }
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "\"id\" must be a number",
+  "validation": {
+    "source": "params",
+    "keys": ["id"]
+  }
 }
 ```
 
@@ -3278,16 +3215,16 @@ URL: {{url}}/products/:id
 
 ##### I. Example Response: Product by ID: Success
 
-```js
+```json
 {
-    "id": 1,
-    "ncm": "02032100",
-    "measure": "KG",
-    "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
-    "is_organic": false,
-    "mod": "mbrown@msn.com",
-    "created_at": "2020-10-12T18:59:08.963Z",
-    "updated_at": "2020-10-12T18:59:08.963Z"
+  "id": 1,
+  "ncm": "02032100",
+  "measure": "KG",
+  "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
+  "is_organic": false,
+  "mod": "mbrown@msn.com",
+  "created_at": "2020-10-12T18:59:08.963Z",
+  "updated_at": "2020-10-12T18:59:08.963Z"
 }
 ```
 
@@ -3305,17 +3242,15 @@ URL: {{url}}/products/:id
 
 ##### II. Example Response: Product by ID: Invalid
 
-```js
+```json
 {
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "\"id\" must be a number",
-    "validation": {
-        "source": "params",
-        "keys": [
-            "id"
-        ]
-    }
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "\"id\" must be a number",
+  "validation": {
+    "source": "params",
+    "keys": ["id"]
+  }
 }
 ```
 
@@ -3333,9 +3268,9 @@ URL: {{url}}/products/:id
 
 ##### III. Example Response: Product by ID: Not Found
 
-```js
+```json
 {
-    "message": "Product not found"
+  "message": "Product not found"
 }
 ```
 
@@ -3375,29 +3310,29 @@ URL: {{url}}/products
 
 ##### I. Example Response: Search Products: Search Params
 
-```js
+```json
 [
   {
-    id: 1,
-    ncm: '02032100',
-    measure: 'KG',
-    description: 'CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS',
-    is_organic: false,
-    mod: 'mbrown@msn.com',
-    created_at: '2020-10-12T17:11:48.954Z',
-    updated_at: '2020-10-12T17:11:48.954Z'
+    "id": 1,
+    "ncm": "02032100",
+    "measure": "KG",
+    "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
+    "is_organic": false,
+    "mod": "mbrown@msn.com",
+    "created_at": "2020-10-12T17:11:48.954Z",
+    "updated_at": "2020-10-12T17:11:48.954Z"
   },
   {
-    id: 3,
-    ncm: '02032900',
-    measure: 'KG',
-    description: 'OUTRAS CARNES DE SUÍNO,CONGELADAS',
-    is_organic: false,
-    mod: 'mbrown@msn.com',
-    created_at: '2020-10-12T17:11:48.954Z',
-    updated_at: '2020-10-12T17:11:48.954Z'
+    "id": 3,
+    "ncm": "02032900",
+    "measure": "KG",
+    "description": "OUTRAS CARNES DE SUÍNO,CONGELADAS",
+    "is_organic": false,
+    "mod": "mbrown@msn.com",
+    "created_at": "2020-10-12T17:11:48.954Z",
+    "updated_at": "2020-10-12T17:11:48.954Z"
   }
-];
+]
 ```
 
 **_Status Code:_** 200
@@ -3415,17 +3350,15 @@ URL: {{url}}/products
 
 ##### II. Example Response: Search Products: Invalid
 
-```js
+```json
 {
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "\"ncm\" with value \"invalid\" fails to match the required pattern: /^[0-9]+$/",
-    "validation": {
-        "source": "query",
-        "keys": [
-            "ncm"
-        ]
-    }
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "\"ncm\" with value \"invalid\" fails to match the required pattern: /^[0-9]+$/",
+  "validation": {
+    "source": "query",
+    "keys": ["ncm"]
+  }
 }
 ```
 
@@ -3444,8 +3377,8 @@ URL: {{url}}/products
 
 ##### III. Example Response: Search Products: Empty Page
 
-```js
-[];
+```json
+[]
 ```
 
 **_Status Code:_** 200
@@ -3465,29 +3398,29 @@ URL: {{url}}/products
 
 ##### IV. Example Response: Search Products: Pagination Params
 
-```js
+```json
 [
   {
-    id: 4,
-    ncm: '02041000',
-    measure: 'KG',
-    description: 'CARCS.E MEIAS-CARCS D/CORDEIRO,FRESC.,REFR.',
-    is_organic: false,
-    mod: 'mbrown@msn.com',
-    created_at: '2020-10-12T17:11:48.954Z',
-    updated_at: '2020-10-12T17:11:48.954Z'
+    "id": 4,
+    "ncm": "02041000",
+    "measure": "KG",
+    "description": "CARCS.E MEIAS-CARCS D/CORDEIRO,FRESC.,REFR.",
+    "is_organic": false,
+    "mod": "mbrown@msn.com",
+    "created_at": "2020-10-12T17:11:48.954Z",
+    "updated_at": "2020-10-12T17:11:48.954Z"
   },
   {
-    id: 8,
-    ncm: '02043000',
-    measure: 'KG',
-    description: 'CARCS. E MEIAS-CARCS. DE CORDEIRO,CONG.',
-    is_organic: false,
-    mod: 'mbrown@msn.com',
-    created_at: '2020-10-12T17:11:48.954Z',
-    updated_at: '2020-10-12T17:11:48.954Z'
+    "id": 8,
+    "ncm": "02043000",
+    "measure": "KG",
+    "description": "CARCS. E MEIAS-CARCS. DE CORDEIRO,CONG.",
+    "is_organic": false,
+    "mod": "mbrown@msn.com",
+    "created_at": "2020-10-12T17:11:48.954Z",
+    "updated_at": "2020-10-12T17:11:48.954Z"
   }
-];
+]
 ```
 
 **_Status Code:_** 200
@@ -3512,7 +3445,7 @@ URL: {{url}}/products/:id
 
 **_Body:_**
 
-```js
+```json
 {
   "ncm": "02032110",
   "measure": "PCT",
@@ -3533,7 +3466,7 @@ URL: {{url}}/products/:id
 
 **_Body:_**
 
-```js
+```json
 {
   "ncm": "02032110",
   "measure": "PCT",
@@ -3544,16 +3477,16 @@ URL: {{url}}/products/:id
 
 ##### I. Example Response: Update Product: Success
 
-```js
+```json
 {
-    "id": 1,
-    "ncm": "02032110",
-    "measure": "PCT",
-    "description": "CARCAÇAS E MEIAS-CARCAÇAS DE SUÍNOS, CONGELADAS",
-    "is_organic": true,
-    "mod": "manyymoore@gmail.com",
-    "created_at": "2020-10-12T18:59:08.963Z",
-    "updated_at": "2020-10-12T19:25:08.099Z"
+  "id": 1,
+  "ncm": "02032110",
+  "measure": "PCT",
+  "description": "CARCAÇAS E MEIAS-CARCAÇAS DE SUÍNOS, CONGELADAS",
+  "is_organic": true,
+  "mod": "manyymoore@gmail.com",
+  "created_at": "2020-10-12T18:59:08.963Z",
+  "updated_at": "2020-10-12T19:25:08.099Z"
 }
 ```
 
@@ -3571,7 +3504,7 @@ URL: {{url}}/products/:id
 
 **_Body:_**
 
-```js
+```json
 {
   "ncm": "02032110",
   "measure": "PCT",
@@ -3582,9 +3515,9 @@ URL: {{url}}/products/:id
 
 ##### II. Example Response: Update Product: Error
 
-```js
+```json
 {
-    "message": "Error Updating Product"
+  "message": "Error Updating Product"
 }
 ```
 
@@ -3602,7 +3535,7 @@ URL: {{url}}/products/:id
 
 **_Body:_**
 
-```js
+```json
 {
   "ncm": "02032110",
   "measure": "PCT",
@@ -3613,9 +3546,9 @@ URL: {{url}}/products/:id
 
 ##### III. Example Response: Update Product: Unauthenticated
 
-```js
+```json
 {
-    "message": "Please Authenticate"
+  "message": "Please Authenticate"
 }
 ```
 
@@ -3633,7 +3566,7 @@ URL: {{url}}/products/:id
 
 **_Body:_**
 
-```js
+```json
 {
   "ncm": "02032110",
   "measure": "PCT",
@@ -3644,9 +3577,9 @@ URL: {{url}}/products/:id
 
 ##### IV. Example Response: Update Product: Unauthorized
 
-```js
+```json
 {
-    "message": "Not enough privilege"
+  "message": "Not enough privilege"
 }
 ```
 
@@ -3694,9 +3627,9 @@ URL: {{url}}/products/:id/picture
 
 ##### I. Example Response: Upload Product Picture: Invalid File
 
-```js
+```json
 {
-    "message": "Can not upload that"
+  "message": "Can not upload that"
 }
 ```
 
@@ -3720,9 +3653,9 @@ URL: {{url}}/products/:id/picture
 
 ##### II. Example Response: Upload Product Picture: Unauthorized
 
-```js
+```json
 {
-    "message": "Not enough privilege"
+  "message": "Not enough privilege"
 }
 ```
 
@@ -3764,9 +3697,9 @@ URL: {{url}}/products/:id/picture
 
 ##### IV. Example Response: Upload Product Picture: Error
 
-```js
+```json
 {
-    "message": "Error on Uploading Picture"
+  "message": "Error on Uploading Picture"
 }
 ```
 
@@ -3790,9 +3723,9 @@ URL: {{url}}/products/:id/picture
 
 ##### V. Example Response: Upload Product Picture: Unauthenticated
 
-```js
+```json
 {
-    "message": "Please Authenticate"
+  "message": "Please Authenticate"
 }
 ```
 
@@ -3832,9 +3765,9 @@ URL: {{url}}/productsHistory/:id/picture
 
 ##### I. Example Response: Product History Picture: Unauthenticated
 
-```js
+```json
 {
-    "message": "Please Authenticate"
+  "message": "Please Authenticate"
 }
 ```
 
@@ -3864,9 +3797,9 @@ URL: {{url}}/productsHistory/:id/picture
 
 ##### III. Example Response: Product History Picture: Unauthorized
 
-```js
+```json
 {
-    "message": "Not enough privilege"
+  "message": "Not enough privilege"
 }
 ```
 
@@ -3884,17 +3817,15 @@ URL: {{url}}/productsHistory/:id/picture
 
 ##### IV. Example Response: Product History Picture: Invalid
 
-```js
+```json
 {
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "\"id\" must be a number",
-    "validation": {
-        "source": "params",
-        "keys": [
-            "id"
-        ]
-    }
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "\"id\" must be a number",
+  "validation": {
+    "source": "params",
+    "keys": ["id"]
+  }
 }
 ```
 
@@ -3932,18 +3863,18 @@ URL: {{url}}/productsHistory/:id
 
 ##### I. Example Response: Product History by ID: Success
 
-```js
+```json
 {
-    "id": 1,
-    "product_id": 1,
-    "ncm": "02032100",
-    "measure": "KG",
-    "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
-    "is_organic": false,
-    "mod": "teverett@msn.com",
-    "created_at": "2020-10-12T20:27:48.423Z",
-    "updated_at": "2020-10-12T20:27:48.423Z",
-    "deleted_at": null
+  "id": 1,
+  "product_id": 1,
+  "ncm": "02032100",
+  "measure": "KG",
+  "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
+  "is_organic": false,
+  "mod": "teverett@msn.com",
+  "created_at": "2020-10-12T20:27:48.423Z",
+  "updated_at": "2020-10-12T20:27:48.423Z",
+  "deleted_at": null
 }
 ```
 
@@ -3961,9 +3892,9 @@ URL: {{url}}/productsHistory/:id
 
 ##### II. Example Response: Product History by ID: Unauthenticated
 
-```js
+```json
 {
-    "message": "Please Authenticate"
+  "message": "Please Authenticate"
 }
 ```
 
@@ -3981,17 +3912,15 @@ URL: {{url}}/productsHistory/:id
 
 ##### III. Example Response: Product History by ID: Invalid
 
-```js
+```json
 {
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "\"id\" must be a number",
-    "validation": {
-        "source": "params",
-        "keys": [
-            "id"
-        ]
-    }
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "\"id\" must be a number",
+  "validation": {
+    "source": "params",
+    "keys": ["id"]
+  }
 }
 ```
 
@@ -4009,9 +3938,9 @@ URL: {{url}}/productsHistory/:id
 
 ##### IV. Example Response: Product History by ID: Not Found
 
-```js
+```json
 {
-    "message": "Product not found"
+  "message": "Product not found"
 }
 ```
 
@@ -4029,9 +3958,9 @@ URL: {{url}}/productsHistory/:id
 
 ##### V. Example Response: Product History by ID: Unauthorized
 
-```js
+```json
 {
-    "message": "Not enough privilege"
+  "message": "Not enough privilege"
 }
 ```
 
@@ -4067,16 +3996,16 @@ URL: {{url}}/productsHistory/:id
 
 ##### I. Example Response: Restore Product History: Success
 
-```js
+```json
 {
-    "id": 1,
-    "ncm": "02032100",
-    "measure": "KG",
-    "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
-    "is_organic": false,
-    "mod": "manyymoore@gmail.com",
-    "created_at": "2020-10-12T20:27:48.423Z",
-    "updated_at": "2020-10-12T21:19:39.353Z"
+  "id": 1,
+  "ncm": "02032100",
+  "measure": "KG",
+  "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
+  "is_organic": false,
+  "mod": "manyymoore@gmail.com",
+  "created_at": "2020-10-12T20:27:48.423Z",
+  "updated_at": "2020-10-12T21:19:39.353Z"
 }
 ```
 
@@ -4094,17 +4023,15 @@ URL: {{url}}/productsHistory/:id
 
 ##### II. Example Response: Restore Product History: Invalid
 
-```js
+```json
 {
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "\"id\" must be a number",
-    "validation": {
-        "source": "params",
-        "keys": [
-            "id"
-        ]
-    }
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "\"id\" must be a number",
+  "validation": {
+    "source": "params",
+    "keys": ["id"]
+  }
 }
 ```
 
@@ -4122,9 +4049,9 @@ URL: {{url}}/productsHistory/:id
 
 ##### III. Example Response: Restore Product History: Error
 
-```js
+```json
 {
-    "message": "Error on Restoring Product"
+  "message": "Error on Restoring Product"
 }
 ```
 
@@ -4142,9 +4069,9 @@ URL: {{url}}/productsHistory/:id
 
 ##### IV. Example Response: Restore Product History: Unauthenticated
 
-```js
+```json
 {
-    "message": "Please Authenticate"
+  "message": "Please Authenticate"
 }
 ```
 
@@ -4162,9 +4089,9 @@ URL: {{url}}/productsHistory/:id
 
 ##### V. Example Response: Restore Product History: Unauthorized
 
-```js
+```json
 {
-    "message": "Not enough privilege"
+  "message": "Not enough privilege"
 }
 ```
 
@@ -4204,9 +4131,9 @@ URL: {{url}}/productsHistory
 
 ##### I. Example Response: Search Products History: Unauthorized
 
-```js
+```json
 {
-    "message": "Not enough privilege"
+  "message": "Not enough privilege"
 }
 ```
 
@@ -4227,45 +4154,45 @@ URL: {{url}}/productsHistory
 
 ##### II. Example Response: Search Products History: Pagination Params
 
-```js
+```json
 [
   {
-    id: 40,
-    product_id: 20,
-    ncm: '02064100',
-    measure: 'KG',
-    description: 'FÍGADOS DE SUÍNOS, CONGELADOS',
-    is_organic: false,
-    mod: 'mbrown@msn.com',
-    created_at: '2020-10-12T20:27:48.423Z',
-    updated_at: '2020-10-12T20:27:48.423Z',
-    deleted_at: null
+    "id": 40,
+    "product_id": 20,
+    "ncm": "02064100",
+    "measure": "KG",
+    "description": "FÍGADOS DE SUÍNOS, CONGELADOS",
+    "is_organic": false,
+    "mod": "mbrown@msn.com",
+    "created_at": "2020-10-12T20:27:48.423Z",
+    "updated_at": "2020-10-12T20:27:48.423Z",
+    "deleted_at": null
   },
   {
-    id: 39,
-    product_id: 20,
-    ncm: '02064100',
-    measure: 'KG',
-    description: 'FÍGADOS DE SUÍNOS, CONGELADOS',
-    is_organic: false,
-    mod: 'teverett@msn.com',
-    created_at: '2020-10-12T20:27:48.423Z',
-    updated_at: '2020-10-12T20:27:48.423Z',
-    deleted_at: null
+    "id": 39,
+    "product_id": 20,
+    "ncm": "02064100",
+    "measure": "KG",
+    "description": "FÍGADOS DE SUÍNOS, CONGELADOS",
+    "is_organic": false,
+    "mod": "teverett@msn.com",
+    "created_at": "2020-10-12T20:27:48.423Z",
+    "updated_at": "2020-10-12T20:27:48.423Z",
+    "deleted_at": null
   },
   {
-    id: 38,
-    product_id: 19,
-    ncm: '02063000',
-    measure: 'KG',
-    description: 'MIUDEZAS DA ESPÉCIE SUÍNA FRESCAS OU REFR.',
-    is_organic: false,
-    mod: 'mbrown@msn.com',
-    created_at: '2020-10-12T20:27:48.423Z',
-    updated_at: '2020-10-12T20:27:48.423Z',
-    deleted_at: null
+    "id": 38,
+    "product_id": 19,
+    "ncm": "02063000",
+    "measure": "KG",
+    "description": "MIUDEZAS DA ESPÉCIE SUÍNA FRESCAS OU REFR.",
+    "is_organic": false,
+    "mod": "mbrown@msn.com",
+    "created_at": "2020-10-12T20:27:48.423Z",
+    "updated_at": "2020-10-12T20:27:48.423Z",
+    "deleted_at": null
   }
-];
+]
 ```
 
 **_Status Code:_** 200
@@ -4283,9 +4210,9 @@ URL: {{url}}/productsHistory
 
 ##### III. Example Response: Search Products History: Unauthenticated
 
-```js
+```json
 {
-    "message": "Please Authenticate"
+  "message": "Please Authenticate"
 }
 ```
 
@@ -4303,17 +4230,15 @@ URL: {{url}}/productsHistory
 
 ##### IV. Example Response: Search Products History: Invalid
 
-```js
+```json
 {
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "\"product_id\" must be a number",
-    "validation": {
-        "source": "query",
-        "keys": [
-            "product_id"
-        ]
-    }
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "\"product_id\" must be a number",
+  "validation": {
+    "source": "query",
+    "keys": ["product_id"]
+  }
 }
 ```
 
@@ -4331,33 +4256,33 @@ URL: {{url}}/productsHistory
 
 ##### V. Example Response: Search Products History: Search Params
 
-```js
+```json
 [
   {
-    id: 1,
-    product_id: 1,
-    ncm: '02032100',
-    measure: 'KG',
-    description: 'CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS',
-    is_organic: false,
-    mod: 'teverett@msn.com',
-    created_at: '2020-10-12T20:27:48.423Z',
-    updated_at: '2020-10-12T20:27:48.423Z',
-    deleted_at: null
+    "id": 1,
+    "product_id": 1,
+    "ncm": "02032100",
+    "measure": "KG",
+    "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
+    "is_organic": false,
+    "mod": "teverett@msn.com",
+    "created_at": "2020-10-12T20:27:48.423Z",
+    "updated_at": "2020-10-12T20:27:48.423Z",
+    "deleted_at": null
   },
   {
-    id: 2,
-    product_id: 1,
-    ncm: '02032100',
-    measure: 'KG',
-    description: 'CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS',
-    is_organic: false,
-    mod: 'mbrown@msn.com',
-    created_at: '2020-10-12T20:27:48.423Z',
-    updated_at: '2020-10-12T20:27:48.423Z',
-    deleted_at: null
+    "id": 2,
+    "product_id": 1,
+    "ncm": "02032100",
+    "measure": "KG",
+    "description": "CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS",
+    "is_organic": false,
+    "mod": "mbrown@msn.com",
+    "created_at": "2020-10-12T20:27:48.423Z",
+    "updated_at": "2020-10-12T20:27:48.423Z",
+    "deleted_at": null
   }
-];
+]
 ```
 
 **_Status Code:_** 200
@@ -4386,9 +4311,9 @@ URL: {{url}}/me
 
 ##### I. Example Response: Delete User: Unauthenticated
 
-```js
+```json
 {
-    "message": "Please Authenticate"
+  "message": "Please Authenticate"
 }
 ```
 
@@ -4400,15 +4325,15 @@ URL: {{url}}/me
 
 ##### II. Example Response: Delete User: Success
 
-```js
+```json
 {
-    "id": 1,
-    "name": "Edmundo",
-    "email": "manyymoore@gmail.com",
-    "picture": "https://s.gravatar.com/avatar/21dbdea01fcce17bbd75a73f51d13aaf?s=96&d=retro",
-    "privilege": 2,
-    "created_at": "2020-10-09T12:53:55.408Z",
-    "updated_at": "2020-10-09T12:53:55.408Z"
+  "id": 1,
+  "name": "Edmundo",
+  "email": "manyymoore@gmail.com",
+  "picture": "https://s.gravatar.com/avatar/21dbdea01fcce17bbd75a73f51d13aaf?s=96&d=retro",
+  "privilege": 2,
+  "created_at": "2020-10-09T12:53:55.408Z",
+  "updated_at": "2020-10-09T12:53:55.408Z"
 }
 ```
 
@@ -4430,9 +4355,9 @@ URL: {{url}}/users
 
 **_Body:_**
 
-```js
+```json
 {
-    "token_id": "{{googleTokenId}}"
+  "token_id": "{{googleTokenId}}"
 }
 ```
 
@@ -4442,27 +4367,26 @@ URL: {{url}}/users
 
 **_Body:_**
 
-```js
+```json
 {
-    "token_id": "{{googleTokenId}}"
+  "token_id": "{{googleTokenId}}"
 }
-
 ```
 
 ##### I. Example Response: Login User (Google): Success
 
-```js
+```json
 {
-    "user": {
-        "id": 22,
-        "name": "Edmundo Paulino",
-        "email": "manyymoore@gmail.com",
-        "picture": "https://lh3.googleusercontent.com/a-/AOh14Gh4dws84ywih5Z24ByoWoa3cHAMFNPrrbCqV6NuwA=s96-c",
-        "privilege": 0,
-        "created_at": "2020-10-09T13:59:05.571Z",
-        "updated_at": "2020-10-09T13:59:05.571Z"
-    },
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjIsImlhdCI6MTYwMjI1MTk0NX0.rrnr4-b2YGtNDsrIlopxE9AoxF19oIuZOQSnzH1UDSA"
+  "user": {
+    "id": 22,
+    "name": "Edmundo Paulino",
+    "email": "manyymoore@gmail.com",
+    "picture": "https://lh3.googleusercontent.com/a-/AOh14Gh4dws84ywih5Z24ByoWoa3cHAMFNPrrbCqV6NuwA=s96-c",
+    "privilege": 0,
+    "created_at": "2020-10-09T13:59:05.571Z",
+    "updated_at": "2020-10-09T13:59:05.571Z"
+  },
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjIsImlhdCI6MTYwMjI1MTk0NX0.rrnr4-b2YGtNDsrIlopxE9AoxF19oIuZOQSnzH1UDSA"
 }
 ```
 
@@ -4474,18 +4398,17 @@ URL: {{url}}/users
 
 **_Body:_**
 
-```js
+```json
 {
-    "token_id": "{{googleTokenId}}"
+  "token_id": "{{googleTokenId}}"
 }
-
 ```
 
 ##### II. Example Response: Login User (Google): Invalid Google Token
 
-```js
+```json
 {
-    "message": "Error on token validation"
+  "message": "Error on token validation"
 }
 ```
 
@@ -4525,39 +4448,36 @@ URL: {{url}}/users
 
 ##### I. Example Response: Search Users: Search Params
 
-```js
+```json
 [
   {
-    id: 5,
-    name: 'Damas',
-    email: 'mbswan@me.com',
-    picture:
-      'https://s.gravatar.com/avatar/0fe88c8fb067972b303a8dd61f8dc5ce?s=96&d=retro',
-    privilege: 0,
-    created_at: '2020-10-12T17:11:48.903Z',
-    updated_at: '2020-10-12T17:11:48.903Z'
+    "id": 5,
+    "name": "Damas",
+    "email": "mbswan@me.com",
+    "picture": "https://s.gravatar.com/avatar/0fe88c8fb067972b303a8dd61f8dc5ce?s=96&d=retro",
+    "privilege": 0,
+    "created_at": "2020-10-12T17:11:48.903Z",
+    "updated_at": "2020-10-12T17:11:48.903Z"
   },
   {
-    id: 11,
-    name: 'Vieira',
-    email: 'greear@live.com',
-    picture:
-      'https://s.gravatar.com/avatar/23067fff8b777dd7eb7f6fd7536b0704?s=96&d=retro',
-    privilege: 0,
-    created_at: '2020-10-12T17:11:48.903Z',
-    updated_at: '2020-10-12T17:11:48.903Z'
+    "id": 11,
+    "name": "Vieira",
+    "email": "greear@live.com",
+    "picture": "https://s.gravatar.com/avatar/23067fff8b777dd7eb7f6fd7536b0704?s=96&d=retro",
+    "privilege": 0,
+    "created_at": "2020-10-12T17:11:48.903Z",
+    "updated_at": "2020-10-12T17:11:48.903Z"
   },
   {
-    id: 19,
-    name: 'Halliday',
-    email: 'parrt@live.com',
-    picture:
-      'https://s.gravatar.com/avatar/8d9f400fbdf2d2e4bade91f23ceebd8b?s=96&d=retro',
-    privilege: 0,
-    created_at: '2020-10-12T17:11:48.903Z',
-    updated_at: '2020-10-12T17:11:48.903Z'
+    "id": 19,
+    "name": "Halliday",
+    "email": "parrt@live.com",
+    "picture": "https://s.gravatar.com/avatar/8d9f400fbdf2d2e4bade91f23ceebd8b?s=96&d=retro",
+    "privilege": 0,
+    "created_at": "2020-10-12T17:11:48.903Z",
+    "updated_at": "2020-10-12T17:11:48.903Z"
   }
-];
+]
 ```
 
 **_Status Code:_** 200
@@ -4568,9 +4488,9 @@ URL: {{url}}/users
 
 ##### II. Example Response: Search Users: Unauthorized
 
-```js
+```json
 {
-    "message": "Not enough privilege"
+  "message": "Not enough privilege"
 }
 ```
 
@@ -4582,9 +4502,9 @@ URL: {{url}}/users
 
 ##### III. Example Response: Search Users: Unauthenticated
 
-```js
+```json
 {
-    "message": "Please Authenticate"
+  "message": "Please Authenticate"
 }
 ```
 
@@ -4605,38 +4525,36 @@ URL: {{url}}/users
 
 ##### IV. Example Response: Search Users: Pagination Params
 
-```js
+```json
 [
   {
-    id: 1,
-    name: 'Edmundo Paulino',
-    email: 'manyymoore@gmail.com',
-    picture:
-      'https://lh3.googleusercontent.com/a-/AOh14Gh4dws84ywih5Z24ByoWoa3cHAMFNPrrbCqV6NuwA=s96-c',
-    privilege: 2,
-    created_at: '2020-10-12T17:11:48.903Z',
-    updated_at: '2020-10-12T17:12:04.695Z'
+    "id": 1,
+    "name": "Edmundo Paulino",
+    "email": "manyymoore@gmail.com",
+    "picture": "https://lh3.googleusercontent.com/a-/AOh14Gh4dws84ywih5Z24ByoWoa3cHAMFNPrrbCqV6NuwA=s96-c",
+    "privilege": 2,
+    "created_at": "2020-10-12T17:11:48.903Z",
+    "updated_at": "2020-10-12T17:12:04.695Z"
   },
   {
-    id: 2,
-    name: 'James',
-    email: 'mbrown@msn.com',
-    picture:
-      'https://s.gravatar.com/avatar/9418cf81ace4c8a471af4172001cc958?s=96&d=retro',
-    privilege: 0,
-    created_at: '2020-10-12T17:11:48.903Z',
-    updated_at: '2020-10-12T17:42:31.415Z'
+    "id": 2,
+    "name": "James",
+    "email": "mbrown@msn.com",
+    "picture": "https://s.gravatar.com/avatar/9418cf81ace4c8a471af4172001cc958?s=96&d=retro",
+    "privilege": 0,
+    "created_at": "2020-10-12T17:11:48.903Z",
+    "updated_at": "2020-10-12T17:42:31.415Z"
   },
   {
-    id: 3,
-    name: 'Stewart',
-    email: 'heckerman@aol.com',
-    picture: null,
-    privilege: 0,
-    created_at: '2020-10-12T17:11:48.903Z',
-    updated_at: '2020-10-12T17:11:48.903Z'
+    "id": 3,
+    "name": "Stewart",
+    "email": "heckerman@aol.com",
+    "picture": null,
+    "privilege": 0,
+    "created_at": "2020-10-12T17:11:48.903Z",
+    "updated_at": "2020-10-12T17:11:48.903Z"
   }
-];
+]
 ```
 
 **_Status Code:_** 200
@@ -4653,8 +4571,8 @@ URL: {{url}}/users
 
 ##### V. Example Response: Search Users: Empty Page
 
-```js
-[];
+```json
+[]
 ```
 
 **_Status Code:_** 200
@@ -4693,9 +4611,9 @@ URL: {{url}}/users/:id/set/:privilege
 
 ##### I. Example Response: Set User Privilege: Unauthenticated
 
-```js
+```json
 {
-    "message": "Please Authenticate"
+  "message": "Please Authenticate"
 }
 ```
 
@@ -4727,17 +4645,15 @@ URL: {{url}}/users/:id/set/:privilege
 
 ##### III. Example Response: Set User Privilege: Invalid
 
-```js
+```json
 {
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "\"privilege\" with value \"invalid\" fails to match the required pattern: /^(mod|admin)$/",
-    "validation": {
-        "source": "params",
-        "keys": [
-            "privilege"
-        ]
-    }
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "\"privilege\" with value \"invalid\" fails to match the required pattern: /^(mod|admin)$/",
+  "validation": {
+    "source": "params",
+    "keys": ["privilege"]
+  }
 }
 ```
 
@@ -4756,9 +4672,9 @@ URL: {{url}}/users/:id/set/:privilege
 
 ##### IV. Example Response: Set User Privilege: Unauthorized
 
-```js
+```json
 {
-    "message": "Not enough privilege"
+  "message": "Not enough privilege"
 }
 ```
 
@@ -4796,9 +4712,9 @@ URL: {{url}}/users/:id/unset
 
 ##### I. Example Response: Unset User Privilege: Unauthorized
 
-```js
+```json
 {
-    "message": "Not enough privilege"
+  "message": "Not enough privilege"
 }
 ```
 
@@ -4828,17 +4744,15 @@ URL: {{url}}/users/:id/unset
 
 ##### III. Example Response: Unset User Privilege: Invalid
 
-```js
+```json
 {
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "\"id\" must be a number",
-    "validation": {
-        "source": "params",
-        "keys": [
-            "id"
-        ]
-    }
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "\"id\" must be a number",
+  "validation": {
+    "source": "params",
+    "keys": ["id"]
+  }
 }
 ```
 
@@ -4856,9 +4770,9 @@ URL: {{url}}/users/:id/unset
 
 ##### IV. Example Response: Unset User Privilege: Unauthenticated
 
-```js
+```json
 {
-    "message": "Please Authenticate"
+  "message": "Please Authenticate"
 }
 ```
 
@@ -4884,9 +4798,9 @@ URL: {{url}}/me
 
 ##### I. Example Response: User Profile: Unauthenticated
 
-```js
+```json
 {
-    "message": "Please Authenticate"
+  "message": "Please Authenticate"
 }
 ```
 
@@ -4898,15 +4812,15 @@ URL: {{url}}/me
 
 ##### II. Example Response: User Profile: Success
 
-```js
+```json
 {
-    "id": 1,
-    "name": "Edmundo Paulino",
-    "email": "manyymoore@gmail.com",
-    "picture": "https://lh3.googleusercontent.com/a-/AOh14Gh4dws84ywih5Z24ByoWoa3cHAMFNPrrbCqV6NuwA=s96-c",
-    "privilege": 2,
-    "created_at": "2020-10-12T17:11:48.903Z",
-    "updated_at": "2020-10-12T17:12:04.695Z"
+  "id": 1,
+  "name": "Edmundo Paulino",
+  "email": "manyymoore@gmail.com",
+  "picture": "https://lh3.googleusercontent.com/a-/AOh14Gh4dws84ywih5Z24ByoWoa3cHAMFNPrrbCqV6NuwA=s96-c",
+  "privilege": 2,
+  "created_at": "2020-10-12T17:11:48.903Z",
+  "updated_at": "2020-10-12T17:12:04.695Z"
 }
 ```
 
@@ -4944,9 +4858,9 @@ URL: {{url}}/users/:id
 
 ##### I. Example Response: User by ID: Not Found
 
-```js
+```json
 {
-    "message": "User not found"
+  "message": "User not found"
 }
 ```
 
@@ -4964,9 +4878,9 @@ URL: {{url}}/users/:id
 
 ##### II. Example Response: User by ID: Unauthenticated
 
-```js
+```json
 {
-    "message": "Please Authenticate"
+  "message": "Please Authenticate"
 }
 ```
 
@@ -4984,17 +4898,15 @@ URL: {{url}}/users/:id
 
 ##### III. Example Response: User by ID: Invalid
 
-```js
+```json
 {
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "\"id\" must be a number",
-    "validation": {
-        "source": "params",
-        "keys": [
-            "id"
-        ]
-    }
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "\"id\" must be a number",
+  "validation": {
+    "source": "params",
+    "keys": ["id"]
+  }
 }
 ```
 
@@ -5012,9 +4924,9 @@ URL: {{url}}/users/:id
 
 ##### IV. Example Response: User by ID: Unauthorized
 
-```js
+```json
 {
-    "message": "Not enough privilege"
+  "message": "Not enough privilege"
 }
 ```
 
@@ -5032,15 +4944,15 @@ URL: {{url}}/users/:id
 
 ##### V. Example Response: User by ID: Success
 
-```js
+```json
 {
-    "id": 2,
-    "name": "James",
-    "email": "mbrown@msn.com",
-    "picture": "https://s.gravatar.com/avatar/9418cf81ace4c8a471af4172001cc958?s=96&d=retro",
-    "privilege": 1,
-    "created_at": "2020-10-12T17:11:48.903Z",
-    "updated_at": "2020-10-12T17:11:48.903Z"
+  "id": 2,
+  "name": "James",
+  "email": "mbrown@msn.com",
+  "picture": "https://s.gravatar.com/avatar/9418cf81ace4c8a471af4172001cc958?s=96&d=retro",
+  "privilege": 1,
+  "created_at": "2020-10-12T17:11:48.903Z",
+  "updated_at": "2020-10-12T17:11:48.903Z"
 }
 ```
 
