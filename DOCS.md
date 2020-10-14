@@ -921,7 +921,7 @@ URL: {{url}}/producerProducts/:id/picture
 
 | Key     | Value | Description |
 | ------- | ----- | ----------- |
-| picture |       |             |
+| picture |       | Image File  |
 
 **_More example Requests/Responses:_**
 
@@ -937,7 +937,7 @@ URL: {{url}}/producerProducts/:id/picture
 
 | Key     | Value | Description |
 | ------- | ----- | ----------- |
-| picture |       |             |
+| picture |       | Image File  |
 
 ##### I. Example Response: Upload Producer Product Picture: Error
 
@@ -963,7 +963,7 @@ URL: {{url}}/producerProducts/:id/picture
 
 | Key     | Value | Description |
 | ------- | ----- | ----------- |
-| picture |       |             |
+| picture |       | Image File  |
 
 ##### II. Example Response: Upload Producer Product Picture: Invalid File
 
@@ -989,7 +989,7 @@ URL: {{url}}/producerProducts/:id/picture
 
 | Key     | Value | Description |
 | ------- | ----- | ----------- |
-| picture |       |             |
+| picture |       | Image File  |
 
 **_Status Code:_** 200
 
@@ -1007,7 +1007,7 @@ URL: {{url}}/producerProducts/:id/picture
 
 | Key     | Value | Description |
 | ------- | ----- | ----------- |
-| picture |       |             |
+| picture |       | Image File  |
 
 ##### IV. Example Response: Upload Producer Product Picture: Unauthorized
 
@@ -1033,7 +1033,7 @@ URL: {{url}}/producerProducts/:id/picture
 
 | Key     | Value | Description |
 | ------- | ----- | ----------- |
-| picture |       |             |
+| picture |       | Image File  |
 
 ##### V. Example Response: Upload Producer Product Picture: Unauthenticated
 
@@ -3607,7 +3607,7 @@ URL: {{url}}/products/:id/picture
 
 | Key     | Value | Description |
 | ------- | ----- | ----------- |
-| picture |       |             |
+| picture |       | Image File  |
 
 **_More example Requests/Responses:_**
 
@@ -3623,7 +3623,7 @@ URL: {{url}}/products/:id/picture
 
 | Key     | Value | Description |
 | ------- | ----- | ----------- |
-| picture |       |             |
+| picture |       | Image File  |
 
 ##### I. Example Response: Upload Product Picture: Invalid File
 
@@ -3649,7 +3649,7 @@ URL: {{url}}/products/:id/picture
 
 | Key     | Value | Description |
 | ------- | ----- | ----------- |
-| picture |       |             |
+| picture |       | Image File  |
 
 ##### II. Example Response: Upload Product Picture: Unauthorized
 
@@ -3675,7 +3675,7 @@ URL: {{url}}/products/:id/picture
 
 | Key     | Value | Description |
 | ------- | ----- | ----------- |
-| picture |       |             |
+| picture |       | Image File  |
 
 **_Status Code:_** 200
 
@@ -3693,7 +3693,7 @@ URL: {{url}}/products/:id/picture
 
 | Key     | Value | Description |
 | ------- | ----- | ----------- |
-| picture |       |             |
+| picture |       | Image File  |
 
 ##### IV. Example Response: Upload Product Picture: Error
 
@@ -3719,7 +3719,7 @@ URL: {{url}}/products/:id/picture
 
 | Key     | Value | Description |
 | ------- | ----- | ----------- |
-| picture |       |             |
+| picture |       | Image File  |
 
 ##### V. Example Response: Upload Product Picture: Unauthenticated
 
