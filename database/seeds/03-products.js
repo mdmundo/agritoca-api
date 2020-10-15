@@ -19,6 +19,7 @@ exports.seed = (knex) => {
           ncm: '02032200',
           measure: 'KG',
           description: 'PERNA E PEDAÇO Ñ DESOS. SUÍNOS, CONGELADOS',
+          picture,
           is_organic: false,
           mod: 'mbrown@msn.com'
         },

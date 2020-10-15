@@ -51,7 +51,7 @@ const producerProductController = {
   async setPicture(req, res) {
     try {
       const buffer = await sharp(req.file.buffer)
-        .resize({ width: 1600, height: 400 })
+        .resize({ width: 200, height: 200 })
         .png()
         .toBuffer();
 
