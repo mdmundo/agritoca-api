@@ -1432,11 +1432,59 @@ URL: {{url}}/producerProductsHistory
 | Key                 | Value | Description         |
 | ------------------- | ----- | ------------------- |
 | producer_product_id | 1     | Producer Product ID |
-| direction           | desc  | Sorting order       |
+| producer_id         | 1     | Producer ID         |
+| product_id          | 1     | Product ID          |
 
 **_More example Requests/Responses:_**
 
-##### I. Example Request: Search Producer Products History: Unauthenticated
+##### I. Example Request: Search Producer Products History: Search Params
+
+**_Query:_**
+
+| Key                 | Value | Description         |
+| ------------------- | ----- | ------------------- |
+| producer_product_id | 1     | Producer Product ID |
+| producer_id         | 1     | Producer ID         |
+| product_id          | 1     | Product ID          |
+
+##### I. Example Response: Search Producer Products History: Search Params
+
+```json
+[
+  {
+    "id": 1,
+    "producer_product_id": 1,
+    "product_id": 1,
+    "producer_id": 1,
+    "brand": "ooarea",
+    "barcode": "197895997244",
+    "keywords": "upset, responsible, splendid",
+    "mod": "teverett@msn.com",
+    "created_at": "2020-10-16T17:59:37.688Z",
+    "updated_at": "2020-10-16T17:59:37.688Z",
+    "deleted_at": null
+  },
+  {
+    "id": 2,
+    "producer_product_id": 1,
+    "product_id": 1,
+    "producer_id": 1,
+    "brand": "ooarea",
+    "barcode": "197895997244",
+    "keywords": "upset, responsible, splendid",
+    "mod": "mbrown@msn.com",
+    "created_at": "2020-10-16T17:59:37.688Z",
+    "updated_at": "2020-10-16T17:59:37.688Z",
+    "deleted_at": null
+  }
+]
+```
+
+**_Status Code:_** 200
+
+<br>
+
+##### II. Example Request: Search Producer Products History: Unauthenticated
 
 **_Query:_**
 
@@ -1445,7 +1493,7 @@ URL: {{url}}/producerProductsHistory
 | producer_product_id | 1     | Producer Product ID |
 | direction           | desc  | Sorting order       |
 
-##### I. Example Response: Search Producer Products History: Unauthenticated
+##### II. Example Response: Search Producer Products History: Unauthenticated
 
 ```json
 {
@@ -1457,7 +1505,7 @@ URL: {{url}}/producerProductsHistory
 
 <br>
 
-##### II. Example Request: Search Producer Products History: Unauthorized
+##### III. Example Request: Search Producer Products History: Unauthorized
 
 **_Query:_**
 
@@ -1466,7 +1514,7 @@ URL: {{url}}/producerProductsHistory
 | producer_product_id | 1     | Producer Product ID |
 | direction           | desc  | Sorting order       |
 
-##### II. Example Response: Search Producer Products History: Unauthorized
+##### III. Example Response: Search Producer Products History: Unauthorized
 
 ```json
 {
@@ -1478,7 +1526,7 @@ URL: {{url}}/producerProductsHistory
 
 <br>
 
-##### III. Example Request: Search Producer Products History: Invalid
+##### IV. Example Request: Search Producer Products History: Invalid
 
 **_Query:_**
 
@@ -1486,7 +1534,7 @@ URL: {{url}}/producerProductsHistory
 | ------------------- | ------- | ------------------- |
 | producer_product_id | invalid | Producer Product ID |
 
-##### III. Example Response: Search Producer Products History: Invalid
+##### IV. Example Response: Search Producer Products History: Invalid
 
 ```json
 {
@@ -1501,51 +1549,6 @@ URL: {{url}}/producerProductsHistory
 ```
 
 **_Status Code:_** 400
-
-<br>
-
-##### IV. Example Request: Search Producer Products History: Search Params
-
-**_Query:_**
-
-| Key                 | Value | Description         |
-| ------------------- | ----- | ------------------- |
-| producer_product_id | 1     | Producer Product ID |
-
-##### IV. Example Response: Search Producer Products History: Search Params
-
-```json
-[
-  {
-    "id": 1,
-    "producer_product_id": 1,
-    "product_id": 1,
-    "producer_id": 1,
-    "brand": "ooarea",
-    "barcode": "197895997244",
-    "keywords": "upset, responsible, splendid",
-    "mod": "teverett@msn.com",
-    "created_at": "2020-10-12T20:27:48.665Z",
-    "updated_at": "2020-10-12T20:27:48.665Z",
-    "deleted_at": null
-  },
-  {
-    "id": 2,
-    "producer_product_id": 1,
-    "product_id": 1,
-    "producer_id": 1,
-    "brand": "ooarea",
-    "barcode": "197895997244",
-    "keywords": "upset, responsible, splendid",
-    "mod": "mbrown@msn.com",
-    "created_at": "2020-10-12T20:27:48.665Z",
-    "updated_at": "2020-10-12T20:27:48.665Z",
-    "deleted_at": null
-  }
-]
-```
-
-**_Status Code:_** 200
 
 <br>
 
