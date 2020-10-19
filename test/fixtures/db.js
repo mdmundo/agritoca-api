@@ -24,4 +24,12 @@ const setupDatabase = async () => {
   await knex.seed.run();
 };
 
-module.exports = { setupDatabase, users };
+const teardownConnection = async () => {
+  await knex.destroy();
+};
+
+module.exports = {
+  setupDatabase,
+  teardownConnection,
+  users
+};

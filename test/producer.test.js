@@ -1,8 +1,6 @@
 const request = require('supertest');
 const app = require('../src/app');
-const { setupDatabase } = require('./fixtures/db');
-
-beforeEach(setupDatabase);
+const { users } = require('./fixtures/db');
 
 // only the first page
 test('Should fetch first producers', async () => {
