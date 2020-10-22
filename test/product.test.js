@@ -30,6 +30,132 @@ test('Should fetch product picture by ID', async () => {
   expect(response.body).toEqual(picture);
 });
 
+test('Should not fetch picture of nonexisting product', async () => {
+  const id = 9999;
+  await request(app).get(`/products/${id}/picture`).send().expect(404);
+});
+
+test('Should fetch default product picture', async () => {
+  const id = 10;
+  await request(app).get(`/products/${id}/picture`).send().expect(302);
+});
+
+test('Should create a new product', async () => {
+  const newProduct = {
+    ncm: '99999999',
+    measure: 'UN',
+    description: 'SUCO DE UVA',
+    is_organic: true
+  };
+
+  const response = await request(app)
+    .post(`/products`)
+    .set('Authorization', `Bearer ${users[0].token}`)
+    .send(newProduct)
+    .expect(201);
+
+  const productCreated = await knex('products')
+    .where({ id: response.body.id })
+    .first();
+  productCreated.picture = undefined;
+
+  expect(JSON.stringify(response.body)).toEqual(JSON.stringify(productCreated));
+});
+
+test('Should create a new product as a mod', async () => {
+  const newProduct = {
+    ncm: '99999999',
+    measure: 'UN',
+    description: 'SUCO DE UVA',
+    is_organic: true
+  };
+
+  const response = await request(app)
+    .post(`/products`)
+    .set('Authorization', `Bearer ${users[1].token}`)
+    .send(newProduct)
+    .expect(201);
+
+  const productCreated = await knex('products')
+    .where({ id: response.body.id })
+    .first();
+  productCreated.picture = undefined;
+
+  expect(JSON.stringify(response.body)).toEqual(JSON.stringify(productCreated));
+});
+
+test('Should not create with invalid field', async () => {
+  const newProduct = {
+    ncm: '99999999',
+    measure: 'UN',
+    description: 'SUCO DE UVA',
+    is_organic: true,
+    invalid: 'Literally an invalid field'
+  };
+
+  await request(app)
+    .post(`/products`)
+    .set('Authorization', `Bearer ${users[0].token}`)
+    .send(newProduct)
+    .expect(400);
+});
+
+test('Should not create with invalid data', async () => {
+  const newProduct = {
+    ncm: '99999999',
+    measure: 'UN',
+    description: 'SUCO DE UVA',
+    is_organic: "I don't know, maybe"
+  };
+
+  await request(app)
+    .post(`/products`)
+    .set('Authorization', `Bearer ${users[0].token}`)
+    .send(newProduct)
+    .expect(400);
+});
+
+test('Should not create with invalid data', async () => {
+  const newProduct = {
+    ncm: 'Should it be alphanumeric?',
+    measure: 'UN',
+    description: 'SUCO DE UVA',
+    is_organic: false
+  };
+
+  await request(app)
+    .post(`/products`)
+    .set('Authorization', `Bearer ${users[0].token}`)
+    .send(newProduct)
+    .expect(400);
+});
+
+test('Should not create without auth', async () => {
+  const newProduct = {
+    ncm: '99999999',
+    measure: 'UN',
+    description: 'SUCO DE UVA',
+    is_organic: true
+  };
+
+  await request(app).post(`/products`).send(newProduct).expect(401);
+});
+
+test('Should not create without privilege', async () => {
+  const newProduct = {
+    ncm: '99999999',
+    measure: 'UN',
+    description: 'SUCO DE UVA',
+    is_organic: true
+  };
+
+  await request(app)
+    .post(`/products`)
+    .set('Authorization', `Bearer ${users[2].token}`)
+    .send(newProduct)
+    .expect(403);
+});
+
 test('Should update only description', async () => {
   const id = 1;
   const description = 'New description';
@@ -61,7 +187,7 @@ test('Should update with mod privilege', async () => {
   expect(response.body.description).not.toBe(product.description);
 });
 
-test('Should not update with no privilege', async () => {
+test('Should not update without privilege', async () => {
   const id = 1;
   const description = 'New description';
 
@@ -87,6 +213,17 @@ test('Should not update invalid field', async () => {
     .patch(`/products/${id}`)
     .set('Authorization', `Bearer ${users[0].token}`)
     .send({ mod })
+    .expect(400);
+});
+
+test('Should not update invalid data', async () => {
+  const id = 1;
+  const is_organic = 'Maybe, I do not know';
+
+  await request(app)
+    .patch(`/products/${id}`)
+    .set('Authorization', `Bearer ${users[0].token}`)
+    .send({ is_organic })
     .expect(400);
 });
 
@@ -155,4 +292,30 @@ test('Should delete product by ID', async () => {
 
   const product = await knex('products').where({ id }).first();
   expect(product).toBe(undefined);
+});
+
+test('Should not delete product without auth', async () => {
+  const id = 1;
+  await request(app).delete(`/products/${id}`).send().expect(401);
+});
+
+test('Should delete product as a mod', async () => {
+  const id = 1;
+  await request(app)
+    .delete(`/products/${id}`)
+    .set('Authorization', `Bearer ${users[1].token}`)
+    .send()
+    .expect(200);
+
+  const product = await knex('products').where({ id }).first();
+  expect(product).toBe(undefined);
+});
+
+test('Should not delete product without privilege', async () => {
+  const id = 1;
+  await request(app)
+    .delete(`/products/${id}`)
+    .set('Authorization', `Bearer ${users[2].token}`)
+    .send()
+    .expect(403);
 });
