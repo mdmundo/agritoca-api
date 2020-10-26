@@ -63,10 +63,10 @@ module.exports = {
     return producerProduct;
   },
   async getProducerProductPictureById({ id }) {
-    const producerProduct = await knex('producer_products')
+    const { product_id, picture } = await knex('producer_products')
       .where({ id })
       .first();
-    return producerProduct.picture;
+    return { product_id, picture };
   },
   async getUploadedPicture({ id, picture, mod }) {
     let isPicture;

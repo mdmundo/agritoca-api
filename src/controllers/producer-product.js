@@ -34,12 +34,15 @@ const producerProductController = {
   },
   async getPicture(req, res) {
     try {
-      const picture = await producerProductResource.getProducerProductPictureById(
+      const {
+        product_id,
+        picture
+      } = await producerProductResource.getProducerProductPictureById(
         req.params
       );
 
       if (!picture) {
-        return res.redirect(`/products/${req.params.id}/picture`);
+        return res.redirect(`/products/${product_id}/picture`);
       }
 
       res.set('Content-Type', 'image/png');
