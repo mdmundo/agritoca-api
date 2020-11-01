@@ -28,6 +28,7 @@ module.exports = {
   },
   search: {
     query: {
+      search: Joi.string().max(255),
       description: Joi.string().max(255),
       ncm: Joi.string()
         .pattern(/^[0-9]+$/)
