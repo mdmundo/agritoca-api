@@ -50,7 +50,7 @@ const productController = {
       const picture = await productResource.getProductPictureById(req.params);
 
       if (!picture) {
-        return res.redirect('/products/picture.png');
+        return res.redirect('/product.png');
       }
 
       res.set('Content-Type', 'image/png');
