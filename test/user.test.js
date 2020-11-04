@@ -6,7 +6,7 @@ const { users } = require('./fixtures/db');
 // only the first page
 test('Should fetch users (admin)', async () => {
   const response = await request(app)
-    .get('/users/')
+    .get('/users')
     .set('Authorization', `Bearer ${users[0].token}`)
     .send()
     .expect(200);
@@ -17,7 +17,7 @@ test('Should fetch users (admin)', async () => {
 
 test('Should not fetch users (not admin)', async () => {
   const response = await request(app)
-    .get('/users/')
+    .get('/users')
     .set('Authorization', `Bearer ${users[1].token}`)
     .send()
     .expect(403);

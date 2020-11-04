@@ -4,9 +4,16 @@ const knex = require('../database/connection');
 const { users } = require('./fixtures/db');
 const path = require('path');
 
+/* Add a test to response "Error on Server" due to empty db. */
+
 // only the first page
 test('Should fetch first products', async () => {
-  await request(app).get('/products/').send().expect(200);
+  await request(app).get('/products').send().expect(200);
+});
+
+test('Should not fetch products due to empty db', async () => {
+  await knex.migrate.rollback({}, true);
+  await request(app).get('/products').send().expect(500);
 });
 
 test('Should fetch product by ID', async () => {

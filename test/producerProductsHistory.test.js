@@ -5,7 +5,7 @@ const { users } = require('./fixtures/db');
 // only the first page
 test('Should fetch first producer products history', async () => {
   const response = await request(app)
-    .get('/producerProductsHistory/')
+    .get('/producerProductsHistory')
     .set('Authorization', `Bearer ${users[1].token}`)
     .send()
     .expect(200);
@@ -13,14 +13,14 @@ test('Should fetch first producer products history', async () => {
 
 test('Should not fetch first producer products history (unauthenticated)', async () => {
   const response = await request(app)
-    .get('/producerProductsHistory/')
+    .get('/producerProductsHistory')
     .send()
     .expect(401);
 });
 
 test('Should not fetch first producer products history (unauthorized)', async () => {
   const response = await request(app)
-    .get('/producerProductsHistory/')
+    .get('/producerProductsHistory')
     .set('Authorization', `Bearer ${users[2].token}`)
     .send()
     .expect(403);
