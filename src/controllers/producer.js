@@ -3,9 +3,7 @@ const { producerResource } = require('../resources');
 const producerController = {
   async read(req, res) {
     try {
-      const producers = await producerResource.getProducersContaining(
-        req.query
-      );
+      const producers = await producerResource.getAllProducers(req.query);
 
       return res.json(producers);
     } catch (error) {

@@ -1,5 +1,5 @@
 const knex = require('../../database/connection');
-const { getWithoutID, getPaginationParams } = require('../utils/public');
+const { getWithoutID, getSortingParams } = require('../utils/public');
 
 module.exports = {
   async getAllProductsHistory() {
@@ -13,7 +13,7 @@ module.exports = {
     page,
     pagesize
   }) {
-    const { orderBy, offset, limit } = getPaginationParams({
+    const { orderBy, offset, limit } = getSortingParams({
       sort,
       direction,
       page,

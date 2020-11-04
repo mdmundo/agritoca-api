@@ -1,4 +1,4 @@
-const { getPaginationParams } = require('../utils/public');
+const { getSortingParams } = require('../utils/public');
 const axios = require('axios');
 const knex = require('../../database/connection');
 
@@ -8,7 +8,7 @@ module.exports = {
     return users;
   },
   async getUsersContaining({ name, email, sort, direction, page, pagesize }) {
-    const { orderBy, offset, limit } = getPaginationParams({
+    const { orderBy, offset, limit } = getSortingParams({
       sort,
       direction,
       page,

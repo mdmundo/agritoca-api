@@ -1,7 +1,7 @@
 const Fuse = require('fuse.js');
 
-const productSearch = ({ pattern, products, options }) => {
-  const fuse = new Fuse(products, options);
+const productSearch = ({ pattern, products }) => {
+  const fuse = new Fuse(products, { keys: ['ncm', 'description'] });
   const result = fuse.search(pattern);
 
   const onlyProducts = result.map(({ item }) => ({ ...item }));
@@ -9,4 +9,4 @@ const productSearch = ({ pattern, products, options }) => {
   return onlyProducts;
 };
 
-module.exports = { productSearch };
+module.exports = productSearch;

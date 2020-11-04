@@ -1,4 +1,4 @@
-const { getWithoutID, getPaginationParams } = require('../utils/public');
+const { getWithoutID, getSortingParams } = require('../utils/public');
 const knex = require('../../database/connection');
 
 module.exports = {
@@ -17,12 +17,13 @@ module.exports = {
     page,
     pagesize
   }) {
-    const { orderBy, offset, limit } = getPaginationParams({
+    const { orderBy, offset, limit } = getSortingParams({
       sort,
       direction,
       page,
       pagesize
     });
+    /* Corrigir essa bagaça. Ué, eu não tô recebendo um inteiro? Pq tô usando 'like'? */
     const producerProductsHistory = await knex('producer_products_history')
       .whereRaw('cast(producer_product_id as varchar) like ?', [
         producer_product_id ? `${producer_product_id}` : '%'

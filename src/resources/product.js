@@ -1,31 +1,25 @@
-const { getWithoutID, getPaginationParams } = require('../utils/public');
+const { getWithoutID, getSortingParams } = require('../utils/public');
 const knex = require('../../database/connection');
+const { productSearch } = require('../search');
 
 module.exports = {
-  async getAllProducts() {
-    const products = await knex('products').orderBy('id');
-    return products;
-  },
-  async getProductsContaining({
-    description,
-    ncm,
-    sort,
-    direction,
-    page,
-    pagesize
-  }) {
-    const { orderBy, offset, limit } = getPaginationParams({
+  async getAllProducts({ search, sort, direction }) {
+    const { orderBy } = getSortingParams({
       sort,
-      direction,
-      page,
-      pagesize
+      direction
     });
-    const products = await knex('products')
-      .where('description', 'ilike', `%${description ? description : ''}%`)
-      .andWhere('ncm', 'like', `%${ncm ? ncm : ''}%`)
-      .orderBy(orderBy)
-      .limit(limit)
-      .offset(offset);
+
+    const products = await knex('products').orderBy(orderBy);
+
+    if (search) {
+      const searchResult = productSearch({
+        pattern: search,
+        products
+      });
+
+      return searchResult;
+    }
+
     return products;
   },
   async getProductById({ id }) {

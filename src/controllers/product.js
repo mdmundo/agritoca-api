@@ -1,28 +1,11 @@
 const sharp = require('sharp');
 const { getWithoutPicture } = require('../utils/public');
 const { productResource } = require('../resources');
-const { productSearch } = require('../search/product');
 
 const productController = {
   async read(req, res) {
     try {
-      if (req.query.search) {
-        const products = await productResource.getAllProducts();
-
-        const searchResult = productSearch({
-          pattern: req.query.search,
-          products,
-          options: { keys: ['ncm', 'description'] }
-        });
-
-        const serializedProducts = searchResult.map((product) =>
-          getWithoutPicture(product)
-        );
-
-        return res.json(serializedProducts);
-      }
-
-      const products = await productResource.getProductsContaining(req.query);
+      const products = await productResource.getAllProducts(req.query);
 
       const serializedProducts = products.map((product) =>
         getWithoutPicture(product)

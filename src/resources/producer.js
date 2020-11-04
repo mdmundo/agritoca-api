@@ -1,34 +1,27 @@
 const Hashids = require('hashids/cjs');
 const hashids = new Hashids('agritoca-api', 6);
-const { getWithoutID, getPaginationParams } = require('../utils/public');
+const { getWithoutID, getSortingParams } = require('../utils/public');
 const knex = require('../../database/connection');
+const { producerSearch } = require('../search');
 
 module.exports = {
-  async getAllProducers() {
-    const producers = await knex('producers').orderBy('id');
-    return producers;
-  },
-  async getProducersContaining({
-    hash,
-    name,
-    sort,
-    direction,
-    page,
-    pagesize
-  }) {
-    const { orderBy, offset, limit } = getPaginationParams({
+  async getAllProducers({ search, sort, direction }) {
+    const { orderBy } = getSortingParams({
       sort,
-      direction,
-      page,
-      pagesize
+      direction
     });
 
-    const producers = await knex('producers')
-      .where('name', 'ilike', `%${name ? name : ''}%`)
-      .andWhere('hash', 'ilike', `%${hash ? hash : ''}%`)
-      .orderBy(orderBy)
-      .limit(limit)
-      .offset(offset);
+    const producers = await knex('producers').orderBy(orderBy);
+
+    if (search) {
+      const searchResult = producerSearch({
+        pattern: search,
+        producers
+      });
+
+      return searchResult;
+    }
+
     return producers;
   },
   async getProducerById({ id }) {
