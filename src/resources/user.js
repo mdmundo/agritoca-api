@@ -1,25 +1,26 @@
 const { getSortingParams } = require('../utils/public');
 const axios = require('axios');
 const knex = require('../../database/connection');
+const { userSearch } = require('../search');
 
 module.exports = {
-  async getAllUsers() {
-    const users = await knex('users').orderBy('id');
-    return users;
-  },
-  async getUsersContaining({ name, email, sort, direction, page, pagesize }) {
-    const { orderBy, offset, limit } = getSortingParams({
+  async getAllUsers({ search, sort, direction }) {
+    const { orderBy } = getSortingParams({
       sort,
-      direction,
-      page,
-      pagesize
+      direction
     });
-    const users = await knex('users')
-      .where('name', 'ilike', `%${name ? name : ''}%`)
-      .andWhere('email', 'ilike', `%${email ? email : ''}%`)
-      .orderBy(orderBy)
-      .limit(limit)
-      .offset(offset);
+
+    const users = await knex('users').orderBy(orderBy);
+
+    if (search) {
+      const searchResult = userSearch({
+        pattern: search,
+        users
+      });
+
+      return searchResult;
+    }
+
     return users;
   },
   async getUserById({ id }) {

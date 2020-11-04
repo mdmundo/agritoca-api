@@ -2,30 +2,22 @@ const knex = require('../../database/connection');
 const { getWithoutID, getSortingParams } = require('../utils/public');
 
 module.exports = {
-  async getAllProductsHistory() {
-    const productsHistory = await knex('products_history').orderBy('id');
-    return productsHistory;
-  },
-  async getProductsHistoryContaining({
-    product_id,
-    sort,
-    direction,
-    page,
-    pagesize
-  }) {
-    const { orderBy, offset, limit } = getSortingParams({
+  async getProductsHistoryContaining({ product_id, sort, direction }) {
+    const { orderBy } = getSortingParams({
       sort,
-      direction,
-      page,
-      pagesize
+      direction
     });
-    const productsHistory = await knex('products_history')
-      .whereRaw('cast(product_id as varchar) like ?', [
-        product_id ? `${product_id}` : '%'
-      ])
-      .orderBy(orderBy)
-      .limit(limit)
-      .offset(offset);
+
+    let productsHistory;
+
+    if (product_id) {
+      productsHistory = await knex('products_history')
+        .where({ product_id })
+        .orderBy(orderBy);
+    } else {
+      productsHistory = await knex('products_history').orderBy(orderBy);
+    }
+
     return productsHistory;
   },
   async getProductHistoryById({ id }) {

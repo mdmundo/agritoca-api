@@ -6,7 +6,7 @@ const userController = {
     // check if is admin
 
     try {
-      const users = await userResource.getUsersContaining(req.query);
+      const users = await userResource.getAllUsers(req.query);
 
       return res.json(users);
     } catch (error) {

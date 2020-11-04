@@ -9,8 +9,7 @@ module.exports = {
   },
   search: {
     query: {
-      name: Joi.string().max(255),
-      email: Joi.string().max(255),
+      search: Joi.string().max(255),
       ...getSortingSchema()
     },
     params: {

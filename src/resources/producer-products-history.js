@@ -2,41 +2,54 @@ const { getWithoutID, getSortingParams } = require('../utils/public');
 const knex = require('../../database/connection');
 
 module.exports = {
-  async getAllProducerProductsHistory() {
-    const producerProductsHistory = await knex(
-      'producer_products_history'
-    ).orderBy('id');
-    return producerProductsHistory;
-  },
   async getProducerProductsHistoryContaining({
     producer_product_id,
     producer_id,
     product_id,
     sort,
-    direction,
-    page,
-    pagesize
+    direction
   }) {
-    const { orderBy, offset, limit } = getSortingParams({
+    const { orderBy } = getSortingParams({
       sort,
-      direction,
-      page,
-      pagesize
+      direction
     });
-    /* Corrigir essa bagaça. Ué, eu não tô recebendo um inteiro? Pq tô usando 'like'? */
-    const producerProductsHistory = await knex('producer_products_history')
-      .whereRaw('cast(producer_product_id as varchar) like ?', [
-        producer_product_id ? `${producer_product_id}` : '%'
-      ])
-      .whereRaw('cast(producer_id as varchar) like ?', [
-        producer_id ? `${producer_id}` : '%'
-      ])
-      .whereRaw('cast(product_id as varchar) like ?', [
-        product_id ? `${product_id}` : '%'
-      ])
-      .orderBy(orderBy)
-      .limit(limit)
-      .offset(offset);
+
+    let producerProductsHistory = [];
+
+    if (producer_product_id && producer_id && product_id) {
+      producerProductsHistory = await knex('producer_products_history')
+        .where({ producer_product_id, producer_id, product_id })
+        .orderBy(orderBy);
+    } else if (producer_product_id && producer_id && !product_id) {
+      producerProductsHistory = await knex('producer_products_history')
+        .where({ producer_product_id, producer_id })
+        .orderBy(orderBy);
+    } else if (producer_product_id && !producer_id && product_id) {
+      producerProductsHistory = await knex('producer_products_history')
+        .where({ producer_product_id, product_id })
+        .orderBy(orderBy);
+    } else if (producer_product_id && !producer_id && !product_id) {
+      producerProductsHistory = await knex('producer_products_history')
+        .where({ producer_product_id })
+        .orderBy(orderBy);
+    } else if (!producer_product_id && producer_id && product_id) {
+      producerProductsHistory = await knex('producer_products_history')
+        .where({ producer_id, product_id })
+        .orderBy(orderBy);
+    } else if (!producer_product_id && producer_id && !product_id) {
+      producerProductsHistory = await knex('producer_products_history')
+        .where({ producer_id })
+        .orderBy(orderBy);
+    } else if (!producer_product_id && !producer_id && product_id) {
+      producerProductsHistory = await knex('producer_products_history')
+        .where({ product_id })
+        .orderBy(orderBy);
+    } else if (!producer_product_id && !producer_id && !product_id) {
+      producerProductsHistory = await knex('producer_products_history').orderBy(
+        orderBy
+      );
+    }
+
     return producerProductsHistory;
   },
   async getProducerProductHistoryById({ id }) {
