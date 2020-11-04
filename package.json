@@ -13,6 +13,7 @@
     "seed": "knex seed:run",
     "dev:migrate": "env-cmd -f ./config/dev.env knex migrate:latest",
     "dev:rollback": "env-cmd -f ./config/dev.env knex migrate:rollback",
+    "dev:unlock": "env-cmd -f ./config/dev.env knex migrate:unlock",
     "dev:seed": "env-cmd -f ./config/dev.env knex seed:run",
     "dev:remake": "env-cmd -f ./config/dev.env knex migrate:rollback; env-cmd -f ./config/dev.env knex migrate:latest; env-cmd -f ./config/dev.env knex seed:run"
   },
