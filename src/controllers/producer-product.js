@@ -5,7 +5,7 @@ const { producerProductResource } = require('../resources');
 const producerProductController = {
   async read(req, res) {
     try {
-      const producerProducts = await producerProductResource.getProducerProductsContaining(
+      const producerProducts = await producerProductResource.getAllProducerProducts(
         req.query
       );
 

@@ -1,50 +1,86 @@
 const { getWithoutID, getSortingParams } = require('../utils/public');
 const knex = require('../../database/connection');
+const { producerProductSearch } = require('../search');
 
 module.exports = {
-  async getAllProducerProducts() {
-    const producerProducts = await knex('producer_products').orderBy('id');
-    return producerProducts;
-  },
-  async getProducerProductsContaining({
+  async getAllProducerProducts({
     producer_id,
     product_id,
-    brand,
-    keywords,
+    search,
     sort,
-    direction,
-    page,
-    pagesize
+    direction
   }) {
-    const { orderBy, offset, limit } = getSortingParams({
+    const { orderBy } = getSortingParams({
       sort,
-      direction,
-      page,
-      pagesize
+      direction
     });
 
-    const producerProducts = await knex
-      .select(
-        'products.ncm',
-        'products.measure',
-        'products.description',
-        'products.is_organic',
-        'producer_products.*'
-      )
-      .from('producer_products')
-      .join('products', 'products.id', 'producer_products.product_id')
-      .whereRaw(
-        'cast(producer_id as varchar) like ? and cast(product_id as varchar) like ?',
-        [
-          producer_id ? `${producer_id}` : '%',
-          product_id ? `${product_id}` : '%'
-        ]
-      )
-      .andWhere('brand', 'ilike', `%${brand ? brand : ''}%`)
-      .andWhere('keywords', 'ilike', `%${keywords ? keywords : ''}%`)
-      .orderBy(orderBy)
-      .limit(limit)
-      .offset(offset);
+    let producerProducts = [];
+
+    if (producer_id && product_id) {
+      producerProducts = await knex
+        .select(
+          'products.ncm',
+          'products.measure',
+          'products.description',
+          'products.is_organic',
+          'producer_products.*'
+        )
+        .from('producer_products')
+        .join('products', 'products.id', 'producer_products.product_id')
+        .where({ producer_id, product_id })
+        .orderBy(orderBy);
+    } else if (producer_id || product_id) {
+      if (producer_id) {
+        producerProducts = await knex
+          .select(
+            'products.ncm',
+            'products.measure',
+            'products.description',
+            'products.is_organic',
+            'producer_products.*'
+          )
+          .from('producer_products')
+          .join('products', 'products.id', 'producer_products.product_id')
+          .where({ producer_id })
+          .orderBy(orderBy);
+      } else {
+        producerProducts = await knex
+          .select(
+            'products.ncm',
+            'products.measure',
+            'products.description',
+            'products.is_organic',
+            'producer_products.*'
+          )
+          .from('producer_products')
+          .join('products', 'products.id', 'producer_products.product_id')
+          .where({ product_id })
+          .orderBy(orderBy);
+      }
+    } else {
+      producerProducts = await knex
+        .select(
+          'products.ncm',
+          'products.measure',
+          'products.description',
+          'products.is_organic',
+          'producer_products.*'
+        )
+        .from('producer_products')
+        .join('products', 'products.id', 'producer_products.product_id')
+        .orderBy(orderBy);
+    }
+
+    if (search) {
+      const searchResult = producerProductSearch({
+        pattern: search,
+        producerProducts
+      });
+
+      return searchResult;
+    }
+
     return producerProducts;
   },
   async getProducerProductById({ id }) {

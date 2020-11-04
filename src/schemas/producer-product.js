@@ -22,10 +22,9 @@ module.exports = {
   },
   search: {
     query: {
+      search: Joi.string().max(255),
       producer_id: Joi.number().integer().positive(),
       product_id: Joi.number().integer().positive(),
-      brand: Joi.string().max(255),
-      keywords: Joi.string().max(255),
       ...getSortingSchema()
     },
     params: {
