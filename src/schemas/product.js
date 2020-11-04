@@ -1,5 +1,5 @@
 const { Joi } = require('celebrate');
-const { getPaginationQueriesSchema } = require('../utils/public');
+const { getSortingSchema } = require('../utils/public');
 
 module.exports = {
   create: {
@@ -29,11 +29,7 @@ module.exports = {
   search: {
     query: {
       search: Joi.string().max(255),
-      description: Joi.string().max(255),
-      ncm: Joi.string()
-        .pattern(/^[0-9]+$/)
-        .max(20),
-      ...getPaginationQueriesSchema()
+      ...getSortingSchema()
     },
     params: {
       id: Joi.number().integer().positive()

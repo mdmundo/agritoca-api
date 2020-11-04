@@ -1,5 +1,5 @@
 const { Joi } = require('celebrate');
-const { getPaginationQueriesSchema } = require('../utils/public');
+const { getSortingSchema } = require('../utils/public');
 
 module.exports = {
   create: {
@@ -26,7 +26,7 @@ module.exports = {
       product_id: Joi.number().integer().positive(),
       brand: Joi.string().max(255),
       keywords: Joi.string().max(255),
-      ...getPaginationQueriesSchema()
+      ...getSortingSchema()
     },
     params: {
       id: Joi.number().integer().positive()

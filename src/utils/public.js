@@ -9,26 +9,13 @@ module.exports = {
     ...item,
     id: undefined
   }),
-  getPaginationParams: ({
-    sort = 'id',
-    direction = 'asc',
-    page = 0,
-    pagesize = 30
-  }) => ({
-    orderBy: [{ column: sort, order: direction }, 'id'],
-    offset: pagesize * page,
-    limit: pagesize
+  getSortingParams: ({ sort = 'id', direction = 'asc' }) => ({
+    orderBy: [{ column: sort, order: direction }, 'id']
   }),
-  getPaginationQueriesSchema: () => ({
+  getSortingSchema: () => ({
     sort: Joi.string().max(63),
     direction: Joi.string()
       .max(4)
-      .pattern(/^(a|de)sc$/),
-    page: Joi.string()
-      .pattern(/^[0-9]+$/)
-      .max(6),
-    pagesize: Joi.string()
-      .pattern(/^[0-9]+$/)
-      .max(3)
+      .pattern(/^(a|de)sc$/)
   })
 };
