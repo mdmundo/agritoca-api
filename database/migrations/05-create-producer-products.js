@@ -4,6 +4,7 @@ exports.up = (knex) =>
     // Important!!! RESTRICT option onUpdate, onDelete
     table
       .integer('product_id')
+      .index()
       .notNullable()
       .references('id')
       .inTable('products')
@@ -11,6 +12,7 @@ exports.up = (knex) =>
       .onDelete('RESTRICT');
     table
       .integer('producer_id')
+      .index()
       .notNullable()
       .references('id')
       .inTable('producers')

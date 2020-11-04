@@ -3,6 +3,7 @@ exports.up = (knex) =>
     table.increments().primary().index();
     table
       .integer('user_id')
+      .index()
       .unique()
       .notNullable()
       .references('id')

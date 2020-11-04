@@ -1,7 +1,7 @@
 exports.up = (knex) =>
   knex.schema.createTable('products', (table) => {
     table.increments().primary().index();
-    table.string('ncm').unique().defaultTo('No ncm provided');
+    table.string('ncm').unique().index().defaultTo('No ncm provided');
     // a gramatura, medida.
     table.string('measure').defaultTo('No measure provided');
     // if (!picture) fallback to /products/picture.png

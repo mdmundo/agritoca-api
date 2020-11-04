@@ -1,7 +1,7 @@
 exports.up = (knex) =>
   knex.schema.createTable('producers_history', (table) => {
     table.increments().primary().index();
-    table.integer('producer_id').defaultTo(null);
+    table.integer('producer_id').index().defaultTo(null);
     table.string('cpf').defaultTo(null);
     table.string('cnpj').defaultTo(null);
     table.string('name').defaultTo(null);
@@ -11,7 +11,7 @@ exports.up = (knex) =>
     // inscrição municipal e inscrição estadual
     table.string('ie').defaultTo(null);
     table.string('im').defaultTo(null);
-    table.string('hash').defaultTo(null);
+    table.string('hash').index().defaultTo(null);
     table.string('mod').defaultTo(null);
     table.timestamps(true, true);
     table.timestamp('deleted_at').defaultTo(null);
