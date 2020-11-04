@@ -1,5 +1,3 @@
-const path = require('path');
-const resetPath = path.resolve(__dirname, '../../database/resetters');
 const knex = require('../../database/connection');
 const jwt = require('jsonwebtoken');
 
@@ -10,7 +8,7 @@ const users = [
 ];
 
 const setupDatabase = async () => {
-  await knex.seed.run({ directory: resetPath });
+  await knex.migrate.rollback({}, true);
   await knex.migrate.latest();
   await knex.seed.run();
 };
