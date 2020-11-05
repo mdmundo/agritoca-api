@@ -1,4 +1,4 @@
-const picture = require('./img/product');
+const picture = require('./picture');
 
 exports.seed = (knex) => {
   // Deletes ALL existing entries
@@ -8,146 +8,65 @@ exports.seed = (knex) => {
       // Inserts seed entries
       return knex('products').insert([
         {
-          ncm: '02032100',
-          measure: 'KG',
-          description: 'CARCS. E MEIAS-CARCS. DE SUÍNOS, CONGELADAS',
-          picture,
+          ncm: '04072100',
+          measure: 'DUZIA',
+          description: 'Ovos de Aves, da Espécie Gallus Domesticus, Frescos',
+          picture: picture.egg,
           is_organic: false,
-          mod: 'mbrown@msn.com'
+          mod: 'manyymoore@gmail.com'
         },
         {
-          ncm: '02032200',
+          ncm: '07051100',
           measure: 'KG',
-          description: 'PERNA E PEDAÇO Ñ DESOS. SUÍNOS, CONGELADOS',
-          picture,
-          is_organic: false,
-          mod: 'mbrown@msn.com'
+          description: 'Alface Repolhuda, Fresca ou Refrigerada',
+          picture: picture.lettuce,
+          is_organic: true,
+          mod: 'manyymoore@gmail.com'
         },
         {
-          ncm: '02032900',
+          ncm: '07061000',
           measure: 'KG',
-          description: 'OUTRAS CARNES DE SUÍNO,CONGELADAS',
-          is_organic: false,
-          mod: 'mbrown@msn.com'
+          description: 'Cenouras e Nabos, Frescos ou Refrigerados',
+          picture: picture.carrot,
+          is_organic: true,
+          mod: 'manyymoore@gmail.com'
         },
         {
-          ncm: '02041000',
+          ncm: '21069050',
           measure: 'KG',
-          description: 'CARCS.E MEIAS-CARCS D/CORDEIRO,FRESC.,REFR.',
+          description: 'Gomas de Mascar, Sem Açúcar',
+          picture: picture.sugar,
           is_organic: false,
-          mod: 'mbrown@msn.com'
+          mod: 'manyymoore@gmail.com'
         },
         {
-          ncm: '02042100',
-          measure: 'KG',
-          description: 'CARCS.E MEIAS-CARCS.DE OVINOS,FRESC.REFRIG.',
+          ncm: '22030000',
+          measure: 'LT',
+          description: 'Cerveja de Malte',
+          picture: picture.beer,
           is_organic: false,
-          mod: 'mbrown@msn.com'
+          mod: 'manyymoore@gmail.com'
         },
         {
-          ncm: '02042200',
-          measure: 'KG',
-          description: 'OUTRAS PEÇAS Ñ DESOSS.D/OVINOS,FRESC.REFR.',
+          ncm: '22082000',
+          measure: 'LT',
+          description: 'Aguardentes de Vinho ou de Bagaço de Uvas',
           is_organic: false,
-          mod: 'mbrown@msn.com'
+          mod: 'manyymoore@gmail.com'
         },
         {
-          ncm: '02042300',
-          measure: 'KG',
-          description: 'PÇS DESOSSADAS D/OVINOS,FRESCAS OU REFRIG.',
+          ncm: '22084000',
+          measure: 'LT',
+          description: 'Rum e Outras Aguardentes de Cana',
           is_organic: false,
-          mod: 'mbrown@msn.com'
+          mod: 'manyymoore@gmail.com'
         },
         {
-          ncm: '02043000',
-          measure: 'KG',
-          description: 'CARCS. E MEIAS-CARCS. DE CORDEIRO,CONG.',
+          ncm: '22089000',
+          measure: 'LT',
+          description: 'Outras Bebidas Espirituosas (Alcoólicas)',
           is_organic: false,
-          mod: 'mbrown@msn.com'
-        },
-        {
-          ncm: '02044100',
-          measure: 'KG',
-          description: 'CARCS. E MEIAS-CARCS. OUTS.OVINOS,CONG.',
-          is_organic: false,
-          mod: 'mbrown@msn.com'
-        },
-        {
-          ncm: '02044200',
-          measure: 'KG',
-          description: 'OUTS.PÇS NÃO DESOSS.DE OVINOS,CONGELADAS',
-          is_organic: false,
-          mod: 'mbrown@msn.com'
-        },
-        {
-          ncm: '02044300',
-          measure: 'KG',
-          description: 'PEÇAS DESOSSADAS DE OVINOS,CONGELADAS',
-          is_organic: false,
-          mod: 'mbrown@msn.com'
-        },
-        {
-          ncm: '02045000',
-          measure: 'KG',
-          description: 'CARNES DE CAPRINOS,FRESC.,REFRIG.OU CONG.',
-          is_organic: false,
-          mod: 'mbrown@msn.com'
-        },
-        {
-          ncm: '02050000',
-          measure: 'KG',
-          description: 'CARNE CAVALO,ASININA,MUAR,FRESC.REF.,CONG.',
-          is_organic: false,
-          mod: 'mbrown@msn.com'
-        },
-        {
-          ncm: '02061000',
-          measure: 'KG',
-          description: 'MIUDEZAS DE BOVINOS,FRESCAS/REFRIGERADAS',
-          is_organic: false,
-          mod: 'mbrown@msn.com'
-        },
-        {
-          ncm: '02062100',
-          measure: 'KG',
-          description: 'LÍNGUAS DE BOVINOS CONGELADAS',
-          is_organic: false,
-          mod: 'mbrown@msn.com'
-        },
-        {
-          ncm: '02062200',
-          measure: 'KG',
-          description: 'FÍGADOS DE BOVINOS CONGELADOS',
-          is_organic: false,
-          mod: 'mbrown@msn.com'
-        },
-        {
-          ncm: '02062910',
-          measure: 'KG',
-          description: 'RABOS DE BOVINOS CONGELADOS',
-          is_organic: false,
-          mod: 'mbrown@msn.com'
-        },
-        {
-          ncm: '02062990',
-          measure: 'KG',
-          description: 'OUTRAS MIUDEZAS COMESTÍVEIS., D/BOVINO,CONG.',
-          is_organic: false,
-          mod: 'mbrown@msn.com'
-        },
-        {
-          ncm: '02063000',
-          measure: 'KG',
-          description: 'MIUDEZAS DA ESPÉCIE SUÍNA FRESCAS OU REFR.',
-          is_organic: false,
-          mod: 'mbrown@msn.com'
-        },
-        {
-          ncm: '02064100',
-          measure: 'KG',
-          description: 'FÍGADOS DE SUÍNOS, CONGELADOS',
-          is_organic: false,
-          mod: 'mbrown@msn.com'
+          mod: 'manyymoore@gmail.com'
         }
       ]);
     });

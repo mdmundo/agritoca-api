@@ -23,6 +23,11 @@ exports.seed = (knex) => {
           name: 'Calebe',
           email: 'cahoam@gmail.com',
           privilege: 2
+        },
+        {
+          name: 'EDMUNDO',
+          email: 'edmundo.paulino@mail.uft.edu.br',
+          privilege: 2
         }
       ]);
     });

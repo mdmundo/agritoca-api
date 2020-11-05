@@ -1,4 +1,4 @@
-const userBaskets = require('./baskets/template');
+const userBaskets = require('./baskets');
 
 exports.seed = (knex) => {
   // Deletes ALL existing entries
