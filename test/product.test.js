@@ -43,7 +43,7 @@ test('Should not fetch picture of nonexisting product', async () => {
 });
 
 test('Should fetch default product picture', async () => {
-  const id = 10;
+  const id = 6;
   await request(app).get(`/products/${id}/picture`).send().expect(302);
 });
 
