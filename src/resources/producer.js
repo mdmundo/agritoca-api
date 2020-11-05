@@ -5,7 +5,13 @@ const knex = require('../../database/connection');
 const { producerSearch } = require('../search');
 
 module.exports = {
-  async getAllProducers({ search, sort, direction }) {
+  async getAllProducers({ search, hash, sort, direction }) {
+    if (hash) {
+      const producers = await knex('producers').where({ hash });
+
+      return producers;
+    }
+
     const { orderBy } = getSortingParams({
       sort,
       direction

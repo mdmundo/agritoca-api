@@ -40,6 +40,7 @@ module.exports = {
   search: {
     query: {
       search: Joi.string().max(255),
+      hash: Joi.string().alphanum().max(6),
       ...getSortingSchema()
     },
     params: {
