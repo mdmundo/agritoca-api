@@ -1,11 +1,16 @@
 const { producerResource } = require('../resources');
+const { getPublicProducer } = require('../utils/public');
 
 const producerController = {
   async read(req, res) {
     try {
       const producers = await producerResource.getAllProducers(req.query);
 
-      return res.json(producers);
+      const serializedProducers = producers.map((producer) =>
+        getPublicProducer(producer)
+      );
+
+      return res.json(serializedProducers);
     } catch (error) {
       return res.status(500).json({ message: 'Error on Server' });
     }
@@ -17,7 +22,7 @@ const producerController = {
       if (!producer)
         return res.status(404).json({ message: 'Producer not found' });
 
-      return res.json(producer);
+      return res.json(getPublicProducer(producer));
     } catch (error) {
       return res.status(500).json({ message: 'Error on Server' });
     }

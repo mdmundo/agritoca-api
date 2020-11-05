@@ -9,6 +9,13 @@ module.exports = {
     ...item,
     id: undefined
   }),
+  getPublicProducer: (item) => ({
+    ...item,
+    cpf: undefined,
+    cnpj: undefined,
+    ie: undefined,
+    im: undefined
+  }),
   getSortingParams: ({ sort = 'id', direction = 'asc' }) => ({
     orderBy: [{ column: sort, order: direction }, 'id']
   }),
