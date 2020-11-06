@@ -31,4 +31,23 @@ const isMod = async (req, res, next) => {
   } else return res.status(403).json({ message: 'Not enough privilege' });
 };
 
-module.exports = { auth, isAdmin, isMod };
+const assignPrivilege = async (req, res, next) => {
+  try {
+    const token = req.header('Authorization').replace('Bearer ', '');
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const user = await knex('users').where('id', decoded.id).first();
+
+    if (!user) {
+      throw new Error();
+    }
+
+    const { privilege } = user;
+    req.user = { privilege };
+    next();
+  } catch (error) {
+    req.user = { privilege: 0 };
+    next();
+  }
+};
+
+module.exports = { auth, isAdmin, isMod, assignPrivilege };

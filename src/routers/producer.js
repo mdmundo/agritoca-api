@@ -1,6 +1,6 @@
 const express = require('express');
 const { celebrate } = require('celebrate');
-const { auth, isMod } = require('../middleware/auth');
+const { auth, isMod, assignPrivilege } = require('../middleware/auth');
 const { producerSchema } = require('../schemas');
 const { producerController } = require('../controllers');
 
@@ -9,12 +9,14 @@ const router = new express.Router();
 
 router.get(
   '/producers',
+  assignPrivilege,
   celebrate(producerSchema.search, joiOptions),
   producerController.read
 );
 
 router.get(
   '/producers/:id',
+  assignPrivilege,
   celebrate(producerSchema.search, joiOptions),
   producerController.readById
 );
