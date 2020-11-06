@@ -6,16 +6,15 @@ const producerController = {
     try {
       const producers = await producerResource.getAllProducers(req.query);
 
+      if (req.user.privilege === 1 || req.user.privilege === 2)
+        return res.json(producers);
+
       // if user is not mod or admin, then show only public data...
-      if (req.user.privilege === 0) {
-        const serializedProducers = producers.map((producer) =>
-          getPublicProducer(producer)
-        );
+      const serializedProducers = producers.map((producer) =>
+        getPublicProducer(producer)
+      );
 
-        return res.json(serializedProducers);
-      }
-
-      return res.json(producers);
+      return res.json(serializedProducers);
     } catch (error) {
       return res.status(500).json({ message: 'Error on Server' });
     }
@@ -29,7 +28,9 @@ const producerController = {
 
       // if user is not mod or admin, then show only public data...
       return res.json(
-        req.user.privilege === 0 ? getPublicProducer(producer) : producer
+        req.user.privilege === 1 || req.user.privilege === 2
+          ? producer
+          : getPublicProducer(producer)
       );
     } catch (error) {
       return res.status(500).json({ message: 'Error on Server' });

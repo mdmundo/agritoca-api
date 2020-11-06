@@ -45,7 +45,7 @@ const assignPrivilege = async (req, res, next) => {
     req.user = { privilege };
     next();
   } catch (error) {
-    req.user = { privilege: 0 };
+    req.user = {};
     next();
   }
 };
