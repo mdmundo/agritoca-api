@@ -57,7 +57,6 @@ exports.seed = (knex) => {
           ncm: '22082000',
           measure: 'LT',
           description: 'Aguardentes de Vinho ou de Bagaço de Uvas',
-          picture: picture.alcohol,
           is_organic: false,
           mod: 'manyymoore@gmail.com'
         },

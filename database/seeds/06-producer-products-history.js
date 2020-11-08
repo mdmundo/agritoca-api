@@ -48,20 +48,20 @@ exports.seed = (knex) => {
         {
           producer_product_id: 5,
           brand: 'IN NATURA',
-          barcode: '405232088822',
-          keywords: 'Banana, Prata, Terra',
-          picture: picture.banana,
-          product_id: 10,
+          barcode: '718216287996',
+          keywords: 'Maçã, Americana, Peru, Verde',
+          picture: picture.apple,
+          product_id: 9,
           producer_id: 1,
           mod: 'manyymoore@gmail.com'
         },
         {
           producer_product_id: 6,
           brand: 'IN NATURA',
-          barcode: '718216287996',
-          keywords: 'Maçã, Americana, Peru, Verde',
-          picture: picture.apple,
-          product_id: 9,
+          barcode: '405232088822',
+          keywords: 'Banana, Prata, Terra',
+          picture: picture.banana,
+          product_id: 10,
           producer_id: 1,
           mod: 'manyymoore@gmail.com'
         }
