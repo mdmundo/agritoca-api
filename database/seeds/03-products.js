@@ -51,6 +51,7 @@ exports.seed = (knex) => {
           ncm: '22082000',
           measure: 'LT',
           description: 'Aguardentes de Vinho ou de Bagaço de Uvas',
+          picture: picture.alcohol,
           is_organic: false,
           mod: 'manyymoore@gmail.com'
         },
@@ -58,6 +59,7 @@ exports.seed = (knex) => {
           ncm: '22084000',
           measure: 'LT',
           description: 'Rum e Outras Aguardentes de Cana',
+          picture: picture.alcohol,
           is_organic: false,
           mod: 'manyymoore@gmail.com'
         },
@@ -65,7 +67,25 @@ exports.seed = (knex) => {
           ncm: '22089000',
           measure: 'LT',
           description: 'Outras Bebidas Espirituosas (Alcoólicas)',
+          picture: picture.alcohol,
           is_organic: false,
+          mod: 'manyymoore@gmail.com'
+        },
+        ,
+        {
+          ncm: '08081000',
+          measure: 'KG',
+          description: 'Maçãs Frescas',
+          picture: picture.apple,
+          is_organic: true,
+          mod: 'manyymoore@gmail.com'
+        },
+        {
+          ncm: '08039000',
+          measure: 'KG',
+          description: 'Outras Bananas Frescas ou Secas',
+          picture: picture.banana,
+          is_organic: true,
           mod: 'manyymoore@gmail.com'
         }
       ]);
