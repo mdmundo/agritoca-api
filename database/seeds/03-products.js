@@ -71,7 +71,6 @@ exports.seed = (knex) => {
           is_organic: false,
           mod: 'manyymoore@gmail.com'
         },
-        ,
         {
           ncm: '08081000',
           measure: 'KG',
