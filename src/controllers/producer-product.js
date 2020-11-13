@@ -1,5 +1,9 @@
 const sharp = require('sharp');
-const { getWithoutPicture } = require('../utils/public');
+const { encode } = require('base64-arraybuffer');
+const {
+  getWithoutPicture,
+  getDefaultPicture: defaultPic
+} = require('../utils/public');
 const { producerProductResource } = require('../resources');
 
 const producerProductController = {
@@ -41,13 +45,13 @@ const producerProductController = {
         req.params
       );
 
-      if (!picture) {
-        res.set('Content-Type', 'image/png');
-        return res.send(productPicture);
+      if (req.query.picture) {
+        const base64 = encode(picture || productPicture || defaultPic);
+        return res.json({ picture: `data:image/png;base64, ${base64}` });
       }
 
       res.set('Content-Type', 'image/png');
-      res.send(picture);
+      res.send(picture || productPicture || defaultPic);
     } catch (error) {
       res.status(404).send();
     }

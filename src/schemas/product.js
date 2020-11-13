@@ -29,6 +29,7 @@ module.exports = {
   search: {
     query: {
       search: Joi.string().max(255),
+      picture: Joi.any().valid('base64'),
       ...getSortingSchema()
     },
     params: {

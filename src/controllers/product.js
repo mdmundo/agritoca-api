@@ -1,4 +1,5 @@
 const sharp = require('sharp');
+const { encode } = require('base64-arraybuffer');
 const {
   getWithoutPicture,
   getDefaultPicture: defaultPic
@@ -35,13 +36,13 @@ const productController = {
     try {
       const picture = await productResource.getProductPictureById(req.params);
 
-      if (!picture) {
-        res.set('Content-Type', 'image/png');
-        return res.send(defaultPic);
+      if (req.query.picture) {
+        const base64 = encode(picture || defaultPic);
+        return res.json({ picture: `data:image/png;base64, ${base64}` });
       }
 
       res.set('Content-Type', 'image/png');
-      res.send(picture);
+      res.send(picture || defaultPic);
     } catch (error) {
       res.status(404).send();
     }

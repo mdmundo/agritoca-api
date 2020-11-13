@@ -25,6 +25,7 @@ module.exports = {
       search: Joi.string().max(255),
       producer_id: Joi.number().integer().positive(),
       product_id: Joi.number().integer().positive(),
+      picture: Joi.any().valid('base64'),
       ...getSortingSchema()
     },
     params: {
