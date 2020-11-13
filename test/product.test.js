@@ -42,11 +42,6 @@ test('Should not fetch picture of nonexisting product', async () => {
   await request(app).get(`/products/${id}/picture`).send().expect(404);
 });
 
-test('Should fetch default product picture', async () => {
-  const id = 6;
-  await request(app).get(`/products/${id}/picture`).send().expect(302);
-});
-
 test('Should create a new product', async () => {
   const newProduct = {
     ncm: '99999999',
