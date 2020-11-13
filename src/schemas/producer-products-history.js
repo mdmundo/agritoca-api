@@ -9,6 +9,7 @@ module.exports = {
       producer_product_id: Joi.number().integer().positive(),
       producer_id: Joi.number().integer().positive(),
       product_id: Joi.number().integer().positive(),
+      picture: Joi.any().valid('base64'),
       ...getSortingSchema()
     },
     params: {

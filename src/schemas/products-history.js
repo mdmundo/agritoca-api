@@ -9,6 +9,7 @@ module.exports = {
         .pattern(/^[0-9]+$/)
         .max(20),
       product_id: Joi.number().integer().positive(),
+      picture: Joi.any().valid('base64'),
       ...getSortingSchema()
     },
     params: {

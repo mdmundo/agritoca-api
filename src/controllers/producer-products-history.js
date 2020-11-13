@@ -1,3 +1,4 @@
+const { encode } = require('base64-arraybuffer');
 const { getWithoutPicture } = require('../utils/public');
 const { producerProductsHistoryResource } = require('../resources');
 
@@ -38,6 +39,11 @@ module.exports = {
       );
 
       if (!picture) throw new Error();
+
+      if (req.query.picture) {
+        const base64 = encode(picture);
+        return res.json({ picture: `data:image/png;base64, ${base64}` });
+      }
 
       res.set('Content-Type', 'image/png');
       res.send(picture);
