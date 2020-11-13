@@ -102,7 +102,12 @@ module.exports = {
     const { product_id, picture } = await knex('producer_products')
       .where({ id })
       .first();
-    return { product_id, picture };
+
+    const product = await knex('products').where({ id: product_id }).first();
+
+    const productPicture = product.picture;
+
+    return { productPicture, picture };
   },
   async getUploadedPicture({ id, picture, mod }) {
     let isPicture;

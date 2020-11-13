@@ -1,5 +1,8 @@
 const sharp = require('sharp');
-const { getWithoutPicture } = require('../utils/public');
+const {
+  getWithoutPicture,
+  getDefaultPicture: defaultPic
+} = require('../utils/public');
 const { productResource } = require('../resources');
 
 const productController = {
@@ -33,7 +36,8 @@ const productController = {
       const picture = await productResource.getProductPictureById(req.params);
 
       if (!picture) {
-        return res.redirect('/product.png');
+        res.set('Content-Type', 'image/png');
+        return res.send(defaultPic);
       }
 
       res.set('Content-Type', 'image/png');

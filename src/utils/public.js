@@ -1,4 +1,6 @@
 const { Joi } = require('celebrate');
+const fs = require('fs');
+const path = require('path');
 
 module.exports = {
   getWithoutPicture: (item) => ({
@@ -24,5 +26,6 @@ module.exports = {
     direction: Joi.string()
       .max(4)
       .pattern(/^(a|de)sc$/)
-  })
+  }),
+  getDefaultPicture: fs.readFileSync(path.join(__dirname, 'picture.png'))
 };
