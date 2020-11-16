@@ -183,27 +183,6 @@ test('Should create a new producer as a mod', async () => {
   expect(JSON.stringify(response.body)).toEqual(JSON.stringify(productCreated));
 });
 
-test('Should not create due to empty table', async () => {
-  const newProducer = {
-    cpf: '88770452071',
-    cnpj: '68893557946613',
-    name: 'Comes e Bebes',
-    whatsapp: '5595956626321',
-    address: '77500000, St. Main, Porto Nacional, Tocantins',
-    ie: '13902142293',
-    im: '45809714081'
-  };
-
-  await knex('producer_products').del();
-  await knex('producers').del();
-
-  await request(app)
-    .post(`/producers`)
-    .set('Authorization', `Bearer ${users[0].token}`)
-    .send(newProducer)
-    .expect(500);
-});
-
 test('Should not create with invalid field', async () => {
   const newProducer = {
     cpf: '88770452071',
