@@ -183,7 +183,7 @@ test('Should create a new producer as a mod', async () => {
   expect(JSON.stringify(response.body)).toEqual(JSON.stringify(productCreated));
 });
 
-test('Should not create due to empty db', async () => {
+test('Should not create due to empty table', async () => {
   const newProducer = {
     cpf: '88770452071',
     cnpj: '68893557946613',
@@ -195,7 +195,7 @@ test('Should not create due to empty db', async () => {
     invalid: 'Literally an invalid field'
   };
 
-  await knex.migrate.rollback({}, true);
+  await knex('producers').del();
 
   await request(app)
     .post(`/producers`)
@@ -378,11 +378,11 @@ test('Should not update without privilege', async () => {
     .expect(403);
 });
 
-test('Should not update due to empty db', async () => {
+test('Should not update due to empty table', async () => {
   const id = 1;
   const whatsapp = '5595956626321';
 
-  await knex.migrate.rollback({}, true);
+  await knex('producers').del();
 
   await request(app)
     .patch(`/producers/${id}`)
@@ -432,10 +432,10 @@ test('Should delete producer by ID', async () => {
   expect(producer).toBe(undefined);
 });
 
-test('Should not delete due to empty db', async () => {
+test('Should not delete due to empty table', async () => {
   const id = 1;
 
-  await knex.migrate.rollback({}, true);
+  await knex('producers').del();
 
   await request(app)
     .delete(`/producers/${id}`)
