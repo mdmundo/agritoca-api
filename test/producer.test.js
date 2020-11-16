@@ -191,8 +191,7 @@ test('Should not create due to empty table', async () => {
     whatsapp: '5595956626321',
     address: '77500000, St. Main, Porto Nacional, Tocantins',
     ie: '13902142293',
-    im: '45809714081',
-    invalid: 'Literally an invalid field'
+    im: '45809714081'
   };
 
   await knex('producer_products').del();
