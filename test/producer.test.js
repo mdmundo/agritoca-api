@@ -195,6 +195,7 @@ test('Should not create due to empty table', async () => {
     invalid: 'Literally an invalid field'
   };
 
+  await knex('producer_products').del();
   await knex('producers').del();
 
   await request(app)
@@ -382,6 +383,7 @@ test('Should not update due to empty table', async () => {
   const id = 1;
   const whatsapp = '5595956626321';
 
+  await knex('producer_products').del();
   await knex('producers').del();
 
   await request(app)
@@ -435,6 +437,7 @@ test('Should delete producer by ID', async () => {
 test('Should not delete due to empty table', async () => {
   const id = 1;
 
+  await knex('producer_products').del();
   await knex('producers').del();
 
   await request(app)
