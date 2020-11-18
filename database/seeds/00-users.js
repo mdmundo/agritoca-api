@@ -28,6 +28,11 @@ exports.seed = (knex) => {
           name: 'EDMUNDO',
           email: 'edmundo.paulino@mail.uft.edu.br',
           privilege: 2
+        },
+        {
+          name: 'Maria Eduarda Ribeiro de Jesus',
+          email: 'eduardaribeiro@mail.uft.edu.br',
+          privilege: 2
         }
       ]);
     });
