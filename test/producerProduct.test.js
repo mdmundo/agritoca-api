@@ -190,6 +190,8 @@ test('Should not create due to empty table', async () => {
     producer_id: 1
   };
 
+  await knex('producer_products').del();
+
   await request(app)
     .post(`/producerProducts`)
     .set('Authorization', `Bearer ${users[0].token}`)
