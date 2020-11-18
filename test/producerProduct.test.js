@@ -411,5 +411,3 @@ test('Should not delete due to empty table', async () => {
     .send()
     .expect(500);
 });
-
-// Should not create producerProduct due to nonexisting foreign key
