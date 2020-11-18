@@ -1,5 +1,6 @@
 const request = require('supertest');
 const app = require('../src/app');
+const knex = require('../database/connection');
 const { users } = require('./fixtures/db');
 
 test('Should fetch producers history', async () => {
