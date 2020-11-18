@@ -43,7 +43,7 @@ test('Should fetch history by ID', async () => {
 
   history.picture = undefined;
 
-  expect(response.body).toEqual(history);
+  expect(JSON.stringify(response.body)).toEqual(JSON.stringify(history));
 });
 
 test('Should not fetch history by nonexisting ID', async () => {
@@ -149,7 +149,7 @@ test('Should add new register by updating producer product', async () => {
 
   const response = await request(app)
     .get(
-      `/producerProductsHistory?producer_product_id=${producer_product_id}&sort=created_at&direction=desc`
+      `/producerProductsHistory?producer_product_id=${producer_product_id}&direction=desc`
     )
     .set('Authorization', `Bearer ${users[0].token}`)
     .send()
@@ -177,7 +177,7 @@ test('Should add new register by creating producer product', async () => {
   const producer_product_id = creationResponse.body.id;
 
   const response = await request(app)
-    .get(`/producerProductsHistory?sort=created_at&direction=desc`)
+    .get(`/producerProductsHistory?direction=desc`)
     .set('Authorization', `Bearer ${users[0].token}`)
     .send()
     .expect(200);
@@ -194,7 +194,7 @@ test('Should add new register by deleting producer product', async () => {
     .expect(200);
 
   const response = await request(app)
-    .get(`/producerProductsHistory?sort=created_at&direction=desc`)
+    .get(`/producerProductsHistory?direction=desc`)
     .set('Authorization', `Bearer ${users[0].token}`)
     .send()
     .expect(200);
@@ -213,7 +213,7 @@ test('Should add many registers by deleting producer', async () => {
     .expect(200);
 
   const response = await request(app)
-    .get(`/producerProductsHistory?sort=created_at&direction=desc`)
+    .get(`/producerProductsHistory?direction=desc`)
     .set('Authorization', `Bearer ${users[0].token}`)
     .send()
     .expect(200);
@@ -232,7 +232,7 @@ test('Should add many registers by deleting product', async () => {
     .expect(200);
 
   const response = await request(app)
-    .get(`/producerProductsHistory?sort=created_at&direction=desc`)
+    .get(`/producerProductsHistory?direction=desc`)
     .set('Authorization', `Bearer ${users[0].token}`)
     .send()
     .expect(200);
