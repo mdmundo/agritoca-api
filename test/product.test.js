@@ -4,7 +4,7 @@ const knex = require('../database/connection');
 const { users } = require('./fixtures/db');
 const path = require('path');
 
-test('Should fetch first products', async () => {
+test('Should fetch products', async () => {
   await request(app).get('/products').send().expect(200);
 });
 
