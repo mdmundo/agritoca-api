@@ -45,7 +45,7 @@ test('Should update baskets from current user', async () => {
     .send(baskets)
     .expect(200);
 
-  const updatedBaskets = await knex('baskets')
+  const { user_baskets: updatedBaskets } = await knex('baskets')
     .where({ user_id: users[0].id })
     .first();
 
