@@ -176,11 +176,13 @@ test('Should create a new producer as a mod', async () => {
     .send(newProducer)
     .expect(201);
 
-  const productCreated = await knex('producers')
+  const producerCreated = await knex('producers')
     .where({ id: response.body.id })
     .first();
 
-  expect(JSON.stringify(response.body)).toEqual(JSON.stringify(productCreated));
+  expect(JSON.stringify(response.body)).toEqual(
+    JSON.stringify(producerCreated)
+  );
 });
 
 test('Should not create with invalid field', async () => {
