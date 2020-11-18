@@ -10,19 +10,23 @@ test('Should fetch all baskets from current user', async () => {
     .send()
     .expect(200);
 
-  const baskets = await knex('baskets').where({ user_id: users[0].id }).first();
+  const { user_baskets: baskets } = await knex('baskets')
+    .where({ user_id: users[0].id })
+    .first();
 
   expect(baskets).toEqual(response.body);
 });
 
-test('Should not fetch baskets due to empty db', async () => {
-  await knex.migrate.rollback({}, true);
+test('Should fetch empty baskets array due to empty table', async () => {
+  await knex('baskets').del();
 
-  await request(app)
+  const response = await request(app)
     .get('/baskets')
     .set('Authorization', `Bearer ${users[0].token}`)
     .send()
-    .expect(500);
+    .expect(200);
+
+  expect(response.body).toEqual([]);
 });
 
 test('Should update baskets from current user', async () => {
@@ -46,23 +50,4 @@ test('Should update baskets from current user', async () => {
     .first();
 
   expect(baskets).toEqual(updatedBaskets);
-});
-
-test('Should not fetch baskets due to empty db', async () => {
-  await knex.migrate.rollback({}, true);
-
-  const baskets = [
-    {
-      id: 'd0819442-d50e-4706-b363-de0150494656',
-      name: 'Cesta #9',
-      notes: 'Practice does not make perfect, perfect practice makes perfect.',
-      items: []
-    }
-  ];
-
-  await request(app)
-    .patch('/baskets')
-    .set('Authorization', `Bearer ${users[0].token}`)
-    .send(baskets)
-    .expect(500);
 });

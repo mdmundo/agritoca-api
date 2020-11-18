@@ -26,7 +26,19 @@ test('Should not fetch producer product by ID due to empty db', async () => {
 
 test('Should fetch producer producerProduct by ID', async () => {
   const id = 1;
-  const producerProduct = await knex('producer_products').where({ id }).first();
+  const producerProduct = await knex
+    .select(
+      'products.ncm',
+      'products.measure',
+      'products.description',
+      'products.is_organic',
+      'producer_products.*'
+    )
+    .from('producer_products')
+    .join('products', 'products.id', 'producer_products.product_id')
+    .where('producer_products.id', id)
+    .first();
+
   producerProduct.picture = undefined;
 
   const response = await request(app)
@@ -185,24 +197,6 @@ test('Should not create without privilege', async () => {
     .set('Authorization', `Bearer ${users[2].token}`)
     .send(newProducerProduct)
     .expect(403);
-});
-
-test('Should not create due to empty db', async () => {
-  const newProducerProduct = {
-    brand: 'IN NATURA',
-    barcode: '405232088822',
-    keywords: 'Banana, Prata, Terra',
-    product_id: 10,
-    producer_id: 1
-  };
-
-  await knex.migrate.rollback({}, true);
-
-  await request(app)
-    .post(`/producerProducts`)
-    .set('Authorization', `Bearer ${users[0].token}`)
-    .send(newProducerProduct)
-    .expect(500);
 });
 
 test('Should update only keywords', async () => {
