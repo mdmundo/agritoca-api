@@ -3,7 +3,6 @@ const app = require('../src/app');
 const knex = require('../database/connection');
 const { users } = require('./fixtures/db');
 
-// only the first page
 test('Should fetch users (admin)', async () => {
   await request(app)
     .get('/users')
