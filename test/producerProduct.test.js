@@ -34,7 +34,9 @@ test('Should fetch producer producerProduct by ID', async () => {
     .send()
     .expect(200);
 
-  expect(JSON.stringify(response.body)).toEqual(JSON.stringify(product));
+  expect(JSON.stringify(response.body)).toEqual(
+    JSON.stringify(producerProduct)
+  );
 });
 
 test('Should fetch producer producerProduct picture by ID', async () => {
@@ -72,6 +74,8 @@ test('Should create a new producer product', async () => {
     .where({ id: response.body.id })
     .first();
 
+  producerProductCreated.picture = undefined;
+
   expect(JSON.stringify(response.body)).toEqual(
     JSON.stringify(producerProductCreated)
   );
@@ -95,6 +99,8 @@ test('Should create a new producer producerProduct as a mod', async () => {
   const producerProductCreated = await knex('producer_products')
     .where({ id: response.body.id })
     .first();
+
+  producerProductCreated.picture = undefined;
 
   expect(JSON.stringify(response.body)).toEqual(
     JSON.stringify(producerProductCreated)
@@ -181,7 +187,7 @@ test('Should not create without privilege', async () => {
     .expect(403);
 });
 
-test('Should not create due to empty table', async () => {
+test('Should not create due to empty db', async () => {
   const newProducerProduct = {
     brand: 'IN NATURA',
     barcode: '405232088822',
@@ -190,7 +196,7 @@ test('Should not create due to empty table', async () => {
     producer_id: 1
   };
 
-  await knex('producer_products').del();
+  await knex.migrate.rollback({}, true);
 
   await request(app)
     .post(`/producerProducts`)
