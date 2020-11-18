@@ -16,6 +16,14 @@ test('Should not fetch producer products due to empty db', async () => {
   await request(app).get('/producerProducts').send().expect(500);
 });
 
+test('Should not fetch producer product by ID due to empty db', async () => {
+  const id = 1;
+
+  await knex.migrate.rollback({}, true);
+
+  await request(app).get(`/producerProducts/${id}`).send().expect(500);
+});
+
 test('Should fetch producer producerProduct by ID', async () => {
   const id = 1;
   const producerProduct = await knex('producer_products').where({ id }).first();
@@ -173,6 +181,22 @@ test('Should not create without privilege', async () => {
     .expect(403);
 });
 
+test('Should not create due to empty table', async () => {
+  const newProducerProduct = {
+    brand: 'IN NATURA',
+    barcode: '405232088822',
+    keywords: 'Banana, Prata, Terra',
+    product_id: 10,
+    producer_id: 1
+  };
+
+  await request(app)
+    .post(`/producerProducts`)
+    .set('Authorization', `Bearer ${users[0].token}`)
+    .send(newProducerProduct)
+    .expect(500);
+});
+
 test('Should update only keywords', async () => {
   const id = 1;
   const keywords = 'Apples, Healthy, Life, Best Seller';
@@ -250,6 +274,19 @@ test('Should not update invalid data', async () => {
     .set('Authorization', `Bearer ${users[0].token}`)
     .send({ barcode })
     .expect(400);
+});
+
+test('Should not update due to empty table', async () => {
+  const id = 1;
+  const keywords = 'Apples, Healthy, Life, Best Seller';
+
+  await knex('producer_products').del();
+
+  await request(app)
+    .patch(`/producerProducts/${id}`)
+    .set('Authorization', `Bearer ${users[0].token}`)
+    .send({ keywords })
+    .expect(500);
 });
 
 test('Should upload producer product picture', async () => {
@@ -343,4 +380,16 @@ test('Should not delete producer product without privilege', async () => {
     .set('Authorization', `Bearer ${users[2].token}`)
     .send()
     .expect(403);
+});
+
+test('Should not delete due to empty table', async () => {
+  const id = 1;
+
+  await knex('producer_products').del();
+
+  await request(app)
+    .delete(`/producerProducts/${id}`)
+    .set('Authorization', `Bearer ${users[0].token}`)
+    .send()
+    .expect(500);
 });
