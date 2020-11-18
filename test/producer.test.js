@@ -1,3 +1,5 @@
+const Hashids = require('hashids/cjs');
+const hashids = new Hashids('agritoca-api', 6);
 const request = require('supertest');
 const app = require('../src/app');
 const knex = require('../database/connection');
@@ -71,6 +73,37 @@ test('Should fetch producer by ID with private data (admin)', async () => {
     .expect(200);
 
   expect(JSON.stringify(response.body)).toEqual(JSON.stringify(producer));
+});
+
+test('Should fetch producer by hash with private data (admin)', async () => {
+  const hash = hashids.encode(1);
+  const producers = await knex('producers').where({ hash });
+
+  const response = await request(app)
+    .get(`/producers?hash=${hash}`)
+    .set('Authorization', `Bearer ${users[0].token}`)
+    .send()
+    .expect(200);
+
+  expect(JSON.stringify(response.body)).toEqual(JSON.stringify(producers));
+});
+
+test('Should fetch producer by hash without private data (regular)', async () => {
+  const hash = hashids.encode(1);
+  const producer = await knex('producers').where({ hash }).first();
+
+  producer.cpf = undefined;
+  producer.cnpj = undefined;
+  producer.ie = undefined;
+  producer.im = undefined;
+
+  const response = await request(app)
+    .get(`/producers?hash=${hash}`)
+    .set('Authorization', `Bearer ${users[2].token}`)
+    .send()
+    .expect(200);
+
+  expect(JSON.stringify(response.body[0])).toEqual(JSON.stringify(producer));
 });
 
 test('Should not fetch producer by ID due to empty db', async () => {
