@@ -199,6 +199,22 @@ test('Should not create without privilege', async () => {
     .expect(403);
 });
 
+test('Should not create producerProduct due to nonexisting foreign key', async () => {
+  const newProducerProduct = {
+    brand: 'IN NATURA',
+    barcode: '405232088822',
+    keywords: 'Banana, Prata, Terra',
+    product_id: 9999,
+    producer_id: 1
+  };
+
+  await request(app)
+    .post(`/producerProducts`)
+    .set('Authorization', `Bearer ${users[0].token}`)
+    .send(newProducerProduct)
+    .expect(500);
+});
+
 test('Should update only keywords', async () => {
   const id = 1;
   const keywords = 'Apples, Healthy, Life, Best Seller';
@@ -395,3 +411,5 @@ test('Should not delete due to empty table', async () => {
     .send()
     .expect(500);
 });
+
+// Should not create producerProduct due to nonexisting foreign key
