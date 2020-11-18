@@ -16,7 +16,7 @@ test('Should not fetch producer products due to empty db', async () => {
   await request(app).get('/producerProducts').send().expect(500);
 });
 
-test('Should fetch producer product by ID', async () => {
+test('Should fetch producer producerProduct by ID', async () => {
   const id = 1;
   const producerProduct = await knex('producer_products').where({ id }).first();
   producerProduct.picture = undefined;
@@ -29,7 +29,7 @@ test('Should fetch producer product by ID', async () => {
   expect(JSON.stringify(response.body)).toEqual(JSON.stringify(product));
 });
 
-test('Should fetch producer product picture by ID', async () => {
+test('Should fetch producer producerProduct picture by ID', async () => {
   const id = 1;
   const { picture } = await knex('producer_products').where({ id }).first();
   const response = await request(app)
@@ -51,43 +51,46 @@ test('Should create a new producer product', async () => {
     barcode: '405232088822',
     keywords: 'Banana, Prata, Terra',
     product_id: 10,
-    producer_id: 1,
-    mod: 'manyymoore@gmail.com'
+    producer_id: 1
   };
 
   const response = await request(app)
-    .post(`/products`)
+    .post(`/producerProducts`)
     .set('Authorization', `Bearer ${users[0].token}`)
     .send(newProducerProduct)
     .expect(201);
 
-  const productCreated = await knex('products')
+  const producerProductCreated = await knex('producer_products')
     .where({ id: response.body.id })
     .first();
 
-  expect(JSON.stringify(response.body)).toEqual(JSON.stringify(productCreated));
+  expect(JSON.stringify(response.body)).toEqual(
+    JSON.stringify(producerProductCreated)
+  );
 });
 
-test('Should create a new product as a mod', async () => {
+test('Should create a new producer producerProduct as a mod', async () => {
   const newProducerProduct = {
-    ncm: '99999999',
-    measure: 'UN',
-    description: 'SUCO DE UVA',
-    is_organic: true
+    brand: 'IN NATURA',
+    barcode: '405232088822',
+    keywords: 'Banana, Prata, Terra',
+    product_id: 10,
+    producer_id: 1
   };
 
   const response = await request(app)
-    .post(`/products`)
+    .post(`/producerProducts`)
     .set('Authorization', `Bearer ${users[1].token}`)
     .send(newProducerProduct)
     .expect(201);
 
-  const productCreated = await knex('products')
+  const producerProductCreated = await knex('producer_products')
     .where({ id: response.body.id })
     .first();
-  productCreated.picture = undefined;
 
-  expect(JSON.stringify(response.body)).toEqual(JSON.stringify(productCreated));
+  expect(JSON.stringify(response.body)).toEqual(
+    JSON.stringify(producerProductCreated)
+  );
 });
 
 test('Should not create with invalid field', async () => {
@@ -97,12 +100,11 @@ test('Should not create with invalid field', async () => {
     keywords: 'Banana, Prata, Terra',
     product_id: 10,
     producer_id: 1,
-    mod: 'manyymoore@gmail.com',
     invalid: 'Literally an invalid field'
   };
 
   await request(app)
-    .post(`/products`)
+    .post(`/producerProducts`)
     .set('Authorization', `Bearer ${users[0].token}`)
     .send(newProducerProduct)
     .expect(400);
@@ -110,14 +112,15 @@ test('Should not create with invalid field', async () => {
 
 test('Should not create with invalid data', async () => {
   const newProducerProduct = {
-    ncm: '99999999',
-    measure: 'UN',
-    description: 'SUCO DE UVA',
-    is_organic: "I don't know, maybe"
+    brand: 'IN NATURA',
+    barcode: '405232088822',
+    keywords: 'Banana, Prata, Terra',
+    product_id: 10,
+    producer_id: 'I do not know, so I am not'
   };
 
   await request(app)
-    .post(`/products`)
+    .post(`/producerProducts`)
     .set('Authorization', `Bearer ${users[0].token}`)
     .send(newProducerProduct)
     .expect(400);
@@ -125,14 +128,15 @@ test('Should not create with invalid data', async () => {
 
 test('Should not create with invalid data', async () => {
   const newProducerProduct = {
-    ncm: 'Should it be alphanumeric?',
-    measure: 'UN',
-    description: 'SUCO DE UVA',
-    is_organic: false
+    brand: 'IN NATURA',
+    barcode: { invalid: 'Should not accept this!' },
+    keywords: 'Banana, Prata, Terra',
+    product_id: 10,
+    producer_id: 1
   };
 
   await request(app)
-    .post(`/products`)
+    .post(`/producerProducts`)
     .set('Authorization', `Bearer ${users[0].token}`)
     .send(newProducerProduct)
     .expect(400);
@@ -140,77 +144,90 @@ test('Should not create with invalid data', async () => {
 
 test('Should not create without auth', async () => {
   const newProducerProduct = {
-    ncm: '99999999',
-    measure: 'UN',
-    description: 'SUCO DE UVA',
-    is_organic: true
+    brand: 'IN NATURA',
+    barcode: '405232088822',
+    keywords: 'Banana, Prata, Terra',
+    product_id: 10,
+    producer_id: 1
   };
 
-  await request(app).post(`/products`).send(newProducerProduct).expect(401);
+  await request(app)
+    .post(`/producerProducts`)
+    .send(newProducerProduct)
+    .expect(401);
 });
 
 test('Should not create without privilege', async () => {
   const newProducerProduct = {
-    ncm: '99999999',
-    measure: 'UN',
-    description: 'SUCO DE UVA',
-    is_organic: true
+    brand: 'IN NATURA',
+    barcode: '405232088822',
+    keywords: 'Banana, Prata, Terra',
+    product_id: 10,
+    producer_id: 1
   };
 
   await request(app)
-    .post(`/products`)
+    .post(`/producerProducts`)
     .set('Authorization', `Bearer ${users[2].token}`)
     .send(newProducerProduct)
     .expect(403);
 });
 
-test('Should update only description', async () => {
+test('Should update only keywords', async () => {
   const id = 1;
-  const description = 'New description';
-  const product = await knex('products').where({ id }).first();
+  const keywords = 'Apples, Healthy, Life, Best Seller';
+  const producerProduct = await knex('producer_products').where({ id }).first();
 
   const response = await request(app)
-    .patch(`/products/${id}`)
+    .patch(`/producerProducts/${id}`)
     .set('Authorization', `Bearer ${users[0].token}`)
-    .send({ description })
+    .send({ keywords })
     .expect(200);
 
-  expect(response.body.id).toBe(product.id);
-  expect(response.body.ncm).toBe(product.ncm);
-  expect(response.body.description).not.toBe(product.description);
-  expect(response.body.updated_at).not.toBe(product.updated_at.toString());
+  expect(response.body.id).toBe(producerProduct.id);
+  expect(response.body.brand).toBe(producerProduct.brand);
+  expect(response.body.barcode).toBe(producerProduct.barcode);
+  expect(response.body.product_id).toBe(producerProduct.product_id);
+  expect(response.body.producer_id).toBe(producerProduct.producer_id);
+  expect(response.body.keywords).not.toBe(producerProduct.keywords);
+  expect(response.body.updated_at).not.toBe(
+    producerProduct.updated_at.toString()
+  );
 });
 
 test('Should update with mod privilege', async () => {
   const id = 1;
-  const description = 'New description';
-  const product = await knex('products').where({ id }).first();
+  const keywords = 'Apples, Healthy, Life, Best Seller';
+  const producerProduct = await knex('producer_products').where({ id }).first();
 
   const response = await request(app)
-    .patch(`/products/${id}`)
+    .patch(`/producerProducts/${id}`)
     .set('Authorization', `Bearer ${users[1].token}`)
-    .send({ description })
+    .send({ keywords })
     .expect(200);
 
-  expect(response.body.description).not.toBe(product.description);
+  expect(response.body.keywords).not.toBe(producerProduct.keywords);
 });
 
 test('Should not update without privilege', async () => {
   const id = 1;
-  const description = 'New description';
+  const keywords = 'Apples, Healthy, Life, Best Seller';
 
   await request(app)
-    .patch(`/products/${id}`)
+    .patch(`/producerProducts/${id}`)
     .set('Authorization', `Bearer ${users[2].token}`)
-    .send({ description })
+    .send({ keywords })
     .expect(403);
 });
 
 test('Should not update without auth', async () => {
   const id = 1;
-  const description = 'New description';
+  const keywords = 'Apples, Healthy, Life, Best Seller';
 
-  await request(app).patch(`/products/${id}`).send({ description }).expect(401);
+  await request(app)
+    .patch(`/producerProducts/${id}`)
+    .send({ keywords })
+    .expect(401);
 });
 
 test('Should not update invalid field', async () => {
@@ -218,7 +235,7 @@ test('Should not update invalid field', async () => {
   const mod = 'invalid@example.com';
 
   await request(app)
-    .patch(`/products/${id}`)
+    .patch(`/producerProducts/${id}`)
     .set('Authorization', `Bearer ${users[0].token}`)
     .send({ mod })
     .expect(400);
@@ -226,16 +243,16 @@ test('Should not update invalid field', async () => {
 
 test('Should not update invalid data', async () => {
   const id = 1;
-  const is_organic = 'Maybe, I do not know';
+  const barcode = { invalid: 'Should not accept this!' };
 
   await request(app)
-    .patch(`/products/${id}`)
+    .patch(`/producerProducts/${id}`)
     .set('Authorization', `Bearer ${users[0].token}`)
-    .send({ is_organic })
+    .send({ barcode })
     .expect(400);
 });
 
-test('Should upload product picture', async () => {
+test('Should upload producer product picture', async () => {
   const id = 1;
   const picturePath = path.join(
     __dirname,
@@ -243,7 +260,7 @@ test('Should upload product picture', async () => {
   );
 
   await request(app)
-    .post(`/products/${id}/picture`)
+    .post(`/producerProducts/${id}/picture`)
     .set('Authorization', `Bearer ${users[0].token}`)
     .attach('picture', picturePath)
     .expect(200);
@@ -257,7 +274,7 @@ test('Should not upload invalid file', async () => {
   );
 
   await request(app)
-    .post(`/products/${id}/picture`)
+    .post(`/producerProducts/${id}/picture`)
     .set('Authorization', `Bearer ${users[0].token}`)
     .attach('picture', filePath)
     .expect(400);
@@ -271,7 +288,7 @@ test('Should not upload without privilege', async () => {
   );
 
   await request(app)
-    .post(`/products/${id}/picture`)
+    .post(`/producerProducts/${id}/picture`)
     .set('Authorization', `Bearer ${users[2].token}`)
     .attach('picture', picturePath)
     .expect(403);
@@ -285,44 +302,44 @@ test('Should not upload without auth', async () => {
   );
 
   await request(app)
-    .post(`/products/${id}/picture`)
+    .post(`/producerProducts/${id}/picture`)
     .attach('picture', picturePath)
     .expect(401);
 });
 
-test('Should delete product by ID', async () => {
+test('Should delete producer product by ID', async () => {
   const id = 1;
   await request(app)
-    .delete(`/products/${id}`)
+    .delete(`/producerProducts/${id}`)
     .set('Authorization', `Bearer ${users[0].token}`)
     .send()
     .expect(200);
 
-  const product = await knex('products').where({ id }).first();
-  expect(product).toBe(undefined);
+  const producerProduct = await knex('producer_products').where({ id }).first();
+  expect(producerProduct).toBe(undefined);
 });
 
-test('Should not delete product without auth', async () => {
+test('Should not delete producer product without auth', async () => {
   const id = 1;
-  await request(app).delete(`/products/${id}`).send().expect(401);
+  await request(app).delete(`/producerProducts/${id}`).send().expect(401);
 });
 
-test('Should delete product as a mod', async () => {
+test('Should delete producer product as a mod', async () => {
   const id = 1;
   await request(app)
-    .delete(`/products/${id}`)
+    .delete(`/producerProducts/${id}`)
     .set('Authorization', `Bearer ${users[1].token}`)
     .send()
     .expect(200);
 
-  const product = await knex('products').where({ id }).first();
-  expect(product).toBe(undefined);
+  const producerProduct = await knex('producer_products').where({ id }).first();
+  expect(producerProduct).toBe(undefined);
 });
 
-test('Should not delete product without privilege', async () => {
+test('Should not delete producer product without privilege', async () => {
   const id = 1;
   await request(app)
-    .delete(`/products/${id}`)
+    .delete(`/producerProducts/${id}`)
     .set('Authorization', `Bearer ${users[2].token}`)
     .send()
     .expect(403);
