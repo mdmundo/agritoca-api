@@ -77,7 +77,6 @@ test('Should create a new product as a mod', async () => {
   const productCreated = await knex('products')
     .where({ id: response.body.id })
     .first();
-  productCreated.picture = undefined;
 
   expect(JSON.stringify(response.body)).toEqual(JSON.stringify(productCreated));
 });
