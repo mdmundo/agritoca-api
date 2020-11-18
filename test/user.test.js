@@ -5,7 +5,7 @@ const { users } = require('./fixtures/db');
 
 // only the first page
 test('Should fetch users (admin)', async () => {
-  const response = await request(app)
+  await request(app)
     .get('/users')
     .set('Authorization', `Bearer ${users[0].token}`)
     .send()
@@ -16,7 +16,7 @@ test('Should fetch users (admin)', async () => {
 });
 
 test('Should not fetch users (not admin)', async () => {
-  const response = await request(app)
+  await request(app)
     .get('/users')
     .set('Authorization', `Bearer ${users[1].token}`)
     .send()
@@ -27,7 +27,7 @@ test('Should not fetch users (not admin)', async () => {
 });
 
 test('Should fetch current user', async () => {
-  const response = await request(app)
+  await request(app)
     .get('/me')
     .set('Authorization', `Bearer ${users[0].token}`)
     .send()
@@ -35,7 +35,7 @@ test('Should fetch current user', async () => {
 });
 
 test('Should set admin privilege', async () => {
-  const response = await request(app)
+  await request(app)
     .patch(`/users/${users[1].id}/set/admin`)
     .set('Authorization', `Bearer ${users[0].token}`)
     .send()
@@ -46,7 +46,7 @@ test('Should set admin privilege', async () => {
 });
 
 test('Should revoke all privileges from user', async () => {
-  const response = await request(app)
+  await request(app)
     .patch(`/users/${users[1].id}/unset`)
     .set('Authorization', `Bearer ${users[0].token}`)
     .send()
@@ -57,7 +57,7 @@ test('Should revoke all privileges from user', async () => {
 });
 
 test('Should delete current user', async () => {
-  const response = await request(app)
+  await request(app)
     .delete('/me')
     .set('Authorization', `Bearer ${users[0].token}`)
     .send()
@@ -65,4 +65,14 @@ test('Should delete current user', async () => {
 
   const user = await knex('users').where({ id: users[0].id }).first();
   expect(user).toBe(undefined);
+});
+
+test('Should not delete other users', async () => {
+  const id = 1;
+
+  await request(app)
+    .delete(`/${id}`)
+    .set('Authorization', `Bearer ${users[0].token}`)
+    .send()
+    .expect(404);
 });
