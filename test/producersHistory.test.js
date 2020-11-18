@@ -2,9 +2,8 @@ const request = require('supertest');
 const app = require('../src/app');
 const { users } = require('./fixtures/db');
 
-// only the first page
-test('Should fetch first producers history', async () => {
-  const response = await request(app)
+test('Should fetch producers history', async () => {
+  await request(app)
     .get('/producersHistory')
     .set('Authorization', `Bearer ${users[1].token}`)
     .send()
@@ -12,14 +11,11 @@ test('Should fetch first producers history', async () => {
 });
 
 test('Should not fetch first producers history (unauthenticated)', async () => {
-  const response = await request(app)
-    .get('/producersHistory')
-    .send()
-    .expect(401);
+  await request(app).get('/producersHistory').send().expect(401);
 });
 
 test('Should not fetch first producers history (unauthorized)', async () => {
-  const response = await request(app)
+  await request(app)
     .get('/producersHistory')
     .set('Authorization', `Bearer ${users[2].token}`)
     .send()
