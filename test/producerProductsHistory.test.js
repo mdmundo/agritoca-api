@@ -41,6 +41,8 @@ test('Should fetch history by ID', async () => {
 
   const history = await knex('producer_products_history').where({ id }).first();
 
+  history.picture = undefined;
+
   expect(response.body).toEqual(history);
 });
 
@@ -132,17 +134,119 @@ test('Should fetch history picture by ID', async () => {
     .send()
     .expect(200);
 
-  expect(response.body).toBe(picture);
+  expect(response.body).toEqual(picture);
 });
 
-// Should fetch picture by ID
-// Should fetch by productId
-// Should fetch by producerProductId
+test('Should add new register by updating producer product', async () => {
+  const producer_product_id = 1;
+  const keywords = 'Apples, Healthy, Life, Best Seller';
 
-// Should add new register by updating producerProduct
-// Should add new register by creating producerProduct
-// Should add new register by deleting producerProduct
-// Should add many registers by deleting producer
-// Should add many registers by deleting product
+  await request(app)
+    .patch(`/producerProducts/${producer_product_id}`)
+    .set('Authorization', `Bearer ${users[0].token}`)
+    .send({ keywords })
+    .expect(200);
 
-// Should restore register producerProduct
+  const response = await request(app)
+    .get(
+      `/producerProductsHistory?producer_product_id=${producer_product_id}&sort=created_at&direction=desc`
+    )
+    .set('Authorization', `Bearer ${users[0].token}`)
+    .send()
+    .expect(200);
+
+  expect(response.body[0].producer_product_id).toBe(producer_product_id);
+  expect(response.body[0].keywords).toBe(keywords);
+});
+
+test('Should add new register by creating producer product', async () => {
+  const newProducerProduct = {
+    brand: 'IN NATURA',
+    barcode: '405232088822',
+    keywords: 'Banana, Prata, Terra',
+    product_id: 10,
+    producer_id: 1
+  };
+
+  const creationResponse = await request(app)
+    .post(`/producerProducts`)
+    .set('Authorization', `Bearer ${users[0].token}`)
+    .send(newProducerProduct)
+    .expect(201);
+
+  const producer_product_id = creationResponse.body.id;
+
+  const response = await request(app)
+    .get(`/producerProductsHistory?sort=created_at&direction=desc`)
+    .set('Authorization', `Bearer ${users[0].token}`)
+    .send()
+    .expect(200);
+
+  expect(response.body[0].producer_product_id).toBe(producer_product_id);
+});
+
+test('Should add new register by deleting producer product', async () => {
+  const producer_product_id = 1;
+  await request(app)
+    .delete(`/producerProducts/${producer_product_id}`)
+    .set('Authorization', `Bearer ${users[0].token}`)
+    .send()
+    .expect(200);
+
+  const response = await request(app)
+    .get(`/producerProductsHistory?sort=created_at&direction=desc`)
+    .set('Authorization', `Bearer ${users[0].token}`)
+    .send()
+    .expect(200);
+
+  expect(response.body[0].producer_product_id).toBe(producer_product_id);
+  expect(response.body[0].deleted_at).not.toBe(null);
+});
+
+test('Should add many registers by deleting producer', async () => {
+  const producer_id = 1;
+
+  await request(app)
+    .delete(`/producers/${producer_id}`)
+    .set('Authorization', `Bearer ${users[0].token}`)
+    .send()
+    .expect(200);
+
+  const response = await request(app)
+    .get(`/producerProductsHistory?sort=created_at&direction=desc`)
+    .set('Authorization', `Bearer ${users[0].token}`)
+    .send()
+    .expect(200);
+
+  expect(response.body[0].producer_id).toBe(producer_id);
+  expect(response.body[0].deleted_at).not.toBe(null);
+});
+
+test('Should add many registers by deleting product', async () => {
+  const product_id = 1;
+
+  await request(app)
+    .delete(`/products/${product_id}`)
+    .set('Authorization', `Bearer ${users[0].token}`)
+    .send()
+    .expect(200);
+
+  const response = await request(app)
+    .get(`/producerProductsHistory?sort=created_at&direction=desc`)
+    .set('Authorization', `Bearer ${users[0].token}`)
+    .send()
+    .expect(200);
+
+  expect(response.body[0].product_id).toBe(product_id);
+  expect(response.body[0].deleted_at).not.toBe(null);
+});
+
+test('Should restore producer product', async () => {
+  const id = 1;
+
+  await request(app)
+    .post(`/producerProductsHistory/${id}`)
+    .set('Authorization', `Bearer ${users[0].token}`)
+    .send()
+    .expect(200);
+});
