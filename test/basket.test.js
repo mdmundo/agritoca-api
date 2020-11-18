@@ -15,6 +15,16 @@ test('Should fetch all baskets from current user', async () => {
   expect(baskets).toEqual(response.body);
 });
 
+test('Should not fetch baskets due to empty db', async () => {
+  await knex.migrate.rollback({}, true);
+
+  await request(app)
+    .get('/baskets')
+    .set('Authorization', `Bearer ${users[0].token}`)
+    .send()
+    .expect(500);
+});
+
 test('Should update baskets from current user', async () => {
   const baskets = [
     {
@@ -36,4 +46,23 @@ test('Should update baskets from current user', async () => {
     .first();
 
   expect(baskets).toEqual(updatedBaskets);
+});
+
+test('Should not fetch baskets due to empty db', async () => {
+  await knex.migrate.rollback({}, true);
+
+  const baskets = [
+    {
+      id: 'd0819442-d50e-4706-b363-de0150494656',
+      name: 'Cesta #9',
+      notes: 'Practice does not make perfect, perfect practice makes perfect.',
+      items: []
+    }
+  ];
+
+  await request(app)
+    .patch('/baskets')
+    .set('Authorization', `Bearer ${users[0].token}`)
+    .send(baskets)
+    .expect(500);
 });
