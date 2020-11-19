@@ -33,8 +33,6 @@ test('Should fetch history by ID', async () => {
 
   const history = await knex('producers_history').where({ id }).first();
 
-  history.picture = undefined;
-
   expect(JSON.stringify(response.body)).toEqual(JSON.stringify(history));
 });
 
@@ -67,20 +65,6 @@ test('Should fetch history by nonexisting producer ID', async () => {
     .expect(200);
 
   expect(response.body).toEqual([]);
-});
-
-test('Should fetch history picture by ID', async () => {
-  const id = 1;
-
-  const { picture } = await knex('producers_history').where({ id }).first();
-
-  const response = await request(app)
-    .get(`/producersHistory/${id}/picture`)
-    .set('Authorization', `Bearer ${users[0].token}`)
-    .send()
-    .expect(200);
-
-  expect(response.body).toEqual(picture);
 });
 
 test('Should add new register by updating producer', async () => {
