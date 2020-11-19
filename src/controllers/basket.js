@@ -14,7 +14,7 @@ const basketController = {
   },
   async update(req, res) {
     try {
-      const baskets = await basketResource.getUpdatedBasket({
+      await basketResource.getUpdatedBasket({
         body: req.body,
         user_id: req.user.id
       });
