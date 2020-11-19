@@ -5,13 +5,12 @@ exports.up = (knex) =>
     table.string('cnpj').unique().defaultTo('No cnpj provided');
     table.string('name').defaultTo('Anonymous');
     table.string('whatsapp').defaultTo('No whatsapp provided');
-    // endereço do produtor
     table.string('address').defaultTo('No address provided');
-    // inscrição municipal e inscrição estadual
     table.string('ie').defaultTo('No ie provided');
     table.string('im').defaultTo('No im provided');
     table.string('hash').index().defaultTo('No hash');
-    table.string('mod').defaultTo('mod');
+    table.string('mod').defaultTo(null);
+    table.string('admin').defaultTo(null);
     table.timestamps(true, true);
   });
 

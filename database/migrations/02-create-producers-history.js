@@ -6,13 +6,12 @@ exports.up = (knex) =>
     table.string('cnpj').defaultTo(null);
     table.string('name').defaultTo(null);
     table.string('whatsapp').defaultTo(null);
-    // endereço do produtor
     table.string('address').defaultTo(null);
-    // inscrição municipal e inscrição estadual
     table.string('ie').defaultTo(null);
     table.string('im').defaultTo(null);
     table.string('hash').index().defaultTo(null);
     table.string('mod').defaultTo(null);
+    table.string('admin').defaultTo(null);
     table.timestamps(true, true);
     table.timestamp('deleted_at').defaultTo(null);
   });
