@@ -1,13 +1,12 @@
 const { producerResource } = require('../resources');
-const { getPublicProducer } = require('../utils/public');
+const { getPublicProducer, isMod } = require('../utils/public');
 
 const producerController = {
   async read(req, res) {
     try {
       const producers = await producerResource.getAllProducers(req.query);
 
-      if (req.user.privilege === 1 || req.user.privilege === 2)
-        return res.json(producers);
+      if (isMod(req.user)) return res.json(producers);
 
       // if user is not mod or admin, then show only public data...
       const serializedProducers = producers.map((producer) =>
@@ -27,11 +26,7 @@ const producerController = {
         return res.status(404).json({ message: 'Producer not found' });
 
       // if user is not mod or admin, then show only public data...
-      return res.json(
-        req.user.privilege === 1 || req.user.privilege === 2
-          ? producer
-          : getPublicProducer(producer)
-      );
+      return res.json(isMod(req.user) ? producer : getPublicProducer(producer));
     } catch (error) {
       return res.status(500).json({ message: 'Error on Server' });
     }

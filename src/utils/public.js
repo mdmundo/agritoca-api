@@ -27,5 +27,7 @@ module.exports = {
       .max(4)
       .pattern(/^(a|de)sc$/)
   }),
-  getDefaultPicture: fs.readFileSync(path.join(__dirname, 'picture.png'))
+  getDefaultPicture: fs.readFileSync(path.join(__dirname, 'picture.png')),
+  isMod: ({ privilege }) => privilege === 1 || privilege === 2,
+  isAdmin: ({ privilege }) => privilege === 2
 };
