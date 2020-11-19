@@ -2,9 +2,11 @@
 
 [![Build Status](https://travis-ci.com/mdmundo/agritoca-api.svg?token=zfA4xNhjqqTDRjuKoYwd&branch=main)](https://travis-ci.com/mdmundo/agritoca-api) [![Coverage Status](https://coveralls.io/repos/github/mdmundo/agritoca-api/badge.svg?branch=main&t=9Ll4xC)](https://coveralls.io/github/mdmundo/agritoca-api?branch=main)
 
-- [Docs](https://documenter.getpostman.com/view/11086441/TVRrUj9u)
+## Docs
 
-## Admin vs. Mod vs. Regular vs. No Authenticated
+- [Here](https://documenter.getpostman.com/view/11086441/TVRrUj9u)
+
+## Privileges
 
 |  | Admin | Mod | Regular | No Auth |
 | --- | --- | --- | --- | --- |
