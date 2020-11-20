@@ -117,7 +117,7 @@ module.exports = {
   async getUploadedPicture({ id, picture, mod, privilege }) {
     let isPicture;
     await knex.transaction(async (trx) => {
-      const { owner } = await knex('producers')
+      const { owner } = await knex('producer_products')
         .where({ id })
         .first()
         .transacting(trx);
@@ -171,7 +171,7 @@ module.exports = {
   async getUpdatedProducerProduct({ id, body, mod, privilege }) {
     let producerProduct;
     await knex.transaction(async (trx) => {
-      const { owner } = await knex('producers')
+      const { owner } = await knex('producer_products')
         .where({ id })
         .first()
         .transacting(trx);
@@ -202,7 +202,7 @@ module.exports = {
   },
   async deleteProducerProduct({ id, mod, privilege }) {
     await knex.transaction(async (trx) => {
-      const { owner } = await knex('producers')
+      const { owner } = await knex('producer_products')
         .where({ id })
         .first()
         .transacting(trx);

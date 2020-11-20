@@ -38,7 +38,7 @@ module.exports = {
   async getUploadedPicture({ id, picture, mod, privilege }) {
     let isPicture;
     await knex.transaction(async (trx) => {
-      const { owner } = await knex('producers')
+      const { owner } = await knex('products')
         .where({ id })
         .first()
         .transacting(trx);
@@ -92,7 +92,7 @@ module.exports = {
   async getUpdatedProduct({ id, body, mod, privilege }) {
     let product;
     await knex.transaction(async (trx) => {
-      const { owner } = await knex('producers')
+      const { owner } = await knex('products')
         .where({ id })
         .first()
         .transacting(trx);
@@ -123,7 +123,7 @@ module.exports = {
   },
   async deleteProduct({ id, mod, privilege }) {
     await knex.transaction(async (trx) => {
-      const { owner } = await knex('producers')
+      const { owner } = await knex('products')
         .where({ id })
         .first()
         .transacting(trx);

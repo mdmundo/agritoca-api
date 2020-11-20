@@ -72,7 +72,7 @@ module.exports = {
   async getRestoredProducerProduct({ id, mod, privilege }) {
     let producerProduct;
     await knex.transaction(async (trx) => {
-      const { owner } = await knex('producers_history')
+      const { owner } = await knex('producer_products_history')
         .where({ id })
         .first()
         .transacting(trx);
