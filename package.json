@@ -1,7 +1,7 @@
 {
   "name": "agritoca-api",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "API to be consumed by the app frontend.",
   "main": "index.js",
   "scripts": {
     "test": "env-cmd -f ./config/test.env jest --watch --runInBand --verbose --silent",
@@ -45,5 +45,16 @@
     "setupFilesAfterEnv": [
       "<rootDir>/test/setup/jest.setup.js"
     ]
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdmundo/agritoca-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mdmundo/agritoca-api/issues"
+  },
+  "homepage": "https://github.com/mdmundo/agritoca-api#readme"
 }
