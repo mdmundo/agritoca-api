@@ -368,7 +368,7 @@ test('Should update only cpf', async () => {
 });
 
 test('Should update with mod privilege', async () => {
-  const id = 1;
+  const id = 2;
   const whatsapp = '5595956626321';
   const producer = await knex('producers').where({ id }).first();
 
@@ -379,6 +379,17 @@ test('Should update with mod privilege', async () => {
     .expect(200);
 
   expect(response.body.whatsapp).not.toBe(producer.whatsapp);
+});
+
+test('Should not update as mod not owner', async () => {
+  const id = 1;
+  const whatsapp = '5595956626321';
+
+  await request(app)
+    .patch(`/producers/${id}`)
+    .set('Authorization', `Bearer ${users[1].token}`)
+    .send({ whatsapp })
+    .expect(500);
 });
 
 test('Should not update without privilege', async () => {
@@ -466,7 +477,7 @@ test('Should not delete producer without auth', async () => {
 });
 
 test('Should delete producer as a mod', async () => {
-  const id = 1;
+  const id = 2;
   await request(app)
     .delete(`/producers/${id}`)
     .set('Authorization', `Bearer ${users[1].token}`)
@@ -475,6 +486,15 @@ test('Should delete producer as a mod', async () => {
 
   const producer = await knex('producers').where({ id }).first();
   expect(producer).toBe(undefined);
+});
+
+test('Should not delete producer as mod not owner', async () => {
+  const id = 1;
+  await request(app)
+    .delete(`/producers/${id}`)
+    .set('Authorization', `Bearer ${users[1].token}`)
+    .send()
+    .expect(500);
 });
 
 test('Should not delete producer without privilege', async () => {

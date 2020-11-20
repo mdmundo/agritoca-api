@@ -133,12 +133,32 @@ test('Should add new register by deleting producer', async () => {
   expect(response.body[0].deleted_at).not.toBe(null);
 });
 
-test('Should restore producer', async () => {
+test('Should restore producer as admin', async () => {
   const id = 1;
 
   await request(app)
     .post(`/producersHistory/${id}`)
     .set('Authorization', `Bearer ${users[0].token}`)
+    .send()
+    .expect(200);
+});
+
+test('Should not restore producer as mod and not owner', async () => {
+  const id = 1;
+
+  await request(app)
+    .post(`/producersHistory/${id}`)
+    .set('Authorization', `Bearer ${users[1].token}`)
+    .send()
+    .expect(500);
+});
+
+test('Should restore producer as mod and owner', async () => {
+  const id = 2;
+
+  await request(app)
+    .post(`/producersHistory/${id}`)
+    .set('Authorization', `Bearer ${users[1].token}`)
     .send()
     .expect(200);
 });

@@ -32,7 +32,7 @@ exports.seed = (knex) => {
           im: '50704096269',
           hash: hashids.encode(2),
           mod: 'manyymoore@gmail.com',
-          owner: 'manyymoore@gmail.com'
+          owner: 'james@example.com'
         },
         {
           producer_id: 3,
