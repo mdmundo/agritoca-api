@@ -14,7 +14,8 @@ exports.seed = (knex) => {
           description: 'Ovos de Aves, da Espécie Gallus Domesticus, Frescos',
           picture: picture.egg,
           is_organic: false,
-          mod: 'manyymoore@gmail.com'
+          mod: 'manyymoore@gmail.com',
+          admin: 'manyymoore@gmail.com'
         },
         {
           product_id: 2,
@@ -23,7 +24,8 @@ exports.seed = (knex) => {
           description: 'Alface Repolhuda, Fresca ou Refrigerada',
           picture: picture.lettuce,
           is_organic: true,
-          mod: 'manyymoore@gmail.com'
+          mod: 'manyymoore@gmail.com',
+          admin: 'manyymoore@gmail.com'
         },
         {
           product_id: 3,
@@ -32,7 +34,8 @@ exports.seed = (knex) => {
           description: 'Cenouras e Nabos, Frescos ou Refrigerados',
           picture: picture.carrot,
           is_organic: true,
-          mod: 'manyymoore@gmail.com'
+          mod: 'manyymoore@gmail.com',
+          admin: 'manyymoore@gmail.com'
         },
         {
           product_id: 4,
@@ -41,7 +44,8 @@ exports.seed = (knex) => {
           description: 'Gomas de Mascar, Sem Açúcar',
           picture: picture.sugar,
           is_organic: false,
-          mod: 'manyymoore@gmail.com'
+          mod: 'manyymoore@gmail.com',
+          admin: 'manyymoore@gmail.com'
         },
         {
           product_id: 5,
@@ -50,7 +54,8 @@ exports.seed = (knex) => {
           description: 'Cerveja de Malte',
           picture: picture.beer,
           is_organic: false,
-          mod: 'manyymoore@gmail.com'
+          mod: 'manyymoore@gmail.com',
+          admin: 'manyymoore@gmail.com'
         },
         {
           product_id: 6,
@@ -58,7 +63,8 @@ exports.seed = (knex) => {
           measure: 'LT',
           description: 'Aguardentes de Vinho ou de Bagaço de Uvas',
           is_organic: false,
-          mod: 'manyymoore@gmail.com'
+          mod: 'manyymoore@gmail.com',
+          admin: 'manyymoore@gmail.com'
         },
         {
           product_id: 7,
@@ -67,7 +73,8 @@ exports.seed = (knex) => {
           description: 'Rum e Outras Aguardentes de Cana',
           picture: picture.alcohol,
           is_organic: false,
-          mod: 'manyymoore@gmail.com'
+          mod: 'manyymoore@gmail.com',
+          admin: 'manyymoore@gmail.com'
         },
         {
           product_id: 8,
@@ -76,7 +83,8 @@ exports.seed = (knex) => {
           description: 'Outras Bebidas Espirituosas (Alcoólicas)',
           picture: picture.alcohol,
           is_organic: false,
-          mod: 'manyymoore@gmail.com'
+          mod: 'manyymoore@gmail.com',
+          admin: 'manyymoore@gmail.com'
         },
         {
           product_id: 9,
@@ -85,7 +93,8 @@ exports.seed = (knex) => {
           description: 'Maçãs Frescas',
           picture: picture.apple,
           is_organic: true,
-          mod: 'manyymoore@gmail.com'
+          mod: 'manyymoore@gmail.com',
+          admin: 'manyymoore@gmail.com'
         },
         {
           product_id: 10,
@@ -94,7 +103,8 @@ exports.seed = (knex) => {
           description: 'Outras Bananas Frescas ou Secas',
           picture: picture.banana,
           is_organic: true,
-          mod: 'manyymoore@gmail.com'
+          mod: 'manyymoore@gmail.com',
+          admin: 'manyymoore@gmail.com'
         }
       ]);
     });
