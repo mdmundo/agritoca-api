@@ -66,6 +66,7 @@ const producerProductController = {
       const isPicture = await producerProductResource.getUploadedPicture({
         id: req.params.id,
         mod: req.user.email,
+        privilege: req.user.privilege,
         picture: buffer
       });
 
@@ -92,7 +93,12 @@ const producerProductController = {
   async update(req, res) {
     try {
       const producerProduct = await producerProductResource.getUpdatedProducerProduct(
-        { id: req.params.id, body: req.body, mod: req.user.email }
+        {
+          id: req.params.id,
+          body: req.body,
+          mod: req.user.email,
+          privilege: req.user.privilege
+        }
       );
 
       return res.json(getWithoutPicture(producerProduct));
@@ -106,7 +112,8 @@ const producerProductController = {
     try {
       await producerProductResource.deleteProducerProduct({
         id: req.params.id,
-        mod: req.user.email
+        mod: req.user.email,
+        privilege: req.user.privilege
       });
 
       return res.send();

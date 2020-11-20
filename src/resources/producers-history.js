@@ -1,4 +1,9 @@
-const { getWithoutID, getSortingParams } = require('../utils/public');
+const {
+  getWithoutID,
+  getSortingParams,
+  isAdmin,
+  isOwner
+} = require('../utils/public');
 const knex = require('../../database/connection');
 
 module.exports = {
@@ -26,59 +31,70 @@ module.exports = {
       .first();
     return producerHistory;
   },
-  async getRestoredProducer({ id, mod }) {
+  async getRestoredProducer({ id, mod, privilege }) {
     let producer;
+
     await knex.transaction(async (trx) => {
-      const producerHistory = await knex('producers_history')
+      const { owner } = await knex('producers_history')
         .where({ id })
         .first()
         .transacting(trx);
 
-      const isProducer = await knex('producers')
-        .where({ id: producerHistory.producer_id })
-        .first()
-        .transacting(trx);
-
-      producerHistory.id = producerHistory.producer_id;
-      delete producerHistory.producer_id;
-      delete producerHistory.deleted_at;
-
-      // if there is a producer, then update, else insert
-      if (!!isProducer) {
-        [producer] = await knex('producers')
-          .where({ id: producerHistory.id })
-          .update({
-            ...getWithoutID(producerHistory),
-            mod,
-            updated_at: knex.fn.now()
-          })
-          .returning('*')
+      // the mod can only restore if he was the owner or if he is admin
+      if (isAdmin({ privilege }) || isOwner({ owner, mod })) {
+        const producerHistory = await knex('producers_history')
+          .where({ id })
+          .first()
           .transacting(trx);
 
-        await knex('producers_history')
-          .insert({
-            ...getWithoutID(producer),
-            mod,
-            producer_id: producer.id
-          })
+        const isProducer = await knex('producers')
+          .where({ id: producerHistory.producer_id })
+          .first()
           .transacting(trx);
+
+        producerHistory.id = producerHistory.producer_id;
+        delete producerHistory.producer_id;
+        delete producerHistory.deleted_at;
+
+        // if there is a producer, then update, else insert
+        if (!!isProducer) {
+          [producer] = await knex('producers')
+            .where({ id: producerHistory.id })
+            .update({
+              ...getWithoutID(producerHistory),
+              mod,
+              updated_at: knex.fn.now()
+            })
+            .returning('*')
+            .transacting(trx);
+
+          await knex('producers_history')
+            .insert({
+              ...getWithoutID(producer),
+              mod,
+              producer_id: producer.id
+            })
+            .transacting(trx);
+        } else {
+          [producer] = await knex('producers')
+            .insert({
+              ...producerHistory,
+              mod,
+              updated_at: knex.fn.now()
+            })
+            .returning('*')
+            .transacting(trx);
+
+          await knex('producers_history')
+            .insert({
+              ...getWithoutID(producer),
+              mod,
+              producer_id: producer.id
+            })
+            .transacting(trx);
+        }
       } else {
-        [producer] = await knex('producers')
-          .insert({
-            ...producerHistory,
-            mod,
-            updated_at: knex.fn.now()
-          })
-          .returning('*')
-          .transacting(trx);
-
-        await knex('producers_history')
-          .insert({
-            ...getWithoutID(producer),
-            mod,
-            producer_id: producer.id
-          })
-          .transacting(trx);
+        throw new Error('Not authorized');
       }
     });
     return producer;

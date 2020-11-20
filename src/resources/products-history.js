@@ -1,5 +1,10 @@
 const knex = require('../../database/connection');
-const { getWithoutID, getSortingParams } = require('../utils/public');
+const {
+  getWithoutID,
+  getSortingParams,
+  isAdmin,
+  isOwner
+} = require('../utils/public');
 
 module.exports = {
   async getProductsHistoryContaining({ product_id, sort, direction }) {
@@ -28,59 +33,69 @@ module.exports = {
     const productHistory = await knex('products_history').where({ id }).first();
     return productHistory.picture;
   },
-  async getRestoredProduct({ id, mod }) {
+  async getRestoredProduct({ id, mod, privilege }) {
     let product;
     await knex.transaction(async (trx) => {
-      const productHistory = await knex('products_history')
+      const { owner } = await knex('producers_history')
         .where({ id })
         .first()
         .transacting(trx);
 
-      const isProduct = await knex('products')
-        .where({ id: productHistory.product_id })
-        .first()
-        .transacting(trx);
-
-      productHistory.id = productHistory.product_id;
-      delete productHistory.product_id;
-      delete productHistory.deleted_at;
-
-      // if there is a product, then update, else insert
-      if (!!isProduct) {
-        [product] = await knex('products')
-          .where({ id: productHistory.id })
-          .update({
-            ...getWithoutID(productHistory),
-            mod,
-            updated_at: knex.fn.now()
-          })
-          .returning('*')
+      // the mod can only restore if he was the owner or if he is admin
+      if (isAdmin({ privilege }) || isOwner({ owner, mod })) {
+        const productHistory = await knex('products_history')
+          .where({ id })
+          .first()
           .transacting(trx);
 
-        await knex('products_history')
-          .insert({
-            ...getWithoutID(product),
-            mod,
-            product_id: product.id
-          })
+        const isProduct = await knex('products')
+          .where({ id: productHistory.product_id })
+          .first()
           .transacting(trx);
+
+        productHistory.id = productHistory.product_id;
+        delete productHistory.product_id;
+        delete productHistory.deleted_at;
+
+        // if there is a product, then update, else insert
+        if (!!isProduct) {
+          [product] = await knex('products')
+            .where({ id: productHistory.id })
+            .update({
+              ...getWithoutID(productHistory),
+              mod,
+              updated_at: knex.fn.now()
+            })
+            .returning('*')
+            .transacting(trx);
+
+          await knex('products_history')
+            .insert({
+              ...getWithoutID(product),
+              mod,
+              product_id: product.id
+            })
+            .transacting(trx);
+        } else {
+          [product] = await knex('products')
+            .insert({
+              ...productHistory,
+              mod,
+              updated_at: knex.fn.now()
+            })
+            .returning('*')
+            .transacting(trx);
+
+          await knex('products_history')
+            .insert({
+              ...getWithoutID(product),
+              mod,
+              product_id: product.id
+            })
+            .transacting(trx);
+        }
       } else {
-        [product] = await knex('products')
-          .insert({
-            ...productHistory,
-            mod,
-            updated_at: knex.fn.now()
-          })
-          .returning('*')
-          .transacting(trx);
-
-        await knex('products_history')
-          .insert({
-            ...getWithoutID(product),
-            mod,
-            product_id: product.id
-          })
-          .transacting(trx);
+        throw new Error('Not authorized');
       }
     });
     return product;

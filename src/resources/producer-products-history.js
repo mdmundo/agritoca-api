@@ -1,4 +1,9 @@
-const { getWithoutID, getSortingParams } = require('../utils/public');
+const {
+  getWithoutID,
+  getSortingParams,
+  isAdmin,
+  isOwner
+} = require('../utils/public');
 const knex = require('../../database/connection');
 
 module.exports = {
@@ -64,59 +69,69 @@ module.exports = {
       .first();
     return producerProductHistory.picture;
   },
-  async getRestoredProducerProduct({ id, mod }) {
+  async getRestoredProducerProduct({ id, mod, privilege }) {
     let producerProduct;
     await knex.transaction(async (trx) => {
-      const producerProductHistory = await knex('producer_products_history')
+      const { owner } = await knex('producers_history')
         .where({ id })
         .first()
         .transacting(trx);
 
-      const isProducerProduct = await knex('producer_products')
-        .where({ id: producerProductHistory.producer_product_id })
-        .first()
-        .transacting(trx);
-
-      producerProductHistory.id = producerProductHistory.producer_product_id;
-      delete producerProductHistory.producer_product_id;
-      delete producerProductHistory.deleted_at;
-
-      // if there is a producerProduct, then update, else insert
-      if (!!isProducerProduct) {
-        [producerProduct] = await knex('producer_products')
-          .where({ id: producerProductHistory.id })
-          .update({
-            ...getWithoutID(producerProductHistory),
-            mod,
-            updated_at: knex.fn.now()
-          })
-          .returning('*')
+      // the mod can only restore if he was the owner or if he is admin
+      if (isAdmin({ privilege }) || isOwner({ owner, mod })) {
+        const producerProductHistory = await knex('producer_products_history')
+          .where({ id })
+          .first()
           .transacting(trx);
 
-        await knex('producer_products_history')
-          .insert({
-            ...getWithoutID(producerProduct),
-            mod,
-            producer_product_id: producerProduct.id
-          })
+        const isProducerProduct = await knex('producer_products')
+          .where({ id: producerProductHistory.producer_product_id })
+          .first()
           .transacting(trx);
+
+        producerProductHistory.id = producerProductHistory.producer_product_id;
+        delete producerProductHistory.producer_product_id;
+        delete producerProductHistory.deleted_at;
+
+        // if there is a producerProduct, then update, else insert
+        if (!!isProducerProduct) {
+          [producerProduct] = await knex('producer_products')
+            .where({ id: producerProductHistory.id })
+            .update({
+              ...getWithoutID(producerProductHistory),
+              mod,
+              updated_at: knex.fn.now()
+            })
+            .returning('*')
+            .transacting(trx);
+
+          await knex('producer_products_history')
+            .insert({
+              ...getWithoutID(producerProduct),
+              mod,
+              producer_product_id: producerProduct.id
+            })
+            .transacting(trx);
+        } else {
+          [producerProduct] = await knex('producer_products')
+            .insert({
+              ...producerProductHistory,
+              mod,
+              updated_at: knex.fn.now()
+            })
+            .returning('*')
+            .transacting(trx);
+
+          await knex('producer_products_history')
+            .insert({
+              ...getWithoutID(producerProduct),
+              mod,
+              producer_product_id: producerProduct.id
+            })
+            .transacting(trx);
+        }
       } else {
-        [producerProduct] = await knex('producer_products')
-          .insert({
-            ...producerProductHistory,
-            mod,
-            updated_at: knex.fn.now()
-          })
-          .returning('*')
-          .transacting(trx);
-
-        await knex('producer_products_history')
-          .insert({
-            ...getWithoutID(producerProduct),
-            mod,
-            producer_product_id: producerProduct.id
-          })
-          .transacting(trx);
+        throw new Error('Not authorized');
       }
     });
     return producerProduct;

@@ -48,7 +48,8 @@ const producerController = {
       const producer = await producerResource.getUpdatedProducer({
         id: req.params.id,
         body: req.body,
-        mod: req.user.email
+        mod: req.user.email,
+        privilege: req.user.privilege
       });
       return res.json(producer);
     } catch (error) {
@@ -59,7 +60,8 @@ const producerController = {
     try {
       await producerResource.deleteProducer({
         id: req.params.id,
-        mod: req.user.email
+        mod: req.user.email,
+        privilege: req.user.privilege
       });
       return res.send();
     } catch (error) {
