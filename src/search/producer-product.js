@@ -2,7 +2,7 @@ const Fuse = require('fuse.js');
 
 const producerProductSearch = ({ pattern, producerProducts }) => {
   const fuse = new Fuse(producerProducts, {
-    keys: ['ncm', 'description', 'brand', 'keywords']
+    keys: ['ncm', 'description', 'brand', 'keywords', 'info']
   });
   const result = fuse.search(pattern);
 

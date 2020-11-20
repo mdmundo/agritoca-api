@@ -8,6 +8,7 @@ exports.up = (knex) =>
     table.string('brand').defaultTo(null);
     table.string('barcode').defaultTo(null);
     table.string('keywords').defaultTo(null);
+    table.string('info').defaultTo(null);
     table.string('mod').defaultTo(null);
     table.string('admin').defaultTo(null);
     table.timestamps(true, true);

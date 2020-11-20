@@ -8,7 +8,8 @@ module.exports = {
       producer_id: Joi.number().required().integer().positive(),
       brand: Joi.string().max(255),
       barcode: Joi.string().max(255),
-      keywords: Joi.string().max(255)
+      keywords: Joi.string().max(255),
+      info: Joi.string().max(255)
     })
   },
   update: {
@@ -20,7 +21,8 @@ module.exports = {
       producer_id: Joi.number().integer().positive(),
       brand: Joi.string().max(255),
       barcode: Joi.string().max(255),
-      keywords: Joi.string().max(255)
+      keywords: Joi.string().max(255),
+      info: Joi.string().max(255)
     })
   },
   search: {

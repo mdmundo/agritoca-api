@@ -14,6 +14,7 @@ exports.seed = (knex) => {
           picture: picture.egg,
           product_id: 1,
           producer_id: 1,
+          info: 'None',
           mod: 'manyymoore@gmail.com'
         },
         {
@@ -23,6 +24,7 @@ exports.seed = (knex) => {
           picture: picture.lettuce,
           product_id: 2,
           producer_id: 1,
+          info: 'None',
           mod: 'manyymoore@gmail.com'
         },
         {
@@ -31,6 +33,7 @@ exports.seed = (knex) => {
           keywords: 'Caipira, Galinha, Frango, Hormônio',
           product_id: 1,
           producer_id: 2,
+          info: 'None',
           mod: 'manyymoore@gmail.com'
         },
         {
@@ -39,6 +42,7 @@ exports.seed = (knex) => {
           keywords: 'Verde, Comestível, Hormônio',
           product_id: 2,
           producer_id: 2,
+          info: 'None',
           mod: 'manyymoore@gmail.com'
         },
         {
@@ -48,6 +52,7 @@ exports.seed = (knex) => {
           picture: picture.apple,
           product_id: 9,
           producer_id: 1,
+          info: 'None',
           mod: 'manyymoore@gmail.com'
         },
         {
@@ -57,6 +62,7 @@ exports.seed = (knex) => {
           picture: picture.banana,
           product_id: 10,
           producer_id: 1,
+          info: 'None',
           mod: 'manyymoore@gmail.com'
         }
       ]);
