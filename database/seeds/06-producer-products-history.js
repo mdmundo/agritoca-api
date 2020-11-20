@@ -17,7 +17,7 @@ exports.seed = (knex) => {
           producer_id: 1,
           info: 'None',
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           producer_product_id: 2,
@@ -29,7 +29,7 @@ exports.seed = (knex) => {
           producer_id: 1,
           info: 'None',
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           producer_product_id: 3,
@@ -40,7 +40,7 @@ exports.seed = (knex) => {
           producer_id: 2,
           info: 'None',
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           producer_product_id: 4,
@@ -51,7 +51,7 @@ exports.seed = (knex) => {
           producer_id: 2,
           info: 'None',
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           producer_product_id: 5,
@@ -63,7 +63,7 @@ exports.seed = (knex) => {
           producer_id: 1,
           info: 'None',
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           producer_product_id: 6,
@@ -75,7 +75,7 @@ exports.seed = (knex) => {
           producer_id: 1,
           info: 'None',
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         }
       ]);
     });

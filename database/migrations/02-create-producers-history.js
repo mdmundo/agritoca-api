@@ -11,7 +11,7 @@ exports.up = (knex) =>
     table.string('im').defaultTo(null);
     table.string('hash').index().defaultTo(null);
     table.string('mod').defaultTo(null);
-    table.string('admin').defaultTo(null);
+    table.string('owner').defaultTo(null);
     table.timestamps(true, true);
     table.timestamp('deleted_at').defaultTo(null);
   });

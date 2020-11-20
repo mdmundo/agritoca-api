@@ -8,7 +8,7 @@ exports.up = (knex) =>
     table.string('description').defaultTo(null);
     table.boolean('is_organic').defaultTo(null);
     table.string('mod').defaultTo(null);
-    table.string('admin').defaultTo(null);
+    table.string('owner').defaultTo(null);
     table.timestamps(true, true);
     table.timestamp('deleted_at').defaultTo(null);
   });

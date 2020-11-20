@@ -10,7 +10,7 @@ exports.up = (knex) =>
     table.string('keywords').defaultTo(null);
     table.string('info').defaultTo(null);
     table.string('mod').defaultTo(null);
-    table.string('admin').defaultTo(null);
+    table.string('owner').defaultTo(null);
     table.timestamps(true, true);
     table.timestamp('deleted_at').defaultTo(null);
   });

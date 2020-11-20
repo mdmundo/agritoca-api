@@ -20,12 +20,12 @@ exports.up = (knex) =>
       .onDelete('RESTRICT');
     // if (!picture) fallback to product picture
     table.binary('picture').defaultTo(null);
-    table.string('brand').defaultTo('No brand provided');
-    table.string('barcode').defaultTo('No barcode provided');
-    table.string('keywords').defaultTo('No keywords provided');
-    table.string('info').defaultTo('No info provided');
+    table.string('brand').defaultTo(null);
+    table.string('barcode').defaultTo(null);
+    table.string('keywords').defaultTo(null);
+    table.string('info').defaultTo(null);
     table.string('mod').defaultTo(null);
-    table.string('admin').defaultTo(null);
+    table.string('owner').defaultTo(null);
     table.timestamps(true, true);
   });
 

@@ -18,7 +18,7 @@ exports.seed = (knex) => {
           im: '38848818893',
           hash: hashids.encode(1),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           cpf: '58408183924',
@@ -30,7 +30,7 @@ exports.seed = (knex) => {
           im: '50704096269',
           hash: hashids.encode(2),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           cpf: '38974781506',
@@ -42,7 +42,7 @@ exports.seed = (knex) => {
           im: '96235711237',
           hash: hashids.encode(3),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           cpf: '92181668643',
@@ -54,7 +54,7 @@ exports.seed = (knex) => {
           im: '21683115232',
           hash: hashids.encode(4),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           cpf: '86226334399',
@@ -66,7 +66,7 @@ exports.seed = (knex) => {
           im: '38248919167',
           hash: hashids.encode(5),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           cpf: '77437360988',
@@ -78,7 +78,7 @@ exports.seed = (knex) => {
           im: '74980564457',
           hash: hashids.encode(6),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           cpf: '28909142661',
@@ -90,7 +90,7 @@ exports.seed = (knex) => {
           im: '08070598636',
           hash: hashids.encode(7),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           cpf: '60765009646',
@@ -102,7 +102,7 @@ exports.seed = (knex) => {
           im: '81424199717',
           hash: hashids.encode(8),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           cpf: '65826300394',
@@ -114,7 +114,7 @@ exports.seed = (knex) => {
           im: '53486629390',
           hash: hashids.encode(9),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           cpf: '15626951765',
@@ -126,7 +126,7 @@ exports.seed = (knex) => {
           im: '39959644806',
           hash: hashids.encode(10),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           cpf: '38893571718',
@@ -138,7 +138,7 @@ exports.seed = (knex) => {
           im: '80547195480',
           hash: hashids.encode(11),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           cpf: '40596387711',
@@ -150,7 +150,7 @@ exports.seed = (knex) => {
           im: '02770378666',
           hash: hashids.encode(12),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           cpf: '94438077409',
@@ -162,7 +162,7 @@ exports.seed = (knex) => {
           im: '15392318534',
           hash: hashids.encode(13),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           cpf: '56111597364',
@@ -174,7 +174,7 @@ exports.seed = (knex) => {
           im: '85690257755',
           hash: hashids.encode(14),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           cpf: '80224842883',
@@ -186,7 +186,7 @@ exports.seed = (knex) => {
           im: '61766332694',
           hash: hashids.encode(15),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           cpf: '02722506915',
@@ -198,7 +198,7 @@ exports.seed = (knex) => {
           im: '87666412212',
           hash: hashids.encode(16),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           cpf: '29573972188',
@@ -210,7 +210,7 @@ exports.seed = (knex) => {
           im: '86057279614',
           hash: hashids.encode(17),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           cpf: '16733758935',
@@ -222,7 +222,7 @@ exports.seed = (knex) => {
           im: '92051616549',
           hash: hashids.encode(18),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           cpf: '35144193557',
@@ -234,7 +234,7 @@ exports.seed = (knex) => {
           im: '93276065905',
           hash: hashids.encode(19),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           cpf: '88770452070',
@@ -246,7 +246,7 @@ exports.seed = (knex) => {
           im: '45809714080',
           hash: hashids.encode(20),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         }
       ]);
     });

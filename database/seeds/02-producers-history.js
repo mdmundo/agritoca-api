@@ -19,7 +19,7 @@ exports.seed = (knex) => {
           im: '38848818893',
           hash: hashids.encode(1),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           producer_id: 2,
@@ -32,7 +32,7 @@ exports.seed = (knex) => {
           im: '50704096269',
           hash: hashids.encode(2),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           producer_id: 3,
@@ -45,7 +45,7 @@ exports.seed = (knex) => {
           im: '96235711237',
           hash: hashids.encode(3),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           producer_id: 4,
@@ -58,7 +58,7 @@ exports.seed = (knex) => {
           im: '21683115232',
           hash: hashids.encode(4),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           producer_id: 5,
@@ -71,7 +71,7 @@ exports.seed = (knex) => {
           im: '38248919167',
           hash: hashids.encode(5),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           producer_id: 6,
@@ -84,7 +84,7 @@ exports.seed = (knex) => {
           im: '74980564457',
           hash: hashids.encode(6),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           producer_id: 7,
@@ -97,7 +97,7 @@ exports.seed = (knex) => {
           im: '08070598636',
           hash: hashids.encode(7),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           producer_id: 8,
@@ -110,7 +110,7 @@ exports.seed = (knex) => {
           im: '81424199717',
           hash: hashids.encode(8),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           producer_id: 9,
@@ -123,7 +123,7 @@ exports.seed = (knex) => {
           im: '53486629390',
           hash: hashids.encode(9),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           producer_id: 10,
@@ -136,7 +136,7 @@ exports.seed = (knex) => {
           im: '39959644806',
           hash: hashids.encode(10),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           producer_id: 11,
@@ -149,7 +149,7 @@ exports.seed = (knex) => {
           im: '80547195480',
           hash: hashids.encode(11),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           producer_id: 12,
@@ -162,7 +162,7 @@ exports.seed = (knex) => {
           im: '02770378666',
           hash: hashids.encode(12),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           producer_id: 13,
@@ -175,7 +175,7 @@ exports.seed = (knex) => {
           im: '15392318534',
           hash: hashids.encode(13),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           producer_id: 14,
@@ -188,7 +188,7 @@ exports.seed = (knex) => {
           im: '85690257755',
           hash: hashids.encode(14),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           producer_id: 15,
@@ -201,7 +201,7 @@ exports.seed = (knex) => {
           im: '61766332694',
           hash: hashids.encode(15),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           producer_id: 16,
@@ -214,7 +214,7 @@ exports.seed = (knex) => {
           im: '87666412212',
           hash: hashids.encode(16),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           producer_id: 17,
@@ -227,7 +227,7 @@ exports.seed = (knex) => {
           im: '86057279614',
           hash: hashids.encode(17),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           producer_id: 18,
@@ -240,7 +240,7 @@ exports.seed = (knex) => {
           im: '92051616549',
           hash: hashids.encode(18),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           producer_id: 19,
@@ -253,7 +253,7 @@ exports.seed = (knex) => {
           im: '93276065905',
           hash: hashids.encode(19),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           producer_id: 20,
@@ -266,7 +266,7 @@ exports.seed = (knex) => {
           im: '45809714080',
           hash: hashids.encode(20),
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         }
       ]);
     });

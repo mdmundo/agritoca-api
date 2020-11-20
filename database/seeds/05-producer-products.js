@@ -16,7 +16,7 @@ exports.seed = (knex) => {
           producer_id: 1,
           info: 'None',
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           brand: 'Horta Feliz',
@@ -27,7 +27,7 @@ exports.seed = (knex) => {
           producer_id: 1,
           info: 'None',
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           brand: 'Ovo mas não volto',
@@ -37,7 +37,7 @@ exports.seed = (knex) => {
           producer_id: 2,
           info: 'None',
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           brand: 'Hortalizas',
@@ -47,7 +47,7 @@ exports.seed = (knex) => {
           producer_id: 2,
           info: 'None',
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           brand: 'IN NATURA',
@@ -58,7 +58,7 @@ exports.seed = (knex) => {
           producer_id: 1,
           info: 'None',
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         },
         {
           brand: 'IN NATURA',
@@ -69,7 +69,7 @@ exports.seed = (knex) => {
           producer_id: 1,
           info: 'None',
           mod: 'manyymoore@gmail.com',
-          admin: 'manyymoore@gmail.com'
+          owner: 'manyymoore@gmail.com'
         }
       ]);
     });
