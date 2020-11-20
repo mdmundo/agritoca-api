@@ -12,6 +12,9 @@ module.exports = {
     })
   },
   update: {
+    params: {
+      id: Joi.number().integer().positive()
+    },
     body: Joi.object().keys({
       product_id: Joi.number().integer().positive(),
       producer_id: Joi.number().integer().positive(),

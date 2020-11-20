@@ -21,6 +21,9 @@ module.exports = {
     })
   },
   update: {
+    params: {
+      id: Joi.number().integer().positive()
+    },
     body: Joi.object().keys({
       cpf: Joi.string()
         .pattern(/^[0-9]+$/)
