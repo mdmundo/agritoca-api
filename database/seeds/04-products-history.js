@@ -25,7 +25,7 @@ exports.seed = (knex) => {
           picture: picture.lettuce,
           is_organic: true,
           mod: 'manyymoore@gmail.com',
-          owner: 'manyymoore@gmail.com'
+          owner: 'james@example.com'
         },
         {
           product_id: 3,

@@ -27,7 +27,7 @@ exports.seed = (knex) => {
           producer_id: 1,
           info: 'None',
           mod: 'manyymoore@gmail.com',
-          owner: 'manyymoore@gmail.com'
+          owner: 'james@example.com'
         },
         {
           brand: 'Ovo mas não volto',

@@ -238,7 +238,7 @@ test('Should update only keywords', async () => {
 });
 
 test('Should update with mod privilege', async () => {
-  const id = 1;
+  const id = 2;
   const keywords = 'Apples, Healthy, Life, Best Seller';
   const producerProduct = await knex('producer_products').where({ id }).first();
 
@@ -249,6 +249,17 @@ test('Should update with mod privilege', async () => {
     .expect(200);
 
   expect(response.body.keywords).not.toBe(producerProduct.keywords);
+});
+
+test('Should not update as mod not owner', async () => {
+  const id = 1;
+  const keywords = 'Apples, Healthy, Life, Best Seller';
+
+  await request(app)
+    .patch(`/producerProducts/${id}`)
+    .set('Authorization', `Bearer ${users[1].token}`)
+    .send({ keywords })
+    .expect(500);
 });
 
 test('Should not update without privilege', async () => {
@@ -380,7 +391,7 @@ test('Should not delete producer product without auth', async () => {
 });
 
 test('Should delete producer product as a mod', async () => {
-  const id = 1;
+  const id = 2;
   await request(app)
     .delete(`/producerProducts/${id}`)
     .set('Authorization', `Bearer ${users[1].token}`)
@@ -389,6 +400,15 @@ test('Should delete producer product as a mod', async () => {
 
   const producerProduct = await knex('producer_products').where({ id }).first();
   expect(producerProduct).toBe(undefined);
+});
+
+test('Should not delete producer product as mod not owner', async () => {
+  const id = 1;
+  await request(app)
+    .delete(`/producerProducts/${id}`)
+    .set('Authorization', `Bearer ${users[1].token}`)
+    .send()
+    .expect(500);
 });
 
 test('Should not delete producer product without privilege', async () => {

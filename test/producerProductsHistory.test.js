@@ -250,3 +250,23 @@ test('Should restore producer product', async () => {
     .send()
     .expect(200);
 });
+
+test('Should restore producer product as mod', async () => {
+  const id = 2;
+
+  await request(app)
+    .post(`/producerProductsHistory/${id}`)
+    .set('Authorization', `Bearer ${users[1].token}`)
+    .send()
+    .expect(200);
+});
+
+test('Should not restore producer product as mod not owner', async () => {
+  const id = 1;
+
+  await request(app)
+    .post(`/producerProductsHistory/${id}`)
+    .set('Authorization', `Bearer ${users[1].token}`)
+    .send()
+    .expect(500);
+});

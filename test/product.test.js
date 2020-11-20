@@ -175,7 +175,7 @@ test('Should update only description', async () => {
 });
 
 test('Should update with mod privilege', async () => {
-  const id = 1;
+  const id = 2;
   const description = 'New description';
   const product = await knex('products').where({ id }).first();
 
@@ -186,6 +186,17 @@ test('Should update with mod privilege', async () => {
     .expect(200);
 
   expect(response.body.description).not.toBe(product.description);
+});
+
+test('Should not update as mod not owner', async () => {
+  const id = 1;
+  const description = 'New description';
+
+  await request(app)
+    .patch(`/products/${id}`)
+    .set('Authorization', `Bearer ${users[1].token}`)
+    .send({ description })
+    .expect(500);
 });
 
 test('Should not update without privilege', async () => {
@@ -301,7 +312,7 @@ test('Should not delete product without auth', async () => {
 });
 
 test('Should delete product as a mod', async () => {
-  const id = 1;
+  const id = 2;
   await request(app)
     .delete(`/products/${id}`)
     .set('Authorization', `Bearer ${users[1].token}`)
@@ -310,6 +321,15 @@ test('Should delete product as a mod', async () => {
 
   const product = await knex('products').where({ id }).first();
   expect(product).toBe(undefined);
+});
+
+test('Should not delete product as mod not owner', async () => {
+  const id = 1;
+  await request(app)
+    .delete(`/products/${id}`)
+    .set('Authorization', `Bearer ${users[1].token}`)
+    .send()
+    .expect(500);
 });
 
 test('Should not delete product without privilege', async () => {

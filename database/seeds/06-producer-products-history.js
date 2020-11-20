@@ -29,7 +29,7 @@ exports.seed = (knex) => {
           producer_id: 1,
           info: 'None',
           mod: 'manyymoore@gmail.com',
-          owner: 'manyymoore@gmail.com'
+          owner: 'james@example.com'
         },
         {
           producer_product_id: 3,
