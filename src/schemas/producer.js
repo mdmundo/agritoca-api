@@ -5,13 +5,12 @@ module.exports = {
   create: {
     body: Joi.object().keys({
       cpf: Joi.string()
-        .required()
         .pattern(/^[0-9]+$/)
         .length(11),
       cnpj: Joi.string()
         .pattern(/^[0-9]+$/)
         .length(14),
-      name: Joi.string().required().max(255),
+      name: Joi.string().max(255),
       whatsapp: Joi.string()
         .pattern(/^[0-9]+$/)
         .max(255),

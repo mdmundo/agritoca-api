@@ -5,11 +5,10 @@ module.exports = {
   create: {
     body: Joi.object().keys({
       ncm: Joi.string()
-        .required()
         .pattern(/^[0-9]+$/)
         .max(20),
-      measure: Joi.string().required().max(255),
-      description: Joi.string().required().max(255),
+      measure: Joi.string().max(255),
+      description: Joi.string().max(255),
       is_organic: Joi.boolean()
     })
   },
