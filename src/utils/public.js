@@ -30,5 +30,5 @@ module.exports = {
   getDefaultPicture: fs.readFileSync(path.join(__dirname, 'picture.png')),
   isMod: ({ privilege }) => privilege === 1 || privilege === 2,
   isAdmin: ({ privilege }) => privilege === 2,
-  isOwner: ({ email, mod }) => email === mod
+  isOwner: ({ owner, mod }) => owner === mod
 };

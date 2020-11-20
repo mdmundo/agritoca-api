@@ -22,7 +22,8 @@ module.exports = {
       brand: Joi.string().max(255),
       barcode: Joi.string().max(255),
       keywords: Joi.string().max(255),
-      info: Joi.string().max(255)
+      info: Joi.string().max(255),
+      owner: Joi.string().max(255)
     })
   },
   search: {

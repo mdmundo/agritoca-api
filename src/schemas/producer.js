@@ -36,7 +36,8 @@ module.exports = {
         .max(255),
       address: Joi.string().max(255),
       ie: Joi.string().alphanum().max(255),
-      im: Joi.string().alphanum().max(255)
+      im: Joi.string().alphanum().max(255),
+      owner: Joi.string().max(255)
     })
   },
   search: {

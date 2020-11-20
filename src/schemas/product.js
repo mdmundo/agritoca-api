@@ -22,7 +22,8 @@ module.exports = {
         .max(20),
       measure: Joi.string().max(255),
       description: Joi.string().max(255),
-      is_organic: Joi.boolean()
+      is_organic: Joi.boolean(),
+      owner: Joi.string().max(255)
     })
   },
   search: {
