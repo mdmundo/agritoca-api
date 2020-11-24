@@ -35,12 +35,17 @@ module.exports = {
     let producer;
 
     await knex.transaction(async (trx) => {
-      const { owner } = await knex('producers_history')
+      const { producer_id } = await knex('producers_history')
         .where({ id })
         .first()
         .transacting(trx);
 
-      // the mod can only restore if he was the owner or if he is admin
+      const { owner } = await knex('producers')
+        .where({ id: producer_id })
+        .first()
+        .transacting(trx);
+
+      // the mod can only restore if he is the owner or if he is admin
       if (isAdmin({ privilege }) || isOwner({ owner, mod })) {
         const producerHistory = await knex('producers_history')
           .where({ id })
