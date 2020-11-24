@@ -1,5 +1,5 @@
 const Hashids = require('hashids/cjs');
-const hashids = new Hashids('agritoca-api', 6);
+const hashids = new Hashids(process.env.SALT, 6);
 const request = require('supertest');
 const app = require('../src/app');
 const knex = require('../database/connection');

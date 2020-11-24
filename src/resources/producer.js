@@ -1,5 +1,5 @@
 const Hashids = require('hashids/cjs');
-const hashids = new Hashids('agritoca-api', 6);
+const hashids = new Hashids(process.env.SALT, 6);
 const {
   getWithoutID,
   getSortingParams,
