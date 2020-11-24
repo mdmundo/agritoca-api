@@ -1,5 +1,3 @@
-const userBaskets = require('./baskets');
-
 exports.seed = (knex) => {
   // Deletes ALL existing entries
   return knex('baskets')
@@ -7,10 +5,10 @@ exports.seed = (knex) => {
     .then(() => {
       // Inserts seed entries
       return knex('baskets').insert([
-        { user_id: 1, user_baskets: JSON.stringify(userBaskets) },
-        { user_id: 2, user_baskets: JSON.stringify(userBaskets) },
-        { user_id: 3, user_baskets: JSON.stringify(userBaskets) },
-        { user_id: 4, user_baskets: JSON.stringify(userBaskets) }
+        { user_id: 1, user_baskets: 'A great and nice basket...' },
+        { user_id: 2, user_baskets: 'A great and nice basket...' },
+        { user_id: 3, user_baskets: 'A great and nice basket...' },
+        { user_id: 4, user_baskets: 'A great and nice basket...' }
       ]);
     });
 };

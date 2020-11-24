@@ -26,18 +26,13 @@ test('Should fetch empty baskets array due to empty table', async () => {
     .send()
     .expect(200);
 
-  expect(response.body).toEqual([]);
+  expect(response.body).toEqual({ baskets: 'Empty!' });
 });
 
 test('Should update baskets from current user', async () => {
-  const baskets = [
-    {
-      id: 'd0819442-d50e-4706-b363-de0150494656',
-      name: 'Cesta #9',
-      notes: 'Practice does not make perfect, perfect practice makes perfect.',
-      items: 'Items is now a string'
-    }
-  ];
+  const baskets = {
+    baskets: 'Practice does not make perfect, perfect practice makes perfect.'
+  };
 
   await request(app)
     .patch('/baskets')

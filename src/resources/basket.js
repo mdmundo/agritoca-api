@@ -6,9 +6,9 @@ module.exports = {
       const [{ user_baskets: baskets }] = await knex('baskets')
         .where({ user_id })
         .orderBy('id');
-      return baskets;
+      return { baskets };
     } catch (error) {
-      return [];
+      return { baskets: 'Empty!' };
     }
   },
   async getUpdatedBasket({ user_id, body }) {
@@ -20,7 +20,7 @@ module.exports = {
       const baskets = await knex('baskets')
         .where({ user_id })
         .update({
-          user_baskets: JSON.stringify(body),
+          user_baskets: body.baskets,
           updated_at: knex.fn.now()
         })
         .returning('*');
@@ -30,7 +30,7 @@ module.exports = {
 
     // Insert new baskets if there is no baskets
     const baskets = await knex('baskets')
-      .insert({ user_baskets: JSON.stringify(body), user_id })
+      .insert({ user_baskets: body.baskets, user_id })
       .returning('*');
 
     return baskets;

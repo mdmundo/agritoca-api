@@ -10,7 +10,7 @@ exports.up = (knex) =>
       .inTable('users')
       .onUpdate('CASCADE')
       .onDelete('CASCADE');
-    table.json('user_baskets');
+    table.text('user_baskets');
     table.timestamps(true, true);
   });
 
