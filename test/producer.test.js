@@ -41,6 +41,7 @@ test('Should fetch producers without private data (regular)', async () => {
   producer.cnpj = undefined;
   producer.ie = undefined;
   producer.im = undefined;
+  producer.hash = undefined;
 
   expect(JSON.stringify(response.body[0])).toEqual(JSON.stringify(producer));
 });
@@ -53,6 +54,7 @@ test('Should fetch producers without private data (noauth)', async () => {
   producer.cnpj = undefined;
   producer.ie = undefined;
   producer.im = undefined;
+  producer.hash = undefined;
 
   expect(JSON.stringify(response.body[0])).toEqual(JSON.stringify(producer));
 });
@@ -96,6 +98,7 @@ test('Should fetch producer by hash without private data (regular)', async () =>
   producer.cnpj = undefined;
   producer.ie = undefined;
   producer.im = undefined;
+  producer.hash = undefined;
 
   const response = await request(app)
     .get(`/producers?hash=${hash}`)
@@ -140,6 +143,7 @@ test('Should fetch producer by ID without private data (regular)', async () => {
   producer.cnpj = undefined;
   producer.ie = undefined;
   producer.im = undefined;
+  producer.hash = undefined;
 
   const response = await request(app)
     .get(`/producers/${id}`)
@@ -157,6 +161,7 @@ test('Should fetch producer by ID without private data (noauth)', async () => {
   producer.cnpj = undefined;
   producer.ie = undefined;
   producer.im = undefined;
+  producer.hash = undefined;
 
   const response = await request(app)
     .get(`/producers/${id}`)
