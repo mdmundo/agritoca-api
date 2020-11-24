@@ -15,6 +15,7 @@ module.exports = {
     ...item,
     cpf: undefined,
     cnpj: undefined,
+    hash: undefined,
     ie: undefined,
     im: undefined
   }),
