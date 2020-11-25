@@ -18,7 +18,21 @@ test('Should not fetch first producers history (unauthenticated)', async () => {
 test('Should not fetch due to empty table', async () => {
   await knex('producers_history').del();
 
-  await request(app).get('/producersHistory').send().expect(500);
+  await request(app)
+    .get('/producersHistory')
+    .set('Authorization', `Bearer ${users[0].token}`)
+    .send()
+    .expect(500);
+});
+
+test('Should not fetch by ID due to empty table', async () => {
+  await knex('producers_history').del();
+
+  await request(app)
+    .get(`/producersHistory/${id}`)
+    .set('Authorization', `Bearer ${users[0].token}`)
+    .send()
+    .expect(500);
 });
 
 test('Should not fetch first producers history (unauthorized)', async () => {
