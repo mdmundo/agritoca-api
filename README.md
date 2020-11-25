@@ -8,13 +8,13 @@
 
 ## Privileges
 
-|                                 | Admin | Mod         | Regular | No Auth |
-| ------------------------------- | ----- | ----------- | ------- | ------- |
-| See Registers                   | 👍    | 👍          | 👍      | 👍      |
-| Change Privilege                | 👍    | 👎          | 👎      | 👎      |
-| Modify Registers                | 👍    | 👉 if owner | 👎      | 👎      |
-| See History                     | 👍    | 👍          | 👎      | 👎      |
-| See Private Data from Producers | 👍    | 👍          | 👎      | 👎      |
-| Sync Baskets                    | 👍    | 👍          | 👍      | 👎      |
+|                                 | Admin | Mod           | Regular | No Auth |
+| ------------------------------- | ----- | ------------- | ------- | ------- |
+| See Registers                   | 💚    | 💚            | 💚      | 💚      |
+| Change Privilege                | 💚    | ❌            | ❌      | ❌      |
+| Modify Registers                | 💚    | 👉 if _owner_ | ❌      | ❌      |
+| See History                     | 💚    | 💚            | ❌      | ❌      |
+| See Private Data from Producers | 💚    | 💚            | ❌      | ❌      |
+| Sync Baskets                    | 💚    | 💚            | 💚      | ❌      |
 
-Besides this, **Admin** can change/assign a **mod** as _owner_ for a register. Then the **mod** can now update/remove the register. Old _owners_ can restore those registers which they were _owners_.
+Besides this, **Admin** can change/assign a **mod** as _owner_ for a register. Then the **mod** can now update/remove the register.
