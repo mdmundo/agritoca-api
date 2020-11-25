@@ -92,7 +92,7 @@ test('Should fetch history picture on base64 by ID', async () => {
   const base64 = encode(picture);
 
   const response = await request(app)
-    .get(`/productsHistory/${id}/picture=picture=base64`)
+    .get(`/productsHistory/${id}/picture?picture=base64`)
     .set('Authorization', `Bearer ${users[0].token}`)
     .send()
     .expect(200);
