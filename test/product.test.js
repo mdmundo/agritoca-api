@@ -9,6 +9,15 @@ test('Should fetch products', async () => {
   await request(app).get('/products').send().expect(200);
 });
 
+test('Should search products', async () => {
+  const response = await request(app)
+    .get('/products?search=a')
+    .send()
+    .expect(200);
+
+  expect(response.body[0].description.includes('a')).toBeTruthy();
+});
+
 test('Should not fetch products due to empty db', async () => {
   await knex.migrate.rollback({}, true);
   await request(app).get('/products').send().expect(500);

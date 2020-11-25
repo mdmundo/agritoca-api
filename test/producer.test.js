@@ -17,6 +17,15 @@ test('Should fetch producers with private data (admin)', async () => {
   expect(JSON.stringify(response.body[0])).toEqual(JSON.stringify(producer));
 });
 
+test('Should search producers', async () => {
+  const response = await request(app)
+    .get('/producers?search=a')
+    .send()
+    .expect(200);
+
+  expect(response.body[0].name.includes('a')).toBeTruthy();
+});
+
 test('Should fetch producers with private data (mod)', async () => {
   const response = await request(app)
     .get('/producers')

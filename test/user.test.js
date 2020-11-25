@@ -14,6 +14,16 @@ test('Should fetch users (admin)', async () => {
   expect(user.privilege).toBe(2);
 });
 
+test('Should search users', async () => {
+  const response = await request(app)
+    .get('/users?search=mail')
+    .set('Authorization', `Bearer ${users[0].token}`)
+    .send()
+    .expect(200);
+
+  expect(response.body[0].email.includes('mail')).toBeTruthy();
+});
+
 test('Should not fetch users (not admin)', async () => {
   await request(app)
     .get('/users')

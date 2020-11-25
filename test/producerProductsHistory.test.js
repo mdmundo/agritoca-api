@@ -24,24 +24,16 @@ test('Should not fetch first producer products history (unauthenticated)', async
   await request(app).get('/producerProductsHistory').send().expect(401);
 });
 
-test('Should not fetch due to empty table', async () => {
+test('Should fetch empty array due to empty table', async () => {
   await knex('producer_products_history').del();
 
-  await request(app)
+  const response = await request(app)
     .get('/producerProductsHistory')
     .set('Authorization', `Bearer ${users[0].token}`)
     .send()
-    .expect(500);
-});
+    .expect(200);
 
-test('Should not fetch by ID due to empty table', async () => {
-  await knex('producer_products_history').del();
-
-  await request(app)
-    .get(`/producerProductsHistory/${id}`)
-    .set('Authorization', `Bearer ${users[0].token}`)
-    .send()
-    .expect(500);
+  expect(response.body).toEqual([]);
 });
 
 test('Should not fetch first producer products history (unauthorized)', async () => {
