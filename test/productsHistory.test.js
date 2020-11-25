@@ -1,4 +1,5 @@
 const request = require('supertest');
+const { encode } = require('base64-arraybuffer');
 const app = require('../src/app');
 const knex = require('../database/connection');
 const { users } = require('./fixtures/db');
@@ -81,6 +82,22 @@ test('Should fetch history picture by ID', async () => {
     .expect(200);
 
   expect(response.body).toEqual(picture);
+});
+
+test('Should fetch history picture on base64 by ID', async () => {
+  const id = 1;
+
+  const { picture } = await knex('products_history').where({ id }).first();
+
+  const base64 = encode(picture);
+
+  const response = await request(app)
+    .get(`/productsHistory/${id}/picture=picture=base64`)
+    .set('Authorization', `Bearer ${users[0].token}`)
+    .send()
+    .expect(200);
+
+  expect(response.body).toEqual({ picture: `data:image/png;base64,${base64}` });
 });
 
 test('Should add new registry by updating producer product', async () => {

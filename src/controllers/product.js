@@ -38,7 +38,7 @@ const productController = {
 
       if (req.query.picture) {
         const base64 = encode(picture || defaultPic);
-        return res.json({ picture: `data:image/png;base64, ${base64}` });
+        return res.json({ picture: `data:image/png;base64,${base64}` });
       }
 
       res.set('Content-Type', 'image/png');
