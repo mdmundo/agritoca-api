@@ -17,16 +17,12 @@ test('Should fetch all baskets from current user', async () => {
   expect({ baskets }).toEqual(response.body);
 });
 
-test('Should fetch empty baskets array due to empty table', async () => {
-  await knex('baskets').del();
-
-  const response = await request(app)
+test('Should fetch empty baskets', async () => {
+  await request(app)
     .get('/baskets')
-    .set('Authorization', `Bearer ${users[0].token}`)
+    .set('Authorization', `Bearer ${users[2].token}`)
     .send()
-    .expect(200);
-
-  expect(response.body).toEqual({ baskets: 'Empty!' });
+    .expect(500);
 });
 
 test('Should update baskets from current user', async () => {
@@ -45,4 +41,22 @@ test('Should update baskets from current user', async () => {
     .first();
 
   expect(baskets).toEqual({ baskets: updatedBaskets });
+});
+
+test('Should add baskets from current user', async () => {
+  const baskets = {
+    baskets: 'Practice does not make perfect, perfect practice makes perfect.'
+  };
+
+  await request(app)
+    .patch('/baskets')
+    .set('Authorization', `Bearer ${users[2].token}`)
+    .send(baskets)
+    .expect(200);
+
+  const { user_baskets: addedBaskets } = await knex('baskets')
+    .where({ user_id: users[2].id })
+    .first();
+
+  expect(baskets).toEqual({ baskets: addedBaskets });
 });

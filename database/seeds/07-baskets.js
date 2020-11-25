@@ -6,9 +6,7 @@ exports.seed = (knex) => {
       // Inserts seed entries
       return knex('baskets').insert([
         { user_id: 1, user_baskets: 'A great and nice basket...' },
-        { user_id: 2, user_baskets: 'A great and nice basket...' },
-        { user_id: 3, user_baskets: 'A great and nice basket...' },
-        { user_id: 4, user_baskets: 'A great and nice basket...' }
+        { user_id: 2, user_baskets: 'A great and nice basket...' }
       ]);
     });
 };

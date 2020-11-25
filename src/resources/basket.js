@@ -2,14 +2,12 @@ const knex = require('../../database/connection');
 
 module.exports = {
   async getAllUserBaskets({ user_id }) {
-    try {
-      const [{ user_baskets: baskets }] = await knex('baskets')
-        .where({ user_id })
-        .orderBy('id');
-      return { baskets };
-    } catch (error) {
-      return { baskets: 'Empty!' };
-    }
+    const { user_baskets: baskets } = await knex('baskets')
+      .where({ user_id })
+      .orderBy('id')
+      .first();
+
+    return { baskets };
   },
   async getUpdatedBasket({ user_id, body }) {
     // check if the user has baskets
