@@ -14,6 +14,14 @@ test('Should fetch users (admin)', async () => {
   expect(user.privilege).toBe(2);
 });
 
+test('Should not fetch users as nonexisting user', async () => {
+  await request(app)
+    .get('/users')
+    .set('Authorization', `Bearer ${users[3].token}`)
+    .send()
+    .expect(401);
+});
+
 test('Should search users', async () => {
   const response = await request(app)
     .get('/users?search=mail')

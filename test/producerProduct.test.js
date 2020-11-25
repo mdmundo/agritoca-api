@@ -11,7 +11,7 @@ test('Should fetch producer products', async () => {
 
 test('Should search producer products', async () => {
   const response = await request(app)
-    .get('/producer_products?search=a')
+    .get('/producerProducts?search=a')
     .send()
     .expect(200);
 
