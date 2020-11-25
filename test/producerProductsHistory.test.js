@@ -24,6 +24,12 @@ test('Should not fetch first producer products history (unauthenticated)', async
   await request(app).get('/producerProductsHistory').send().expect(401);
 });
 
+test('Should not fetch due to empty table', async () => {
+  await knex('producer_products_history').del();
+
+  await request(app).get('/producerProductsHistory').send().expect(500);
+});
+
 test('Should not fetch first producer products history (unauthorized)', async () => {
   await request(app)
     .get('/producerProductsHistory')
