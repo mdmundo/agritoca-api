@@ -83,7 +83,7 @@ test('Should fetch history picture by ID', async () => {
   expect(response.body).toEqual(picture);
 });
 
-test('Should add new register by updating producer product', async () => {
+test('Should add new registry by updating producer product', async () => {
   const product_id = 1;
   const description = 'New description';
 
@@ -103,7 +103,7 @@ test('Should add new register by updating producer product', async () => {
   expect(response.body[0].description).toBe(description);
 });
 
-test('Should add new register by creating producer product', async () => {
+test('Should add new registry by creating producer product', async () => {
   const newProduct = {
     ncm: '99999999',
     measure: 'UN',
@@ -128,7 +128,7 @@ test('Should add new register by creating producer product', async () => {
   expect(response.body[0].product_id).toBe(product_id);
 });
 
-test('Should add new register by deleting producer product', async () => {
+test('Should add new registry by deleting producer product', async () => {
   const product_id = 1;
   await request(app)
     .delete(`/products/${product_id}`)

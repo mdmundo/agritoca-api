@@ -10,11 +10,11 @@
 
 |                                 | Admin | Mod           | Regular | No Auth |
 | ------------------------------- | ----- | ------------- | ------- | ------- |
-| See Registers                   | 💚    | 💚            | 💚      | 💚      |
 | Change Privilege                | 💚    | ❌            | ❌      | ❌      |
-| Modify Registers                | 💚    | 👉 if _owner_ | ❌      | ❌      |
+| Modify Registries               | 💚    | 👉 if _owner_ | ❌      | ❌      |
 | See History                     | 💚    | 💚            | ❌      | ❌      |
 | See Private Data from Producers | 💚    | 💚            | ❌      | ❌      |
 | Sync Baskets                    | 💚    | 💚            | 💚      | ❌      |
+| See Registries                  | 💚    | 💚            | 💚      | 💚      |
 
-Besides this, **Admin** can change/assign a **mod** as _owner_ for a register. Then the **mod** can now update/remove the register.
+Besides this, **Admin** can change/assign a **mod** as _owner_ for a registry. Then the **mod** can now update/remove the registry.

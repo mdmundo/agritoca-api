@@ -67,7 +67,7 @@ test('Should fetch history by nonexisting producer ID', async () => {
   expect(response.body).toEqual([]);
 });
 
-test('Should add new register by updating producer', async () => {
+test('Should add new registry by updating producer', async () => {
   const producer_id = 1;
   const whatsapp = '5595956626321';
 
@@ -87,7 +87,7 @@ test('Should add new register by updating producer', async () => {
   expect(response.body[0].whatsapp).toBe(whatsapp);
 });
 
-test('Should add new register by creating producer', async () => {
+test('Should add new registry by creating producer', async () => {
   const newProducer = {
     cpf: '88770452071',
     cnpj: '68893557946613',
@@ -115,7 +115,7 @@ test('Should add new register by creating producer', async () => {
   expect(response.body[0].producer_id).toBe(producer_id);
 });
 
-test('Should add new register by deleting producer', async () => {
+test('Should add new registry by deleting producer', async () => {
   const producer_id = 1;
   await request(app)
     .delete(`/producers/${producer_id}`)

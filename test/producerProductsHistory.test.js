@@ -137,7 +137,7 @@ test('Should fetch history picture by ID', async () => {
   expect(response.body).toEqual(picture);
 });
 
-test('Should add new register by updating producer product', async () => {
+test('Should add new registry by updating producer product', async () => {
   const producer_product_id = 1;
   const keywords = 'Apples, Healthy, Life, Best Seller';
 
@@ -159,7 +159,7 @@ test('Should add new register by updating producer product', async () => {
   expect(response.body[0].keywords).toBe(keywords);
 });
 
-test('Should add new register by creating producer product', async () => {
+test('Should add new registry by creating producer product', async () => {
   const newProducerProduct = {
     brand: 'IN NATURA',
     barcode: '405232088822',
@@ -185,7 +185,7 @@ test('Should add new register by creating producer product', async () => {
   expect(response.body[0].producer_product_id).toBe(producer_product_id);
 });
 
-test('Should add new register by deleting producer product', async () => {
+test('Should add new registry by deleting producer product', async () => {
   const producer_product_id = 1;
   await request(app)
     .delete(`/producerProducts/${producer_product_id}`)
@@ -203,7 +203,7 @@ test('Should add new register by deleting producer product', async () => {
   expect(response.body[0].deleted_at).not.toBe(null);
 });
 
-test('Should add many registers by deleting producer', async () => {
+test('Should add many registries by deleting producer', async () => {
   const producer_id = 1;
 
   await request(app)
@@ -222,7 +222,7 @@ test('Should add many registers by deleting producer', async () => {
   expect(response.body[0].deleted_at).not.toBe(null);
 });
 
-test('Should add many registers by deleting product', async () => {
+test('Should add many registries by deleting product', async () => {
   const product_id = 1;
 
   await request(app)
