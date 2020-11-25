@@ -14,7 +14,7 @@ test('Should fetch all baskets from current user', async () => {
     .where({ user_id: users[0].id })
     .first();
 
-  expect(baskets).toEqual(response.body);
+  expect({ baskets }).toEqual(response.body);
 });
 
 test('Should fetch empty baskets array due to empty table', async () => {
@@ -44,5 +44,5 @@ test('Should update baskets from current user', async () => {
     .where({ user_id: users[0].id })
     .first();
 
-  expect(baskets).toEqual(updatedBaskets);
+  expect(baskets).toEqual({ baskets: updatedBaskets });
 });
