@@ -280,6 +280,20 @@ test('Should not update as mod not owner', async () => {
     .expect(500);
 });
 
+test('Should not upload producer product picture as mod not owner', async () => {
+  const id = 1;
+  const picturePath = path.join(
+    __dirname,
+    './fixtures/upload/valid-upload.png'
+  );
+
+  await request(app)
+    .post(`/producerProducts/${id}/picture`)
+    .set('Authorization', `Bearer ${users[1].token}`)
+    .attach('picture', picturePath)
+    .expect(500);
+});
+
 test('Should not update without privilege', async () => {
   const id = 1;
   const keywords = 'Apples, Healthy, Life, Best Seller';
