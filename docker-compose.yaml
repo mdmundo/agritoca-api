@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  server:
+    build: .
+    environment:
+      - PORT=3000
+      - DB_URL=postgres://mdmundo:mdmundo@localhost:5432/agritoca-db
+      - JWT_SECRET=ly98ZyM2NZo66UE4wE2Q5gJtIhh9EvddaiYlM6wbkteyhAtNnw5zBJdpLMvQ0Vg
+      - SALT=agritoca-api
+    ports:
+      - 3000:3000
+  db:
+    image: postgres:13
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=mdmundo
+      - POSTGRES_DB=agritoca-db
+      - POSTGRES_USER=mdmundo
