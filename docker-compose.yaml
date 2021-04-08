@@ -9,11 +9,17 @@ services:
       - SALT=agritoca-api
     ports:
       - 3000:3000
+    networks:
+      - overlay
+    depends_on:
+      - db
   db:
     image: postgres:13
-    ports:
-      - 5432:5432
     environment:
       - POSTGRES_PASSWORD=mdmundo
       - POSTGRES_DB=agritoca-db
       - POSTGRES_USER=mdmundo
+    networks:
+      - overlay
+networks:
+  overlay:
