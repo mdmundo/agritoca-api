@@ -1,0 +1,27 @@
+# Build
+
+- With Podman
+
+  ```console
+  podman build -t agritoca-image .
+  podman pod create -n agritoca-pod -p 3000:3000
+  podman run --pod agritoca-pod --name agritoca-db -e POSTGRES_PASSWORD=mdmundo -e POSTGRES_DB=agritoca-db -e POSTGRES_USER=mdmundo -d postgres
+  podman run --pod agritoca-pod --name agritoca-server -e PORT=3000 -e DB_URL=postgres://mdmundo:mdmundo@localhost:5432/agritoca-db -e JWT_SECRET=ly98ZyM2NZo66UE4wE2Q5gJtIhh9EvddaiYlM6wbkteyhAtNnw5zBJdpLMvQ0Vg -e SALT=agritoca-api -d agritoca-image
+  ```
+
+- With Docker
+
+  ```console
+  docker build -t agritoca-image .
+  docker network create agritoca-net
+  docker run --name agritoca-db --network agritoca-net -e POSTGRES_PASSWORD=mdmundo -e POSTGRES_DB=agritoca-db -e POSTGRES_USER=mdmundo -d postgres
+  docker run --name agritoca-server --network agritoca-net --publish 3000:3000 -e PORT=3000 -e DB_URL=postgres://mdmundo:mdmundo@localhost:5432/agritoca-db -e JWT_SECRET=ly98ZyM2NZo66UE4wE2Q5gJtIhh9EvddaiYlM6wbkteyhAtNnw5zBJdpLMvQ0Vg -e SALT=agritoca-api -d agritoca-image
+  ```
+
+# Save or Load
+
+```console
+podman build -t agritoca-image .
+podman save > agritoca-image.tar agritoca-image
+podman load < agritoca-image.tar
+```
