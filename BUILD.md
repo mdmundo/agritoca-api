@@ -1,5 +1,7 @@
 # Build
 
+Maybe use `--env-file` next time... [See Ref.](http://docs.podman.io/en/latest/markdown/podman-run.1.html#environment)
+
 ```console
 podman build -t agritoca-image .
 podman pod create -n agritoca-pod -p 3000:3000
