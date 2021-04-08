@@ -18,6 +18,13 @@
   docker run --name agritoca-server --network agritoca-net --publish 3000:3000 -e PORT=3000 -e DB_URL=postgres://mdmundo:mdmundo@localhost:5432/agritoca-db -e JWT_SECRET=ly98ZyM2NZo66UE4wE2Q5gJtIhh9EvddaiYlM6wbkteyhAtNnw5zBJdpLMvQ0Vg -e SALT=agritoca-api -d agritoca-image
   ```
 
+# Migrate and Seed DB
+
+```console
+podman exec -ti agritoca-server npm run migrate
+podman exec -ti agritoca-server npm run seed
+```
+
 # Save or Load
 
 ```console
