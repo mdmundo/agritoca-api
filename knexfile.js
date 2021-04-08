@@ -2,7 +2,10 @@ const path = require('path');
 
 module.exports = {
   client: 'pg',
-  connection: process.env.DB_URL,
+  connection: {
+    connectionString: process.env.DB_URL,
+    ssl: { rejectUnauthorized: false }
+  },
   migrations: {
     directory: path.resolve(__dirname, 'database/migrations')
   },
