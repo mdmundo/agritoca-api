@@ -4,13 +4,11 @@ services:
     build: .
     environment:
       - PORT=3000
-      - DB_URL=postgres://mdmundo:mdmundo@localhost:5432/agritoca-db
+      - DB_URL=postgres://mdmundo:mdmundo@db:5432/agritoca-db
       - JWT_SECRET=ly98ZyM2NZo66UE4wE2Q5gJtIhh9EvddaiYlM6wbkteyhAtNnw5zBJdpLMvQ0Vg
       - SALT=agritoca-api
     ports:
       - 3000:3000
-    networks:
-      - overlay
     depends_on:
       - db
   db:
@@ -19,7 +17,3 @@ services:
       - POSTGRES_PASSWORD=mdmundo
       - POSTGRES_DB=agritoca-db
       - POSTGRES_USER=mdmundo
-    networks:
-      - overlay
-networks:
-  overlay:
